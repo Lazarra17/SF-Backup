@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Xero_Status__c</fullName>
+    <label>Xero Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Send to Xero requested</fullName>
+                <default>false</default>
+                <label>Send to Xero requested</label>
+            </value>
+            <value>
+                <fullName>Send to Xero in progress</fullName>
+                <default>false</default>
+                <label>Send to Xero in progress</label>
+            </value>
+            <value>
+                <fullName>Sent to Xero</fullName>
+                <default>false</default>
+                <label>Sent to Xero</label>
+            </value>
+            <value>
+                <fullName>Failed to Send to Xero</fullName>
+                <default>false</default>
+                <label>Failed to Send to Xero</label>
+            </value>
+            <value>
+                <fullName>Account is not sycnhed to Xero</fullName>
+                <default>false</default>
+                <label>Account is not sycnhed to Xero</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

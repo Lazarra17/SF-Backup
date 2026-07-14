@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Invoice_on_Sync_to_Xero__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Email Invoice on Sync to Xero</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

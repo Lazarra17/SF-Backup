@@ -1,0 +1,3 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" >
+	<c:syncWithXeroLwc_NPA recordId = "{!v.recordId}" SObjectName = "{!v.sObjectName}" onclose = "{!c.HandleClose}"/>
+</aura:component>

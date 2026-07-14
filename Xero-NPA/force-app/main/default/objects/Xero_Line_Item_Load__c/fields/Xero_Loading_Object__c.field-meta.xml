@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Xero_Loading_Object__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Xero Loading Object</label>
+    <referenceTo>Xero_Loading_Object__c</referenceTo>
+    <relationshipLabel>Xero Line Item Load</relationshipLabel>
+    <relationshipName>Xero_Line_Item_Load</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

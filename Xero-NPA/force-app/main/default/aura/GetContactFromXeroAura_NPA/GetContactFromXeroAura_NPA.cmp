@@ -1,0 +1,3 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" >
+    <c:getContactFromXero_NPA onclose = "{!c.handleClose}" recordId = "{!v.recordId}"/>
+</aura:component>

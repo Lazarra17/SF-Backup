@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CONTACT</fullName>
+        <default>false</default>
+        <label>CONTACT</label>
+    </customValue>
+    <customValue>
+        <fullName>INVOICE</fullName>
+        <default>false</default>
+        <label>INVOICE</label>
+    </customValue>
+    <customValue>
+        <fullName>INVOICE LINE ITEM</fullName>
+        <default>false</default>
+        <label>INVOICE LINE ITEM</label>
+    </customValue>
+    <masterLabel>Xero Object</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Xero_Quote_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Xero_Quote_ID__c )),HYPERLINK(&apos;https://go.xero.com/Accounts/Receivable/Quotes/Edit/&apos; &amp;  Xero_Quote_ID__c , &apos;Xero Quote Link&apos;,&apos;_blank&apos;) ,&apos;&apos;)</formula>
+    <label>Xero Quote Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

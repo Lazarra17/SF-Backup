@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "g:/My Drive/Xero-NPA"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      "g:/My Drive/Xero-NPA"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+    "eslint.options": {
+      "overrideConfigFile": "g:\\My Drive\\Xero-NPA\\.eslintrc.json"
+    }
+  }
+}
