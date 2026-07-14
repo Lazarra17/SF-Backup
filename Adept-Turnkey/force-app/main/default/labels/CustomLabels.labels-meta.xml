@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Adept_Turnkey_Pty_Ltd_Account_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project Default Account ID</shortDescription>
+        <value>001D000000i94iUIAQ</value>
+    </labels>
+</CustomLabels>

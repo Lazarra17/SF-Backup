@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="RunMYOBBatchCtrl">
+	    <aura:handler value="{!this}" name="init" action="{!c.doInit}"/>
+
+</aura:component>

@@ -1,0 +1,14 @@
+<aura:component>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="flowApiName" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <lightning:messageChannel type="RefreshChannel__c" aura:id="refreshChannel"/>
+
+    <div class="slds-modal__content slds-p-around_medium">
+        <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}" />
+    </div>
+</aura:component>

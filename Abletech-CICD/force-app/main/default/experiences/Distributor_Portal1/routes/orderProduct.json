@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "1f831725-88d3-4b9e-914c-d2beec49621f",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Order_Product__c",
+  "id" : "7ab2a456-d14c-4961-a5a4-0afc4d2f8c10",
+  "label" : "Order Product",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-order-product",
+  "type" : "route",
+  "urlPrefix" : "order-product"
+}

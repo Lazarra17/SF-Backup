@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllAccounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_PHONE3</columns>
+    <columns>AssociatedClub__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>Last_Visit__pc</columns>
+    <columns>Usage_Classification__c</columns>
+    <columns>X28_Day_Visitation__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Accounts</label>
+</ListView>

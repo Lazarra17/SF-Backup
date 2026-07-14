@@ -1,0 +1,66 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "aad846b4-846b-4909-b89d-899f046660e1",
+  "label" : "Lead Detail",
+  "regions" : [ {
+    "id" : "ea628ac6-a536-45a5-9272-e82f2ade6dc1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "d484dc8d-06b6-4df6-b147-aeb0b64572a6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "detailsTabLabel" : "Details",
+        "discussionsTabLabel" : "Feed",
+        "recordId" : "{!recordId}",
+        "relatedTabLabel" : "Related",
+        "showLegacyActivityComposer" : false,
+        "tab1Type" : "details",
+        "tab2Type" : "related",
+        "tab3Type" : "chatter",
+        "tab4Type" : "none",
+        "timelineTabLabel" : "Activity"
+      },
+      "componentName" : "forceCommunity:recordHomeTabs",
+      "id" : "f89642d8-0ee8-4faf-93a0-3b76051c8d44",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9118c013-f873-4bc4-b239-ee224ff9be74",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a45fd5f2-7a50-4e87-88ae-114a564e252c",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "502032f0-b81e-4891-98a7-17a696f7a9c4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9355bf2a-3680-46f1-acd8-a70cb4456c1f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "flyQC6Ex4PNGx7nTsXGa7zCDO5m4NO",
+  "type" : "view",
+  "viewType" : "detail-00Q"
+}

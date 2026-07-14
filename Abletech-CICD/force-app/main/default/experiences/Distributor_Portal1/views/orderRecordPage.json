@@ -1,0 +1,134 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "a60059e4-8b94-4be0-a8c0-e9774f799b5f",
+  "label" : "Order Record Page",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "10440c3b-8623-4311-93a0-00fb5bfd2392",
+          "columns" : [ {
+            "UUID" : "676c70d6-7123-4721-a29c-274778cc9fe9",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 168
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "10440c3b-8623-4311-93a0-00fb5bfd2392",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:recordHeadline",
+          "id" : "369557f2-4bb7-49e9-ad60-cde031d0e466",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "676c70d6-7123-4721-a29c-274778cc9fe9",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "827c0b2b-db5a-4a9c-9d0c-5b03b1a1b9cd",
+          "columns" : [ {
+            "UUID" : "b96ac333-840e-42f6-9b9f-d1ee66a527d7",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "7",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "94c1f12d-939e-46b7-8bd6-75ef1acdd20e",
+            "columnKey" : "ab6bb",
+            "columnName" : "Column 2",
+            "columnWidth" : "5",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "827c0b2b-db5a-4a9c-9d0c-5b03b1a1b9cd",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:recordDetail",
+          "id" : "3cfd93f3-33fc-4eb3-aa70-2236a49875e8",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b96ac333-840e-42f6-9b9f-d1ee66a527d7",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "cardTitle" : "Order Products",
+            "columnLimit" : 4,
+            "fieldApiNames" : "Product2.Name, Product2.ProductCode, Quantity, UnitPrice, TotalPrice",
+            "recordLimit" : 5
+          },
+          "componentName" : "c:portalOrderItemList",
+          "id" : "e0dbdbc0-2979-4e46-9e33-c451a9bde548",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "94c1f12d-939e-46b7-8bd6-75ef1acdd20e",
+        "regionLabel" : "Column 2",
+        "regionName" : "ab6bb",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "03e338a3-1575-43ec-8b2a-cb7a90ccdc55",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Order Record Page"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "81e006b1-2bb6-469b-bcd0-4e4f4b236ec4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bb2d7be2-afd6-4db8-b5ae-2a2da0d2c8bd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-order"
+}

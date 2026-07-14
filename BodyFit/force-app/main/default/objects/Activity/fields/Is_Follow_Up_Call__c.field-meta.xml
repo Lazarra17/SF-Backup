@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Follow_Up_Call__c</fullName>
+    <formula>AND(
+    Subject = &quot;Follow Up Call&quot;,
+    ISPICKVAL(Status, &quot;Call Attempted - Not Answered&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Follow Up Call?</label>
+    <type>Checkbox</type>
+</CustomField>

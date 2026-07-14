@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Access_Token_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access Token Endpoint</shortDescription>
+        <value>https://api.clubfit.net.au/v1/token</value>
+    </labels>
+    <labels>
+        <fullName>Member_From_Date</fullName>
+        <categories>YYYY-MM-DD / Blank</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Member From Date</shortDescription>
+        <value>Blank</value>
+    </labels>
+    <labels>
+        <fullName>Membership_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Membership Endpoint</shortDescription>
+        <value>https://api.clubfit.net.au/v1/members</value>
+    </labels>
+    <labels>
+        <fullName>Membership_Offset</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Membership Offset</shortDescription>
+        <value>0</value>
+    </labels>
+    <labels>
+        <fullName>Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Password</shortDescription>
+        <value>Techila25$</value>
+    </labels>
+    <labels>
+        <fullName>Payment_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Endpoint</shortDescription>
+        <value>https://api.clubfit.net.au/v1/members/payment/history</value>
+    </labels>
+    <labels>
+        <fullName>UserName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserName</shortDescription>
+        <value>bodyfit</value>
+    </labels>
+    <labels>
+        <fullName>Visit_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Visit Endpoint</shortDescription>
+        <value>https://api.clubfit.net.au/v1/members/attendance/visits</value>
+    </labels>
+    <labels>
+        <fullName>membership_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>membership Limit</shortDescription>
+        <value>500</value>
+    </labels>
+</CustomLabels>

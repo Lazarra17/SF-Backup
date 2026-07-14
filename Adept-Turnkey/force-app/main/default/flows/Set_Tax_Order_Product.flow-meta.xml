@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>JPS 12 Feb 2025 “Added subflow to calculate Order Amount Inc Tax field”
+JPS 10 Feb 2025 “Flow Created”</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>FormulaIsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Calculate Product Tax - Order Product {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set Tax - Order Product</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Calculate_Product_Tax_Order_Product</targetReference>
+        </connector>
+        <object>OrderItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Calculate_Product_Tax_Order_Product</name>
+        <label>Calculate Product Tax - Order Product</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Set_Order_Amount_Inc_Tax</targetReference>
+        </connector>
+        <flowName>Calculate_Product_Tax_Order_Product</flowName>
+        <inputAssignments>
+            <name>IsNew</name>
+            <value>
+                <elementReference>FormulaIsNew</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Set_Order_Amount_Inc_Tax</name>
+        <label>Set Order Amount Inc Tax</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <flowName>Set_Order_Amount_Inc_Tax_Flow</flowName>
+        <inputAssignments>
+            <name>orderId</name>
+            <value>
+                <elementReference>$Record.OrderId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

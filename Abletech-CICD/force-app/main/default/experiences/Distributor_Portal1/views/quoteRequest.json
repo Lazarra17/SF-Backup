@@ -1,0 +1,61 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "f4fe66dc-a80a-4cd7-9470-0e0170cae305",
+  "label" : "Quote Request",
+  "regions" : [ {
+    "id" : "47c7099e-be21-44a2-904b-f5cb10e97ef7",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowApiName" : "Portal_Request_a_Quote_Bric"
+      },
+      "componentName" : "c:portalFlowEmbed",
+      "id" : "44fee200-dbf1-4590-8d5f-c40bf6e36e6c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "fieldApiNames" : "Name, StageName, Description, CloseDate",
+        "filterClause" : "Display_in_Portal_bric__c=TRUE",
+        "listTitle" : "Customer Open Opportunity",
+        "objectApiName" : "Opportunity",
+        "recordUrlPattern" : "/s/opportunity/{recordId}/"
+      },
+      "componentName" : "c:portalDynamicListView",
+      "id" : "b479dee1-fe72-4ee0-8379-a01f51741241",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a3ec503c-e842-4109-96b4-5954706e89da",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e99fcaf1-3de5-4de5-b192-c9a64ad18ca5",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Quote Request"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "cdb709ad-28fa-496c-8b78-056e39ac6895",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "754c9bb3-2d28-4433-9c34-5cafba41d686",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "flyQC6Ex4PNGx7nTsXGa7zCDO5m4NO",
+  "type" : "view",
+  "viewType" : "custom-quote-request"
+}

@@ -1,0 +1,146 @@
+/* AbleTechAuraSiteHeader */
+
+.THIS.at-site-header {
+    background-color: #fff;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.THIS .at-navbar {
+    padding: 0.5rem 0;
+}
+
+.THIS .at-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.THIS .at-header-left {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.THIS .at-icon-button {
+    background: transparent;
+    border: 0;
+    padding: 0.25rem;
+    line-height: 1;
+    color: #382670;
+    cursor: pointer;
+}
+
+.THIS .at-icon-button i {
+    font-size: 1.35rem;
+}
+
+.THIS .at-icon-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.THIS .at-header-logo {
+    flex-shrink: 0;
+}
+
+.THIS .at-header-logo .navbar-brand {
+    margin: 0;
+    padding: 0;
+}
+
+.THIS .at-header-profile {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.THIS .at-search-panel {
+    width: 100%;
+}
+
+
+
+.THIS .at-promo-banner{
+    width: 100%;
+}
+
+/* Desktop: logo left, search inline, profile right */
+@media only screen and (min-width: 1200px) {
+    .THIS .at-header-inner {
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+
+    .THIS .at-header-left {
+        display: none;
+    }
+
+    .THIS .at-header-logo {
+        order: 1;
+    }
+
+    .THIS .at-search-panel {
+        order: 2;
+        display: block !important;
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 600px;
+    }
+
+    .THIS .at-header-profile {
+        order: 3;
+        margin-left: 0;
+    }
+}
+
+/* Mobile: hamburger + search left, logo center, profile right */
+@media only screen and (max-width: 1199px) {
+    .THIS .at-header-inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto auto;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .THIS .at-header-left {
+        display: flex;
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+    }
+
+    .THIS .at-header-logo {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+    }
+
+    .THIS .at-header-logo .logoContainer {
+        width: 150px;
+        height: 50px;
+        margin-top: 0;
+    }
+
+    .THIS .at-header-profile {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        margin-left: 0;
+    }
+
+    .THIS .at-search-panel {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: none;
+        width: 100%;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .THIS .at-search-panel.at-search-panel--open {
+        display: block;
+    }
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Invoice_Already_Exists_Decision</name>
+        <label>Invoice Already Exists Decision</label>
+        <locationX>804</locationX>
+        <locationY>569</locationY>
+        <defaultConnectorLabel>Invoice Exists</defaultConnectorLabel>
+        <rules>
+            <name>Invoice_Doesn_t_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Existing_Invoice_Get</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Hanna_Generate_Invoice_From_Order_Pick</targetReference>
+            </connector>
+            <label>Invoice Doesn&apos;t Exist</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Generate Invoice From Order Pick Flag {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Generate Invoice From Order Pick Flag</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Existing_Invoice_Get</name>
+        <label>Existing Invoice Get</label>
+        <locationX>693</locationX>
+        <locationY>421</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Invoice_Already_Exists_Decision</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>nao__Order_Pick__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>nao__Invoice__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>562</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Existing_Invoice_Get</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>nao__Generate_Invoice__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>nao__Order_Pick__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <subflows>
+        <name>Hanna_Generate_Invoice_From_Order_Pick</name>
+        <label>Hanna Generate Invoice From Order Pick</label>
+        <locationX>603</locationX>
+        <locationY>806</locationY>
+        <flowName>Hanna_Generate_Invoice_From_Order_Pick</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

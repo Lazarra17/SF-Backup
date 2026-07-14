@@ -1,0 +1,196 @@
+<apex:page controller="TourBookingController" showHeader="false" sidebar="false" title="Book a Club Tour" doctype="html-5.0">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+              body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                background-color: #000;
+                font-family: Arial, sans-serif;
+                color: #fff;
+            }
+            .header {
+                text-align: center;
+                padding: 20px;
+                background-color: #000;
+            }
+            .header img {
+                max-width: 150px;
+            }
+            .header h1 {
+                margin: 10px 0;
+                font-size: 24px;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #fff;
+                color: #000;
+                border-radius: 10px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .container h2 {
+                margin-bottom: 15px;
+            }
+            .container input[type="date"] {
+                width: calc(100% - 30px); /* Adjusts for margins */
+                padding: 8px;
+                margin: 15px; /* Equal margin on both left and right */
+            }
+            .container .btn {
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 15px !important;
+    border-radius: 25px !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    width: calc(100% - 30px) !important;
+    margin: 15px auto !important;
+    display: block !important;
+    opacity: 1 !important; /* Ensure full visibility */
+    pointer-events: auto !important; /* Enable clicking */
+}
+
+            .container .btn:hover {
+                background-color: #fff!important;
+                color: #000 !important;
+                border: 2px solid #000!important;
+            }
+            input[type="submit"].btn,
+        button.btn {
+            background-color: #000 !important;
+            color: #fff !important;
+            background-image: none !important; /* Removes SFDC gradient */
+            border: none !important;
+            cursor: pointer;
+        }
+
+        input[type="submit"].btn:hover,
+        button.btn:hover {
+            background-color: #fff !important;
+            color: #000 !important;
+            background-image: none !important;
+            border: 2px solid #000 !important;
+                    }
+
+            /* Time slot styling */
+            .time-slot {
+                display: block; /* Ensures each time slot appears on a new line */
+                margin: 25px auto; /* Adds 50px separation (25px top + 25px bottom) */
+                padding: 20px 10px;
+                background-color: #FAD604;
+                color: #000;
+                text-align: center;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            .time-slot:hover {
+                background-color: #000;
+                color: #FAD604;
+            }
+            /* Spacing for Available Times */
+            #availableTimes {
+                margin-top: 50px;
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #000;
+                text-align: center;
+                padding: 10px;
+            }
+            /* Responsive adjustments */
+            @media (max-width: 600px) {
+                .container {
+                    margin: 15px;
+                    width: auto; /* Take full width with margin */
+                }
+                .container input[type="date"],
+                .container .btn,
+                .time-slot {
+                    width: calc(100% - 30px); /* Full width minus margins */
+                }
+            }
+            .time-slot {
+                display: block;
+                margin: 25px auto;
+                padding: 20px 10px;
+                background-color: #FAD604;
+                color: #000;
+                text-align: center;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            .time-slot:hover {
+                background-color: #000;
+                color: #FAD604;
+            }
+            .time-slot.selected {
+                background-color: #000;
+                color: #FAD604;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="https://staging.bodyfit.com.au/wp-content/uploads/2022/05/logo-header.svg" alt="BodyFit Logo" />
+            <br></br>
+            <br></br>
+            <br></br>
+            <h1>Book Your Tour Now at {!clubName}</h1>
+        </div>
+
+        <div class="container">
+            <apex:form >
+                <h2>Select a Day</h2>
+                <apex:input type="date" value="{!selectedDate}" id="selectedDate" />
+
+                <apex:commandButton value="Show Available Times" action="{!loadAvailableSlots}" rerender="availableTimes" styleClass="btn" />
+
+                <apex:outputPanel id="availableTimes" style="margin-top: 50px;">
+                    <apex:outputPanel rendered="{!NOT(ISBLANK(availableSlots))}">
+                        <h2>Available Time Slots</h2>
+                        <div>
+                            <apex:repeat value="{!availableSlots}" var="slot">
+                                <div class="time-slot" onclick="selectTimeSlot(this, '{!slot.value}')">{!slot.label}</div>
+                            </apex:repeat>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+                <apex:inputHidden value="{!selectedSlot}" id="selectedSlot" />
+
+                <apex:commandButton value="Book Tour" action="{!bookTour}" rerender="messages" styleClass="btn" />
+
+                <apex:pageMessages id="messages" />
+            </apex:form>
+        </div>
+
+<script>
+            function selectTimeSlot(element, value) {
+                // Deselect any previously selected slot
+                const slots = document.querySelectorAll('.time-slot');
+                slots.forEach(slot => slot.classList.remove('selected'));
+ 
+                // Select the clicked slot
+                element.classList.add('selected');
+ 
+                // Update the hidden input field
+                const hiddenInput = document.querySelector('input[name$="selectedSlot"]');
+                if (hiddenInput) {
+                    hiddenInput.value = value;
+                }
+            }
+</script>
+
+    </body>
+</apex:page>

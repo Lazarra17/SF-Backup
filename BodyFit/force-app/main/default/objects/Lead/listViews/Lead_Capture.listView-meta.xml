@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Capture</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Club__c</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Ad_Campaign__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Ad_Campaign__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Not Interested,Sale</value>
+    </filters>
+    <filters>
+        <field>LEAD.CONVERTED</field>
+        <operation>notEqual</operation>
+        <value>1</value>
+    </filters>
+    <label>Lead Capture</label>
+    <sharedTo>
+        <group>System_Admin</group>
+    </sharedTo>
+</ListView>

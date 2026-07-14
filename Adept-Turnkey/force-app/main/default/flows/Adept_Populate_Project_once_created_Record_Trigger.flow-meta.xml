@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Update SubFlow</description>
+    <environments>Default</environments>
+    <interviewLabel>Adept - Populate Project once created {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Adept - Populate Project once created - Record Trigger</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>707</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Adept_Populate_Project_Once_Created_v3</targetReference>
+        </connector>
+        <object>nao__Project__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Adept - Populate Project Once Created</description>
+        <name>Adept_Populate_Project_Once_Created</name>
+        <label>Adept - Populate Project Once Created</label>
+        <locationX>600</locationX>
+        <locationY>415</locationY>
+        <flowName>Adept_Populate_Project_Once_Created</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Adept_Populate_Project_Once_Created_New_Version</name>
+        <label>Adept - Populate Project Once Created New Version</label>
+        <locationX>947</locationX>
+        <locationY>408</locationY>
+        <flowName>Adept_Populate_Project_Once_Created</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Adept_Populate_Project_Once_Created_v3</name>
+        <label>Adept - Populate Project Once Created v3</label>
+        <locationX>1147</locationX>
+        <locationY>393</locationY>
+        <flowName>Adept_Populate_Project_Once_Created</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "fe4d0b1a-3254-4215-b8bc-27bac8c615a5",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "New_Order__c",
+  "id" : "8941699b-9d90-478d-8359-34e2a7bfaab8",
+  "label" : "New Order",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-new-order",
+  "type" : "route",
+  "urlPrefix" : "new-order"
+}

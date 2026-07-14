@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Portal Dynamic Object List View</masterLabel>
+    <description>A configurable list view for any Salesforce object. Set the object and columns in Experience Builder.</description>
+
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="objectApiName" type="String" label="Object API Name" required="true"
+                      description="API name of the object to display (e.g., Order, Account, Invoice__c)" />
+            <property name="listTitle" type="String" label="Header Title" default="RECORDS" />
+            <property name="fieldApiNames" type="String" label="Columns (API Names)" default="Name"
+                      description="Comma-separated field API names, including relationship paths (e.g., Account.Name)" />
+            <property name="linkField" type="String" label="Link Column (API Name)"
+                      description="Field rendered as a clickable link. Defaults to the first column." />
+            <property name="recordUrlPattern" type="String" label="Record URL Pattern" default="/s/detail/{recordId}"
+                      description="Use {recordId} as placeholder. Example for Orders: /s/order?recordId={recordId}" />
+            <property name="columnLimit" type="Integer" label="Column Display Limit" />
+            <property name="searchField" type="String" label="Search By Field (API Name)"
+                      description="Comma-separated fields to search against on the list page" />
+            <property name="sortConfig" type="String" label="Default Sort"
+                      description="Field and direction, e.g. Name ASC or CreatedDate DESC" />
+            <property name="filterClause" type="String" label="Filter Logic (WHERE clause)"
+                      description="SOQL filter without WHERE keyword, e.g. Status = 'Draft'" />
+            <property name="recordLimit" type="Integer" label="Row Limit"
+                      description="Leave blank to show all records on list pages with infinite scroll." />
+            <property name="viewAllUrl" type="String" label="View All URL"
+                      description="Link shown on summary views when row limit is set" />
+            <property name="listPagePath" type="String" label="List Page Path Suffix"
+                      description="URL path suffix that enables search and infinite scroll (e.g., order-list)" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

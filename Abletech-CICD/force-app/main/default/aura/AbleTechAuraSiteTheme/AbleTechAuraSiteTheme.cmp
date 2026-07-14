@@ -1,0 +1,59 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout,forceCommunity:layout" access="global" description="">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeProfileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeHero" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="customSearch" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="nav" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="showSearch" type="Boolean" required="false" default="true"/>
+    <ltng:require styles="{!$Resource.FontAwesome + '/css/all.css'}" />
+    <ltng:require styles="{!$Resource.Google_Icons}" />
+    <ltng:require styles="{!$Resource.BootstrapCss}" scripts="{!$Resource.BootstrapJS}" />
+   
+    <!--event to refresh the component after a flow finishes-->
+    <lightning:messageChannel type="RefreshChannel__c" aura:id="refreshChannel"/>
+    <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}" />
+    
+        
+    <aura:html tag="style">
+        .no-flex-modal .modal-body {
+            display: block !important;
+            flex: none !important;
+            height: auto !important;
+        }
+        .no-flex-modal .slds-modal__content {
+            display: block !important;
+            height: auto !important;
+        }
+    </aura:html>
+    
+    <div class="at-container">
+        <div class="slds-grid slds-grid--align-center gc-header">  
+            <c:AbleTechAuraSiteHeader search="{!v.search}" profileMenu="{!v.profileMenu}" />  
+        </div>
+        
+        <c:AbleTechAuraSiteHeaderMenu />
+        <div class="container slds-m-bottom_xx-large">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-1">
+                    {!v.body}
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    
+    <div class="container-fluid slds-p-around_none">
+        <div class="at-footer">
+            <c:AbleTechAuraSiteFooter />
+        </div>
+    </div>
+    
+</aura:component>

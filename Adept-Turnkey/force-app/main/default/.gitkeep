@@ -1,0 +1,2 @@
+mkdir my-empty-folder
+touch my-empty-folder/.gitkeep

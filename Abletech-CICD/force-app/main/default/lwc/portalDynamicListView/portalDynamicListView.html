@@ -1,0 +1,67 @@
+<template>
+    <template lwc:if={showComponent}>
+
+        <div class="slds-theme_default" style="background-color:white;">
+
+            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-p-vertical_medium slds-p-horizontal_small slds-border_bottom">
+
+                <div class="slds-col">
+                    <h2 class="slds-text-heading_small" style="font-weight: 700; text-transform: uppercase;">
+                        {listTitle}
+                    </h2>
+                </div>
+
+                <template lwc:if={showSearchBar}>
+                    <div class="slds-col">
+                        <div style="width: 250px;">
+                            <lightning-input type="search" placeholder="Search..." onchange={handleSearch} variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <template lwc:if={errorMessage}>
+                <div class="slds-p-around_medium slds-text-color_error">
+                    {errorMessage}
+                </div>
+            </template>
+
+            <div class="slds-p-around_none" style={listContainerStyle}>
+
+                <template lwc:if={hasVisibleRows}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={data}
+                        columns={columns}
+                        hide-checkbox-column="true"
+                        resize-column-disabled="true"
+                        sorted-by={sortedBy}
+                        sorted-direction={sortedDirection}
+                        onsort={handleSort}
+                        enable-infinite-loading={enableInfiniteLoading}
+                        onloadmore={handleLoadMore}
+                        load-more-offset="20">
+                    </lightning-datatable>
+                </template>
+
+                <template lwc:elseif={errorMessage}>
+                </template>
+
+                <template lwc:else>
+                    <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+                        No results match your search.
+                    </div>
+                </template>
+
+            </div>
+
+            <template lwc:if={showViewAll}>
+                <div class="slds-p-around_medium">
+                    <a href="javascript:void(0);" onclick={navigateToViewAll} class="slds-text-link">View All</a>
+                </div>
+            </template>
+
+        </div>
+
+    </template>
+</template>

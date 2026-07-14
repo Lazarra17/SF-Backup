@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Type__c</fullName>
+    <label>Membership Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>2 Day Free Trial</fullName>
+                <default>false</default>
+                <label>2 Day Free Trial</label>
+            </value>
+            <value>
+                <fullName>Bring a Friend</fullName>
+                <default>false</default>
+                <label>Bring a Friend</label>
+            </value>
+            <value>
+                <fullName>(Scan)12 Month - Student Membership</fullName>
+                <default>false</default>
+                <label>(Scan)12 Month - Student Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)12 Month Home</fullName>
+                <default>false</default>
+                <label>(Scan)12 Month Home</label>
+            </value>
+            <value>
+                <fullName>(Scan)12 Month Home Membership</fullName>
+                <default>false</default>
+                <label>(Scan)12 Month Home Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)6 Month - Student Membership</fullName>
+                <default>false</default>
+                <label>(Scan)6 Month - Student Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Bodyfit Vendors &amp; Contractors</fullName>
+                <default>false</default>
+                <label>(Scan)Bodyfit Vendors &amp; Contractors</label>
+            </value>
+            <value>
+                <fullName>(Scan)CBA Corporate Membership</fullName>
+                <default>false</default>
+                <label>(Scan)CBA Corporate Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Complementary Staff Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Complementary Staff Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Family Add-on</fullName>
+                <default>false</default>
+                <label>(Scan)Family Add-on</label>
+            </value>
+            <value>
+                <fullName>(Scan)Fitness Passport</fullName>
+                <default>false</default>
+                <label>(Scan)Fitness Passport</label>
+            </value>
+            <value>
+                <fullName>(Scan)Foreverfit</fullName>
+                <default>false</default>
+                <label>(Scan)Foreverfit</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One -  Fitness Passport</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One -  Fitness Passport</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One -  Flexi</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One -  Flexi</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One -  Flexi Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One -  Flexi Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 12 Month Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 12 Month Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 12 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 12 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 12 Months Up Front</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 12 Months Up Front</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 24 Month Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 24 Month Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 24 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 24 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 3 Month Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 3 Month Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 3 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 3 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 3 Months Up Front</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 3 Months Up Front</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 6 Month Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 6 Month Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - 6 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - 6 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Got It In One - Corporate</fullName>
+                <default>false</default>
+                <label>(Scan)Got It In One - Corporate</label>
+            </value>
+            <value>
+                <fullName>(Scan)Plus One - 12 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Plus One - 12 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Plus One - 24 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Plus One - 24 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)Plus One - 3 Month Membership</fullName>
+                <default>false</default>
+                <label>(Scan)Plus One - 3 Month Membership</label>
+            </value>
+            <value>
+                <fullName>(Scan)Plus One - 6 Months</fullName>
+                <default>false</default>
+                <label>(Scan)Plus One - 6 Months</label>
+            </value>
+            <value>
+                <fullName>(Scan)PT Rental DD</fullName>
+                <default>false</default>
+                <label>(Scan)PT Rental DD</label>
+            </value>
+            <value>
+                <fullName>(Scan)VIP Membership</fullName>
+                <default>false</default>
+                <label>(Scan)VIP Membership</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

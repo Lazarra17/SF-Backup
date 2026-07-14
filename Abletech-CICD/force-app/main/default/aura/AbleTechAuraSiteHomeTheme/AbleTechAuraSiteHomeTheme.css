@@ -1,0 +1,100 @@
+/*GigaCommTheme.css*/
+.THIS {
+    position: relative;
+    z-index: 1;
+    /*max-width: 1280px;*/
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.THIS .profileName{
+    color: #112D55;
+}
+
+.THIS .nav-link.active{
+    background-color: #BBF532;
+    
+    color: #112D55;
+    
+}
+
+
+
+
+
+.THIS .nav-link{
+    border-radius: 25px;
+    color: #382670;
+    font-weight: 600;
+    margin: 0px 5px;
+}
+
+
+.THIS .slds-tabs_default__item{
+    border: 1px solid #ccc;
+}
+
+.THIS .slds-tabs_default__item:hover:after, .THIS .slds-tabs--default__item:hover:after{
+    background-color: transparent;
+}
+
+
+.THIS .logoContainer {
+    background-image: t('url(' + brandLogoImage  + ')');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 99;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    outline: 0;
+    width: 200px;
+    height: 70px;
+    margin-top: 10px;
+    background-position-y: bottom;
+}
+
+.THIS .navbar{
+    padding:0px;
+}
+
+.THIS .logo-position-center{
+    background-position: center;
+}
+
+.THIS .slds-col--padded {
+    padding: 0px !important;
+}
+
+
+.THIS .accordion-body {
+    padding: 0px;
+}
+
+.THIS .accordion-button:not(.collapsed) {
+    background-color: #fff;
+}
+
+.THIS .accordion-button:focus {
+    box-shadow: none;
+}
+
+.THIS .at-menu-bar-container{
+    background-color: #006cb5 !important;
+}
+
+.THIS .at-footer{
+    
+    background: linear-gradient(to top, #08162b, #112d55) !important;
+    height: 200px !important;
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+      .THIS .logoContainer {
+     	width: 150px;
+      }
+
+    
+}

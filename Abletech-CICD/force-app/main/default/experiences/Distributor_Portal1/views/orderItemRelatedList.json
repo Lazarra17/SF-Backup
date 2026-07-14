@@ -1,0 +1,72 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "c6befb80-c1b4-4828-92af-88874620931e",
+  "label" : "Order Item Related List",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "c5f0bf49-2f58-438e-a92d-02de7d3a37da",
+          "columns" : [ {
+            "UUID" : "3c3dfc5a-991d-4267-8ab7-68b2dfcaaa78",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "c5f0bf49-2f58-438e-a92d-02de7d3a37da",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "cardTitle" : "Order Products",
+            "fieldApiNames" : "Product2.Name, Product2.ProductCode, Quantity, UnitPrice, TotalPrice",
+            "recordLimit" : ""
+          },
+          "componentName" : "c:portalOrderItemList",
+          "id" : "d3370f47-0552-45da-b381-d5e4c7fd29c6",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3c3dfc5a-991d-4267-8ab7-68b2dfcaaa78",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "418ea894-13bc-4bda-989b-4bb79d4588aa",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Order Item Related List"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e567ed51-93b3-4c2e-8fbd-1894f9da3a83",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "97ff4414-f014-4726-a513-347c29cc1651",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-order-products"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Tax on Purchases</fullName>
+        <default>false</default>
+        <label>Tax on Purchases</label>
+    </customValue>
+    <customValue>
+        <fullName>Tax Exempt</fullName>
+        <default>false</default>
+        <label>Tax Exempt</label>
+    </customValue>
+    <customValue>
+        <fullName>Tax on Sales</fullName>
+        <default>false</default>
+        <label>Tax on Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales Tax on Imports</fullName>
+        <default>false</default>
+        <label>Sales Tax on Imports</label>
+    </customValue>
+    <masterLabel>Tax Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

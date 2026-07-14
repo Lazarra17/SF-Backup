@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "15659d4e-0311-49e9-b07a-fbb47d2d067d",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Back_Orders_List__c",
+  "id" : "3891784d-1ccf-4599-95ff-35d5426d3dde",
+  "label" : "Back Orders List",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-back-orders-list",
+  "type" : "route",
+  "urlPrefix" : "back-order-list"
+}

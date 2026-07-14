@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <constants>
+        <name>SalesOrderRecordTypeDeveloperName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sales_Order</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Only set the price book if the order is a Sales Order, the pricebook has not been set and the Account has an Account Pricebook Specified</description>
+        <name>Pricebook_not_Specified_and_Account_Price_Book_Present</name>
+        <label>Is Sales Order, Pricebook not Specified and Account Price Book Present</label>
+        <locationX>729</locationX>
+        <locationY>421</locationY>
+        <defaultConnectorLabel>Do Nothing</defaultConnectorLabel>
+        <rules>
+            <name>Is_Sales_Order_Pricebook_Not_Set_Account_PriceBook_Present</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SalesOrderRecordTypeDeveloperName</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Pricebook2Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.nao__Account_Price_Book__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Order_Pricebook</targetReference>
+            </connector>
+            <label>Is Sales Order, Pricebook Not Set, Account PriceBook Present</label>
+        </rules>
+    </decisions>
+    <description>JPS 14 Jul 2025 - &quot;Created&quot;</description>
+    <environments>Default</environments>
+    <interviewLabel>Set Sales Order Pricebook from Account Custom {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set Sales Order Pricebook from Account Custom</label>
+    <overriddenFlow>nao__Set_Sales_Order_Pricebook_from_Account</overriddenFlow>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Order_Pricebook</name>
+        <label>Update Order Pricebook</label>
+        <locationX>567</locationX>
+        <locationY>626</locationY>
+        <inputAssignments>
+            <field>Pricebook2Id</field>
+            <value>
+                <elementReference>$Record.Account.nao__Account_Price_Book__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>594</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Pricebook_not_Specified_and_Account_Price_Book_Present</targetReference>
+        </connector>
+        <object>Order</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

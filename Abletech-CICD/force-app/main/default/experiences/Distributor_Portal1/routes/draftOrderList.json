@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "289ee5f5-aa93-40b5-b8c8-3e20c6c77993",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Draft_Order_List__c",
+  "id" : "ef26e5a8-86ec-47c0-90f9-af04cd67fc57",
+  "label" : "Draft Order List",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-draft-order-list",
+  "type" : "route",
+  "urlPrefix" : "draft-order-list"
+}

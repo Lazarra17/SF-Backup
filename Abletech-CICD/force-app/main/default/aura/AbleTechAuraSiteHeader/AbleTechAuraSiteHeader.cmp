@@ -1,0 +1,58 @@
+<aura:component access="global" description="">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="sidebarFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="showMobileSearch" type="Boolean" default="false"/>
+
+    <ltng:require styles="{!$Resource.FontAwesome + '/css/all.css'}" />
+
+    <div class="at-site-header slds-p-around_none">
+        
+         <div class="container-fluid slds-p-around_none">
+            <img src="{!$Resource.AbleTechAuraSiteFiles + '/files1/promo1.png'}" class="img-fluid at-promo-banner slds-p-bottom_small"/>
+        </div>
+        
+        
+        
+        <nav class="navbar navbar-light bg-white at-navbar">
+            <div class="container at-header-inner  slds-p-bottom_medium ">
+                <div class="at-header-left">
+                    <button
+                        class="at-icon-button at-menu-toggle"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <button
+                        class="at-icon-button at-search-toggle"
+                        type="button"
+                        aria-label="Toggle search"
+                        onclick="{!c.toggleMobileSearch}">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="at-header-logo">
+                    <a class="navbar-brand" href="/s/" onclick="{!c.navigateToHome}">
+                        <div class="logoContainer"></div>
+                    </a>
+                </div>
+
+                <div class="{! v.showMobileSearch ? 'at-search-panel at-search-panel--open' : 'at-search-panel' }">
+                    {!v.search}
+                </div>
+
+                <div class="at-header-profile">
+                    {!v.profileMenu}
+                </div>
+            </div>
+        </nav>
+        
+       
+        
+    </div>
+</aura:component>

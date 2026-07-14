@@ -1,0 +1,82 @@
+/*AbleTechAuraSiteHeaderMenu*/
+
+@media only screen and (max-width: 1199px) {
+    .THIS .navbar-toggler {
+        display: none !important;
+    }
+
+    .THIS .at-menu-bar-container {
+        background-color: transparent !important;
+        padding: 0;
+    }
+
+    .THIS .at-navbar {
+        padding: 0 !important;
+        min-height: 0;
+    }
+
+    .THIS .at-navbar > .container {
+        padding: 0;
+    }
+
+    .THIS .navbar-collapse {
+        background-color: #006cb5;
+    }
+
+    .THIS .navbar-collapse:not(.show) {
+        display: none;
+    }
+}
+
+.THIS nav.gc-nav{
+    text-decoration: none;
+}
+
+
+.THIS .at-navbar{
+    padding-bottom: 5px !important;
+}
+
+.THIS .at-nav{;
+    vertical-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 30px 0px 29px 0px;
+    color: #fff !important;
+    text-decoration: none !important; 
+}
+
+.THIS .at-nav li{
+    display: inline;
+    padding: 10px 0px;
+    text-decoration: none !important;
+    
+}
+
+.THIS a.at-link{
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+
+.THIS a.nav-link{
+    padding-left:15px !important;
+    padding-right: 15px !important;
+}
+
+.THIS a.nav-link-active{
+    color: #ec4065;
+}
+
+
+
+
+.THIS a:focus{
+    text-decoration: none !important;
+}
+
+.THIS a:hover{
+    text-decoration: none !important;
+}

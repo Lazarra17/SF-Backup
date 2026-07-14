@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MYOB_Invoice_Compact_Layout</fullName>
+    <fields>Invoice_Number_bric__c</fields>
+    <fields>Invoice_Date_bric__c</fields>
+    <fields>Customer_bric__c</fields>
+    <fields>Status_Bric__c</fields>
+    <fields>TotalAmount_bric__c</fields>
+    <label>MYOB Invoice Compact Layout</label>
+</CompactLayout>

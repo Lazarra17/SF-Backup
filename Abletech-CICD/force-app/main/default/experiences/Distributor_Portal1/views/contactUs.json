@@ -1,0 +1,60 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8c230660-3e0e-4d4e-87e6-d055518792ce",
+  "label" : "Contact Us",
+  "regions" : [ {
+    "id" : "de8ab1b6-2c47-409d-b9b6-1f4ab4e2d5c3",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowApiName" : "Portal_Contact_Us_Screen_Bric"
+      },
+      "componentName" : "c:portalFlowEmbed",
+      "id" : "d0cc9ecf-e1e0-486d-957a-d7c9690918f3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "fieldApiNames" : "CaseNumber, Subject, Status, Type, Description",
+        "listTitle" : "MY CASES",
+        "objectApiName" : "Case",
+        "recordUrlPattern" : "/s/case/{recordId}/"
+      },
+      "componentName" : "c:portalDynamicListView",
+      "id" : "42adc8e8-424f-4e90-9c6f-146056ef476e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "39bd3e77-9c80-4947-bd69-ea712120627a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "fe69239c-a7c0-4e6f-88c8-090a69bf2da4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contact Us"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e456f02d-7a56-45f6-9ab2-01d3cf93e51b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "97eb5694-921c-47d7-9d23-af0386babee8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "flyQC6Ex4PNGx7nTsXGa7zCDO5m4NO",
+  "type" : "view",
+  "viewType" : "custom-contact-us"
+}

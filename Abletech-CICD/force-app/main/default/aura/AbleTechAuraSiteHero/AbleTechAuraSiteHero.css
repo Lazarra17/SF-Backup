@@ -1,0 +1,100 @@
+.THIS .hero-container {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    height: auto;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    
+    
+    /* Background configurations using raw hero image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Content Wrapper */
+.THIS .hero-content {
+    max-width: 750px;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* Typography */
+.THIS .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.5px;
+}
+
+.THIS .hero-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 30px 0;
+}
+
+/* Call to Action Button */
+.THIS .hero-button {
+    display: inline-block;
+    background-color: #0071bc;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 32px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.THIS .hero-button:hover {
+    background-color: #005a96;
+}
+
+/* Carousel Slider Navigation Dots */
+.THIS .hero-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.THIS .dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.THIS .dot.active {
+    background-color: #3b71ca; /* Matches active slider blue */
+    border-color: #3b71ca;
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.THIS .hero-container {
+        padding: 40px 20px;
+    }
+.THIS .hero-title {
+        font-size: 2.2rem;
+    }
+.THIS .hero-description {
+        font-size: 1rem;
+    }
+}

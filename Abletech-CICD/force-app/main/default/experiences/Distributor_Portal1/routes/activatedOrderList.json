@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "3fe574ef-3d38-4793-b238-de820897b985",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Activated_Orders_List__c",
+  "id" : "aec1c8d8-dabe-4f8e-923c-187a38e41a97",
+  "label" : "Activated Order List",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-activated-orders-list",
+  "type" : "route",
+  "urlPrefix" : "activated-order-list"
+}

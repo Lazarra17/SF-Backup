@@ -1,0 +1,68 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <!--Menus-->
+    <div class="slds-grid slds-wrap slds-p-top_large slds-p-bottom_xx-large">
+        <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12">
+            
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12">
+            
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_6-of-12 slds-large-size_4-of-12 slds-p-bottom_medium">
+                   <a href="/s/quote-request">
+                        <img src="{!$Resource.AbleTechAuraSiteFiles + '/navigations/icon_quotes.png'}" class="img-fluid at-menu" />
+                    </a>
+                </div>
+                
+                <div class="slds-col slds-size_6-of-12 slds-large-size_4-of-12 slds-p-bottom_medium">
+                    <a href="/s/order/Order/Default?Order-filterId=AllOrders">
+                        <img src="{!$Resource.AbleTechAuraSiteFiles + '/navigations/icon_orders.png'}" class="img-fluid at-menu" />
+                    </a>
+                </div>
+                
+                <div class="slds-col slds-size_6-of-12 slds-large-size_4-of-12 slds-p-bottom_medium">
+                    <a href="/s/invoice/nao__Invoice__c/Default">
+                        <img src="{!$Resource.AbleTechAuraSiteFiles + '/navigations/icon_invoices.png'}" class="img-fluid at-menu" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12">
+            
+        </div>
+        
+    </div>
+    
+    <!--div class="container">
+        <div class="slds-grid slds-wrap slds-p-top_large slds-p-bottom_large">
+            <div class="slds-col slds-size_6-of-12 slds-large-size_6-of-12 slds-m-top_large">
+                <p class="slds-text-align_center"><button class="at-sub-button at-sub-button-grey" >All Orders</button></p>
+            </div>
+            
+            <div class="slds-col slds-size_6-of-12 slds-large-size_6-of-12 slds-m-top_large">
+                <p class="slds-text-align_center"><a href="/s/contact-us">
+                    <button class="at-sub-button">Contact Us</button>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div-->
+    
+    
+    
+    <div class="slds-modal__content slds-p-around_medium">
+        <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}" />
+    </div>
+    
+    
+    
+    
+    
+    <!--Promotional Banner-->
+    
+
+    
+</aura:component>

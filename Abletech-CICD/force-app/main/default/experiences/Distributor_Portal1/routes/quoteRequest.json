@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f4fe66dc-a80a-4cd7-9470-0e0170cae305",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Quote_Request__c",
+  "id" : "48aba538-24d6-4058-b63a-a694af439c97",
+  "label" : "Quote Request",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-quote-request",
+  "type" : "route",
+  "urlPrefix" : "quote-request"
+}

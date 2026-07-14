@@ -1,0 +1,24 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    
+    <div class="container-fluid slds-p-around_none">
+        
+        <div class="hero-container" style="{!'background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.2) 60%),url(\'' + $Resource.AbleTechAuraSiteFiles + '/hero.webp' + '\');'}">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Able Tech Services<br />
+                    Customer Portal</h1>
+                    
+                    <p class="hero-description">
+                        This portal allows you to place, manage and view orders.
+                    </p>
+                    
+                    <!--a href="#" class="hero-button">SHOP NOW</a-->
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</aura:component>

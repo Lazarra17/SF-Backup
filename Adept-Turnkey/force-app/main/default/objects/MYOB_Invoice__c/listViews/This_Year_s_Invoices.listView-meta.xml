@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>This_Year_s_Invoices</fullName>
+    <columns>NAME</columns>
+    <columns>Invoice_Number_bric__c</columns>
+    <columns>Customer_bric__c</columns>
+    <columns>Invoice_Date_bric__c</columns>
+    <columns>InvoiceType_bric__c</columns>
+    <columns>Status_Bric__c</columns>
+    <columns>TotalAmount_bric__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Year_Bric__c</field>
+        <operation>contains</operation>
+        <value>This</value>
+    </filters>
+    <label>This Year&apos;s Invoices</label>
+</ListView>

@@ -1,0 +1,17 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    
+    
+    <div class="container">
+        <div class="slds-grid slds-wrap slds-p-top_large">
+            <div class="slds-col slds-size_12-of-12 slds-large-size_12-of-12">
+                
+                <a href="/s/">
+                    <img src="{!$Resource.AbleTechAuraSiteFiles + '/images/ReverseLogo.png'}" class="img-fluid at-footer-logo" />
+                </a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</aura:component>

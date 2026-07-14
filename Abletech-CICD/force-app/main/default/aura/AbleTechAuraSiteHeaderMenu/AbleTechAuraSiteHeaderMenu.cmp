@@ -1,0 +1,39 @@
+<aura:component extends="forceCommunity:navigationMenuBase">
+    <aura:attribute name="navigationLinkSetId" type="String" default="Default_Navigation" />
+    
+    
+    <div class="container-fluid at-menu-bar-container">
+        <nav class="navbar navbar-expand-xl navbar-light at-navbar">
+            <div class="container ">
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="" role="button">
+                        <i class="fa fa-bars" aria-hidden="true" style="color:#382670; font-size: 25px"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" onclick="{!c.onClick}">
+                        <aura:iteration items="{!v.menuItems}" var="item">
+                            
+                            <li class="nav-item">
+                                <a href="javascript:void(0);" data-menu-item-id="{!item.id}" class="nav-link" title="gc-menu">
+                                    
+                                    <a href="javascript:void(0);" data-menu-item-id="{!item.id}" class="at-link">
+                                        {!item.label}
+                                    </a>
+                                    
+                                    
+                                </a>
+                            </li>
+                            
+                        </aura:iteration>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+</aura:component>

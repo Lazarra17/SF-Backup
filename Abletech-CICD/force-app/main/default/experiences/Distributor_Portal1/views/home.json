@@ -1,0 +1,86 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "42bf8820-f98b-4709-a945-a321431073bc",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:AbleTechAuraSiteHomePage",
+      "id" : "8cd263e5-c9ab-4817-b8f4-c511851ca48b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4517bfb8-c7f5-4caa-8f0e-3fa31398364f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "69aeab5e-6dfc-435c-94f8-3ac0eda524e8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "606ce62e-feac-44f0-839c-dfc0931ffa5b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0f35678c-f1e6-4766-8829-76e9250ee18f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0f0a52e5-c0f3-4a00-a57c-4157d805b0a4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "a7587033-7bfd-416c-892f-3336e9ed70db",
+    "regionName" : "search",
+    "type" : "region"
+  }, {
+    "id" : "ef8dd4bb-5af0-4b1e-8834-6fa8d75b935f",
+    "regionName" : "profileMenu",
+    "type" : "region"
+  }, {
+    "id" : "2bdf45e6-9a14-44fb-8369-a984a16c0a2f",
+    "regionName" : "themeProfileMenu",
+    "type" : "region"
+  }, {
+    "id" : "ccd7c939-8266-4e69-bd88-e177845d7bcb",
+    "regionName" : "navBar",
+    "type" : "region"
+  }, {
+    "id" : "bd47866e-d99c-4ef0-97e2-be5a335e6616",
+    "regionName" : "themeHeader",
+    "type" : "region"
+  }, {
+    "id" : "a2cab8b8-9aa2-4dcb-af23-1c29861208a3",
+    "regionName" : "themeHero",
+    "type" : "region"
+  }, {
+    "id" : "d13c1fab-4ce2-4f88-9d49-2b06d94e7dc3",
+    "regionName" : "newHeader",
+    "type" : "region"
+  }, {
+    "id" : "179c97a3-18ec-40fd-90b8-44c5740b7c5c",
+    "regionName" : "customSearch",
+    "type" : "region"
+  }, {
+    "id" : "87fafa51-93a5-4a05-83c4-7fb454b34ce2",
+    "regionName" : "nav",
+    "type" : "region"
+  }, {
+    "id" : "2ebf4195-9c4a-43fe-87e2-76e229d44342",
+    "regionName" : "containerBody",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "TgpISbQdLRiJBaKmVEYVQBJTigcI7t",
+  "type" : "view",
+  "viewType" : "home"
+}

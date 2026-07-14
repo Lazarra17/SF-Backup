@@ -1,0 +1,86 @@
+# Unique name for this workflow
+name: Deploy master branch to production org
+
+# Definition when the workflow should run
+on:
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+    paths:
+      - 'force-app/**'
+
+# Jobs to be executed
+jobs:
+  deploy-branch-to-production-org:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true && github.actor != 'dependabot[bot]' }}
+    steps:
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Install Salesforce CLI via NPM
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+          sf version
+
+      # Install SFDX-Git-Delta plugin
+      - name: 'Install sfdx-git-delta'
+        run: | 
+          echo y | sf plugins:install sfdx-git-delta@latest
+          sf plugins
+
+      # Extract test classes from PR Body
+      - name: 'Read PR Body'
+        env:
+          PR_BODY: ${{github.event.pull_request.body}}
+        run: |
+          echo "$PR_BODY" > ./pr_body.txt
+          node ./parsePR.js              
+          TESTS=$(cat testsToRun.txt)       
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+      # Prepare Auth File
+      - name: 'Populate auth file'
+        shell: bash
+        run: |
+          echo "${{ secrets.SFDX_PRODUCTION_URL }}" > ./SFDX_PRODUCTION_URL.txt
+
+      # Authenticate to Production
+      - name: 'Authenticate to Production Org'
+        run: sf org login sfdx-url -f ./SFDX_PRODUCTION_URL.txt -s -a production
+
+      # Create Delta Packages
+      - name: 'Create delta packages'
+        run: | 
+          mkdir changed-sources
+          sf sgd source delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
+
+      # PRODUCTION DEPLOYMENT - Run Specified Tests
+      - name: 'Deploy delta changes - run specified tests'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          echo "Deploying to Production with tests: ${{env.APEX_TESTS}}"
+          sf project deploy start --source-dir "changed-sources/force-app" --test-level RunSpecifiedTests ${{env.APEX_TESTS}} --json
+
+      # PRODUCTION DEPLOYMENT - Run All Local Tests
+      - name: 'Deploy delta changes - run all tests'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sf project deploy start --source-dir "changed-sources/force-app" --test-level RunLocalTests --json
+
+      # Destructive Changes Deployment (Actual delete, not checkonly)
+      - name: 'Deploy destructive changes (if any) to Production org'
+        run: |
+          if [ -d "changed-sources/destructiveChanges" ]; then
+            sf project deploy start --metadata-dir "changed-sources/destructiveChanges" --ignore-warnings
+          else
+            echo "No destructive changes found."
+          fi

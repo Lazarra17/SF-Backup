@@ -1,0 +1,98 @@
+# Unique name for this workflow
+name: Validate PR on Production Org
+
+# Definition when the workflow should run
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # Changed to main for Production validation
+    branches: [ main ]
+    paths:
+      - 'force-app/**'
+
+# Jobs to be executed when the above conditions are met
+jobs:
+  validate-deployment-on-production-org:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      # Install Node.js
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Checkout source code
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Install Salesforce CLI via NPM (Fixes the TypeError)
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+          sf version
+
+      # Install SFDX-Git-Delta plugin
+      - name: 'Install sfdx-git-delta'
+        run: | 
+          echo y | sf plugins:install sfdx-git-delta@latest
+          sf plugins
+
+      # Extract test classes from PR Body
+      - name: 'Read PR Body'
+        env:
+          PR_BODY: ${{github.event.pull_request.body}}
+        run: |
+          echo "$PR_BODY" > ./pr_body.txt
+          node ./parsePR.js              
+          TESTS=$(cat testsToRun.txt)       
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+      # Install java as it is required for the scanner
+      - name: 'Installing java'
+        run: |
+          sudo apt-get update
+          sudo apt install default-jdk
+
+      # Install SFDX scanner
+      - name: 'Installing SFDX scanner'
+        run: sf plugins:install @salesforce/sfdx-scanner
+
+      # Authenticate using the PRODUCTION secret
+      - name: 'Populate auth file'
+        shell: bash
+        run: |
+          echo "${{ secrets.SFDX_PRODUCTION_URL }}" > ./SFDX_PRODUCTION_URL.txt
+
+      - name: 'Authenticate to Production Org'
+        run: sf org login sfdx-url -f ./SFDX_PRODUCTION_URL.txt -s -a production
+
+      # Create Delta Package
+      - name: 'Create delta packages'
+        run: | 
+          mkdir changed-sources
+          sf sgd source delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
+
+      # Check-only deploy - Specified Tests
+      - name: 'Check-only deploy delta changes - run specified tests'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          echo "Running specified tests: ${{env.APEX_TESTS}}"
+          sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests ${{env.APEX_TESTS}} --json
+
+      # Check-only deploy - All Tests
+      - name: 'Check-only deploy delta changes - run all tests'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json
+
+      # Deploy destructive changes (if any)
+      - name: 'Deploy destructive changes (if any)'
+        run: |
+          if [ -d "changed-sources/destructiveChanges" ]; then
+            sf project deploy start --metadata-dir "changed-sources/destructiveChanges" --dry-run --ignore-warnings
+          else
+            echo "No destructive changes found."
+          fi

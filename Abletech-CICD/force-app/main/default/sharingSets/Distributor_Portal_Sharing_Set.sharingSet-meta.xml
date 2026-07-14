@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Account</object>
+        <objectField>Id</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Case</object>
+        <objectField>Account</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Read</accessLevel>
+        <object>Invoice</object>
+        <objectField>BillingAccount</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Opportunity</object>
+        <objectField>Account</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <name>Distributor Portal Sharing Set</name>
+    <profiles>Distributor Portal</profiles>
+    <profiles>customer community user</profiles>
+    <profiles>external apps login user</profiles>
+</SharingSet>

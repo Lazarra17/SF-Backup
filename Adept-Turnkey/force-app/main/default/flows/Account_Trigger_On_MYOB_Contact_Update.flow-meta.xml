@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_if_Contact_Exists</name>
+        <label>Check if Contact Exists?</label>
+        <locationX>446</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Create_Primary_Contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Contact_Match_on_MYOB_Contact_Name</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Primary_Contact</targetReference>
+            </connector>
+            <label>Contact Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_if_MYOB_Contact_Name_is_Empty</name>
+        <label>Check if MYOB Contact Name is Empty</label>
+        <locationX>248</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Get_Contact_Match_on_MYOB_Contact_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>MYOB_Contact_Name_is_Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MYOB_Contact_Name__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MYOB_Contact_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Primary_Contact_to_Null</targetReference>
+            </connector>
+            <label>MYOB Contact Name is Empty</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>varContactFirstName</name>
+        <dataType>String</dataType>
+        <expression>TRIM(IF(CONTAINS({!$Record.MYOB_Contact_Name__c}, &quot; &quot;),
+LEFT({!$Record.MYOB_Contact_Name__c},FIND(&quot; &quot;, {!$Record.MYOB_Contact_Name__c})),
+{!$Record.MYOB_Contact_Name__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>varLastName</name>
+        <dataType>String</dataType>
+        <expression>TRIM(IF(
+CONTAINS({!$Record.MYOB_Contact_Name__c}, &quot; &quot;),
+SUBSTITUTE( {!$Record.MYOB_Contact_Name__c}, {!varContactFirstName}, &quot;&quot;),
+&quot;-&quot;
+))</expression>
+    </formulas>
+    <interviewLabel>Account Trigger: On MYOB Contact Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Trigger: On MYOB Contact Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Primary_Contact</name>
+        <label>Create Primary Contact</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Update_Created_Contact</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email</field>
+            <value>
+                <elementReference>$Record.MYOB_Email__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <elementReference>varContactFirstName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>varLastName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Contact_Match_on_MYOB_Contact_Name</name>
+        <label>Get Contact Match on MYOB Contact Name</label>
+        <locationX>446</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_if_Contact_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varContactFirstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varLastName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Created_Contact</name>
+        <label>Update Created Contact</label>
+        <locationX>578</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Primary_Contact_Bric__c</field>
+            <value>
+                <elementReference>Create_Primary_Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Primary_Contact</name>
+        <label>Update Primary Contact</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Primary_Contact_Bric__c</field>
+            <value>
+                <elementReference>Get_Contact_Match_on_MYOB_Contact_Name.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Primary_Contact_to_Null</name>
+        <label>Update Primary Contact to Null</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Primary_Contact_Bric__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>122</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_MYOB_Contact_Name_is_Empty</targetReference>
+        </connector>
+        <filterFormula>(ISNEW() &amp;&amp; NOT(ISBLANK({!$Record.MYOB_Contact_Name__c})))
+||
+ISCHANGED({!$Record.MYOB_Contact_Name__c})</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

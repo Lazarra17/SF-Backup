@@ -1,0 +1,75 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "289ee5f5-aa93-40b5-b8c8-3e20c6c77993",
+  "label" : "Draft Order List",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "73304ed1-8732-4794-b2e7-f3db44b62def",
+          "columns" : [ {
+            "UUID" : "0d13b9af-1e41-44e3-9a4e-e31555e40dac",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "73304ed1-8732-4794-b2e7-f3db44b62def",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "fieldApiNames" : "OrderNumber, Account.Name, TotalAmount, EffectiveDate,Status",
+            "filterClause" : "StatusCode = 'Draft'",
+            "listTitle" : "ALL DRAFT ORDERS",
+            "searchField" : "OrderNumber, Account.Name",
+            "sortConfig" : "OrderNumber ASC",
+            "viewAllUrl" : ""
+          },
+          "componentName" : "c:portalOrderListView",
+          "id" : "47aaeff8-573c-47e6-89e9-3dda4f3d6891",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "0d13b9af-1e41-44e3-9a4e-e31555e40dac",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f746dda8-e85d-4a58-bb98-07dbabc4f5bc",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Draft Order List"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "706a9399-571f-4856-9842-83d5bfee1b06",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a297d0a5-a33d-4b09-82db-a4002ab01521",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-draft-order-list"
+}

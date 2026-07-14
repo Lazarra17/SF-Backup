@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <description>Updates mobile formatting to save the number as 61....</description>
+        <name>MobileFormatting</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    BEGINS({!$Record.MobilePhone}, &quot;+&quot;),
+    SUBSTITUTE({!$Record.MobilePhone}, &quot; &quot;, &quot;&quot;),
+    IF(
+        BEGINS({!$Record.MobilePhone}, &quot;0&quot;),
+        &quot;61&quot; &amp; RIGHT(SUBSTITUTE({!$Record.MobilePhone}, &quot; &quot;, &quot;&quot;), LEN(SUBSTITUTE({!$Record.MobilePhone}, &quot; &quot;, &quot;&quot;)) - 1),
+        SUBSTITUTE({!$Record.MobilePhone}, &quot; &quot;, &quot;&quot;)
+    )
+)</expression>
+    </formulas>
+    <interviewLabel>Update Lead Mobile Formatting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Lead Mobile Formatting</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Mobile_Formatting</name>
+        <label>Update Mobile Formatting</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>MobileFormatting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Mobile_Formatting</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>MobilePhone</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,86 @@
+# Unique name for this workflow
+name: Validate PR on Integration Org
+
+# Definition when the workflow should run
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [ develop ]
+    paths:
+      - 'force-app/**'
+
+jobs:
+  validate-deployment-on-Integration-org:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Install Salesforce CLI via NPM (The most reliable way)
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+          sf version
+
+      # Install SFDX-Git-Delta plugin
+      - name: 'Install sfdx-git-delta'
+        run: | 
+          echo y | sf plugins:install sfdx-git-delta@latest
+          sf plugins
+
+      # Extract test classes from PR Body
+      - name: 'Read PR Body'
+        env:
+          PR_BODY: ${{github.event.pull_request.body}}
+        run: |
+          echo "$PR_BODY" > ./pr_body.txt
+          node ./parsePR.js              
+          TESTS=$(cat testsToRun.txt)       
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+      - name: 'Installing java'
+        run: |
+          sudo apt-get update
+          sudo apt install default-jdk
+
+      - name: 'Installing SFDX scanner'
+        run: sf plugins:install @salesforce/sfdx-scanner
+
+      - name: 'Populate auth file'
+        shell: bash
+        run: |
+          echo "${{ secrets.SFDX_INTEGRATION_URL }}" > ./SFDX_INTEGRATION_URL.txt
+
+      - name: 'Authenticate to Integration Org'
+        run: sf org login sfdx-url -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+
+      - name: 'Create delta packages'
+        run: | 
+          mkdir changed-sources
+          sf sgd source delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
+
+      - name: 'Check-only deploy delta changes - run specified tests'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests ${{env.APEX_TESTS}} --json
+
+      - name: 'Check-only deploy delta changes - run all tests'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json
+
+      - name: 'Deploy destructive changes (if any)'
+        run: |
+          if [ -d "changed-sources/destructiveChanges" ]; then
+            sf project deploy start --metadata-dir "changed-sources/destructiveChanges" --dry-run --ignore-warnings
+          else
+            echo "No destructive changes to deploy."
+          fi

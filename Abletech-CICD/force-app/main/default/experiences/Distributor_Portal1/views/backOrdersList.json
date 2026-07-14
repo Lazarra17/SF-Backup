@@ -1,0 +1,75 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "15659d4e-0311-49e9-b07a-fbb47d2d067d",
+  "label" : "Back Orders List",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "1530c4db-f7cb-4dfd-9e78-7a94acc2128b",
+          "columns" : [ {
+            "UUID" : "068c01e8-633c-420d-ab68-776ffabac7cd",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "1530c4db-f7cb-4dfd-9e78-7a94acc2128b",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "fieldApiNames" : "OrderNumber, Account.Name, Amount_Inc_GST__c, EffectiveDate, Payment_Term_Label_bric__c, Payment_Term_bric__c, Status, Owner.Alias",
+            "filterClause" : "Status = 'Back Order'",
+            "listTitle" : "BACK ORDERS",
+            "searchField" : "OrderNumber, Account.Name",
+            "sortConfig" : "OrderNumber ASC",
+            "viewAllUrl" : ""
+          },
+          "componentName" : "c:portalOrderListView",
+          "id" : "2368e7ba-55b5-48ca-8eda-c8127912b5f7",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "068c01e8-633c-420d-ab68-776ffabac7cd",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "34b48e4f-22bc-425f-95d9-8f2e092c3334",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Back Orders List"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "35baf404-4634-4b12-bbd0-287e3ed9c0ac",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d0a98bf6-d68b-46e2-9eea-6a2f490721e8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-back-orders-list"
+}

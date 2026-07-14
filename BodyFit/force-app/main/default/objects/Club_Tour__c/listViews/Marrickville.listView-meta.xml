@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marrickville</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Club__c</field>
+        <operation>contains</operation>
+        <value>Marrickville</value>
+    </filters>
+    <label>Marrickville</label>
+</ListView>

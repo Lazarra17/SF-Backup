@@ -1,0 +1,75 @@
+{
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "3fe574ef-3d38-4793-b238-de820897b985",
+  "label" : "Activated Orders List",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "e972c5a4-98db-46f2-9406-27d43329fb85",
+          "columns" : [ {
+            "UUID" : "74af9cb6-380a-43e6-bdab-c39013ff3972",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "e972c5a4-98db-46f2-9406-27d43329fb85",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "fieldApiNames" : "OrderNumber, Account.Name, TotalAmount, EffectiveDate,Status, RecordType.Name, PONumber, nao__Tracking_Code__c, Payment_Term_Label_bric__c",
+            "filterClause" : "Status = 'Activated'",
+            "listTitle" : "ALL ACTIVATED ORDERS",
+            "searchField" : "OrderNumber, Account.Name",
+            "sortConfig" : "OrderNumber ASC",
+            "viewAllUrl" : ""
+          },
+          "componentName" : "c:portalOrderListView",
+          "id" : "0b86bd98-a1da-4ba8-b54c-00ee94852312",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "74af9cb6-380a-43e6-bdab-c39013ff3972",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "44793452-142c-4ac6-bdb6-7a9ff46586ff",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Activated Orders List"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "756dab2a-3894-453f-a398-3cf5882f9842",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b64f50f7-3827-4ed4-a0a7-41500be66475",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-activated-orders-list"
+}

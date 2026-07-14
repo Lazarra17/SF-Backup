@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Client_ID__c</field>
+        <value xsi:type="xsd:string">72f43280-519d-4111-a4ba-d9ad9f30d66a</value>
+    </values>
+    <values>
+        <field>Company_File_ID__c</field>
+        <value xsi:type="xsd:string">5d4b1ce0-bb9f-4f4c-9578-2b168b7295db</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">callout:MYOB_App</value>
+    </values>
+</CustomMetadata>

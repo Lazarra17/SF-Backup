@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Method__c</fullName>
+    <label>Contact Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition> 
+            <sorted>false</sorted>
+            <value>
+                <fullName>META (Instagram, Facebook)</fullName>
+                <default>false</default>
+                <label>META (Instagram, Facebook)</label>
+            </value>
+            <value>
+                <fullName>Website Enquiry</fullName>
+                <default>false</default>
+                <label>Website Enquiry</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Outreach</fullName>
+                <default>false</default>
+                <label>Outreach</label>
+            </value>
+            <value>
+                <fullName>Phone In</fullName>
+                <default>false</default>
+                <label>Phone In</label>
+            </value>
+            <value>
+                <fullName>Walk In</fullName>
+                <default>false</default>
+                <label>Walk In</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

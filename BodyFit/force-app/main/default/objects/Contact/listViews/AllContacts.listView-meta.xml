@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllContacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ClubFit_Member_ID__c</columns>
+    <columns>Membership_Type__c</columns>
+    <columns>Membership_Category__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Start_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Contacts</label>
+</ListView>

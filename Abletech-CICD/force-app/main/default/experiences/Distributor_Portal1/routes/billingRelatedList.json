@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ad48ca20-d206-436d-89fa-0f5da43831d7",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Billing_Related_List__c",
+  "id" : "246124e0-40d1-4dbe-aa4f-e8fb82849515",
+  "label" : "Billing Related List",
+  "objectApiName" : "nao__Invoice__c",
+  "routeType" : "relatedlist-a09",
+  "type" : "route",
+  "urlPrefix" : "invoice"
+}

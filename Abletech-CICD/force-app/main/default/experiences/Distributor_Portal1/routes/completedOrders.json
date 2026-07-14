@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8dfff535-63ee-426d-aa42-137267734128",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Completed_Orders__c",
+  "id" : "6ca8d846-91cf-486d-ae0e-43d8fa6696e1",
+  "label" : "Completed Orders",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-completed-orders",
+  "type" : "route",
+  "urlPrefix" : "completed-orders"
+}

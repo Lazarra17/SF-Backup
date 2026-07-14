@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Account_ID</name>
+        <label>Assign Account ID</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>AccountID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Account_ID_0</name>
+        <label>Assign Account ID</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>AccountID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.nao__Invoice_To_bric__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Account</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>SalesOrderRecordType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sales Order</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Account_Exists_Decision</name>
+        <label>Account Exists Decision</label>
+        <locationX>182</locationX>
+        <locationY>839</locationY>
+        <defaultConnector>
+            <targetReference>Update_Order</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Account Exists</defaultConnectorLabel>
+        <rules>
+            <name>Account_Doesn_t_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Account</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Account Doesn&apos;t Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Account_or_Invoice_To_Account_is_different</name>
+        <label>Account or Invoice To Account is different</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Is Same</defaultConnectorLabel>
+        <rules>
+            <name>Is_Different</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AccountId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.AccountId</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nao__Invoice_To_bric__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.nao__Invoice_To_bric__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Order_Has_Invoice_To_Decision</targetReference>
+            </connector>
+            <label>Is Different</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Order_Has_Invoice_To_Decision</name>
+        <label>Work Order Has Invoice To Decision</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Account_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Invoice To</defaultConnectorLabel>
+        <rules>
+            <name>Order_Has_Invoice_To</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nao__Invoice_To_bric__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Account_ID_0</targetReference>
+            </connector>
+            <label>WO Has Invoice To</label>
+        </rules>
+    </decisions>
+    <description>Fix issue where fields not populating when record is created</description>
+    <environments>Default</environments>
+    <interviewLabel>Assign Account Terms to Work Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assign Account Terms to Work Order</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Account</name>
+        <label>Get Account</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account_Exists_Decision</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountID</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Order</name>
+        <label>Update Order</label>
+        <locationX>314</locationX>
+        <locationY>947</locationY>
+        <inputAssignments>
+            <field>Payment_Term_Day_bric__c</field>
+            <value>
+                <elementReference>Get_Account.nao__Payment_Term_Day_Bric__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Payment_Term_Type_bric__c</field>
+            <value>
+                <elementReference>Get_Account.nao__Payment_Term_Type_Bric__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Account_or_Invoice_To_Account_is_different</targetReference>
+        </connector>
+        <object>WorkOrder</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AccountID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

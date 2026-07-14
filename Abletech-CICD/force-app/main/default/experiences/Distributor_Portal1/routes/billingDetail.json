@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "4bdcbb87-ca65-498f-92d2-29ef5dd7b983",
+  "appPageId" : "3fb09a4a-85b5-4c19-97ee-9c46696eb6a8",
+  "configurationTags" : [ ],
+  "devName" : "Billing_Detail__c",
+  "id" : "be01eeff-d46c-44a6-9bf7-bfa52380eb27",
+  "label" : "Billing Detail",
+  "objectApiName" : "nao__Invoice__c",
+  "routeType" : "detail-a09",
+  "type" : "route",
+  "urlPrefix" : "invoice"
+}
