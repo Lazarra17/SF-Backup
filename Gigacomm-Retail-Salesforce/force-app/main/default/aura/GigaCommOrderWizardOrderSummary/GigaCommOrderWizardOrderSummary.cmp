@@ -1,0 +1,205 @@
+<!--History:
+[1]CLAZARRA - 27-May - Removed Speed on summary
+[2]CL : 06-Jun : Added fix to Currency, Used USD instead of AUD for styling
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="lead" type="Object"/>
+    
+    <div class="slds-grid slds-wrap gc-include-router-container slds-m-top_large" >   
+        <div class="slds-col slds-size_10-of-12 slds-large-size_12-of-12">
+            <p class="gc-default-color slds-m-bottom_none gc-router-title">Order Summary  </p>
+            
+        </div>
+        
+    </div>
+    
+    
+    <div class="gc-router-section slds-p-around_large">
+     
+        <div class="slds-grid slds-wrap">       
+            <div class="slds-col slds-size_6-of-12 slds-large-size_7-of-12">
+                <p class="gc-default-color slds-m-bottom_none slds-m-bottom_none"><strong>{!v.lead.PlanSelected.Product_bric__r.Display_Name_Bric__c}</strong></p>
+            </div>
+            <div class="slds-col slds-size_6-of-12 slds-large-size_5-of-12">
+                <aura:if isTrue="{!v.lead.PlanSelectedPromo == null}">
+                    <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.PlanSelected.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></p> 
+                    <aura:set attribute="else">
+                        <p class="slds-text-align_right slds-m-bottom_none"><span class="gc-order-summary-discounted-amount"><lightning:formattedNumber value="{!v.lead.PlanSelected.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></span><lightning:formattedNumber value="{!v.lead.PlanSelected.Total_Price_bric__c + v.lead.PlanSelectedPromo.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></p>
+                    </aura:set>
+                </aura:if>
+            </div> 
+        </div>
+        
+        <div class="slds-grid slds-wrap">       
+            
+            <div class="slds-col slds-size_12-of-12 slds-large-size_12-of-12">
+                <aura:if isTrue="{!v.lead.PlanSelectedPromoMessage != null}">
+                    <p class="slds-text-align_right slds-m-bottom_none">
+                        <span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">
+                            <!--Enjoy the first {!v.lead.PlanSelectedPromo.Voucher_Term_bric__c} months free-->
+                            <!--[5]CL 26-Aug-25 : GR-246 Custom Promo Message-->
+                            {!v.lead.PlanSelectedPromoMessage}
+                        </span>
+                    </p>
+                </aura:if>
+            </div> 
+        </div>
+        
+        <aura:if isTrue="{!AND(v.lead.Router != null, v.lead.AgentPriceRouter == null)}">
+            <aura:if isTrue="{!v.lead.TotalRouterQuantity > 1}">
+                <div class="slds-grid slds-wrap slds-m-top_large">   
+                    <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                        <p class="gc-default-color slds-m-bottom_none"><strong>Home Wifi Router x <span>{!v.lead.Router.Quantity_bric__c}</span></strong></p>
+                    </div>  
+                    <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                        <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.Router.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></p>
+                    </div> 
+                </div>
+                <aura:if isTrue="{!v.lead.RouterPromo != null}">
+                    <div class="slds-grid slds-wrap">   
+                        <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                            <p class="slds-m-bottom_none">Router Discount</p>
+                        </div>
+                        <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                            <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.RouterPromo.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></p>
+                        </div> 
+                    </div>
+                </aura:if>
+                
+                <aura:set attribute="else">
+                    <div class="slds-grid slds-wrap slds-m-top_large">   
+                        <div class="slds-col slds-size_7-of-12 slds-large-size_7-of-12">
+                            <p class="gc-default-color slds-m-bottom_none"><strong>Home Wifi x <span>{!v.lead.Router.Quantity_bric__c}</span></strong></p>
+                        </div>  
+                        <div class="slds-col slds-size_5-of-12 slds-large-size_5-of-12">
+                        
+                            <aura:if isTrue="{!v.lead.RouterPromo != null}">
+                                <p class="slds-text-align_right slds-m-bottom_none"><span class="gc-order-summary-discounted-amount">
+                                    <lightning:formattedNumber value="{!abs(v.lead.RouterPromo.Total_Price_bric__c)}" currencyDisplayAs="symbol" style="currency"  /></span>$0.00</p>
+                                <p class="slds-text-align_right slds-m-bottom_none"><span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">Free</span></p>
+                                
+                                <aura:set attribute="else">
+                                	  <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.Router.Total_Price_bric__c}" style="currency"   currencyDisplayAs="symbol" /></p>
+                                </aura:set>
+                            </aura:if>
+                        </div> 
+                    </div>
+                </aura:set>
+            </aura:if>
+            
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.lead.AgentPriceRouter != null}">
+            <aura:if isTrue="{!v.lead.TotalRouterQuantity > 1}">
+                <div class="slds-grid slds-wrap slds-m-top_large">   
+                    <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                        <p class="gc-default-color slds-m-bottom_none"><strong>Home Wifi Router x <span>{!v.lead.Router.Quantity_bric__c}</span></strong></p>
+                    </div>  
+                    <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                        <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.Router.Total_Price_bric__c}" style="currency"  /></p>
+                    </div> 
+                </div>
+                <div class="slds-grid slds-wrap">   
+                    <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                        <p class="slds-m-bottom_none">Router Discount</p>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                        <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.AgentPriceRouter.Total_Price_bric__c}" style="currency"  /></p>
+                    </div> 
+                </div>
+                <aura:set attribute="else">
+                    <div class="slds-grid slds-wrap slds-m-top_large">   
+                        <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                            <p class="gc-default-color slds-m-bottom_none"><strong>Home Wifi Router(Agent Price) x <span>{!v.lead.AgentPriceRouter.Quantity_bric__c}</span></strong></p>
+                        </div>  
+                        <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                            <p class="slds-text-align_right slds-m-bottom_none"><span class="gc-order-summary-discounted-amount">
+                                <lightning:formattedNumber value="{!abs(v.lead.AgentPriceRouter.Total_Price_bric__c)}" style="currency"  /></span>$0.00</p>
+                            <p class="slds-text-align_right slds-m-bottom_none"><span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">Free</span></p>
+                        </div> 
+                    </div>
+                </aura:set>
+            </aura:if>
+            
+          
+            
+            
+        </aura:if>
+        
+        <div class="slds-grid slds-wrap slds-m-top_large">       
+            <div class="slds-col slds-size_8-of-12 slds-large-size_6-of-12">
+                <p class="gc-default-color slds-m-bottom_none slds-m-bottom_none"><strong>{!v.lead.Installation.Product_bric__r.Display_Name_Bric__c}</strong></p>
+            </div>
+            <div class="slds-col slds-size_4-of-12 slds-large-size_6-of-12">
+                <aura:if isTrue="{!v.lead.InstallationPromo == null}">
+                    <p class="slds-text-align_right slds-m-bottom_none"><lightning:formattedNumber value="{!v.lead.Installation.Total_Price_bric__c}" style="currency"  /></p> 
+                    <aura:set attribute="else">
+                        <p class="slds-text-align_right slds-m-bottom_none"><span class="gc-order-summary-discounted-amount">
+                            <lightning:formattedNumber value="{!abs(v.lead.Installation.Total_Price_bric__c)}" style="currency"  /></span>
+                            <lightning:formattedNumber value="{!v.lead.Installation.Total_Price_bric__c + v.lead.InstallationPromo.Total_Price_bric__c}" style="currency"  />
+                        </p>
+                        
+                    </aura:set>
+                </aura:if>
+                
+            </div> 
+        </div>
+        
+        <div class="slds-grid slds-wrap">       
+            <div class="slds-col slds-size_3-of-12 slds-large-size_3-of-12">
+                
+            </div>
+            <div class="slds-col slds-size_9-of-12 slds-large-size_9-of-12">
+                <aura:if isTrue="{!v.lead.InstallationPromo != null}">
+                    
+                    
+                    <aura:if isTrue="{!v.lead.InstallationPromoPromoMessage != ''}">
+                        <p class="slds-text-align_right slds-m-bottom_none">
+                            <span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">
+                                {!v.lead.InstallationPromoPromoMessage} 
+                            </span>
+                            
+                        </p>
+                    </aura:if>
+                    <!--aura:if isTrue="{!v.lead.InstallationsTotalPrice != 0}">
+                         <p class="slds-text-align_right slds-m-bottom_none">
+                             <span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">
+                                 Save <lightning:formattedNumber value="{!abs(v.lead.InstallationPromo.Total_Price_bric__c)}" style="currency"  />
+                             </span>
+                            
+                         </p>
+                         <aura:set attribute="else">
+            <p class="slds-text-align_right slds-m-bottom_none"><span class="slds-text-align_right slds-m-bottom_none gc-order-summary-free">Free</span></p>                        
+                         </aura:set>
+                     </aura:if-->
+                </aura:if>
+            </div>
+        </div>
+        
+        
+        <hr></hr>
+        
+        <div class="slds-grid slds-wrap slds-m-top_large">       
+            <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+                <!--p class="gc-default-color slds-m-bottom_none slds-m-bottom_none"><strong>Pay Today</strong></p-->
+            </div>
+            <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                <p class="gc-default-color slds-text-align_right slds-m-bottom_none slds-m-bottom_none"><strong>
+                    <lightning:formattedNumber value="{!v.lead.TotalPrice}" style="currency"  /></strong></p>
+            </div> 
+        </div>
+        
+        <div class="slds-grid slds-wrap">       
+            <div class="slds-col slds-size_8-of-12 slds-large-size_8-of-12">
+            </div>
+            <div class="slds-col slds-size_4-of-12 slds-large-size_4-of-12">
+                <!--p class="gc-default-color slds-text-align_right slds-m-bottom_none slds-m-bottom_none">Hardware and Installation</p-->
+            </div> 
+        </div>
+       
+    </div>
+    
+    
+    
+</aura:component>

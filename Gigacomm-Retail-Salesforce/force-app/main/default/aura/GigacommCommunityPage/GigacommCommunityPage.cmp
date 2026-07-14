@@ -1,0 +1,61 @@
+<!--
+[1] CL - 17-June-25 - Update Lead Source
+-->
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+                
+                <h2 class="gc-heading-title slds-m-top_large">Gigacomm</h2>
+                <h2 class="gc-heading-title slds-m-top_medium">Community</h2>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="container  slds-p-bottom_large">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_xx-large slds-p-around_x-small">
+            <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container">
+                <h1 class="gc-order-wizard-section-title gc-default-color">
+                	Our Work in the Community
+                </h1>
+                
+                <p>Our mission centres on providing digital equity by expanding network to connect underserved communities. 
+                    We are committed to building a carrier-grade access network capable of delivering reliable and secure gigabit-speed 
+                    connectivity which is affordable to community housing communities.
+                </p>
+                <p>
+                    We understand the importance of fast and reliable broadband access to help communities stay connected, 
+                    to continue to explore new opportunities online for employment, 
+                    education and services such as healthcare and government support.
+                </p>
+            </div>
+            
+            <div class="slds-col slds-large-size_5-of-12 slds-small-size_12-of-12 ">
+                
+                <img src="{!$Resource.GigacommCommunityPageAsset + '/OurWorkInTheCommunity.jpg'}" class="img-fluid gc-img-rounded"/>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="slds-grid slds-wrap ">
+        <div class="slds-col slds-size_12-of-12 gc-middle-banner" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+            <div class="container slds-p-top_xx-large slds-p-bottom_xx-large">
+                
+                <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-top_xx-large slds-p-bottom_xx-large slds-p-right_large gc-community-container">
+                    <h1 class="gc-community-h1 gc-default-color">
+                        Everyone deserves access to fast, reliable and affordable broadband
+                    </h1>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</aura:component>

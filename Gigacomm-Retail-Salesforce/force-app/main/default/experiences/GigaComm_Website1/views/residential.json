@@ -1,0 +1,61 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "1ab1384e-5ef3-4468-ab82-7d5353473d3e",
+  "label" : "Residential",
+  "regions" : [ {
+    "id" : "ebbf0887-c19b-40d9-b381-3f40175a6851",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommResidentialPage",
+      "id" : "193da916-f736-4b27-9bb9-3b5d76daf822",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "001a1efc-83a2-47a0-bd03-575bf3bc6afa",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "6346a157-4dc2-4f3c-b36f-48ebac94ab2c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e49125f4-5373-43f1-8273-059710cb9a2f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "Gigacomm | Ultra-Fast Residential Internet",
+        "title" : "Residential"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f2b2ee74-1333-4911-bf5c-1f24e877eab6",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "58aa44cd-21ce-43ec-a95d-4e02854e9603",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-residential"
+}

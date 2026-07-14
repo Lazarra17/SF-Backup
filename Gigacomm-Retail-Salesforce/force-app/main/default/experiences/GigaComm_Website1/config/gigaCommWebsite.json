@@ -1,0 +1,222 @@
+{
+  "forgotPasswordRouteId" : "666066a6-69db-4884-a1df-cc832c2cc989",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : true,
+  "loginAppPageId" : "a6b3015a-ed13-4f59-94c0-899c9e746d8c",
+  "mainAppPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "preferredDomain" : "www.gigacomm.net.au",
+  "selfRegistrationRouteId" : "b6d32086-0b27-4cf8-887e-b01e2b15adcf",
+  "trustedSitesForScript" : [ {
+    "id" : "c0aee007-4a4b-4780-900f-7ff88fa65189",
+    "isActive" : true,
+    "trustedSiteName" : "scrt",
+    "trustedSiteUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "504674fa-d8fe-4c85-bc4e-23aed84d6819",
+    "isActive" : true,
+    "trustedSiteName" : "GoogleTagManager",
+    "trustedSiteUrl" : "https://www.googletagmanager.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "b6e7267f-079b-4417-9318-ef62d11d7d9c",
+    "isActive" : true,
+    "trustedSiteName" : "Clarity",
+    "trustedSiteUrl" : "https://www.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "8a6c1f3c-9b79-41ea-8e32-6399ae7f8595",
+    "isActive" : true,
+    "trustedSiteName" : "Quantserve",
+    "trustedSiteUrl" : "https://secure.quantserve.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "179b876f-316e-4856-8070-4c19b8f1fb46",
+    "isActive" : true,
+    "trustedSiteName" : "Bing",
+    "trustedSiteUrl" : "https://bat.bing.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "d5d42c57-bd52-4891-9115-19b97ae63c48",
+    "isActive" : true,
+    "trustedSiteName" : "Facebook",
+    "trustedSiteUrl" : "https://connect.facebook.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "7e157d70-191f-40f0-9c6e-5d2df4be57df",
+    "isActive" : true,
+    "trustedSiteName" : "Hotjar",
+    "trustedSiteUrl" : "https://static.hotjar.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "9fd413d7-e0c9-4477-966d-aed81491fd3c",
+    "isActive" : true,
+    "trustedSiteName" : "Tiktok",
+    "trustedSiteUrl" : "https://analytics.tiktok.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "245b161d-b9cd-4e2f-acf8-c8ee13269b3d",
+    "isActive" : true,
+    "trustedSiteName" : "Doubleclick1",
+    "trustedSiteUrl" : "https://pubads.g.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "c18ed2cd-1852-4405-825a-527e374993ef",
+    "isActive" : true,
+    "trustedSiteName" : "GoogleAnalytics1",
+    "trustedSiteUrl" : "https://www.google-analytics.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "45e3c97b-cabc-4c08-82ec-edc842e4e750",
+    "isActive" : true,
+    "trustedSiteName" : "GoogleAnalytics2",
+    "trustedSiteUrl" : "https://www.analytics.google.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "3359387a-7ab3-4b79-8f65-e08abbcecae7",
+    "isActive" : true,
+    "trustedSiteName" : "Quantcount",
+    "trustedSiteUrl" : "https://rules.quantcount.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "23082584-f23e-42f6-a203-70f3cc43b682",
+    "isActive" : true,
+    "trustedSiteName" : "Google Ads",
+    "trustedSiteUrl" : "https://googleads.g.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "a33f3614-88bb-494c-ada0-e523351dcede",
+    "isActive" : true,
+    "trustedSiteName" : "Doubleclick2",
+    "trustedSiteUrl" : "https://ad.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "90f4a732-df88-4ed3-85a5-857deaa77786",
+    "isActive" : true,
+    "trustedSiteName" : "Facebook1",
+    "trustedSiteUrl" : "https://www.facebook.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "4a07b816-7a08-4025-af64-410e0b0de234",
+    "isActive" : true,
+    "trustedSiteName" : "Quantserve1",
+    "trustedSiteUrl" : "https://pixel.quantserve.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "cf78378b-b945-4f75-8378-425afdfd506f",
+    "isActive" : true,
+    "trustedSiteName" : "Hotjar1",
+    "trustedSiteUrl" : "https://script.hotjar.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "05ec4292-154f-4179-a609-e7d91e58be2e",
+    "isActive" : true,
+    "trustedSiteName" : "Doubleclick",
+    "trustedSiteUrl" : "https://11675175.fls.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "da6aa32f-be01-41c2-acce-1aa6b597c8f5",
+    "isActive" : true,
+    "trustedSiteName" : "Doubleclick3",
+    "trustedSiteUrl" : "https://td.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "b54a3051-e944-4437-9dba-c3f7fcd70dee",
+    "isActive" : true,
+    "trustedSiteName" : "Google",
+    "trustedSiteUrl" : "https://www.google.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "049defaf-fd49-4877-bad0-c5abadce1630",
+    "isActive" : true,
+    "trustedSiteName" : "Clarity1",
+    "trustedSiteUrl" : "https://s.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "608f41b8-78e8-4a2d-846a-978b483d03d5",
+    "isActive" : true,
+    "trustedSiteName" : "GoogleAnaltyics1",
+    "trustedSiteUrl" : "https://analytics.google.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "0dae8352-d935-4840-9e7e-3ee3c52fa230",
+    "isActive" : true,
+    "trustedSiteName" : "Hotjar2",
+    "trustedSiteUrl" : "https://content.hotjar.io",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "f0110774-c38e-428b-b68e-aa3324b1536a",
+    "isActive" : true,
+    "trustedSiteName" : "Hotjar3",
+    "trustedSiteUrl" : "wss://ws.hotjar.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "7fb8ec2d-5fa8-4256-90c4-0bcd5aabbd16",
+    "isActive" : true,
+    "trustedSiteName" : "GoogleAustralia",
+    "trustedSiteUrl" : "https://www.google.com.au",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "62b28333-c2c7-4d76-9f32-5be1771af292",
+    "isActive" : true,
+    "trustedSiteName" : "DoubleclickWildcard",
+    "trustedSiteUrl" : "https://*.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "54f3b831-d23a-4e4a-95ab-5d507570b45a",
+    "isActive" : true,
+    "trustedSiteName" : "Tiktokwwildcard",
+    "trustedSiteUrl" : "https://*.tiktokw.us",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "46e96122-7b12-4326-b8c7-c2fba9207cc0",
+    "isActive" : true,
+    "trustedSiteName" : "Quantserve Pixel",
+    "trustedSiteUrl" : "https://pixel.quantserve.com/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "cde6d8bc-457b-4af3-aca6-46a1ab04d68f",
+    "isActive" : true,
+    "trustedSiteName" : "ESW_Web_1746603361125",
+    "trustedSiteUrl" : "https://gigacommnet.my.site.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "a0f906c3-c1fd-4da4-9c23-f17067d2ce50",
+    "isActive" : true,
+    "trustedSiteName" : "Clarityms",
+    "trustedSiteUrl" : "https://c.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "3a843f80-6b4f-4716-bfaf-7f97ccbc7135",
+    "isActive" : true,
+    "trustedSiteName" : "Carity 3",
+    "trustedSiteUrl" : "https://n.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "27dba582-2a8b-4660-bdbe-225f8e73d7fa",
+    "isActive" : true,
+    "trustedSiteName" : "Clarity 5",
+    "trustedSiteUrl" : "https://o.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "fff440fa-9370-4c72-a2b1-c814c099714b",
+    "isActive" : true,
+    "trustedSiteName" : "Microsoft Clarity",
+    "trustedSiteUrl" : "https://*.clarity.ms",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "4168f0f6-f4de-4c7a-a2a8-2121ef2881b1",
+    "isActive" : true,
+    "trustedSiteName" : "UAT",
+    "trustedSiteUrl" : "https://gigacommnet--uat--c.sandbox.vf.force.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "26ff4606-51b5-40db-85a4-3203a4cf23d0",
+    "isActive" : true,
+    "trustedSiteName" : "consentag",
+    "trustedSiteUrl" : "https://consentag.eu",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

@@ -1,0 +1,61 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "3cf2e9e2-b7e6-4187-9659-1994b578d937",
+  "label" : "Complaints Handling Policy",
+  "regions" : [ {
+    "id" : "9386782b-c7bb-48ac-aa6c-39aea5415052",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommComplaintsHandlingPolicy",
+      "id" : "f360e2b5-e04e-469f-b145-81e6bcbe3838",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4a980439-c36a-40b1-a326-fc77d6f149ba",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "6d9eaa79-d0bf-4513-adb4-5ac746f7e4c6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b292e29c-510d-4ffa-990e-99dd194c5ab4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Complaints Handling Policy"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "954fa247-f029-45bb-9e3f-5d8b7886ff78",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "edc4de81-1c2a-48ae-bb73-f3262a649e75",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-complaints"
+}

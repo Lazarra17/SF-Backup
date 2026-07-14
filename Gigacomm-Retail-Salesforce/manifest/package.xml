@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+  <!-- Programmatic assets -->
+  <types><members>*</members><name>ApexClass</name></types>
+  <types><members>*</members><name>ApexTrigger</name></types>
+  <types><members>*</members><name>ApexPage</name></types>
+  <types><members>*</members><name>ApexComponent</name></types>
+  <types><members>*</members><name>LightningComponentBundle</name></types> <!-- LWC -->
+  <types><members>*</members><name>AuraDefinitionBundle</name></types>     <!-- Aura -->
+
+  <!-- UI / App setup 
+  <types><members>*</members><name>CustomApplication</name></types>
+  <types><members>*</members><name>CustomTab</name></types>
+  <types><members>*</members><name>Layout</name></types>
+  <types><members>*</members><name>QuickAction</name></types>
+  <types><members>*</members><name>PathAssistant</name></types>
+  <types><members>*</members><name>AppMenu</name></types>
+  <types><members>*</members><name>HomePageLayout</name></types>-->
+  <types>
+    <members>Opportunity_Record_Page_Three_Column</members>
+    <name>FlexiPage</name>
+  </types>
+  <types>
+      <members>Product2-Product Layout</members>
+      <members>Opportunity-Sales Pipeline Layout</members>
+      <members>Header_Config__c-Header Config Layout</members>
+      <name>Layout</name>
+  </types>
+
+  <types> 
+    <members>OPPTY_Get_Product_Order_Status</members>
+    <members>OPP_Requiring_Contact</members>
+    <name>Flow</name>
+  </types>
+
+  <!-- Automation 
+  <types><members>*</members><name>FlowDefinition</name></types>
+  <types><members>*</members><name>Workflow</name></types>
+  <types><members>*</members><name>AssignmentRules</name></types>
+  <types><members>*</members><name>AutoResponseRules</name></types>
+  <types><members>*</members><name>EscalationRules</name></types>
+  <types><members>*</members><name>DuplicateRule</name></types>
+  <types><members>*</members><name>MatchingRule</name></types>-->
+
+  <!-- Security 
+  <types><members>*</members><name>Profile</name></types>
+  <types><members>*</members><name>PermissionSet</name></types>
+  <types><members>*</members><name>PermissionSetGroup</name></types>
+  <types><members>*</members><name>Role</name></types>
+  <types><members>*</members><name>Group</name></types>
+  <types><members>*</members><name>SharingRules</name></types>
+
+  <types><members>*</members><name>NamedCredential</name></types>
+  <types><members>*</members><name>AuthProvider</name></types>
+  <types><members>*</members><name>ConnectedApp</name></types>
+  <types><members>*</members><name>TransactionSecurityPolicy</name></types>
+-->
+  <types>
+    <members>Mef_Staging</members>
+    <name>RemoteSiteSetting</name>
+  </types>
+
+  <!-- Data model & labels -->
+  <!-- Note: CustomObject *only* retrieves custom objects. Standard objects must be named explicitly if needed. 
+  <types><members>*</members><name>CustomObject</name></types>
+  <types><members>*</members><name>CustomMetadata</name></types>
+  <types><members>*</members><name>PlatformCachePartition</name></types>
+  <types><members>*</members><name>CustomLabels</name></types>
+  <types><members>*</members><name>GlobalValueSet</name></types>
+  <types><members>*</members><name>GlobalValueSetTranslation</name></types>
+  <types><members>*</members><name>Translations</name></types>-->
+  <types><members>*</members><name>GlobalValueSet</name></types>
+
+  <!-- Files, resources, mail -->
+  <types><members>*</members><name>StaticResource</name></types>
+ <!-- <types><members>*</members><name>Document</name></types>
+  <types><members>*</members><name>DocumentFolder</name></types>
+  <types><members>*</members><name>EmailTemplate</name></types>
+  <types><members>*</members><name>EmailFolder</name></types>
+  -->
+
+  <!-- Reports & dashboards require folders too 
+  <types><members>*</members><name>Report</name></types>
+  <types><members>*</members><name>ReportFolder</name></types>
+  <types><members>*</members><name>ReportType</name></types>
+  <types><members>*</members><name>Dashboard</name></types>
+  <types><members>*</members><name>DashboardFolder</name></types>-->
+
+  <!-- Communities / sites (include if you use Experience Cloud) -->
+  <types><members>*</members><name>ExperienceBundle</name></types>
+   <types><members>*</members><name>Network</name></types>
+   <types><members>*</members><name>CustomSite</name></types>
+ <!-- <types><members>*</members><name>SiteDotCom</name></types>-->
+
+  <!-- Misc commonly-used -->
+  <!--
+  <types><members>*</members><name>ChannelLayout</name></types>
+  <types><members>*</members><name>CompactLayout</name></types> --> <!-- child on objects, but allowed here for global items -->
+  <!--
+  <types><members>*</members><name>CustomPermission</name></types>
+  <types><members>*</members><name>EscalationRules</name></types>
+  <types><members>*</members><name>PlatformEventChannel</name></types>
+  <types><members>*</members><name>PlatformEventSubscriberConfig</name></types> -->
+  <types>
+        <members>site/Gigacomm_Website_LWC1</members>
+        <name>DigitalExperienceBundle</name>
+  </types>
+  <types>
+		<members>Product2.Evening_Download_Limit__c</members>
+		<members>Product2.Evening_Upload_Limit__c</members>
+		<members>Product2.Is_Most_Popular__c</members>
+    <members>Opportunity.Expected_Completion_with_offset_bric__c</members>
+    <members>Opportunity.Expected_Completion_local_bric__c</members>
+    <members>Opportunity.Expected_Completion_Date_bric__c</members>
+    <members>Opportunity.Mef_Product_Order_Note_Ids_bric__c</members>
+    <members>Opportunity.Service_Identification_Number_bric__c</members>
+    <members>Opportunity.Completion_Date_bric__c</members>
+    <members>Opportunity.Last_Order_Status_Check_bric__c</members>
+    <members>Opportunity.Cancellation_Date_bric__c</members>
+    <members>Mef_API_Settings__c.Subscription_Key__c</members>
+    <members>Mef_API_Settings__c.NonNamedCredentialEndpoint__c</members>
+    <members>Header_Config__c.Active__c</members>
+		<members>Header_Config__c.Button_Label__c</members>
+		<members>Header_Config__c.Image_URL__c</members>
+		<members>Header_Config__c.Small_Tag__c</members>
+		<members>Header_Config__c.Sort_Order__c</members>
+		<members>Header_Config__c.Subtitle__c</members>
+		<members>Header_Config__c.Title_Line1__c</members>
+		<members>Header_Config__c.Title_Line2__c</members>
+		<members>Header_Config__c.Type__c</members>
+		<members>Header_Config__c.Video_HTML__c</members>
+    <members>Header_Config__c.Button_Navigation_URL__c</members>
+		<name>CustomField</name>
+	</types>
+  <types>
+    <members>Opportunity.Get_Order_Status</members>
+    <name>Weblink</name>
+  </types>
+  <types>
+		<members>Header_Config__c</members>
+		<name>CustomTab</name>
+	</types>
+
+  <version>60.0</version>
+</Package>

@@ -1,0 +1,5 @@
+<design:component>
+    
+    <design:attribute name="showSearch" label="Show Search?" />
+	
+</design:component>

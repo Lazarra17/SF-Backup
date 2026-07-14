@@ -1,0 +1,17 @@
+.THIS .gc-footer-amount{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.THIS .gc-order-summary-footer{
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 5px 5%;
+}
+
+.THIS .gc-order-summary-arrow{
+    background-color: #bbf339;
+    border-radius: 50%;
+    padding: 7px 5px;
+    margin-left: 10px;
+}

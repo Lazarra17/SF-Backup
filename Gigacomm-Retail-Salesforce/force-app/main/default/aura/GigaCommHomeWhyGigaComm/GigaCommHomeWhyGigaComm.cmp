@@ -1,0 +1,97 @@
+<!-- 
+[1] WM 27 May - remove "Stream, game, video call and download on multiple devices, all at once on our gigabit plans."
+[2] WM 29 May - various changes per requirements
+[3] WM 1 June - fix mobile text
+
+-->
+<aura:component >
+    <div class="slds-grid  slds-m-top_x-large slds-m-bottom_medium" >   
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_1-of-1">
+            <h1 class="gc-why-giga-title slds-text-align_center slds-m-top_large">Why Gigacomm?</h1> <!-- [2] -->
+            <!-- <p class="gc-why-giga-subtitle2 slds-text-align_center" >
+                GigaComm is a network that works for you, not against you.<br/>
+                Unlike most providers who resell the same broadband network, we built our own hyper-fast gigabit network, made specifically for apartment living.<br/>
+                Whether you are working, gaming, or video calling family, GigaComm makes life easier and faster - so you are connected to what matters most.
+            </p> -->
+            <div class="slds-text-align_center">
+                Gigacomm is a network that works for you, not against you.<br/>
+                Unlike most providers who resell the same broadband network, we built our own hyper-fast gigabit network, made specifically for apartment living.<br/>
+                Whether you are working, gaming, or video calling family, Gigacomm makes life easier and faster - so you are connected to what matters most.
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="slds-grid slds-gutters slds-grid_vertical-stretch slds-m-top_xx-large slds-show_medium" >   
+        <div class="slds-col slds-size_4-of-12  slds-text-align_center ">
+            <div class="gc-border gc-why-gigacom-tiles">
+                <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/ic_round-speed.svg'}"></img>
+                <h2 class="gc-default-color">Hyper-Fast</h2>  <!-- [2] -->
+                <p><!-- [2] A range of download speeds between 100Mbps and 2Gbps, with upload speeds starting at 100Mbps. -->
+                    
+                    Stream, game, video call and download on multiple devices, all at once on our gigabit plans.
+                </p>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+            <div class="gc-border gc-why-gigacom-tiles" >
+                <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/wifiSignal.svg'}"></img>
+                <h2 class="gc-default-color">Reliable</h2> <!-- [2] -->
+                <p>No more buffering. No more frozen screens.<br/>
+                    Enjoy smooth connections, with no interruptions.</p>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+            <div class="gc-border gc-why-gigacom-tiles">
+                <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/Value.svg'}"></img>
+                <h2 class="gc-default-color">Great Value</h2> <!-- [2] -->
+                <p>Hyper-Fast Internet with no premium price tag and a range of value plans to suit your needs at a price you will love.</p>
+            </div>
+        </div>
+    </div>
+
+<!-- MOBILE  -->    
+    <div class="slds-grid slds-hide_medium" >  
+        <div class="slds-col slds-size_1-of-1">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                         <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/ic_round-speed.svg'}"></img>
+               		 <h2 class="gc-default-color">Hyper-Fast</h2>  <!-- [2] -->
+            	    <p><!-- [2] A range of download speeds between 100Mbps and 2Gbps, with upload speeds starting at 100Mbps. -->
+                    
+                    Stream, game, video call and download on multiple devices, all at once on our gigabit plans.
+                </p>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/wifiSignal.svg'}"></img>
+                <h2 class="gc-default-color">Reliable</h2> <!-- [2] -->
+                <p>No more buffering. No more frozen screens.<br/>
+                    Enjoy smooth connections, with no interruptions.</p>
+                    </div> 
+                    <div class="carousel-item">
+                    <img class="gc-why-giga-icon" src="{!$Resource.GigaCommAsset + '/HomePageIcons/Value.svg'}"></img>
+                <h2 class="gc-default-color">Great Value</h2> <!-- [2] -->
+                <p>Hyper-Fast Internet with no premium price tag and a range of value plans to suit your needs at a price you will love.</p>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

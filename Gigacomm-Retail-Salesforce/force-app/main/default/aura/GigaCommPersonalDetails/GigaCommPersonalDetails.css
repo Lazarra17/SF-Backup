@@ -1,0 +1,100 @@
+.THIS .gc-pd-title{
+    font-weight: bold;
+    color: #3a2872;
+    margin:0px;
+}
+
+.THIS .gc-accordion-pd-container{
+    background-color: #f8f8f8;
+}
+
+.THIS .gc-important-text{
+    background-color: #9bd8ff;
+    color: #382670;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.THIS .gc-pd-btn-size{
+    padding-top: 2px !important;
+    padding-bottom: 5px !important;
+}
+
+.THIS .gc-icon-message{
+    margin-right: 5px;
+}
+
+.THIS .gc-white-text-color {
+    color: white;
+}
+
+.THIS .gc-pd-input-text .slds-form-element__label {
+    color: #0f0f0f;
+    padding-bottom: 5px;
+}
+
+.THIS .gc-TC{
+    background-color: #eeefe9;
+    border-radius: 5px; 
+}
+
+.THIS p.gc-btn-neutral-border{
+    margin: 0px;
+}
+
+.THIS .fa-times{
+    cursor: pointer;
+}
+
+.THIS .gc-tc-container{
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+}
+
+.THIS .gc-tc-container-header{
+    background-color: #f8f8f8;
+    border-radius: 10px 10px 0 0;
+}
+
+.THIS .gc-color-required{
+    color: red;
+    padding-left: 2px; 
+    padding-right: 5px;
+}
+
+.THIS .gc-promo-grats{
+    font-weight: 600;
+}
+
+.THIS .gc-icon-check{
+    font-size: 14px;
+    color: white;
+    background-color: green;
+    border-radius: 50%;
+    padding: 1px;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
+.THIS .gc-icon-close{
+    font-size: 14px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 1px;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
+.THIS .fa-times{
+    font-size: 1.5rem;
+}
+
+.THIS .gc-modal-footer {
+    
+    padding: 20px;
+}
+
+.THIS .gc-btn-disabled{
+    float: right;
+}

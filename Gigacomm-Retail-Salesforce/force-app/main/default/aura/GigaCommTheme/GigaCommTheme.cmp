@@ -1,0 +1,37 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,forceCommunity:themeLayout" access="global" description="On Country Layout">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeProfileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeHero" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="customSearch" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="nav" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="showSearch" type="Boolean" required="false" default="true"/>
+    <ltng:require styles="{!$Resource.FontAwesome + '/css/all.css'}" />
+    <ltng:require styles="{!$Resource.Google_Icons}" />
+    <ltng:require styles="{!$Resource.BootstrapCss}" scripts="{!$Resource.BootstrapJS}" />
+    <!-- <ltng:require styles="{!$Resource.BootstrapCss}" scripts="{!$Resource.TrustPilotBootstrapJS}" /> -->
+    <div class="gc-container">
+        <div class="slds-grid slds-grid--align-center gc-header">   
+            <c:GigaCommHeader />  
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-1">
+                {!v.body}
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap slds-m-bottom_xx-large slds-p-top_xx-large">
+            <div class="slds-col slds-size_1-of-1 ">
+                <div class="container">
+                    <c:GigaCommFooter />  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

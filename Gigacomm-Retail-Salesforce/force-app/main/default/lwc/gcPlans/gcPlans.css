@@ -1,0 +1,1296 @@
+/* base retained - only appended center tile styles and small tweaks for rich content */
+
+/* small arrow/button styles */
+.desktop-nav-left, .desktop-nav-right {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #382670;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    box-shadow: 0 6px 14px rgba(46,18,96,0.04); 
+    margin: 0 8px;
+    border: none;
+}
+.center-inclusions .gc-order-wizard-accordion,
+.accordion .gc-order-wizard-accordion,
+.accordion-button.gc-order-wizard-accordion {
+  /* Typography — as per Figma */
+  font-family: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 1);
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* space between text and arrow */
+  width: auto; /* dynamic width to fit content */
+  height: 21px;
+  white-space: nowrap; /* ✅ prevents wrapping to two lines */
+  text-align: center;
+  box-sizing: border-box;
+
+  /* Visual cleanup */
+  background: transparent !important; /* ✅ remove white box */
+  border: none !important;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.gilroy-regular-text {
+    font-family: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal; /* Figma ☞ means Regular */
+    font-size: 16px;
+    line-height: 130%; /* 1.3 */
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #222; /* adjust as per design */
+}
+
+/* ✅ Chevron alignment and styling */
+.center-inclusions .gc-order-wizard-accordion::after,
+.accordion .gc-order-wizard-accordion::after {
+  content: ""; /* fallback if Bootstrap doesn’t add its own arrow */
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  margin-left: 6px;
+  position: relative;
+  top: 1px;
+  transition: transform 0.25s ease;
+ 
+}
+
+/* Rotate chevron up when expanded */
+.center-inclusions .gc-order-wizard-accordion[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* Hover effect (optional, subtle) */
+.center-inclusions .gc-order-wizard-accordion:hover {
+  color: #221650; /* dark purple hover */
+}
+
+/* ✅ Remove any default accordion wrapper background */
+.center-inclusions .accordion,
+.center-inclusions .accordion-item,
+.ce
+
+.accordion-button::after {
+    margin-left:10px !important;
+}
+/* MOST POPULAR badge */
+.most-popular-badge {
+  position: absolute;
+  top: -14px;                    /* sits slightly above the tile top edge */
+  left: 50%;                     /* center horizontally */
+  transform: translateX(-50%);
+  background: #2e1260;           /* dark purple */
+  color: #ffffff;
+  padding: 4px 16px;             /* Figma-ish padding */
+  border-radius: 50px;           /* circular pill */
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  z-index: 200;                  /* high so it sits above everything */
+  pointer-events: none;          /* non-interactive */
+  font-family: Roboto, sans-serif;
+}
+
+/* Slight horizontal nudge for when viewport clips (tweak if necessary) */
+.desktop-viewport { overflow: visible; } /* let badge show outside viewport */
+.desktop-tile { overflow: visible; }     /* ensure tile won't clip badge */
+
+.nav-link{
+    border-radius: 25px;
+    color: #382670;
+    font-weight: 600;
+    margin: 0px 5px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.desktop-arrow { 
+    width: 14px;
+    height: 14px;
+    max-width: max-content;
+ }
+
+/* viewport/track/tile sizing (Figma) */
+.desktop-viewport { width: 100%; max-width: calc(100% - 200px); overflow: hidden;position: relative; }
+.desktop-viewport:before {
+  content: "";
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 1.59%, #FFFFFF 70.45%);
+}
+.desktop-viewport:after {
+  content: "";
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 1.59%, #FFFFFF 70.45%);
+  transform: rotate(-180deg);
+
+}
+
+.desktop-track { display:flex; gap:32px; padding:24px 0 12px; transition: transform 360ms cubic-bezier(.2,.9,.2,1); }
+.desktop-tile { flex:0 0 415px; display:flex; justify-content:center; align-items:stretch; }
+
+/* wrapper base */
+.gc-order-wizard-border, .gc-order-wizard-border-selected, .slds-grid.slds-wrap.slds-grid_vertical-stretch {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    border:2px solid rgba(231, 246, 255, 1);
+    border-radius:16px;
+    /* overflow:hidden; */
+    background: rgba(231, 246, 255, 1);
+    box-sizing:border-box;
+    padding:2rem 1.5rem;
+    
+}
+
+/* price bubble */
+.price-bubble {
+    position: absolute;
+    top: 34px;
+    right: 18px;
+    background: #fff;
+    border-radius: 12px 0 12px 0;
+    padding: 6px 10px;
+    text-align: center;
+}
+.price-bubble .price-amt { color:#EF466F; font-weight:400; font-size:2rem;font-family: Gilroy-Bold, sans-serif;line-height: 1;}
+.price-bubble .price-term { color:#6b345f; font-size:0.72rem; }
+
+/* small icon top-left */
+.center-top-row { padding: 14px 0; display:flex; align-items:center; }
+.center-icon { width:36px; height:36px; display:flex; align-items:center; justify-content:center; }
+
+/* title + description */
+.center-title { padding: 0; margin-top:6px; }
+.center-title h3 { font-size:2rem; font-weight:400; color:#221650; margin:0 0 6px 0;font-family: 'Gilroy-Bold', sans-serif; }
+.center-desc { color:#221650; opacity:0.95; font-size:0.95rem; margin:0 0 8px 0; }
+
+/* speed box container - white rounded box */
+.center-speed-box {
+    background: #fff;
+    margin: 6px 0;
+    border-radius: 12px 0 12px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+.center-speed-box .speed-left,
+.center-speed-box .speed-right {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    width:45%;
+}
+.center-speed-box .speed-num {
+    font-size:2rem;
+    font-weight:400;
+    color:#382670;
+    line-height:1;
+    font-family: 'Gilroy-Bold', sans-serif;
+}
+.center-speed-box .speed-unit {
+    font-size:0.8rem;
+    color:#444;
+    margin-top:2px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-weight: 400;
+}
+.center-speed-box .speed-label {
+    font-size:0.8rem;
+    color:#6b345f;
+    margin-top:6px;
+}
+.speed-divider { width:1px; height:56px; background:rgba(0,0,0,0.06); margin:0 8px; }
+
+/* min cost line */
+.center-mincost {
+   
+    font-family: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;          /* ☞ = normal (regular) */
+    font-size: 14px;
+    line-height: 150%;           /* or 1.5 shorthand */
+    letter-spacing: 0;
+    text-align: center;          /* Figma: centered */
+    vertical-align: middle;
+    
+    /* Visual refinements */
+    color: rgba(34, 34, 34, 1);              /* matches your existing palette */
+    /* keep subtle transparency */
+    margin: 10px 0 0;
+}
+.center-mincost p{
+  margin-bottom: 0;
+}
+
+/* CTA button (center) */
+.center-cta {
+    background:#2e1260;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    padding:12px 36px;
+    font-weight:800;
+    font-size:1rem;
+}
+.center-cta:hover { background:#4d1f90; }
+
+/* inclusions accordion button */
+.gc-order-wizard-accordion { background:transparent; border:none; color:#221650; font-weight:700; margin: 8px 18px; }
+
+/* inclusions list */
+.center-inclusions .gc-inclusions li { color:#221650; font-weight:600; padding:4px 0; }
+
+/* compact (non-center) tile simple styles */
+.compact-content { padding:18px; display:flex; flex-direction:column; gap:10px; }
+.compact-title h3 { font-size:1.1rem; color:#221650; }
+.compact-speeds { display:flex; gap:12px; align-items:center; justify-content:flex-start; }
+.compact-download, .compact-upload { font-size:1.25rem; font-weight:800; color:#221650; }
+.compact-price { margin-left:auto; font-size:1.25rem; font-weight:800; color:#221650; }
+
+/* ensure tile min-height (Figma hug approx) */
+
+/* .desktop-tile .gc-order-wizard-border, .desktop-tile .gc-order-wizard-border-selected {
+    min-height: 643.5px;
+} */
+
+
+
+/* dots / mobile */
+.carousel-indicators { display:flex; justify-content:center; gap:10px; margin-top:10px; }
+/* Restore pointer cursors for interactive elements (from previous HTML) */
+
+/* arrow buttons */
+.desktop-nav-left,
+.desktop-nav-right {
+  cursor: pointer; /* ensures hand pointer on hover */
+}
+
+/* center CTA and compact CTA buttons */
+.center-cta,
+.center-btn button,
+.gc-btn,
+.gc-btn-selected,
+.small-btn {
+  cursor: pointer;
+  background-color: rgba(56, 38, 112, 1); /* your requested purple */
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 36px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: none;
+  box-shadow: 0 4px 8px rgba(56, 38, 112, 0.15);
+  transition: background 150ms ease, transform 120ms ease;
+}
+
+.center-cta:hover,
+.center-btn button:hover,
+.gc-btn:hover,
+.gc-btn-selected:hover,
+.small-btn:hover {
+  background-color: rgba(74, 50, 150, 1); /* slightly lighter hover shade */
+  transform: translateY(-1px);
+}
+
+/* accordion / see details */
+.gc-order-wizard-accordion,
+.accordion-button {
+  cursor: pointer;
+}
+
+/* make whole compact tile clickable if desired (keeps semantics) */
+.compact-content,
+.desktop-tile .compact-content {
+  cursor: pointer;
+}
+
+/* mobile carousel controls */
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  cursor: pointer;
+}
+
+/* --- FIX: Vertically center left/right arrows beside tiles --- */
+.desktop-center-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;   /* keeps arrows aligned vertically */
+  justify-content: center;
+}
+
+/* Reposition the navigation arrows to the vertical middle */
+.desktop-nav-left,
+.desktop-nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+}
+
+/* Adjust horizontal positions (fine-tune if needed) */
+.desktop-nav-left {
+  left: -40px;   /* move slightly outside the left edge */
+}
+
+.desktop-nav-right {
+  right: -40px;  /* move slightly outside the right edge */
+}
+
+/* ===== Patch: prevent bubble clipping & keep side tile content visible ===== */
+
+/* Let each tile show elements that extend slightly (bubble, shadows) */
+.desktop-tile {
+  overflow: visible; /* allow bubble & speed box shadows to be visible */
+}
+
+/* Allow inner wrapper to show children that overflow slightly */
+.gc-order-wizard-border,
+.gc-order-wizard-border-selected {
+  overflow: visible; /* was hidden; now visible so inner white boxes/bubble are not clipped */
+  position: relative; /* ensure absolute children are positioned relative to the tile */
+}
+
+/* Give the track small side padding so first/last bubble doesn't get cut */
+.desktop-track {
+  padding-left: 56px;   /* tune if needed */
+  padding-right: 56px;  /* tune if needed */
+}
+
+/* Ensure price bubble is tile-relative, small and sits above neighbors */
+.price-bubble {
+  position: absolute;
+  top: 34px;
+  right: 18px;
+  z-index: 60;
+  pointer-events: none;    /* bubble won't block clicks */
+  max-width: 120px;        /* keeps bubble compact */
+}
+
+/* Ensure the center tile sits above adjacent tiles */
+
+
+/* Ensure white inner speed-box is above background */
+.center-speed-box,
+.center-speed-box .speed-left,
+.center-speed-box .speed-right {
+  position: relative;
+  z-index: 50;
+}
+
+/* If you still see slight overlap with neighbors at small widths,
+   reduce the track paddings above (or increase if you want more breathing room). */
+.plan1gb-image {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+}
+/* ======================
+   Centered toggle (mid) 
+   Morning left | Evening right
+   ====================== */
+
+/* Wrapper that centers the toggle horizontally within the tile */
+.speed-toggle-mid {
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* center horizontally in tile */
+  align-items: center;
+  margin: 10px 0 6px 0;      /* vertical spacing above title */
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 30;
+}
+
+/* The toggle container — inline flex for internal layout */
+.speed-toggle-fixed {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  padding: 0 6px;
+  border-radius: 999px;
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Offscreen but accessible checkbox (keeps sibling CSS working) */
+.speed-checkbox {
+  position: absolute;
+  left: -9999px;    /* offscreen but in DOM */
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+/* Labels to left and right of the track */
+.speed-label {
+  font-family: "Gilroy", "Gilroy", sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: #221650;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+/* ensure left label is slightly closer to track than right */
+.speed-label.left { margin-right: 6px; }
+.speed-label.right { margin-left: 6px; }
+
+/* Track (white rounded pill) */
+.speed-track {
+  width: 36px;            /* track width */
+  height: 20px;           /* track height */
+  border-radius: 999px;
+  background: #ffffff;
+  /* border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.03); */
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Knob (orange) */
+.speed-knob {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(137.79deg, #FFD338 12.41%, #FF9D42 91.44%);
+  position: absolute;
+  top: 50%;
+  left: 2px; /* morning (left) position */
+  transform: translateY(-50%);
+  transition: left 0.18s ease, box-shadow 120ms ease;
+}
+
+/* Bold Morning label when in morning mode (unchecked knob on left) */
+/* DOM must be: input + label.speed-track + .speed-label.left + .speed-label.right */
+.speed-checkbox:not(:checked) ~ .left {
+  font-family: "Gilroy-Bold", "Gilroy", sans-serif;
+  font-weight: 400;
+}
+
+/* Normal when evening (checked) */
+.speed-checkbox:checked ~ .left {
+  font-family: "Gilroy-Medium", "Gilroy", sans-serif;
+  font-weight: 400;
+}
+
+/* Focus styles for accessibility (keyboard focus) */
+.speed-checkbox:focus + .speed-track {
+  outline: 2px solid rgba(56,38,112,0.15);
+  outline-offset: 2px;
+}
+
+
+
+/* If you also want the toggle inside the .center-title and horizontally centered,
+   ensure center-title has enough top padding so toggle doesn't overlap the title text */
+.center-title { position: relative; padding-top: 10px; }
+/* ============================
+   Morning / Evening Labels
+   ============================ */
+
+/* Shared base style for both labels */
+.speed-label {
+  font-family: 'Gilroy-Regular',sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;             /* Figma spec */
+  line-height: 150%;           /* 1.5 line height */
+  letter-spacing: 0%;
+  color: #222222;
+  vertical-align: middle;
+  user-select: none;
+  white-space: nowrap;
+  transition: font-weight 0.25s ease, font-family 0.25s ease, color 0.25s ease;
+}
+.speed-label.bold{
+  font-family: 'Gilroy-Bold',sans-serif;
+  font-weight: 400;
+}
+/* Positioning if used around toggle (even spacing) */
+.speed-label.left {
+  text-align: right;
+  margin-right: 8px;           /* space before the toggle */
+}
+
+.speed-label.right {
+  text-align: left;
+  margin-left: 8px;            /* space after the toggle */
+  opacity: 0.85;               /* slightly dimmer, optional */
+}
+
+
+/* ==============
+   Dynamic states
+   ============== */
+
+/* Morning Mode (default / unchecked toggle) */
+.center-tile.morning .speed-label.left,
+.gc-order-wizard-border.morning .speed-label.left {
+  font-family: "Gilroy-Bold", "Gilroy", sans-serif;
+  font-weight: 700;
+  color: #221650;
+}
+
+/* Evening Mode (checked toggle) */
+.center-tile.evening .speed-label.left,
+.gc-order-wizard-border.evening .speed-label.left {
+  font-family: "Gilroy-Medium", "Gilroy", sans-serif;
+  font-weight: 400;
+  color: #221650;
+}
+
+/* Optional — make right label bold when evening mode */
+.center-tile.evening .speed-label.right,
+.gc-order-wizard-border.evening .speed-label.right {
+  font-family: "Gilroy-Bold", "Gilroy", sans-serif;
+  font-weight: 700;
+  color: #221650;
+}
+
+/* When morning mode active, keep right label normal */
+.center-tile.morning .speed-label.right,
+.gc-order-wizard-border.morning .speed-label.right {
+  font-family: "Gilroy-Medium", "Gilroy", sans-serif;
+  font-weight: 400;
+  opacity: 0.85;
+}
+/* --- Evening Mode --- */
+.speed-checkbox:checked + .speed-track {
+  background: rgba(61, 61, 155, 1); /* dark blue background */
+}
+
+.speed-checkbox:checked + .speed-track .speed-knob {
+  left: 18px; /* moves to right */
+  background: #ffffff; /* white (moon) */
+}
+
+/* Optional: small moon craters */
+.speed-checkbox:checked + .speed-track .speed-knob::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(200, 200, 255, 0.5);
+  box-shadow: 4px 2px 0 rgba(200, 200, 255, 0.5);
+}
+/* container list */
+.plan-inclusions {
+  list-style: none;
+  margin: 12px 0 0 0;    /* small gap from min-cost block */
+  padding: 0;
+  background: transparent;
+}
+
+/* each row: icon + text, with thin bottom border per Figma */
+.plan-inclusion-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;                     /* spacing between icon and text */
+  padding: 12px 16px;            /* vertical + horizontal padding */
+  border-bottom: 0.5px solid var(--Color-Neutral-neutral-lighter, rgba(204, 204, 204, 1));
+  background: transparent;
+}
+
+/* remove border on last row for a cleaner finish */
+.plan-inclusion-row:last-child {
+  border-bottom: none;
+}
+
+/* icon sizing and alignment */
+.plan-inclusion-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;           /* keep icon aspect ratio */
+}
+
+/* Optional: center tile specific tweaks (if tile has .center-tile class) */
+
+.center-tile {
+  z-index: 40; /* higher than adjacents so bubble and content appear on top */
+  background-color: rgba(187, 245, 50, 1);
+}
+
+.bold {
+  font-weight: bold;
+}
+.gc-center-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gc-center-btn button {
+  width: 100%;
+  max-width: 364px;
+  height: 45px;
+  border-radius: 50px;
+  padding: 10px 25px;
+  background-color: #2E1260;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: none;
+  margin-top: 1rem;
+  font-family: Gilroy-Bold, sans-serif;
+}
+/* If using LWC, this file is component-scoped. */
+:host {
+  --gc-font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --gc-font-size: 16px;
+  --gc-line-height: 1.3; /* 130% */
+  --gc-text-color: #1f1f1f; /* adjust to match Figma color */
+  --gc-accent-color: #2E1260; /* for chevron/icon or focus states */
+}
+
+/* Accordion button container (centers with SLDS padding already present) */
+.center-inclusions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+/* Accordion button (collapsed by default) */
+.center-inclusions .accordion-button {
+  font-family: var(--gc-font-family);
+  font-weight: 400;
+  font-style: normal;        /* the '☞' looked like a placeholder; using normal */
+  font-size: var(--gc-font-size);
+  line-height: var(--gc-line-height);
+  color: var(--gc-text-color);
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+  transition: color .15s ease-in-out, transform .12s ease;
+}
+
+/* Visual focus for keyboard users */
+.center-inclusions .accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(46,18,96,0.12);
+  border-radius: 8px;
+}
+
+/* Add a small chevron via pseudo-element (adjust color/size as needed) */
+.center-inclusions .accordion-button::after {
+  content: "▾"; /* chevron down */
+  margin-left: 12px;
+  font-size: 14px;
+  color: var(--gc-accent-color);
+  transition: transform .18s ease;
+}
+
+/* When expanded, rotate chevron */
+.center-inclusions .accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
+}
+
+/* Accordion collapse body */
+.center-inclusions .accordion-collapse {
+  overflow: hidden;
+  transition: max-height .28s cubic-bezier(.2,.8,.2,1), opacity .18s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+/* When expanded, set a large max-height (actual height will be children height) */
+.center-inclusions .accordion-collapse.show {
+  max-height: 600px; /* large enough for content */
+  opacity: 1;
+}
+
+/* Body inner spacing */
+.center-inclusions .accordion-body {
+  padding: 10px 4px 0 4px;
+}
+
+/* Inclusions list */
+.gc-inclusions {
+  margin: 0;
+  padding-left: 20px; /* typical list indent */
+  list-style-type: disc;
+  display: block;
+}
+
+/* Each inclusion item styling per Figma text */
+.gc-inclusions li {
+  font-family: var(--gc-font-family);
+  font-weight: 400;
+  font-size: var(--gc-font-size);
+  line-height: var(--gc-line-height);
+  color: var(--gc-text-color);
+  letter-spacing: 0; /* 0% */
+  vertical-align: middle;
+  word-break: break-word;
+}
+/* AKS CSS Begin */
+.custom-see-benefits .accordion .accordion-item{
+      background-color: transparent;
+      padding-top:1rem;
+}
+.custom-see-benefits .accordion .accordion-item p{
+      padding:0;
+      margin:0;
+}
+.custom-bottom-text p{
+  font-size: 14px;
+  font-family: Gilroy-Regular,sans-serif;
+  line-height: 22px;
+  font-weight: 400;
+  color: #222;
+}
+/* AKS CSS End */
+
+
+
+/* ============================
+   Dot Bar + No Lock Pill
+   ============================ */
+
+/* Outer container per Figma (1280px wide, centered, with 80px side padding) */
+.dot-bar-outer {
+  width: 100%;
+  max-width: 100%;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* space between dots row and pill */
+  box-sizing: border-box;
+  margin: 1rem auto 0;
+  opacity: 1;
+}
+
+/* Dots row: centered, even gap between each */
+.dots-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* Figma gap */
+  width: 100%;
+  height: 24px;
+}
+
+/* Button wrapper for dots */
+.dot-button {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Base dot */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(217, 217, 217, 1); /* light gray inactive */
+  display: inline-block;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Active (selected) dot */
+.dot.active {
+  background: #382670; /* purple active */
+  transform: scale(1.3);
+}
+
+/* Hover/focus states for accessibility */
+.dot-button:hover .dot,
+.dot-button:focus .dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(56, 38, 112, 0.15);
+}
+
+/* --- Lock Pill --- */
+.lock-pill {
+  width: 100%;
+  max-width:100%;
+  height: 36px;
+  background: rgba(231, 246, 255, 1); /* Figma blue background */
+  border-radius: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  font-family: "Gilroy-Medium", "Gilroy", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(56, 38, 112, 1);
+  text-align: center;
+}
+
+/* Lock icon color matches text */
+.lock-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: rgba(56, 38, 112, 1);
+}
+
+/* Lock text */
+.lock-text {
+  color: rgba(56, 38, 112, 1);
+  font-weight: 600;
+}
+/* ===== hide fades when at extremes ===== */
+.desktop-viewport.at-start::before { 
+  display: none !important;
+  content: none !important;
+  pointer-events: none;
+}
+
+.desktop-viewport.at-end::after {
+  display: none !important;
+  content: none !important;
+  pointer-events: none;
+}
+
+/* If both at-start and at-end (single slide) hide both fades */
+.desktop-viewport.at-start.at-end::before,
+.desktop-viewport.at-start.at-end::after {
+  display: none !important;
+  content: none !important;
+}
+.custom-page-title {
+  color: #382670;
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: capitalize;
+  line-height: 120%;
+}
+/* --- CENTER TILE RICH MARKUP STYLES --- */
+.center-tile {
+    background-color: rgba(187,245,50,1) !important; /* user requested */
+    border-radius: 16px;
+    border: 2px solid rgba(187,245,50,1) !important;;
+    /* box-shadow: 0 28px 50px rgba(50,50,50,0.14); */
+    transform: scale(1.03);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    color: #221650;
+    position: relative;
+    z-index: 20;
+    overflow: visible;
+}
+/* reuse / copy into gcPlans.css (component-scoped) */
+
+/* accordion inclusion list styled as icon rows */
+.plan-inclusions-accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* each inclusion row inside accordion */
+.plan-inclusion-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--Color-Neutral-neutral-lighter, rgba(204, 204, 204, 1));
+  background: transparent;
+}
+
+/* last row: optional remove border */
+.plan-inclusion-row:last-child {
+  border-bottom: none;
+}
+
+/* icon */
+.plan-inclusion-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;
+}
+
+/* text */
+.plan-inclusion-text {
+  font-size: 16px;
+  line-height: 18px;
+  color: #382670;
+  display: block;
+  font-family: Gilroy-Medium,sans-serif;
+  font-weight: 400;
+}
+/* ============================
+   Responsive adjustments
+   ============================ */
+@media (max-width: 1400px) {
+  .desktop-viewport {
+    max-width: calc(100% - 4%);
+  }
+}
+@media (max-width: 1024px) {
+  .dot-bar-outer {
+    padding-left: 40px;
+    padding-right: 40px;
+    height: auto;
+    gap: 12px;
+  }
+
+  .lock-pill {
+    width: 100%;
+    max-width: none;
+  }
+  .custom-plan-title-wrap{
+    width: 100%;
+  }
+}
+/* =============================
+   MOBILE ADAPTER: Use desktop HTML on mobile (no HTML changes)
+   Paste at the END of your stylesheet
+   Targets max-width: 520px (tweak if needed)
+   ============================= */
+@media (max-width: 767.5px) {
+
+  /* Ensure the desktop center wrapper is visible on mobile */
+  .desktop-center-wrapper { display: block !important; position: relative; }
+
+  /* Hide desktop arrows on mobile (you already had this) */
+  .desktop-nav-left,
+  .desktop-nav-right {
+    display: none !important;
+  }
+
+  /* viewport setup */
+  .desktop-viewport {
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  }
+
+  /* Track becomes horizontal flex so each tile can be full-bleed */
+  .desktop-track {
+    display: flex !important;
+    flex-direction: row;
+    transition: transform 360ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform;
+    touch-action: pan-y; /* allow vertical scroll but we will capture horizontal swipes */
+  }
+
+  /* Each tile occupies full viewport width */
+  .desktop-tile {
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    overflow: visible;
+  }
+
+  .desktop-tile .price-bubble .price-amt { font-size: 1.05rem !important; }
+  .desktop-tile .price-bubble .price-term { font-size: 0.70rem !important; }
+
+  /* Top row icon smaller and aligned */
+  /* .desktop-tile .center-top-row { padding: 8px 6px !important; align-items: flex-start !important; } */
+  .desktop-tile .plan1gb-image { width: 30px !important; height: 30px !important; object-fit: contain !important; }
+
+  /* Title & description sizing */
+  .desktop-tile .center-title { padding: 6px 12px !important; margin-top: 6px !important; }
+  .desktop-tile .center-title h3 { font-size: 20px !important; line-height: 1.08 !important; margin: 6px 0 !important; }
+  .desktop-tile .center-desc { font-size: 13px !important; margin-bottom: 4px !important; }
+
+  /* Speed toggle: tighter, centered */
+  .desktop-tile .speed-toggle-mid { margin: 6px 0 !important; display:flex !important; justify-content:center !important; }
+  .desktop-tile .speed-toggle-fixed { gap: 10px !important; padding: 0 6px !important; }
+  
+  /* .desktop-tile .speed-knob { width: 16px !important; height: 16px !important; left: 3px !important; transition: left 0.18s ease !important; } */
+  .desktop-tile .speed-label { font-size: 12.5px !important; }
+
+  .desktop-tile .center-speed-box .speed-num { font-size: 1.6rem !important; }
+  .desktop-tile .center-speed-box .speed-unit { font-size: 0.85rem !important; margin-top: 4px !important; }
+
+  /* Speed divider mobile tweak */
+  .desktop-tile .speed-divider { width: 1px !important; height: 48px !important; margin: 0 12px !important; background: rgba(0,0,0,0.06) !important; }
+
+  /* Min cost: align left and smaller */
+  /* .desktop-tile .center-mincost { font-size: 0.88rem !important; margin: 6px 12px !important; text-align: left !important; } */
+
+  /* Accordion & inclusions compact */
+  .desktop-tile .gc-order-wizard-accordion { margin: 8px 12px !important; padding: 8px 10px !important; font-size: 14px !important; }
+  .desktop-tile .accordion-collapse { padding: 0 12px !important; }
+  .desktop-tile .gc-inclusions li { font-size: 13px !important; margin: 6px 0 !important; }
+
+
+  /* Dots / indicators adjustments */
+  .dot-bar-outer { padding-top: 8px; padding-bottom: 12px; display:flex; justify-content:center; align-items:center; gap:12px; }
+  .dot-button { margin: 0 6px; }
+  .dot { width:10px; height:10px; border-radius:50%; background: rgba(0,0,0,0.12); display:inline-block; }
+  .dot.active { background:#2e1260; transform: scale(1.15); }
+
+  /* Prevent horizontal overflow */
+  body, .desktop-viewport, .desktop-track, .desktop-tile, .gc-order-wizard-border { overflow-x: hidden !important; }
+
+  /* Reduce spacing/padding globally for mobile to fit content */
+  .desktop-tile .slds-p-left_small, .desktop-tile .slds-p-right_small, .desktop-tile .slds-p-around_small { padding-left: 8px !important; padding-right: 8px !important; padding: 6px !important; }
+
+  /* Ensure center-title doesn't overlap toggle */
+  .desktop-tile .center-title { padding: 6px 0 !important }
+
+  /* Keep font sizes comfortable */
+  .desktop-tile .center-title h3 { font-size: 20px !important; }
+  .desktop-tile .center-desc { font-size: 13px !important; }
+
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .desktop-tile .speed-knob { transition: none !important; }
+    .desktop-track { transition: none !important; }
+  }
+
+
+  .dot-bar-outer {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 10px;
+  }
+
+  .dots-track {
+    gap: 16px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .lock-pill {
+    flex-direction: row;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .lock-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+
+  .desktop-viewport {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .desktop-viewport::before,
+  .desktop-viewport::after { display: none !important; content: none !important; }
+
+  .desktop-track {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    transition: transform 360ms cubic-bezier(.2,.9,.2,1) !important;
+    will-change: transform !important;
+    touch-action: pan-y !important;
+  }
+
+  .desktop-tile {
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .dot-bar-outer { padding-left: 12px !important; padding-right: 12px !important; }
+  .dots-track { gap: 12px !important; }
+
+  body, .desktop-viewport, .desktop-track, .desktop-tile, .gc-order-wizard-border {
+    overflow-x: visible !important;
+    padding-top: 15px;
+  }
+
+  /* make sure dim/adjacent/center tiles are all visible on mobile */
+  .desktop-tile .dim-tile,
+  .desktop-tile .adjacent-tile,
+  .desktop-tile .center-tile,
+  .gc-order-wizard-border,
+  .gc-order-wizard-border-selected {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  /* if your dim-tile class had pointer-events:none or similar, allow clicks on mobile */
+  .desktop-tile .dim-tile * {
+    pointer-events: auto !important;
+  }
+
+  /* make sure any 'hidden' or collapsed styling won't hide the inner card */
+  .desktop-tile .dim-tile,
+  .desktop-tile .adjacent-tile {
+    transform: none !important;
+    filter: none !important;
+  }
+  .nav-link{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .gc-order-wizard-border,
+  .gc-order-wizard-border-selected,
+  .slds-grid.slds-wrap.slds-grid_vertical-stretch {
+    padding: 2rem 1rem;
+  }
+  .center-top-row{
+    padding: 0 0 14px;
+  }
+  .desktop-tile .center-speed-box.slds-p-left_small.slds-p-right_small {
+    padding: 6px 12px !important;
+  }
+  .custom-mobile-choose-speed{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+   
+
+  /* mark viewport mobile and enable smooth snapping */
+  .desktop-viewport.is-mobile {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 !important;
+  }
+
+  /* hide the left/right gradient overlays on mobile */
+  .desktop-viewport.is-mobile::before,
+  .desktop-viewport.is-mobile::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* track should not rely on transform on mobile */
+  .desktop-viewport.is-mobile .desktop-track {
+    transform: none !important;
+    gap: 16px !important; /* small gap if you prefer */
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    will-change: transform;
+    touch-action: pan-y;
+  }
+
+  /* each tile becomes full viewport width and snaps to center */
+  .desktop-viewport.is-mobile .desktop-tile {
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* optionally hide desktop nav arrows */
+  .desktop-nav-left,
+  .desktop-nav-right {
+    display: none !important;
+  }
+  /* Track (background) */
+  .desktop-viewport.is-mobile:-webkit-scrollbar-track {
+    background: #fff; 
+    border-radius: 10px;
+  }
+
+  /* Thumb (scroll handle) */
+  .desktop-viewport.is-mobile:-webkit-scrollbar-thumb {
+    background-color: #fff; 
+  }
+
+  /* On hover */
+  .desktop-viewport.is-mobile:-webkit-scrollbar-thumb:hover {
+    background-color: #fff; 
+  }
+  .custom-page-title {
+    font-size: 32px;
+  }
+  .gc-plan-wraper{
+    padding: 60px 16px;
+  }
+  .container{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .custom-bottom-text,
+  .custom-bottom-text p {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .plan-inclusion-row {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .plan-inclusion-text {
+    font-size: 13px;
+  }
+}

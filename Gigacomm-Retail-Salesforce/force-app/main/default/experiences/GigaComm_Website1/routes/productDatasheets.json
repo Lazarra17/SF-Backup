@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7225a9be-ec4b-4361-bc64-b2ec50c128aa",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "productdatasheets__c",
+  "id" : "9967f709-7305-4508-a707-17232813f747",
+  "label" : "Product Datasheets",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-product-datasheets",
+  "type" : "route",
+  "urlPrefix" : "product-datasheets"
+}

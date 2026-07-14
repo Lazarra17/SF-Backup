@@ -1,0 +1,317 @@
+<!-- 
+WM & CL 30 May 2025 Page Created
+no requirement for back button
+
+[1] WM 31 May 2025 additional page elements
+[2] WM 1 June page fixes
+fix mobile images
+-->
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+               <!-- <div onclick="{!c.navigateToPlans}" class="gc-pd-back">
+                    <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                    <span class="gc-heading-back">Back</span>
+                </div> -->
+                <h2 class="gc-heading-title slds-m-top_large">Business</h2>
+            </div>
+        </div>
+    </div>
+    
+     
+    
+    <div class="container  slds-p-bottom_large">
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-large gc-business-header-container">
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-around_x-large">
+                <h1 class="gc-default-color ">
+                    Switch to an Internet that works as hard as you do
+                </h1>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+                <img src="{!$Resource.GigacommBusinessPageAsset + '/switchTo.png'}" class="img-fluid gc-img-rounded" />
+            </div>
+        </div>
+        
+        
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                 <div class="slds-text-align_center">
+                Switch up your internet, boost your business.
+                </div>
+                	
+                <h1 class="gc-default-color slds-text-align_center">
+                    Here's how we set your business up for success
+                </h1>
+                
+            </div>
+        </div>
+        
+        
+        <div class="slds-grid slds-gutters slds-gutters_large slds-wrap slds-m-top_small slds-grid_vertical-stretch  slds-show_medium">
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                       <!-- <img src="{!$Resource.GigacommOurNetworkPageAsset + '/router.svg'}" class="img-fluid" /> -->
+                         <img src="{!$Resource.GigacommOurNetworkPageAsset + '/speed.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        
+                        <p class="gc-default-color gc-p-2"><strong>Hyper - Fast Speed</strong></p>
+                    	  <p>Get your team performing at the highest level</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                      <!--  <img src="{!$Resource.GigacommOurNetworkPageAsset + '/speed.svg'}" class="img-fluid" /> -->
+                           <img src="{!$Resource.GigacommOurNetworkPageAsset + '/rocket.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Latest technology</strong></p>
+                        <p>Stay one step ahead of the competition</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+               <!--         <img src="{!$Resource.GigacommOurNetworkPageAsset + '/rocket.svg'}" class="img-fluid" /> -->
+                        <img src="{!$Resource.GigacommCommercialImages1 + '/meter.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Symmetrical speeds</strong></p>
+                        <p>Keep productivity high with internet that doesn't keep you waiting</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommCommercialImages1 + '/note.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Flexible plans</strong></p>
+                        <p>We have plans to suit your needs no matter the size of your business</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+     
+            
+        </div>
+        
+        
+        <!--Mobile Carousel-->
+        
+        <div class="slds-grid slds-hide_medium" >  
+            <div class="slds-col slds-size_1-of-1">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                     <img src="{!$Resource.GigacommOurNetworkPageAsset + '/speed.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Hyper - Fast Speed</strong></p>
+                                    <p>Get your team performing at the highest level</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                     <img src="{!$Resource.GigacommOurNetworkPageAsset + '/rocket.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Latest technology </strong></p>
+                                    <p>Stay one step ahead of the competition</p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommCommercialImages1 + '/meter.svg'}" class="img-fluid" />
+                                    
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Symmetrical speeds</strong></p>
+                                    <p>Keep productivity high with internet that doesn't keep you waiting</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommCommercialImages1 + '/note.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Flexible plans</strong></p>
+                                    <p>We have plans to suit your needs no matter the size of your business</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+		<!--END MOBILE CAROUSEL-->    
+        
+        <c:GigacommBusinessPagePlan />
+        
+        
+    </div>
+   
+        
+        <div class="slds-grid slds-wrap ">
+        <div class="slds-col slds-size_12-of-12 gc-middle-banner" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+            <div class="container slds-p-top_xx-large slds-p-bottom_xx-large">
+                
+                <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-top_xx-large slds-p-bottom_xx-large slds-p-right_large gc-community-container">
+                    <h1 class="gc-community-h1 gc-default-color">
+                        Business Phones for easily connecting and collaborating
+                    </h1>
+                    
+                </div>
+                
+            </div>
+        </div>
+    
+        
+        
+	 </div>
+    
+    <div class="container  slds-p-bottom_large">    
+        <div class="slds-grid slds-wrap slds-gutters slds-gutters_large slds-m-top_xx-large slds-m-bottom_large slds-p-around_x-small">
+                <div class="slds-col slds-large-size_5-of-12 slds-small-size_12-of-12 slds-m-top_large slds-m-bottom_small">
+                 <!--   <img src="{!$Resource.GigacommResidentialPageAsset + '/SwitchRiskFree.jpg'}" class="img-fluid gc-img-rounded"/> -->
+                    <img src="{!$Resource.GigacommBusinessPageAsset + '/phone.png'}" class="img-fluid gc-img-rounded" />
+                </div>
+                
+                <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-m-top_large slds-m-bottom_small slds-p-around_x-large">
+                    <h1 class="gc-order-wizard-section-title gc-default-color">
+                        Better Communication for better business
+                    </h1>
+                    
+                    <p>
+                        Gigacomm’s hosted voice solutions will help you improve your business productivity and bottom line. Our phone packages are scalable, easy to manage and will support your business as it grows.<br/>&nbsp;<br/>
+
+					Incorporating the latest Voice over Internet Protocol (VoIP) technology – a phone service delivered over the internet – 
+                        we remove the frustrations of analogue phone services. No more on-site PBX equipment, managing outdated hardware or
+                        spending thousands in ongoing maintenance costs.
+                    </p>
+                    <!-- <p class="gc-default-color    ">
+                        <strong>Which is why we created the Gigacomm Guarantee  </strong>   
+                    </p> -->
+                    
+                </div>
+                
+            </div>
+        
+        
+        	<div class="slds-grid slds-gutters slds-grid_vertical-stretch slds-m-top_xx-large slds-show_medium" >   
+                <div class="slds-col slds-size_4-of-12  slds-text-align_center ">
+                    <div class="gc-border gc-why-gigacom-tiles">
+                       
+                        <img src="{!$Resource.GigacommCommercialImages1 + '/calc.svg'}" class="gc-why-giga-icon" />
+                        <h2 class="gc-default-color">Cloud-based phone solutions</h2>  <!-- [2] -->
+                        <p><!-- [2] A range of download speeds between 100Mbps and 2Gbps, with upload speeds starting at 100Mbps. -->
+                            
+                            No more on-site PBX equipment with ongoing maintenance costs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+                    <div class="gc-border gc-why-gigacom-tiles" >
+                        <img src="{!$Resource.GigacommCommercialImages1 + '/doller.svg'}" class="gc-why-giga-icon" /> 
+                        <h2 class="gc-default-color">Great value calling packages</h2> <!-- [2] -->
+                        <p>Scalable, and easy to manage. Packages to suit your business now and support it as it grows.</p>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+                    <div class="gc-border gc-why-gigacom-tiles">
+                        <img src="{!$Resource.GigacommCommercialImages1 + '/secured.svg'}" class="gc-why-giga-icon" />
+                        <h2 class="gc-default-color">Business-grade reliability</h2> <!-- [2] -->
+                        <p>Telephone solutions - coupled with our ultra fast internet services, that can support your business 24/7.​</p>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    
+   <!-- <c:GigacommAddressFinderFooterBusiness /> [2] -->
+      <div class="slds-grid slds-wrap ">
+        <div class="slds-col slds-size_12-of-12 gc-middle-banner" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+            <div class="container slds-p-top_xx-large slds-p-bottom_xx-large">
+                
+                <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-top_xx-large slds-p-bottom_xx-large slds-p-right_large gc-community-container">
+                    <h1 class="gc-community-h1 gc-default-color">
+                       Talk to our sales team to work out what is best for your business.
+                    </h1>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+    
+</aura:component>

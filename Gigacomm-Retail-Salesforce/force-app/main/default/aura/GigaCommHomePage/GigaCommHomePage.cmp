@@ -1,0 +1,117 @@
+<!-- 
+[1] WM 29 May 2025 - change upper case to sentence case
+[2] CL 08 July - Embedded the Voucher Feature Cookie
+-->
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" controller="GigaCommOrderWizardController">
+    <aura:attribute name="lead" type="Object" />  
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="plans" type="Object" />
+    <aura:attribute name="showLoading" type="Boolean" />
+    <aura:attribute name="registerAddressSubmitted" type="Boolean" />
+    <aura:attribute name="apiHasError" type="Boolean" />
+    <aura:handler name="cmpEvent" event="c:GigaCommOrderWizardEvent" action="{!c.handleComponentEvent}"/>
+    <aura:attribute name="leadRedirect" type="Boolean" />
+    <aura:attribute name="ipAddress" type="String" />
+    <aura:attribute name="promoCodeReferral" type="String" />
+    
+    <div class="slds-grid slds-wrap slds-grid_vertical-stretch" >   
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12 gc-hero-container" style="{!'background-image: url(\'' + $Resource.GigaCommHero + '\'' }">
+            <!--img src="{!$Resource.GigaCommHero}" class="gc-hero slds-hide_medium" /-->
+        </div>
+        
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12 gc-hero-bg">
+            
+            <div class="slds-grid">  
+                <div class="slds-col slds-size_12-of-12  slds-p-around_xx-large slds-grid_vertical-stretch bg-hero">
+                    <div class="gc-hero-container">
+                        <!--p class="gc-hero-review"><strong>Excellent 4.8</strong> out of 5</p-->
+                        <h1 class="gc-hero-title1">THE FREEDOM</h1>
+                        <h1 class="gc-hero-title2">TO DO MORE</h1>
+                        <p class="gc-hero-subtitle">It's the Internet Australia both needs and deserves.</p>
+                        <!--ADDRESS FINDER START-->
+                        <c:GigaCommAddressFinder showLoading="{!v.showLoading}" addrsMobileId="addrs2" addrsId="addrs" showManualAddress="true" lead="{!v.lead}"   />
+                        <!--END-->
+                        <img class="gc-icon-scrolldown slds-p-around_small slds-m-top_medium slds-show_large" onclick="{!c.scrollToPlans}" src="{!$Resource.GigaCommAsset + '/HomePageIcons/Scrollarrow.svg'}"  />
+                    </div>
+                </div>
+            </div>
+            
+            
+           
+            
+        </div>
+        
+    </div>
+
+    
+    <div class="container">
+        <!--button onclick="{!c.gtm}">GTM Button</button-->
+        <c:GigaCommHomeWhyGigaComm  />
+        
+        <!--GigaCommOrderWizardPlan*********************************-->
+        <div class="slds-grid slds-wrap slds-m-top_xx-large">  
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_3-of-12">
+            </div>
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_6-of-12">
+                <h1 class="gc-order-wizard-title slds-text-align_center" aura:id="planSection">Choose The Speed That Suits Your Needs</h1> <!-- [1] -->
+               
+            </div>
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_3-of-12">
+            </div>
+            
+        </div>
+        <c:GigaCommOrderWizardPlan  plans="{!v.plans}" />
+        <!--GigaCommOrderWizardPlan END*********************************-->
+        <c:GigaCommHomeReviews/>
+        
+        
+    </div>
+    
+    
+    
+    <div class="gc-hero2-container" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+        <div class="container">
+        <div class="slds-grid slds-wrap slds-grid_vertical-stretch slds-p-top_xx-large slds-m-bottom_xx-large" >   
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_7-of-12 slds-p-top_large">
+                
+                
+                <h2 class="gc-default-color gc-hero2-title gc-theme-title-width">THE FREEDOM TO DO MORE</h2>
+
+                <p class="gc-color-white">It's the internet Australia both needs and deserves.</p>
+                <!--ADDRESS FINDER START-->
+                <c:GigaCommAddressFinder showLoading="{!v.showLoading}" addrsId="addrs4" addrsMobileId="addrs3" showManualAddress="false" lead="{!v.lead}"   />
+                <!--END-->
+            </div>
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_5-of-12 slds-p-top_large">
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+        <c:GigaCommFAQs />
+        
+        
+    </div>
+    
+    
+
+        <div class="collapse " id="collapseRegisterAddressThankYou">
+            <c:GigacommAddressInterestThankYou/>
+        </div>
+  
+    
+     <aura:if isTrue="{!v.apiHasError}">
+        <div class="show"  id="unavailableServiceId">
+            <c:GigacommServiceUnavailable />    
+        </div>
+    </aura:if>
+    
+</aura:component>

@@ -1,0 +1,40 @@
+name: Deploy Azure Storage account
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # required for OIDC auth
+  contents: read
+
+jobs:
+  deploy:
+    environment: prd
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Optional but recommended: ensure Bicep is available via Azure CLI
+      - name: Install/Upgrade Bicep
+        run: |
+          az bicep install || true
+          az bicep upgrade || true
+          az bicep version
+
+      - name: Deploy subscription-scope Bicep
+        run: |
+          az deployment sub create \
+            --location australiasoutheast \
+            --name sf-backups-${{ github.run_number }} \
+            --template-file ./bicep/main.bicep \
+            --parameters ./bicep/prod.bicepparam \
+            --parameters containerName=${{ vars.SF_BACKUP_AZURE_CONTAINER }}

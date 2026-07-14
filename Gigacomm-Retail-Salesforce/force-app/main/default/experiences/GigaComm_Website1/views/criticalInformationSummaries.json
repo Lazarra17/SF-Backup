@@ -1,0 +1,61 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c2ef5c62-0dba-4223-b360-f61cb88de006",
+  "label" : "Critical Information Summaries",
+  "regions" : [ {
+    "id" : "3abb8c87-836b-44b7-a015-a78435a2472c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommCriticalInformationSummaries",
+      "id" : "5cbc2b4e-d5dc-4021-920d-12aca2537fd7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "61db562d-50d4-4243-a8fa-e7541e48211a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "9547981a-f8e7-4fdf-8c39-6c967cfb77ea",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "48159624-d4d2-47bb-85f6-58b2d12ceb4b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Critical Information Summaries"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6c5bbf62-e3f9-4ea8-a1b4-7af1cfa5431e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3d143725-b5c4-4c7b-8d2a-a5fbd38a0067",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-critical-information-summaries"
+}

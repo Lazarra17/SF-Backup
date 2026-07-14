@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Mbps</fullName>
+        <default>true</default>
+        <label>Mbps</label>
+    </customValue>
+    <customValue>
+        <fullName>Gbps</fullName>
+        <default>false</default>
+        <label>Gbps</label>
+    </customValue>
+    <masterLabel>Rate Limit Speed</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

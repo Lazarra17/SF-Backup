@@ -1,0 +1,296 @@
+<!--
+[1] WM 30 May fix spelling "Fibre" not "Fiber" (australian vs US spelling)
+[1] WM 30 May change video
+[3] WM 31 May hide back button
+[4] WM vimeo video player
+-->
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+               <!--[3] <div onclick="{!c.navigateToPlans}" class="gc-pd-back">
+                    <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                    <span class="gc-heading-back">Back</span>
+                </div> -->
+                <h2 class="gc-heading-title slds-m-top_large">A new kind</h2>
+                <h2 class="gc-heading-title slds-m-top_medium">of network</h2>
+            </div>
+        </div>
+    </div>
+    
+    
+   <!-- <c:GigaCommSiteVideo /> -->
+    
+    
+    <!-- <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <div class="ratio ratio-16x9">
+                    <video class="gc-video" controls="true" autoplay="true">
+                        <source src="{!$Label.c.GigacommNetworkVideo}" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+      <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                
+                  <aura:unescapedHtml value="{!$Label.c.GigacommNetworkVideoVimeo}"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container  slds-p-bottom_large">
+        
+        <div class="slds-grid slds-wrap slds-m-top_x-large slds-gutters  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-m-bottom_medium">
+                <div class="gc-our-network-sub-container slds-p-around_large">
+                    <p class="gc-default-color gc-our-network-sub-heading"><strong>Independent Network</strong></p>
+                    <p>Delivering giga-bit speed internet using our own infrastructure</p>
+                </div>
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+                <div class="gc-our-network-sub-container slds-p-around_large">
+                    <p class="gc-default-color gc-our-network-sub-heading"><strong>Hyper-fast!</strong></p>
+                    <p>Plans up to 2Gbps for Residential, and up to 5Gbps for Business!</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <h1 class="gc-default-color slds-text-align_center">
+                    The Gigacomm Network
+                </h1>
+            </div>
+        </div>
+        
+        <div class="slds-grid slds-wrap slds-gutters slds-m-top_large slds-p-around_x-small slds-grid_vertical-stretch">
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-m-bottom_medium">
+                <div class="gc-network-container">
+                    <div class="gc-network-img" style="{! 'background-image: url(\'' + $Resource.GigacommOurNetworkPageAsset + '/OurNetwork.jpg' + '\')'}"></div>
+                    <p class="gc-network-title gc-default-color slds-p-top_large slds-p-left_large slds-p-right_large">Gigacomm Full Fibre (FTTP)</p> <!-- [1] -->        
+                    <p class="gc-network-description gc-default-color slds-p-bottom_large slds-p-left_large slds-p-right_large">
+                        Fibre to the Premise (FTTP) is a method of delivering broadband using fibre-optic cabling straight into your apartment. 
+                        Because it’s full fibre, it can deliver faster speeds and lower latency than older copper-based technologies - perfect for gaming, 
+                        video conferencing, and other real-time activities.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-m-bottom_medium">
+                <div class="gc-network-container">
+                    <div class="gc-network-img" style="{! 'background-image: url(\'' + $Resource.GigacommOurNetworkPageAsset + '/NetworkImg2.jpg' + '\')'}"></div>
+                    <p class="gc-network-title gc-default-color slds-p-top_large slds-p-left_large slds-p-right_large">Gigacomm G.Fast (FTTx)</p>         
+                    <p class="gc-network-description gc-default-color slds-p-bottom_large slds-p-left_large slds-p-right_large">
+                        Fibre is run through the building up the building risers to several distribution points that 
+                        convert the signal from fibre to copper to deliver services using the latest generation of broadband 
+                        over copper technology called G.Fast to reliably provide 1Gbps broadband signals.
+                    </p>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        
+    
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <h1 class="gc-default-color slds-text-align_center">
+                    How we design, build and deliver
+                </h1>
+            </div>
+        </div>
+        
+        
+        <div class="slds-grid slds-gutters slds-gutters_large slds-wrap slds-m-top_small slds-grid_vertical-stretch  slds-show_medium">
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommOurNetworkPageAsset + '/router.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>We Think Differently</strong></p>
+                        <p>We're not weighed down by legacy thinking like many providers who are reselling existing networks.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommOurNetworkPageAsset + '/speed.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Last Mile Solution</strong></p>
+                        <p>We specialise in last mile connectivity, leveraging next-generation full fibre and the latest broadband over copper technology to deliver Gigabit speeds.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommOurNetworkPageAsset + '/rocket.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Latest Technology</strong></p>
+                        <p>We’ve built a network designed for the future using the latest technology to ensure our network meets the growing needs of internet users in Australia.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommOurNetworkPageAsset + '/network.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2"><strong>Network Resiliency</strong></p>
+                        <p>We operate our own independent network, ensuring network diversity and multiple paths to the internet, providing high levels of resiliency.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+     
+            
+        </div>
+        
+        
+        <!--Mobile Carousel-->
+        
+        <div class="slds-grid slds-hide_medium" >  
+            <div class="slds-col slds-size_1-of-1">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommOurNetworkPageAsset + '/router.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>We Think Differently</strong></p>
+                                    <p>We’re not weighed down by legacy thinking or legacy technology like many internet service providers who are reselling existing networks.</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommOurNetworkPageAsset + '/speed.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Last Mile Solution</strong></p>
+                                    <p>We specialise in last mile connectivity, leveraging next-generation full fibre and the latest broadband over copper technology to deliver Gigabit speeds.</p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommOurNetworkPageAsset + '/rocket.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Latest Technology</strong></p>
+                                    <p>We’ve built a network designed for the future using the latest technology to ensure our network meets the growing needs of internet users in Australia.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommOurNetworkPageAsset + '/network.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Network Resiliency</strong></p>
+                                    <p>We operate our own independent network, ensuring network diversity and multiple paths to the Internet, providing high levels of resiliency.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+		<!--END MOBILE CAROUSEL-->    
+        
+    </div>
+    
+    <div class="gc-hero2-container" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+        <div class="container">
+            <div class="slds-grid slds-wrap slds-grid_vertical-stretch slds-p-top_xx-large slds-p-bottom_xx-large slds-m-bottom_xx-large" >   
+                
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_7-of-12 slds-p-top_large slds-p-bottom_large">
+                    
+                    
+                    <h2 class="gc-default-color gc-hero2-title">Learn more about the</h2>
+                    <h2 class="gc-default-color gc-hero2-title slds-m-bottom_medium">Gigacomm Network</h2>
+                    <!--p class="gc-color-white">It's the internet Australia both needs and deserves.</p-->
+                    <!--ADDRESS FINDER START-->
+                    <c:GigacommAddressFinderFooter />
+                    <!--END-->
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_5-of-12 slds-p-top_large">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

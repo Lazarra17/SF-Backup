@@ -1,0 +1,19 @@
+.THIS .gc-community-container p{
+    line-height: 2;
+}
+
+
+
+
+@media only screen and (max-width: 1023px) {
+    .THIS .gc-order-wizard-avatar{
+        border-radius: 0px 0px 25px 25px;
+    }
+}  
+
+@media all and (max-device-width: 600px){
+    .THIS .gc-community-h1{
+        text-align:center;
+    }
+
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8202b954-a1fc-4a9c-a887-520af78202a6",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Payment_Callback__c",
+  "id" : "ebbb1ba4-4b80-4b38-a555-f7a8702316bc",
+  "label" : "Payment Callback",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-payment-callback",
+  "type" : "route",
+  "urlPrefix" : "payment-callback"
+}

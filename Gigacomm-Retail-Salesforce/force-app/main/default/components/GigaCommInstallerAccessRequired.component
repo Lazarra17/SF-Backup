@@ -1,0 +1,11 @@
+<apex:component controller="GigaCommInstallerAccessRequiredCtrl" access="global">
+    <apex:attribute name="opportunityId" type="String" assignTo="{!oppId}" description="Opportunity Id"/>
+    <p style="{!IF(hasInstallerAccess == false, 'display:inline;', '')}">
+        I understand the process on how to cancel this contract, and that I have a 10 business day cooling off period, during which I am able to cancel my contract with GigaComm within this time.
+    </p>
+    <apex:outputPanel rendered="{!hasInstallerAccess}">
+        <p style="display:inline;">
+            I have authority to permit the technician to make necessary modifications to my premises to complete the installation of my service*
+        </p>
+    </apex:outputPanel>
+</apex:component>

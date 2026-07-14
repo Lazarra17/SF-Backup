@@ -1,0 +1,262 @@
+<messaging:emailTemplate subject="Gigacomm - Order Confirmation" recipientType="Contact" relatedToType="Opportunity">
+    <messaging:htmlEmailBody >
+        <head>
+            <style>
+                body {
+                    font-family: Gilroy;
+                }
+                table, td {
+                    border-collapse: collapse;
+                    padding: 1%;
+                }
+                .purpleBg { 
+                    background-color: #402c7c;
+                }
+                .grayBg {
+                    background-color: #dee5ef;
+                }
+                .whiteText {
+                    color: white;
+                }
+                .purpleText {
+                    color: #402c7c;
+                }
+                .cyanText {
+                    color: #2ba3c1;
+                }
+                .hrDashed {
+                    border: none;
+                    border-top: 2px dashed #dee5ef;
+                    margin: 3px 0;
+                }
+                .hrSolid {
+                    border: none;
+                    border-top: 2px solid #402c7c;
+                    margin: 3px 0;
+                }
+                .paddingTopContent {
+                    padding: 1% 10%;
+                }
+            </style>
+        </head>
+        <html>
+            <body>
+                <table style="width:100%;">
+                    <tr>
+                        <td class="grayBg paddingTopContent" colspan="2">
+                            <img src="{!$Label.GigaComm_Email_Template_Logo}" style="max-width: 40%; height: auto;" alt="GigaComm Logo" />
+                        </td>
+                        <!--<td class="grayBg" style="padding-top:0;">
+                            <a href="#" target="_blank" style="text-decoration: none;">
+                                <img src="{!$Label.GigaComm_FB_Icon}" height="35" width="35" alt="Facebook Logo" style="display:inline-block;"/>
+                            </a>
+                            <a href="#" target="_blank" style="text-decoration: none;">
+                                <img src="{!$Label.GigaComm_LinkedIn_Icon}" height="35" width="35" alt="LinkedIn Logo" style="display:inline-block;"/>
+                            </a>
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td class="grayBg" colspan="2">
+                            <div style="height:50px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="grayBg paddingTopContent" colspan="2">
+                            <h2>YOUR GIGACOMM ORDER NO. {!relatedTo.Gigacomm_Order_Number__c}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="grayBg paddingTopContent" style="vertical-align: top;">
+                            <b>PREPARED FOR</b><br/>
+                            <p>{!relatedTo.Account_Name_Bric__c}<br/>
+                            {!relatedTo.Account_Billing_Street_Bric__c}<br/>
+                            {!relatedTo.Account_Billing_City_State_Zip_Bric__c}
+                            </p>
+                        </td>
+                       <td class="grayBg paddingTopContent" style="vertical-align: top;">
+                            <b>PREMISES FOR SERVICE</b><br/>
+                            <p>
+                            {!relatedTo.Service_Street_bric__c}<br/>
+                            {!relatedTo.Service_City_bric__c} {!relatedTo.Service_State_bric__c} {!relatedTo.Service_Postal_Code_bric__c}
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="grayBg" colspan="2">
+                            <div style="height:20px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="grayBg paddingTopContent" style="vertical-align: top;">
+                            <p style="display:inline;"><a href="mailto:{!relatedTo.Primary_Contact_Email_Bric__c}" class="cyanText">{!relatedTo.Primary_Contact_Email_Bric__c}</a></p>
+                            <p><a class="cyanText" href="tel:{!relatedTo.Primary_Contact_Mobile_Phone_Bric__c}">{!relatedTo.Primary_Contact_Mobile_Phone_Bric__c}</a></p>
+                        </td>
+                        <td class="grayBg paddingTopContent" style="vertical-align: top;">
+                            <b>DATE</b>
+                            <!--<p><apex:outputText value="{0,date,dd MMMM yyyy}">
+                                <apex:param value="{!NOW()}" />
+                            </apex:outputText></p>-->
+                            <p><c:LocalDateTime timezone="AEST" /></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="grayBg" colspan="2">
+                            <div style="height:10px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:5%;text-align:center;" colspan="2">
+                            <h1 class="purpleText">Products and Services</h1>
+                            <!--<p>Detailed below is a summary of the products and services charges you will need to pay if you accept this quote.</p>-->
+                            <p>Detailed below is a summary of the products and services charges for your order.</p>
+                            <p>Please note: no charges will be billed until an install date is confirmed with you.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="padding:2%; text-align:center;" class="purpleBg whiteText">
+                                <h1>One-off Costs</h1>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <table style="width:100%;">
+                                    <tr>
+                                        <c:GigaCommOppProductGrouping opportunityId="{!relatedTo.Id}" oppProductFrequency="One-time"/>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="padding:2%; text-align:center;" class="purpleBg whiteText">
+                                <h1>Monthly Fees</h1>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <table style="width:100%;">
+                                    <tr>
+                                        <c:GigaCommOppProductGrouping opportunityId="{!relatedTo.Id}" oppProductFrequency="Monthly"/>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="{!IF(relatedTo.Voucher_bric__c != null, 'display:block;', 'display:none;')} margin: 7px 0;">
+                                                &nbsp;&nbsp;<b>PromoCode:</b> {!relatedTo.Voucher_Code__c} applied
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <hr class="hrSolid"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <!--<div style="text-align:center; vertical-align:top; padding:2%;">
+                                                If you accept this quote your minimum commitment over the contract term is $0.00
+                                                <br/><br/><br/>
+                                                This quote is valid for 30 days
+                                            </div>-->
+                                            <c:MinimumCommitmentContractTerm opportunityId="{!relatedTo.Id}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <hr class="hrSolid"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="{!IF(relatedTo.Voucher_bric__c != null, 'display:block;', 'display:none;')} padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Terms and Conditions ({!relatedTo.Voucher_Code__c})</h1>
+                                                    <c:VoucherTermsConditions opportunityId="{!relatedTo.Id}"/>
+                                                <!--<ul>
+                                                    <li>Offer valid for new customers. Offer expires 31 August 2025.</li>
+                                                    <li>After the three month free period, plans will be billed monthly at full retail price: 100/25Mbps - $65 per month, 200/50Mbps - $79 per month, 1000/50Mbps - $99 per month, 2000/100 Mbps - $199 per month</li>
+                                                    <li>GigaComm router is sold separately for $119. You may choose to use your own router. However, not all routers can achieve speeds close to 1000Mbps and GigaComm can only provide limited technical support to customers using their own router.</li>
+                                                    <li>You must provide GigaComm with 30 days' notice to cancel a service.</li>
+                                                    <li>Early termination fees apply: if the service is cancelled before the end of the contract period, you’ll be charged an early termination fee of $250 (applies to 12 and 24 month contracts).</li>
+                                                    <li>Offer can be withdrawn at any time.</li>
+                                                </ul>-->
+                                                <!--<h1 class="purpleText">Agreement and Acceptance</h1>
+                                                <p>I acknowledge that I have read and agree to the terms set out in the <a href="{!$Label.GigaComm_SFA}">standard form of agreement</a>, the offer terms set out above and the critical information summary for my plan.*</p>
+                                                <c:GigaCommInstallerAccessRequired opportunityId="{!relatedTo.Id}"/> REMOVED MAY 26-->
+                                                <!--<p>I understand the process on how to cancel this contract, and that I have a 10 business day cooling off period, during which I am able to cancel my contract with Gigacomm within this time.</p>
+                                                <p style="display:inline;">I have authority to permit the technician to make necessary modifications to my premises to complete the installation of my service*</p>-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">MyAccount Registration</h1>
+                                                <p style="display:inline;">You will shortly receive an invitation to register for MyAccount and complete your direct debit. If you have already completed your direct debit you will only need to register your account. You will not be charged for your monthly plan fee until your service has been activated.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Service Activation</h1>
+                                                <p style="display:inline;">Once your MyAccount registration and direct details are completed, our service delivery partner will be in contact with you to discuss the installation and activation schedule for your new Gigacomm service.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Using Your own Router</h1>
+                                                <p style="display:inline;">You may have chosen to use your own router with your Gigacomm service. To ensure you can achieve the maximum speeds, read our <a class="cyanText" href="{!$Label.Gigacomm_FAQ_URL}">FAQ</a> on using your own router.</p>
+                                            </div>
+                                        </td>
+                                    </tr>                            
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Cancelling Your Existing Service</h1>
+                                                <p style="display:inline;">Once your Gigacomm service has been activated, you can contact your current internet service provider to cancel your service with them.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Contacting Us</h1>
+                                                <!--<p>Our team are available via email or live chat from 8.30am-6.00pm Monday to Friday (AEST).</p>-->
+                                                <p>Our team are available via email or live chat from 8.00am-8.00pm Monday to Friday (AEST).</p>
+                                                <p>Plan changes or other enquiries: <a class="cyanText" href="mailto:customercare@gigacomm.net.au">customercare@gigacomm.net.au</a></p>
+                                                <p>Billing or account enquiries: <a class="cyanText" href="mailto:billing@gigacomm.net.au">billing@gigacomm.net.au</a></p>
+                                                <p>You can also contact us during business hours on <a class="cyanText" href="tel:1300 004 442">1300 004 442</a></p>
+                                                <p style="display:inline;">To read more about our products and services, review the <a class="cyanText" href="{!$Label.GigaComm_Critical_Info_Summaries}">Critical Information Summaries</a> for important product details.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:1%; vertical-align:center;">
+                                                <h1 class="purpleText">Gigacomm Guarantee</h1>
+                                                <p>We're sure that you'll love the Gigabit difference from your Gigacomm service.</p>
+                                                <p style="display:inline;">If, for any reason though, you decide not to continue with your Gigacomm service, simply call us before the completion of the first 30 days and we'll be happy to provide a full refund of any Gigacomm charges incurred up to this date - excluding installation costs.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div style="padding:5%; background-color:#dee5ef;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

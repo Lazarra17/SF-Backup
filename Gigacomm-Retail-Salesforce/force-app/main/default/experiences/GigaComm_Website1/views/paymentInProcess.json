@@ -1,0 +1,68 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "7b68d223-d5a1-4416-850e-ea4f73ae7770",
+  "label" : "Payment In-Process",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "45015f67-e86f-4872-8fc1-0ce3715dd65b",
+          "columns" : [ {
+            "UUID" : "6678fc94-a6c0-4a49-b306-c7a669fd6e6d",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "45015f67-e86f-4872-8fc1-0ce3715dd65b",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:GigaCommInProcessPage",
+          "id" : "bb87f653-1106-4207-b56b-d0c2015f1407",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "6678fc94-a6c0-4a49-b306-c7a669fd6e6d",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "75224296-c2b5-4314-b9b9-e1718b7c80ab",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Payment In-Process"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "71465c4b-2ada-4253-b13c-50672e64f4da",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "036d0f79-2017-4b44-8be8-8c9f14fc3490",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-payment-in-process"
+}

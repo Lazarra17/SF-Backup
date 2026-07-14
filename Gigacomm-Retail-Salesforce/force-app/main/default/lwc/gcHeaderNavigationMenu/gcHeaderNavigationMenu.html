@@ -1,0 +1,39 @@
+<template>
+  
+    
+    <div class="slds-col slds-size_12-of-12">
+        <nav class="navbar navbar-expand-xl navbar-light bg-white gc-navbar">
+            <div class="container ">
+                <a class="navbar-brand" href="/"><img src={HeaderGigaCommLogo} class="gc-logo custom-header-logo" /></a>
+                <!--button class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon" onclick={handleToggleCollapse} data-target="gcNavbar"></span>
+                </button-->
+                <button class="navbar-toggler" type="button" onclick={handleToggleCollapse} data-target="gcNavbar">
+                    <span class="" role="button" onclick={handleToggleCollapse} data-target="gcNavbar"><i onclick={handleToggleCollapse} data-target="gcNavbar" class="fa fa-bars" aria-hidden="true" style="color:#382670; font-size: 25px"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" data-id="gcNavbar" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                         <template for:each={menuItems} for:item="item">
+                                <li key={item.id} class="nav-item">
+                                    <c-gc-header-navigation-menu-item item={item}></c-gc-header-navigation-menu-item>
+                                </li>
+                        </template>
+                        
+                    </ul>
+                    <div class="d-flex">
+                        <p class="gc-contact gilroy-bold">
+                            <span >
+                                <!-- <a href="tel:1300 004 442"><i class="fa fa-phone" aria-hidden="true"></i> 1300 004 442</a> -->
+                                <a href="tel:1300 004 442"><img src={HeaderButtonPhoneIcon} class="phone-icon" /> 1300 004 442</a>
+                            </span>
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    
+</template>

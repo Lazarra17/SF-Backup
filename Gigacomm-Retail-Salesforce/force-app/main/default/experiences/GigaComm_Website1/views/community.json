@@ -1,0 +1,68 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d4fab245-9983-4b3d-a6c2-67a2796ffe3e",
+  "label" : "Community",
+  "regions" : [ {
+    "id" : "7f3ad3fd-3879-4e7c-a4cd-f87ec12815a2",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommCommunityPage",
+      "id" : "f93a7efe-2946-47b6-a15a-f71bad6c8342",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommCommunityPlan",
+      "id" : "2f11d868-cedb-4b24-b964-473424da30c8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cffc4ec2-346a-43be-b59f-b31d1daf72ce",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "98331ea7-7caa-4636-a4d2-ac3baf6887aa",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "57d52cbf-aac8-4185-9582-ad2cd431e997",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Community"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "3175de82-94ce-4774-9d55-8b53032447cc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7dc156f7-1ade-4e42-9de3-c43966992fbf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-community"
+}

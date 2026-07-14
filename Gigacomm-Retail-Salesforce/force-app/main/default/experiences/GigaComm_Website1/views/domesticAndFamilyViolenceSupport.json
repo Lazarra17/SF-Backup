@@ -1,0 +1,81 @@
+{
+  "appPageId": "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName": "siteforce:dynamicLayout",
+  "dataProviders": [],
+  "id": "55498292-1568-444c-a2ae-acb31961faa8",
+  "label": "Domestic and Family Violence Support",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "background": "background: rgba(0,0,0,0)",
+            "backgroundOverlay": "rgba(0,0,0,0.5)",
+            "contentAreaWidth": 100,
+            "sectionConfig": {
+              "UUID": "c4990ebd-481d-49b6-8c81-c7f5ce726d16",
+              "columns": [
+                {
+                  "UUID": "fdeeed10-2cc9-437c-88e2-2323fa24150a",
+                  "columnKey": "1",
+                  "columnName": "Column 1",
+                  "columnWidth": "12",
+                  "seedComponents": []
+                }
+              ]
+            },
+            "sectionHeight": 300
+          },
+          "componentName": "forceCommunity:section",
+          "id": "c4990ebd-481d-49b6-8c81-c7f5ce726d16",
+          "regions": [
+            {
+              "components": [
+                {
+                  "componentAttributes": {},
+                  "componentName": "c:GigacommDomesticViolencePage",
+                  "id": "36fc7486-d8a8-4c79-abc2-aef6761d6e80",
+                  "renderPriority": "NEUTRAL",
+                  "renditionMap": {},
+                  "type": "component"
+                }
+              ],
+              "id": "fdeeed10-2cc9-437c-88e2-2323fa24150a",
+              "regionLabel": "Column 1",
+              "regionName": "1",
+              "renditionMap": {},
+              "type": "region"
+            }
+          ],
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "b253615d-334e-4fbd-8f36-abebf1fc6d37",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "",
+            "title": "Domestic and Family Violence Support"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "3278d343-85fc-450f-9d06-acc49ba947db",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "94241dd2-9a19-4726-b090-4dc566f241c5",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-domestic-and-family-violence-support"
+}

@@ -1,0 +1,217 @@
+name: Salesforce Backup (Daily + Promote to Weekly/Monthly/Yearly)
+
+on:
+  workflow_dispatch:
+    inputs:
+      email_export_mode:
+        description: "EmailMessage export mode"
+        required: true
+        default: "full_partition"
+        type: choice
+        options:
+          - incremental
+          - full_partition
+      force_class:
+        description: "Optional: force promotion class (none|weekly|monthly|yearly)"
+        required: false
+        default: "none"
+        type: choice
+        options:
+          - none
+          - weekly
+          - monthly
+          - yearly
+
+  schedule:
+    # GitHub cron is UTC. Daily at 16:00 UTC.
+    # = 03:00 Melbourne during AEDT (UTC+11), 02:00 during AEST (UTC+10).
+    - cron: "0 16 * * *"
+
+jobs:
+  backup:
+    # Run scheduled jobs only on main; allow manual runs from any branch.
+    if: ${{ github.event_name != 'schedule' || github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    environment: prd
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Az.Storage (PowerShell)
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+          Install-Module Az.Storage -Scope CurrentUser -Force -AllowClobber
+
+      - name: Decide backup classes (Melbourne calendar)
+        id: decide
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TODAY="$(TZ=Australia/Melbourne date +%F)"
+          DOM="$(TZ=Australia/Melbourne date +%d)"   # 01..31
+          MO="$(TZ=Australia/Melbourne date +%m)"    # 01..12
+          DOW="$(TZ=Australia/Melbourne date +%u)"   # 1..7 (7=Sunday)
+
+          PROMOTE_WEEKLY="false"
+          PROMOTE_MONTHLY="false"
+          PROMOTE_YEARLY="false"
+
+          # weekly: Sunday
+          if [ "$DOW" = "7" ]; then PROMOTE_WEEKLY="true"; fi
+          # monthly: 1st
+          if [ "$DOM" = "01" ]; then PROMOTE_MONTHLY="true"; fi
+          # yearly: Jan 1st
+          if [ "$DOM" = "01" ] && [ "$MO" = "01" ]; then PROMOTE_YEARLY="true"; fi
+
+          # manual override
+          FORCE="${{ github.event.inputs.force_class || 'none' }}"
+          if [ "$FORCE" = "weekly" ]; then PROMOTE_WEEKLY="true"; fi
+          if [ "$FORCE" = "monthly" ]; then PROMOTE_MONTHLY="true"; fi
+          if [ "$FORCE" = "yearly" ]; then PROMOTE_YEARLY="true"; fi
+
+          echo "today=$TODAY" >> "$GITHUB_OUTPUT"
+          echo "promote_weekly=$PROMOTE_WEEKLY" >> "$GITHUB_OUTPUT"
+          echo "promote_monthly=$PROMOTE_MONTHLY" >> "$GITHUB_OUTPUT"
+          echo "promote_yearly=$PROMOTE_YEARLY" >> "$GITHUB_OUTPUT"
+
+          echo "Melbourne date: $TODAY"
+          echo "Promote weekly : $PROMOTE_WEEKLY"
+          echo "Promote monthly: $PROMOTE_MONTHLY"
+          echo "Promote yearly : $PROMOTE_YEARLY"
+
+      - name: Run DAILY backup (writes to daily/YYYY-MM-DD)
+        shell: pwsh
+        env:
+          SF_EMAIL_EXPORT_MODE: ${{ github.event.inputs.email_export_mode || 'incremental' }}
+          SF_BACKUP_PREFIX: salesforce-backups/daily/${{ steps.decide.outputs.today }}
+          SF_LOGIN_URL: ${{ vars.SF_LOGIN_URL }}
+          SF_CLIENT_ID: ${{ secrets.SF_CLIENT_ID }}
+          SF_CLIENT_SECRET: ${{ secrets.SF_CLIENT_SECRET }}
+          SF_REFRESH_TOKEN: ${{ secrets.SF_REFRESH_TOKEN }}
+          AZURE_BACKUP_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BACKUP_STORAGE_CONNECTION_STRING }}
+          SF_BACKUP_AZURE_CONTAINER: ${{ vars.SF_BACKUP_AZURE_CONTAINER }}
+        run: |
+          pwsh -File ./scripts/backup/sf-backup-to-azure.ps1
+
+      - name: Promote daily -> weekly (Cool tier)
+        if: ${{ steps.decide.outputs.promote_weekly == 'true' }}
+        shell: bash
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BACKUP_STORAGE_CONNECTION_STRING }}
+          CONTAINER: ${{ vars.SF_BACKUP_AZURE_CONTAINER }}
+          TODAY: ${{ steps.decide.outputs.today }}
+        run: |
+          set -euo pipefail
+
+          SRC_PREFIX="salesforce-backups/daily/${TODAY}/"
+          DST_PREFIX="salesforce-backups/weekly/${TODAY}/"
+
+          echo "Copying blobs: ${SRC_PREFIX} -> ${DST_PREFIX} (tier=Cool)"
+
+          mapfile -t BLOBS < <(az storage blob list \
+            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+            --container-name "$CONTAINER" \
+            --prefix "$SRC_PREFIX" \
+            --query "[].name" -o tsv)
+
+          echo "Found ${#BLOBS[@]} blobs"
+          if [ "${#BLOBS[@]}" -eq 0 ]; then
+            echo "No blobs found under ${SRC_PREFIX}; nothing to promote."
+            exit 0
+          fi
+
+          for SRC in "${BLOBS[@]}"; do
+            DST="${SRC/#$SRC_PREFIX/$DST_PREFIX}"
+            az storage blob copy start \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --destination-container "$CONTAINER" \
+              --destination-blob "$DST" \
+              --source-container "$CONTAINER" \
+              --source-blob "$SRC" \
+              --tier Cool >/dev/null
+          done
+
+          echo "Weekly promotion complete."
+
+      - name: Promote daily -> monthly (Archive tier)
+        if: ${{ steps.decide.outputs.promote_monthly == 'true' }}
+        shell: bash
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BACKUP_STORAGE_CONNECTION_STRING }}
+          CONTAINER: ${{ vars.SF_BACKUP_AZURE_CONTAINER }}
+          TODAY: ${{ steps.decide.outputs.today }}
+        run: |
+          set -euo pipefail
+
+          SRC_PREFIX="salesforce-backups/daily/${TODAY}/"
+          DST_PREFIX="salesforce-backups/monthly/${TODAY}/"
+
+          echo "Copying blobs: ${SRC_PREFIX} -> ${DST_PREFIX} (tier=Archive)"
+
+          mapfile -t BLOBS < <(az storage blob list \
+            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+            --container-name "$CONTAINER" \
+            --prefix "$SRC_PREFIX" \
+            --query "[].name" -o tsv)
+
+          echo "Found ${#BLOBS[@]} blobs"
+          if [ "${#BLOBS[@]}" -eq 0 ]; then
+            echo "No blobs found under ${SRC_PREFIX}; nothing to promote."
+            exit 0
+          fi
+
+          for SRC in "${BLOBS[@]}"; do
+            DST="${SRC/#$SRC_PREFIX/$DST_PREFIX}"
+            az storage blob copy start \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --destination-container "$CONTAINER" \
+              --destination-blob "$DST" \
+              --source-container "$CONTAINER" \
+              --source-blob "$SRC" \
+              --tier Archive >/dev/null
+          done
+
+          echo "Monthly promotion complete."
+
+      - name: Promote daily -> yearly (Archive tier)
+        if: ${{ steps.decide.outputs.promote_yearly == 'true' }}
+        shell: bash
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BACKUP_STORAGE_CONNECTION_STRING }}
+          CONTAINER: ${{ vars.SF_BACKUP_AZURE_CONTAINER }}
+          TODAY: ${{ steps.decide.outputs.today }}
+        run: |
+          set -euo pipefail
+
+          SRC_PREFIX="salesforce-backups/daily/${TODAY}/"
+          DST_PREFIX="salesforce-backups/yearly/${TODAY}/"
+
+          echo "Copying blobs: ${SRC_PREFIX} -> ${DST_PREFIX} (tier=Archive)"
+
+          mapfile -t BLOBS < <(az storage blob list \
+            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+            --container-name "$CONTAINER" \
+            --prefix "$SRC_PREFIX" \
+            --query "[].name" -o tsv)
+
+          echo "Found ${#BLOBS[@]} blobs"
+          if [ "${#BLOBS[@]}" -eq 0 ]; then
+            echo "No blobs found under ${SRC_PREFIX}; nothing to promote."
+            exit 0
+          fi
+
+          for SRC in "${BLOBS[@]}"; do
+            DST="${SRC/#$SRC_PREFIX/$DST_PREFIX}"
+            az storage blob copy start \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --destination-container "$CONTAINER" \
+              --destination-blob "$DST" \
+              --source-container "$CONTAINER" \
+              --source-blob "$SRC" \
+              --tier Archive >/dev/null
+          done
+
+          echo "Yearly promotion complete."

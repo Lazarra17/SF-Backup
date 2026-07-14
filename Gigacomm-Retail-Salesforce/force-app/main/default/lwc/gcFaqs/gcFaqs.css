@@ -1,0 +1,94 @@
+.gc-faq-item-title{
+    font-weight: bold;
+    color: #3b2872;
+}
+
+
+.gc-faq-accordion {
+    border-radius: 16px !important;
+    margin-bottom: 16px;
+    border: 0;
+    padding: 24px;
+    box-shadow: 0px 1px 2px 0px #00000029;
+}
+.gc-faq-accordion:last-child {
+    margin-bottom: 0;
+}
+.gc-faq-accordion span{
+    font-size: 20px;
+    margin-right: 70px;
+    font-family: Gilroy-Bold, sans-serif;
+    font-weight: 400;
+    color: #382670;
+    display: inline-block;
+    line-height: 140%;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url('/resource/1745894174000/GigaCommAsset/HomePageIcons/hide.svg');
+}
+
+.gc-faqs-icon{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.accordion-header{
+    position: relative;
+}
+
+.accordion-button::after {
+    background-image: transparent;
+    background-size: 1.7rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    
+}
+
+.gc-faq-body-padding {
+    padding-left: 0;
+    padding-right: 70px;
+    margin: 8px 0 0;
+    font-family: 'Gilroy-Regular';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.gc-faq-subtitle{
+    width: 78%;
+    margin: 0 auto 24px;
+    color: #202124;
+    font-size: 18px;
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+.faq-wrap {
+    background: #F6F6F6;
+    padding: 80px 0;
+}
+.gc-theme-title {
+    margin-bottom: 10px;
+    color: #382670;
+}
+
+@media (max-width: 767px) {
+    .gc-faq-body-padding{
+        padding-right: 30px;
+    }
+    .faq-wrap{
+        padding: 60px 16px;
+    }
+    .gc-faq-subtitle{
+        width: 100%;
+    }
+    .gc-theme-title{
+        font-size: 32px;
+    }
+    .container{
+        padding-left:0;
+        padding-right: 0;
+    }
+}

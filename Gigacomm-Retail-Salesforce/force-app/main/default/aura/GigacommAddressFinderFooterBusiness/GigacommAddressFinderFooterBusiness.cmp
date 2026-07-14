@@ -1,0 +1,29 @@
+<!-- 
+[1] WM 1 June 2025 this footer created as business is different from residential
+
+-->
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="GigaCommAddressFinderFooterController">
+    <aura:attribute name="lead" type="Object" /> 
+    <aura:handler name="cmpEvent" event="c:GigaCommOrderWizardEvent" action="{!c.handleComponentEvent}"/>
+    <aura:attribute name="apiHasError" type="Boolean" />
+    <div class="gc-hero2-container" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+        <div class="container">
+            <div class="slds-grid slds-wrap slds-grid_vertical-stretch slds-p-top_xx-large slds-p-bottom_xx-large slds-m-bottom_xx-large" >   
+                
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_7-of-12 slds-p-top_large">
+                    
+                    
+                    <h2 class="gc-default-color gc-hero2-title gc-theme-title-width">GET STARTED WITH GIGACOMM</h2>
+                    
+                    <!--p class="gc-color-white">It's the internet Australia both needs and deserves.</p-->
+                    <!--ADDRESS FINDER START-->
+                    <c:GigaCommAddressFinder showLoading="{!v.showLoading}" addrsId="addrs4" addrsMobileId="addrs3" showManualAddress="false" lead="{!v.lead}"   />
+                    <!--END-->
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_5-of-12 slds-p-top_large">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

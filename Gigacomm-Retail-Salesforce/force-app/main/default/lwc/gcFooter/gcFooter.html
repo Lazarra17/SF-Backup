@@ -1,0 +1,179 @@
+<template>
+  <!--[1]CL 13-Aug025 Copied the footer from old site-->
+  <div class="footer-wrap">
+    <div class="container">
+      <!-- Google Tag Manager (noscript) -->
+      <div lwc:dom="manual" class="google-tag-manager"></div>
+      <!-- End Google Tag Manager (noscript) -->
+
+      <div class="slds-grid slds-wrap slds-m-bottom_large">
+        <!--[1]-->
+        <div
+          class="slds-col slds-size_12-of-12 slds-large-size_2-of-12 slds-show_medium1"
+        >
+          <p class="gc-footer-icon">
+            <a href="javascript:void(0)" onclick={navigateToHome}
+              ><img class="" src={footerLogoUrl}
+            /></a>
+          </p>
+        </div>
+
+        <div
+          class="slds-col slds-size_12-of-12 slds-large-size_8-of-12 slds-text-align_center custom-contact-detail"
+        >
+          <div class="footer-contacts slds-text-align_left">
+            <p class="gc-default-color footer-contacts-m">
+              <strong>Contact details</strong>
+            </p>
+            <p class="footer-contacts-p">
+              <a href="tel:1300004442">1300 004 442</a>
+            </p>
+            <p class="footer-contacts-p">
+              <a href="mailto:info@gigacomm.net.au">info@gigacomm.net.au</a>
+            </p>
+            <template if:true={isChristmasHours}>
+              <p class="footer-contacts-p">
+                Christmas Hours of operation:Mon-Fri 8:00am-8:00pm
+              </p>
+              <p class="footer-contacts-p">
+                (excluding 25 December and 1 January 2026)
+              </p>
+            </template>
+            <template if:false={isChristmasHours}>
+              <p class="footer-contacts-p">Mon-Fri 8:00am-8:00pm</p>
+              <p class="footer-contacts-p">Live Chat Mon-Sun 8:00am-10:00pm</p>
+            </template>
+          </div>
+        </div>
+
+        <div
+          class="slds-col slds-size_12-of-12 slds-large-size_2-of-12 social-icon-wrap"
+        >
+          <p class="gc-default-color gc-social-icon">
+            <strong>Follow us</strong>
+          </p>
+          <div class="footer-social-wrap">
+            <a
+              href="https://www.facebook.com/GigaComm/"
+              class="gc-footer-social-icon-fb gc-footer-social-icon"
+              target="_blank"
+            >
+              <img src={facebookIconUrl} />
+            </a>
+            <a
+              href="https://au.linkedin.com/company/gigacomm1"
+              class="gc-footer-social-icon-linkedin gc-footer-social-icon"
+              target="_blank"
+            >
+              <img src={linkedinIconUrl} />
+            </a>
+            <a
+              href="https://www.instagram.com/gigacomm/"
+              class="gc-footer-social-icon-instagram gc-footer-social-icon"
+              target="_blank"
+            >
+              <img src={instagramIconUrl} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slds-grid slds-wrap slds-m-bottom_large">
+        <div class="slds-col slds-small-size_12-of-12 slds-large-size_12-of-12">
+          <footer class="footer-container">
+            <ul class="nav gc-footer-links">
+              <li class="">
+                Copyright &copy; gigacomm.net.au. All rights reserved.
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={customerCharterUrl}
+                  class=""
+                  >Customer Charter</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={customerTermsUrl}
+                  class=""
+                  >Customer Terms</a
+                >
+              </li>
+              <li class="">
+                <a href="/giga/s/critical-information-summaries" class=""
+                  >Critical Information Summaries</a
+                >
+              </li>
+              <li class="">
+                <a href="/giga/s/product-datasheets" class=""
+                  >Product Datasheets</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={acceptableUsePolicyUrl}
+                  class=""
+                  >Acceptable Fair Use Policy</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={privacyPolicyUrl}
+                  class=""
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="">
+                <a href="/giga/s/complaints#complaintsForm" class=""
+                  >Customer Complaints Handling Policy</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={financialHardshipPolicyUrl}
+                  class=""
+                  >Financial Hardship Policy</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={socialMediaPolicyUrl}
+                  class=""
+                  >Social Media Moderation Policy</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url={representativeForm}
+                  class=""
+                  >Advocate and Authorised Representative Form</a
+                >
+              </li>
+              <li class="">
+                <a
+                  onclick={handlePolicyLinkClick}
+                  data-url="https://www.communityfibre.com.au"
+                  class=""
+                  >Wholesale Agreement</a
+                >
+              </li>
+              <li class="">
+                <a href="/giga/s/domestic-and-family-violence-support" class=""
+                  >Domestic, Family and Sexual Violence Support</a
+                >
+              </li>
+            </ul>
+            <ul class="nav gc-footer-links"></ul>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

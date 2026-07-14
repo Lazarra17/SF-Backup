@@ -1,0 +1,10 @@
+<apex:component controller="VoucherTermsConditionsCtrl" access="global">
+
+    <apex:attribute name="opportunityId" type="String" assignTo="{!oppId}" description="Opportunity Id"/>
+
+    <div>
+        <p style="white-space: pre-line;">
+            <apex:outputText value="{!termsConditions}" />
+        </p>
+    </div>
+</apex:component>

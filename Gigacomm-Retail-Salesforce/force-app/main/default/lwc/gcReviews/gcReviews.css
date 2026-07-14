@@ -1,0 +1,51 @@
+.gc-m-top_large{
+    margin-top: 70px;
+    margin-bottom: 0px;
+    line-height: .8;
+}
+
+.gc-icon-trustpilot{
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.gc-icon-star{
+    color: #dccc62;
+    padding-right: 10px;
+}
+
+
+.gc-review-rating{
+    font-size: 18px;
+}
+
+.gc-review-title{
+    color: #352370;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: .9;
+    margin: 0px;
+}
+
+.gc-review-indicators{
+    margin-top: 80px;
+}
+
+.gc-review{
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
+    margin-bottom: 60px;
+}
+
+.gc-reviewer{
+    font-weight: 600;
+}
+
+@media all and (max-device-width: 600px){
+    .gc-review-title{
+        font-size: 35px;
+        padding: 0 10px;
+    }
+    
+    
+}

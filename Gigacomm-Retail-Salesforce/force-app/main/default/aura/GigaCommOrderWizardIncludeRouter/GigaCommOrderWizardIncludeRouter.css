@@ -1,0 +1,101 @@
+/*GigaCommOrderWizardIncludeRouter*/
+.THIS .gc-order-wizard-router-nav{
+    border: 1px solid #93d2fb;
+    padding: 5px 0px;
+    border-radius: 30px;
+    float: right;
+    
+}
+
+.THIS .nav-link{
+    border-radius: 25px;
+    color: #382670;
+    font-weight: 600;
+    margin: 0px 4px;
+}
+
+.THIS .nav-link.active{
+    background-color: #382670;
+    color: #fff;
+}
+
+.THIS .nav-link-router{
+    padding: 5px 30px;
+}
+
+.THIS .gc-router-title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.THIS .gc-router-product-title{
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.THIS .gc-router-contents-container{
+    background-color: #fff;
+    font-size: 14px;
+    border: 1px solid #91d3ff;
+    border-radius: 25px;
+}
+
+.THIS .gc-router-subtitle{
+    color: #382670;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.1;
+}
+
+.THIS .gc-order-wizard-router-icons{
+    padding-right: 12px;
+    margin-top: -8px;
+}
+
+.THIS .gc-router-accordion-button{
+    padding-left: 0px;
+    font-size: 15px;
+}
+
+.THIS .gc-router-accordion-button::after {
+    margin-left: 10px !important;
+    
+}
+
+.THIS .gc-btn-minus, .THIS .gc-btn-plus{
+    padding: 3px;
+    padding-top: 5px;
+}
+
+.THIS .gc-btn-group{
+    border: 1px solid #382670;
+    border-radius: 20px;
+}
+
+
+.THIS .gc-icon-minus, .THIS .gc-icon-plus{
+    font-size: 30px;
+    color: #382670;
+}
+
+.THIS .gc-btn-router{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.THIS .gc-carousel-item{
+    padding: 10px;
+    outline: 1px solid #eeeeee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.THIS .gc-carousel-item:focus {
+    outline: 1px solid green !important;
+}
+
+.THIS .gc-carousel-item-active{
+    outline: 1px solid #85d0fd;
+}

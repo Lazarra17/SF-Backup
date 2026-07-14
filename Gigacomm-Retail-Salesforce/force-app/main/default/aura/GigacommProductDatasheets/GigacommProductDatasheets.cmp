@@ -1,0 +1,51 @@
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+        <div class="slds-grid slds-wrap slds-m-top_large">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading slds-text-align_center">
+           <!-- <img class="gc-success-check" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" /> -->
+            <!-- <h4 class="gc-heading-title slds-m-top_medium">Payment successful</h4> -->
+            <h4 class="gc-heading-title slds-m-top_medium">PRODUCT DATASHEETS</h4>
+            <!--p class="gc-success-text">Lorem ipsum is simply dummy text of the printing and industry</p-->
+            <p></p>
+            <!--<p class="gc-color-white">Thank you for your order! Get ready for faster speeds, better value and reliable internet.</p> -->
+        </div>
+    </div>
+    
+    <div class="container slds-m-top_xx-large">
+        <div class="slds-grid slds-wrap gc-border gc-success-container slds-p-around_x-large">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                
+                <h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">Product Datasheets</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                      <!--  <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            
+                            Your order details have been emailed to you
+                        </p> 
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            One of our onboarding experts will contact you soon to organise your installation.
+                        </p> -->
+                        
+                           <p><a href="{!$Resource.YealinkT42S}" target="_blank">Yealink T42S</a></p>
+                            <p><a href="{!$Resource.YealinkT46S}" target="_blank">Yealink T46S</a></p>
+                            <p><a href="{!$Resource.YealinkT48S}" target="_blank">Yealink T48S</a></p>
+                            <p><a href="{!$Resource.YealinkT49G}" target="_blank">Yealink T49G</a></p>
+                            <p><a href="{!$Resource.YealinkT53W}" target="_blank">Yealink T53W</a></p>
+                            <p><a href="{!$Resource.YealinkT57W}" target="_blank">Yealink T57W</a></p>
+                            <p><a href="{!$Resource.YealinkW56H}" target="_blank">Yealink W56H</a></p>
+                            <p><a href="{!$Resource.YealinkW60P}" target="_blank">Yealink W60P</a></p>
+                            <p><a href="{!$Resource.YealinkW73H}" target="_blank">Yealink W73H</a></p>
+                            <p><a href="{!$Resource.YealinkW73P}" target="_blank">Yealink W73P</a></p>
+                        
+                    </div>
+                </div>
+                     
+               
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>   
+</aura:component>

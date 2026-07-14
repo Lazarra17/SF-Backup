@@ -1,0 +1,61 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2f40b483-e651-44b9-9b1c-e6f2ad90cf7e",
+  "label" : "FAQs",
+  "regions" : [ {
+    "id" : "530c0d74-06b1-4f1d-9d93-bec8929a4721",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommFAQsPage",
+      "id" : "5c76b656-fe6d-49e7-ba65-bb8a78d289f2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "05b152af-81a9-4d3f-9db8-9281030e3d95",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "47e5c9f9-106f-4419-8eda-790cc169a55b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e4d265fb-3ae3-4964-b2aa-d3f980d4922b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "FAQs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e2f60e6d-e702-4130-8bd6-39dafad066b9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dce372a2-63fb-4fa3-bc5b-c96b602b30f7",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-faqs"
+}

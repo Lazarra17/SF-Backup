@@ -1,0 +1,245 @@
+<!--
+[1] WM 20 May 2025 - change return address
+add anchor for form
+[2] CL 04 June 2025 - embedded the thank you page 
+-->
+
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="isSubmitted" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <div class="slds-grid slds-wrap slds-m-top_large">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading slds-text-align_center">
+            <!-- <img class="gc-success-check" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" /> -->
+            <!-- <h4 class="gc-heading-title slds-m-top_medium">Payment successful</h4> -->
+            <h5 class="gc-heading-title slds-m-top_medium">COMPLAINTS HANDLING POLICY</h5>
+            <!--p class="gc-success-text">Lorem ipsum is simply dummy text of the printing and industry</p-->
+            <p></p>
+            <!--<p class="gc-color-white">Thank you for your order! Get ready for faster speeds, better value and reliable internet.</p> -->
+        </div>
+    </div>
+    
+    <div class="container slds-m-top_xx-large">
+        <div class="slds-grid slds-wrap gc-border gc-success-container slds-p-around_x-large">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                
+                <h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">Complaints Handling Policy</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                        <!--  <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            
+                            Your order details have been emailed to you
+                        </p> 
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            One of our onboarding experts will contact you soon to organise your installation.
+                        </p> -->
+                        
+                        <h1 class="gc-default-color">Complaints Handling Policy</h1>
+                        <p class="">We are dedicated to providing you with excellent customer service, however sometimes things don’t work as they should and if this happens, we want to work with you to rectify the problem quickly.</p>
+                        <p>This page describes how we manage and resolve complaints, and the actions you can take to escalate complaints that cannot be resolved.</p>
+                        <p><a href="{!$Resource.GigacommComplaintsHandlingPolicyFeb2025}" target="_blank">Download a PDF copy of our complaints policy here</a></p>
+                        <p>&nbsp;</p>
+                        
+                        <h2 class="gc-default-color">What is a Complaint?</h2>
+                        <p>A complaint is an expression of dissatisfaction made to us in relation to our products, services or the complaint handling process itself and where you expect us to respond and/or resolve the matter.</p>
+                        <p>We want to provide great service to you and will work to resolve the problem straight away. Where it may take some time, we will keep you informed throughout the process.</p>
+                        <p>You have the right to make a complaint and if you do make a complaint, the complaint process is set out below.</p>
+                        <p>&nbsp;</p>
+                        
+                        <h3 class="gc-default-color">Step 1: Making a Complaint</h3>
+                        <p>We understand that problems can be frustrating. As a first step please contact our customer support team who will do their very best to rectify the problem immediately:</p>
+                        
+                        <p><strong>Call:</strong> 1300 004 442 (between 8am–8pm AEST Monday to Sunday)</p>
+                        <p> <strong>Email:</strong> <a href="mailto:customercare@gigacomm.net.au">customercare@gigacomm.net.au</a></p>
+                        <p><strong>Post:</strong> PO Box 587 South Melbourne Market, South Melbourne, Victoria 3205</p>
+                        <p> <strong>Online:</strong> Complete the <a href="#Complaint-Form" rel="noopener" style="color: #000000;">online complaint form</a> at the bottom of this page</p>
+                        
+                        <p>If you do not wish to handle the complaint yourself, you can nominate someone else to manage the complaint for you by contacting us by any of the modes above.</p>
+                        <p>If you are experiencing financial hardship, we are able to provide support to you through our <a href="https://www.gigacomm.net.au/hubfs/2025-01-29%20Financial%20Hardship%20Policy.pdf" target="_blank">Financial Hardship Policy</a>.</p>
+                        <p>If accessibility is an issue for you, please see the following Australian Government services to assist you in making your complaint:</p>
+                        
+                        <p><strong>National Relay Service:</strong> 13 3677</p>
+                        <p><strong>Translating &amp; Interpreting Service:</strong> 131 450</p>
+                        
+                        <p>&nbsp;</p>
+                        
+                        <h3 class="gc-default-color">Step 2: Working to resolve your complaint</h3>
+                        <p>We will acknowledge your complaint and provide you with a complaint identifier immediately if you make a complaint by phone or within 2 business days from receipt of a complaint in writing through the post, email or the online complaint form process.</p>
+                        <p>Your complaint will be reviewed by a member of our customer care team at first instance and then, if required, it will be escalated to a customer care team leader. The customer care team leader will manage the review and resolution of the problem.</p>
+                        
+                        
+                        <h4 class="gc-default-color">Further Investigation required</h4>
+                        <p>If the matter cannot be resolved immediately as it requires further investigation we will let you know. Once we have completed our investigation, we’ll explain what we’ve found and what we propose to do to address the problem, 
+                            if we haven’t resolved it already. We will provide you with a proposed resolution of the complaint within 15 business days of receipt of the complaint.</p>
+                        
+                        
+                        <h4 class="gc-default-color">Attempts to Contact You</h4>
+                        <p>In the event where we are not able to contact you via email or phone in relation to your complaint, we will write to you with details of our attempts and a request to contact us. If you do not respond within 10 business days, we will consider your complaint resolved.</p>
+                        
+                        
+                        <h4 class="gc-default-color">Urgent Complaints</h4>
+                        <p>If you believe your complaint requires urgent attention, please always contact us by phone at the number listed above. We will provide a proposed resolution of urgent complaints within 2 business days of receipt of the complaint.</p>
+                        
+                        
+                        <h4 class="gc-default-color">Resolution of Complaints</h4>
+                        <p>We will complete all necessary actions to implement a resolution within 10 business days of you accepting the resolution and provide confirmation that your complaint has been resolved.</p>
+                        <p>&nbsp;</p>
+                        
+                        <h3 class="gc-default-color">Step 3: Escalation</h3>
+                        <p>If at any time you feel your complaint is not being handled to your satisfaction, in the first instance you can escalate your concerns in writing to our Sales Operations Manager. If not satisfied, you can escalate to our Group Executive Consumer &amp; Small Business. Our customer care team can provide our escalation contact document upon request.</p>
+                        <p>Sometimes, after careful consideration, we may decide that we are unable to do anything further to resolve or assist you with your complaint or that your behaviour or complaint is frivolous or vexatious. If we decide this, we'll tell you within 5 business days of making this decision and give you the reasons behind it. We'll also let you know about your options for external dispute resolution such as the Telecommunications Industry Ombudsman (TIO).</p>
+                        <p>&nbsp;</p>
+                        
+                        <h3 class="gc-default-color">Step 4: If you want to escalate your complaint externally</h3>
+                        <p>While we hope this won’t be the case, if, after following our complaints process you feel we haven’t been able to resolve your complaint to your satisfaction, you can choose to escalate your complaint to the TIO.</p>
+                        <p>The TIO can be contacted by:</p>
+                        
+                        <p><strong>Phone:</strong> 1800 062 058</p>
+                        <p><strong>Online:</strong>
+                            <br/><a href="https://www.tio.com.au/complaints" target="_blank">https://www.tio.com.au/complaints</a></p>
+                        
+                        <p>&nbsp;</p>
+                        
+                        
+                        
+                        <!--<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">-->
+                        <a id="complaintForm" data-hs-anchor="true"></a>
+                        <!-- <a href="complaintForm"/> -->
+                        <h3 class="gc-default-color" id="complaintsForm">Online Complaints Form</h3>
+                        <p>To lodge a formal complaint, please enter your details below and one of our team will be in touch.</p>
+                        
+                        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?orgId=00DGB000003ZGVs" method="POST"> 
+                            
+                            
+                            
+                            
+                            <input type="hidden" name="orgid" value="00DGB000003ZGVs"/> 
+                            <input type="hidden" name="retURL" value="https://gigacommnet.my.site.com/giga/s/complaints?sObject=Case&amp;status=submitted#complaintForm"/> <!-- [1] -->
+                            <input type="hidden" name="type" value="Complaint"/>
+                            <input type="hidden" name="priority" value="Medium"/>
+                            
+                            <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                            <!--  these lines if you wish to test in debug mode.                          -->
+                            <input type="hidden" name="debug" value="0"/>                             
+                            <input type="hidden" name="debugEmail" value="sfteam@bricoleurtech.com"/>    
+                            
+                            <!--<table>
+                <tr>
+                    <td width="15%"><label for="name">Contact Name</label></td>
+                    <td><input id="name" maxlength="80" name="name" size="20" type="text" required="true" /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input  id="email" maxlength="80" name="email" size="20" type="text" /></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone</label></td>
+                    <td> <input  id="phone" maxlength="40" name="phone" size="20" type="text" /></td>
+                </tr>
+                <tr>
+                    <td><label for="subject">Subject</label></td>
+                    <td><input  id="subject" maxlength="80" name="subject" size="20" type="text" /></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Description</label></td>
+                    <td><textarea name="description"></textarea></td>
+                </tr>
+
+            </table>-->
+                            
+                            <!-- <div class="slds-grid slds-grid_align-center">
+                <div class="slds-box slds-theme_default" style="width: 50%; min-width: 300px;">
+                    <lightning:layout multipleRows="true" class="slds-p-around_small">
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <lightning:input aura:id="name" name="name" label="Contact Name" maxlength="80" required="true" />
+                            <input id="name" maxlength="80" name="name" size="20" type="text" required="true" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <lightning:input aura:id="email" name="email" label="Email" maxlength="80" type="email" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <lightning:input aura:id="phone" name="phone" label="Phone" maxlength="40" type="tel" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <lightning:input aura:id="subject" name="subject" label="Subject" maxlength="80" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <lightning:textarea aura:id="description" name="description" label="Description" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12" padding="around-none">
+                            <div class="slds-text-align_center slds-m-top_small">
+                                <input class="gc-btn gc-btn-success gc-default-color" type="submit" name="submit" value="Submit Complaint" />
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+            </div> -->
+                            
+                            <div class="slds-grid slds-grid_align-center slds-m-top_medium">
+                                <div class="slds-theme_default" style="width: 50%; min-width: 300px;">
+                                    <div class="slds-form-element slds-m-bottom_x-small">
+                                        <label class="slds-form-element__label" for="name">
+                                            <span style="color:red;">*</span> Contact Name
+                                        </label>
+                                        <div class="slds-form-element__control">
+                                            <input id="name" maxlength="80" name="name" size="20" type="text" required="true"
+                                                   class="slds-input gc-default-color" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-m-bottom_x-small">
+                                        <label class="slds-form-element__label" for="email">Email</label>
+                                        <div class="slds-form-element__control">
+                                            <input id="email" maxlength="80" name="email" size="20" type="text"
+                                                   class="slds-input gc-default-color" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-m-bottom_x-small">
+                                        <label class="slds-form-element__label" for="phone">Phone</label>
+                                        <div class="slds-form-element__control">
+                                            <input id="phone" maxlength="40" name="phone" size="20" type="text"
+                                                   class="slds-input gc-default-color" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-m-bottom_x-small">
+                                        <label class="slds-form-element__label" for="subject">Subject</label>
+                                        <div class="slds-form-element__control">
+                                            <input id="subject" maxlength="80" name="subject" size="20" type="text"
+                                                   class="slds-input gc-default-color" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-m-bottom_small">
+                                        <label class="slds-form-element__label" for="description">Description</label>
+                                        <div class="slds-form-element__control">
+                                            <textarea id="description" name="description"
+                                                      class="slds-textarea gc-default-color"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element slds-text-align_center">
+                                        <input class="gc-btn gc-btn-success gc-default-color" type="submit" name="submit" value="Submit Complaint" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </form> 
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>   
+    <!--[2] CL 04 June 2025 - embedded the thank you page -->
+    <div class="{!v.isSubmitted ? 'show' : 'collapse'}" id="collapseThankYou">
+        <c:GigacommComplaintThankYou />
+    </div>
+    
+    
+</aura:component>

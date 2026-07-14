@@ -1,0 +1,147 @@
+<!-- 
+[1] WM 28 May - change breadcrumb from Personal Details to Details on mobile
+Also remove the steps, these are not in the Figma
+[2] CL 08 July - Embedded the Voucher Feature Cookie
+-->
+
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" controller="GigaCommOrderWizardController" >
+    <aura:attribute name="ipAddress" type="String" />
+    <aura:attribute name="promoCodeReferral" type="String" />
+    <aura:attribute name="plans" type="PriceBookEntry[]" /> 
+    <aura:attribute name="router" type="PriceBookEntry" /> 
+    <aura:attribute name="routerInstallation" type="PriceBookEntry" /> 
+    <aura:attribute name="selected" type="Boolean"/>
+    <aura:attribute name="hideWizard" type="Boolean" default="true"/>
+    <aura:attribute name="lead" type="Object" />
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="showLoading" type="Boolean"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:handler name="cmpEvent" event="c:GigaCommOrderWizardEvent" action="{!c.handleComponentEvent}"/>
+    <aura:attribute name="apiHasError" type="Boolean" default="false"/> <!-- JPS 19 May -->
+    <aura:attribute name="allowSelectPlan" type="Boolean" default="true"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading">
+            
+            <div onclick="{!c.navigateTo}" class="gc-pd-back">
+                <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                <span class="gc-heading-back">Back</span>
+            </div>
+            
+            <h2 class="gc-heading-title slds-m-top_large">THE FREEDOM TO DO MORE</h2>
+            <p class="gc-color-white-theme">It's the internet Australia both needs and deserves.</p>
+        </div>
+    </div>
+    
+    <!--Desktop Version-->
+    <div class="slds-grid slds-wrap slds-show_small slds-m-top_medium slds-border_bottom slds-p-bottom_medium">
+        <div class="slds-col slds-size-large_3-of-12 slds-size-small_12-of-12 ">
+        </div>
+        <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text gc-default-color">
+                    <strong>
+                        <span class="gc-badge gc-badge-current">1</span>Plans &amp; Add-ons <!-- [1] -->
+                    </strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text"><strong><span class="gc-badge gc-badge-neutral">2</span>Personal Details</strong></div> <!-- [1] -->
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text"><strong><span class="gc-badge gc-badge-neutral">3</span>Payment</strong></div> <!-- [1] -->
+            </div>
+        </div>
+        <div class="slds-col slds-size-large_3-of-12 slds-size-small_12-of-12 ">
+        </div>
+    </div>
+    
+    <!--Mobile Version-->
+    <div class="slds-grid slds-hide_small slds-wrap slds-m-top_medium">
+        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text slds-p-left_large"><strong><span class="gc-badge gc-badge-current">1</span></strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text"><strong><span class="gc-badge gc-badge-neutral">2</span></strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text slds-p-right_large"><strong><span class="gc-badge gc-badge-neutral">3</span></strong>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="slds-grid slds-hide_small slds-wrap">
+    <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text"><strong><p class="slds-text-align_center">Plans &amp; Add-ons</p></strong> 
+                </div>
+                <div class="gc-breadcrumbs-space"></div>
+                <div class="gc-breadcrumbs-text"><strong><p class="slds-text-align_center">Details</p></strong> <!-- [1] -->
+                </div>
+                <div class="gc-breadcrumbs-space"></div>
+                <div class="gc-breadcrumbs-text slds-p-right_small"><strong><p class="slds-text-align_center">Payment</p></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="">
+        <div class="slds-container_x-large" style="margin:auto">
+        <div class="slds-grid slds-wrap slds-m-top_x-large slds-m-bottom_x-large">
+            <div class="slds-col slds-size_12-of-12 gc-order-wizard-address-section">
+                <h2 class="slds-text-align_center gc-order-wizard-section-title gc-default-color">
+                    Check your address
+                </h2>
+                <c:GigaCommAddressFinder showLoading="{!v.showLoading}" addrsMobileId="addrs2" addrsId="addrs" showManualAddress="true" lead="{!v.lead}"   />
+            </div>
+        </div>
+		        
+        
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large">
+            <div class="slds-col slds-size_12-of-12">
+                <h2 class="slds-text-align_center gc-order-wizard-section-title gc-default-color" aura:id="planSection">
+                    Select your Plan
+                </h2>
+            </div>
+        </div>
+        
+        <c:gcPlans plans="{!v.plans}" 
+        lead="{!v.lead}" 
+        allowSelectPlan= "{!v.allowSelectPlan}"
+        oncmpEvent="{!c.handleComponentEvent}"></c:gcPlans>
+        <!--aura:if isTrue="{!v.lead.Address != null}"-->
+        <!-- <c:GigaCommOrderWizardPlan plans="{!v.plans}" lead="{!v.lead}" allowSelectPlan="true" /> -->
+        <!--/aura:if-->
+            
+            <div aura:id="routerSection" id="routerSection">
+                <aura:if isTrue="{!v.lead.PlanSelected != null}">
+                    
+                    <c:GigaCommOrderWizardIncludeRouter lead="{!v.lead}" router="{!v.router}" showIncludeRouterDescription="{!v.lead.showIncludeRouterDescription}"  />
+                    
+                    
+                    <c:GigaCommOrderWizardOrderSummary lead="{!v.lead}" />
+                    
+                </aura:if>
+            </div>
+        <aura:if isTrue="{!v.showSpinner}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="largee" />
+            </div>
+        </aura:if>
+    </div>
+    </div>
+    
+    <aura:if isTrue="{!AND(v.lead.PlanSelected != null, v.lead.Address != null)}">
+        <c:GigaCommOrderWizardOrderSummaryFooter lead="{!v.lead}"  />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.apiHasError}">
+        <div class="show"  id="unavailableServiceId">
+           
+            <c:GigacommServiceUnavailable />    
+        </div>
+    </aura:if>
+    
+    
+    
+</aura:component>

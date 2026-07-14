@@ -1,0 +1,167 @@
+<!--
+[1] WM 1 June 2025 - add additional text
+[2] CL 9 June 2025 - capture Ip address
+[3] CL - 17-June-25 - Update Lead Source
+-->
+
+<aura:component controller="GigacommContactUsController">
+    
+    <aura:attribute name="lead" type="Lead" default="{'FirstName' : ''}" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="leadSource" type="String" />
+    <aura:attribute name="tc" type="Boolean" />
+    <aura:attribute name="showForm" type="Boolean" default="true" />
+    <aura:attribute name="showAcknowledgement" type="Boolean" default="false" />
+    <aura:attribute name="stateOptions" type="String[]" />
+    <aura:attribute name="ipAddress" type="String" />
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    
+    
+    <section role="dialog" tabindex="-2" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small ">
+        <div class="slds-modal__container">
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_6-of-12">
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-text-align_right">
+                        <!-- data-bs-target="#collapseRegisterAddress"-->
+                        <button class="slds-button slds-button_icon slds-modal__close" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">   
+                            <span class="material-symbols-outlined">
+                                close
+                            </span>
+                            <span class="slds-assistive-text">Cancel and close</span>
+                        </button>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container">
+                    
+                    <aura:if isTrue="{!v.showForm}">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size-large_6-of-12 slds-size-small_6-of-12">
+                                <p class="gc-p-2 gc-default-color"><strong>{!v.title}</strong></p>
+                            </div>
+                            
+                            <div class="slds-col slds-size-large_6-of-12 slds-size-small_6-of-12">
+                                <div class="logoContainer gc-community-logoContainer"></div>
+                            </div>
+                            
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                                <p class="gc-p-2 gc-default-color">Enter your business contact details and our team will
+                                    contact you to discuss your needs and plans available.</p>
+                            </div>
+                                                    
+                        </div>
+                        
+                        <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_large">
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                                <lightning:input aura:id="addressField" name="FirstName" required="true" class="gc-pd-input-text" label="First Name" placeholder="Enter First name" value="{!v.lead.FirstName}"  />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                                <lightning:input aura:id="addressField" name="LastName" required="true" class="gc-pd-input-text" label="Last Name" placeholder="Enter Last name" value="{!v.lead.LastName}"  />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                <lightning:input aura:id="addressField" name="email" required="true" type="email"  class="gc-pd-input-text slds-border-around_none" label="Email" value="{!v.lead.Email}"  placeholder="Enter Email" />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                <lightning:input aura:id="addressField" name="phoneNumber" required="true" class="gc-pd-input-text" label="Phone Number" placeholder="Enter Phone Number +61" value="{!v.lead.MobilePhone}" />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                <lightning:input aura:id="addressField" name="streetAddress" required="true" class="gc-pd-input-text" label="Street Address (including unit number)" placeholder="Enter Street Address" value="{!v.lead.Street}" />
+                            </div>
+                            
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                <lightning:input aura:id="addressField" name="City" required="true" class="gc-pd-input-text" label="City" placeholder="Enter City" value="{!v.lead.City}"  />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                                <lightning:input aura:id="addressField" name="City" required="true" class="gc-pd-input-text" label="Postal Code" placeholder="Enter Postal Code" value="{!v.lead.PostalCode}"  />
+                            </div>
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                                <lightning:select aura:id="stateField" name="stateField" 
+                                                  class="gc-select-input gc-pd-input-text " label="State/Region" required="true" value="{!v.lead.StateCode}">
+                                    
+                                    <aura:iteration items="{!v.stateOptions}" var="item">
+                                        <aura:if isTrue="{!item.value == ''}">
+                                            <option disabled="true" selected="selected" value="{!item.value}">{!item.label}</option>
+                                            <aura:set attribute="else">
+                                                <option value="{!item.value}">{!item.label}</option>
+                                            </aura:set>
+                                        </aura:if>
+                                    </aura:iteration>
+                                </lightning:select>
+                                
+                                
+                            </div>
+                            
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12 slds-m-top_large">
+                                <div class="slds-form-element__control slds-grow">
+                                    <span class="slds-checkbox" part="input-checkbox">
+                                        <input type="checkbox" part="checkbox" aura:id="gcCheckBox" onchange="{!c.checkTC}" required="true" id="checkbox-1" name="input1" value=""/>
+                                        
+                                        <label class="slds-checkbox__label" for="checkbox-1" part="label-container">
+                                            <span part="indicator" class="slds-checkbox_faux"></span>
+                                            <span class="slds-form-element__label " part="label">
+                                                &nbsp;I agree to receive marketing or promotional communications from GigaComm in 
+                                                accordance with the Privacy Policy.
+                                                
+                                            </span>
+                                        </label>
+                                    </span>
+                                </div>    
+                            </div>
+                            
+                            
+                            
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12 slds-m-top_medium">
+                                <p> 
+                                    GigaComm is committed to protecting and respecting your privacy, and we’ll only use your personal information 
+                                    to provide information you have requested, administer your account, and deliver our products and services.
+                                </p>    
+                            </div>
+                            
+                            
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12 slds-m-top_medium">
+                                
+                                <button class="gc-btn gc-community-btn-right" value="at" onclick="{!c.validateForm}">
+                                    Submit
+                                </button>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </aura:if>
+                    
+                    <aura:if isTrue="{!v.showAcknowledgement}">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size-large_6-of-12 slds-size-small_6-of-12">
+                                <p class="gc-p-2 gc-default-color"><strong>{!v.title}</strong></p>
+                            </div>
+                            
+                            <div class="slds-col slds-size-large_6-of-12 slds-size-small_6-of-12">
+                                <div class="logoContainer gc-community-logoContainer"></div>
+                            </div>
+                            
+                        </div>
+                        <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_xx-large slds-p-top_xx-large">
+                            <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                <p class="slds-text-align_center">Thank you for registering your interest! We will be in touch shortly.</p>
+                                
+                            </div>
+                            
+                        </div>
+                    </aura:if>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    
+</aura:component>

@@ -1,0 +1,167 @@
+/*GigaCommOrderWizardPlan*/
+
+
+.THIS .nav-link{
+    border-radius: 25px;
+    color: #382670;
+    font-weight: 600;
+    margin: 0px 5px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+
+
+.THIS #planSection{
+    min-height: 250px;
+}
+
+
+.THIS .gc-mobile-carousel-right, .THIS .gc-mobile-carousel-left{
+    position: absolute;
+    top: 35%;
+}
+
+.THIS ul.gc-inclusions{
+    text-align: left;
+    
+}
+
+.THIS ul.gc-inclusions li{
+	  list-style-type: disc;
+    font-size: .9rem;
+}
+
+
+.THIS .carousel-control-next-icon, .THIS .carousel-control-prev-icon{
+    background-color: #3b256d;
+}
+
+.THIS .gc-btn-select{
+    width: 200px;
+}
+
+
+
+.THIS .gc-btn:hover{
+    background-color: #b7f333;
+    border: 2px solid #b7f333;
+    color: #382670;
+}
+
+
+
+
+
+.THIS .gc-order-wizard-accordion{
+    text-align: center;
+    display:table-cell;
+    padding: 0px 0px;
+}
+
+.THIS .gc-icon-toggle{
+    vertical-align: bottom;
+    font-size: 25px;
+}
+
+
+
+
+
+.THIS .gc-order-wizard-plan-description{
+    margin:0px;
+    font-size: .9rem;
+}
+
+.THIS .accordion-button::after {
+    margin-left:10px;
+}
+
+.THIS .gc-order-wizard-p-2{
+    font-size: 13px;
+}
+
+.THIS .gc-order-wizard-border{
+    border: 1px solid #91d3ff;
+    border-radius: 25px; 
+}
+
+.THIS .gc-order-wizard-border:has(.gc-btn:hover, .gc-btn-selected:hover) {
+    outline: 2px solid #b7f333;  
+    border: none;
+}
+
+.THIS .gc-order-wizard-border-selected{
+    outline: 2px solid #b7f333;  
+    border: none;
+    border-radius: 25px; 
+}
+
+
+.THIS .gc-center-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .gc-order-wizard-avatar{
+    height: 100%;
+    min-height: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0 25px 25px 0;
+}
+
+
+
+
+.THIS .gc-rich-text p{
+    margin: 0px;
+}
+
+.THIS .gc-order-wizard-term{
+    font-size: 14px; 
+    color: #313237;
+    font-weight: normal;
+    line-height: 1.4;
+    vertical-align: top;
+}
+
+
+.THIS .gc-plan-border{
+    border: 1px solid #cdcdcd;
+    border-radius: 0 0 25px 25px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .THIS .gc-order-wizard-avatar{
+        border-radius: 0px 0px 25px 25px;
+    }
+}  
+
+@media all and (max-device-width: 600px){
+    .THIS .gc-order-wizard-plan-description{
+        font-size: 1rem;
+    }
+    
+     .THIS .gc-order-wizard-accordion{
+        font-size: 12px;
+    }
+    
+    .THIS .gc-order-wizard-border{
+        border: 1px solid #91d3ff;
+        border-radius: 25px 25px 0 0; 
+    }
+    
+    .THIS .gc-order-wizard-rate{
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: left;
+    }
+    
+    .THIS .nav-link{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+    
+}

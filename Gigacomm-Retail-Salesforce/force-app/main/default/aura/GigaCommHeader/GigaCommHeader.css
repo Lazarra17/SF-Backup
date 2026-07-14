@@ -1,0 +1,10 @@
+/*GigaCommHeader.css*/
+.THIS .gc-navbar{
+    z-index: 1;
+}
+
+.THIS .navbar-toggler{
+    border: none;
+    font-size: 25px;
+    color: #fff;
+}

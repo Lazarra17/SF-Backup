@@ -1,0 +1,215 @@
+<!--
+[1] WM 20 May 2025 Implement tracking code in footer
+[2] WM 31 May 2025 Add Social Media Policy
+[3] WM 11 July 2025 add chat times
+[4] WM 15 July 2025 change format of content
+[5] GS 18 Aug 2025 Add link to Wholesale Agreement
+
+-->
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="isChristmasHours" type="Boolean" default="false" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <!-- Google Tag Manager (noscript) [1] -->
+  <aura:unescapedHtml value="{!$Label.c.GoogleTagManagerBodyScript}" />
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="slds-grid slds-wrap slds-m-bottom_large">
+    <div
+      class="slds-col slds-size_12-of-12 slds-large-size_2-of-12 slds-show_medium"
+    >
+      <p class="gc-social-icon">
+        <a
+          href="javascript:void(0)"
+          onclick="
+            {
+              !c.navigateToHome;
+            }
+          "
+          ><img
+            class=""
+            src="{!$Resource.GigaCommAsset + '/HomePageIcons/footerLogo.svg'}"
+        /></a>
+      </p>
+    </div>
+
+    <div
+      class="slds-col slds-size_12-of-12 slds-large-size_2-of-12 slds-hide_medium slds-align_absolute-center slds-m-bottom_x-large"
+    >
+      <a
+        href="javascript:void(0)"
+        onclick="
+          {
+            !c.navigateToHome;
+          }
+        "
+        ><img
+          class=""
+          src="{!$Resource.GigaCommAsset + '/HomePageIcons/footerLogo.svg'}"
+      /></a>
+    </div>
+    <div
+      class="slds-col slds-size_12-of-12 slds-large-size_8-of-12 slds-align_absolute-center"
+    >
+      <div
+        class="slds-col slds-small-size_12-of-12 slds-large-size_8-of-12 slds-align_absolute-center slds-m-bottom_large"
+      >
+        <div class="footer-contacts slds-text-align_left">
+          <p class="gc-default-color"><strong>Contact details</strong></p>
+          <p><a href="tel:1300004442">1300 004 442</a></p>
+          <p><a href="mailto:info@gigacomm.net.au">info@gigacomm.net.au</a></p>
+          <aura:if isTrue="{!v.isChristmasHours}">
+            <p>Christmas Hours of operation:Mon-Fri 8:00am-8:00pm</p>
+            <p>(excluding 25 December and 1 January 2026)</p>
+            <aura:set attribute="else">
+              <p>Mon-Fri 8:00am-8:00pm</p>
+              <p>Live Chat Mon-Sun 8:00am-10:00pm</p>
+            </aura:set>
+          </aura:if>
+        </div>
+      </div>
+    </div>
+    <div
+      class="slds-col slds-size_12-of-12 slds-large-size_2-of-12 slds-text-align_center"
+    >
+      <p class="gc-default-color gc-social-icon"><strong>Follow us</strong></p>
+      <p class="gc-social-icon">
+        <a
+          href="https://www.facebook.com/GigaComm/"
+          class="gc-footer-social-icon-fb"
+          target="_blank"
+        >
+          <img
+            class=""
+            src="{!$Resource.GigaCommAsset + '/HomePageIcons/facebook.svg'}"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/gigacomm/"
+          class="gc-footer-social-icon-instagram"
+          target="_blank"
+        >
+          <img
+            class=""
+            src="{!$Resource.GigaCommAsset + '/HomePageIcons/instagram.svg'}"
+          />
+        </a>
+        <a
+          href="https://au.linkedin.com/company/gigacomm1"
+          class="gc-footer-social-icon-linkedin"
+          target="_blank"
+        >
+          <img
+            class=""
+            src="{!$Resource.GigaCommAsset + '/HomePageIcons/linkedin.svg'}"
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="slds-grid slds-wrap slds-m-bottom_large">
+    <div class="slds-col slds-small-size_12-of-12 slds-large-size_12-of-12">
+      <footer class="">
+        <ul class="nav gc-footer-links slds-align_absolute-center">
+          <li class="">
+            Copyright &copy; gigacomm.net.au. All rights reserved.
+          </li>
+          <!--   <li class=""><a href="{!$Label.c.GigaComm_Custom_Charter}" target="_blank" class="">Customer Charter</a></li>
+                    <li class=""><a href="{!$Label.c.GigaComm_Customer_Terms}" target="_blank" class="">Customer Terms</a></li> -->
+          <!-- <li class=""><a href="https://image.s13.sfmc-content.com/lib/fe38117473640479751672/m/1/62fd859f-d4ce-4a2d-8fc1-22aa6890128a.pdf " target="_blank" class="">Customer Terms</a></li> -->
+
+          <li class="">
+            <a
+              href="{!$Resource.GigacommCustomerCharter}"
+              target="_blank"
+              class=""
+              >Customer Charter</a
+            >
+          </li>
+
+          <li class="">
+            <a href="{!$Resource.GigaCommSFOA}" target="_blank" class=""
+              >Customer Terms</a
+            >
+          </li>
+          <li class="">
+            <a href="critical-information-summaries" class=""
+              >Critical Information Summaries</a
+            >
+          </li>
+          <li class="">
+            <a href="product-datasheets" class="">Product Datasheets</a>
+          </li>
+
+          <!-- <li class=""><a href="{!$Label.c.GigaComm_Acceptable_Fair_Use_Policy}" target="_blank"  class=""> Acceptable Fair Use Policy</a></li>
+                    <li class=""><a href="{!$Label.c.GigaComm_Privacy_Policy}" target="_blank"  class="">Privacy Policy</a></li> -->
+
+          <li class="">
+            <a
+              href="{!$Resource.GigacommAcceptableFairUsePolicy}"
+              target="_blank"
+              class=""
+            >
+              Acceptable Fair Use Policy</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="{!$Resource.GigacommPrivacyPolicy}"
+              target="_blank"
+              class=""
+              >Privacy Policy</a
+            >
+          </li>
+          <li class="">
+            <a href="/giga/s/complaints#complaintsForm" class=""
+              >Customer Complaints Handling Policy</a
+            >
+          </li>
+
+          <!--   <li class=""><a href="{!$Label.c.GigaComm_Financial_Hardship_Policy}" target="_blank" class="">Financial Hardship Policy</a></li> -->
+          <li class="">
+            <a
+              href="{!$Resource.GigacommFinancialHardshipPolicy}"
+              target="_blank"
+              class=""
+              >Financial Hardship Policy</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="{!$Resource.GigacommSocialMediaModerationPolicy}"
+              target="_blank"
+              class=""
+              >Social Media Moderation Policy</a
+            >
+          </li>
+          <!-- [2] -->
+          <li class="">
+            <a
+              href="{!$Resource.AuthorisedRepresentativeForm}"
+              target="_blank"
+              class=""
+              >Advocate and Authorised Representative Form</a
+            >
+          </li>
+          <li class="">
+            <a href="https://www.communityfibre.com.au" target="_blank" class=""
+              >Wholesale Agreement</a
+            >
+          </li>
+          <li class="">
+            <a href="domestic-and-family-violence-support" class=""
+              >Domestic, Family and Sexual Violence Support</a
+            >
+          </li>
+        </ul>
+        <ul class="nav gc-footer-links"></ul>
+      </footer>
+    </div>
+  </div>
+</aura:component>

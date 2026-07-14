@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AAPT</fullName>
+        <default>false</default>
+        <label>AAPT</label>
+    </customValue>
+    <customValue>
+        <fullName>GigaComm</fullName>
+        <default>false</default>
+        <label>GigaComm</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Plume</fullName>
+        <default>false</default>
+        <label>Plume</label>
+    </customValue>
+    <customValue>
+        <fullName>TIAB</fullName>
+        <default>false</default>
+        <label>TIAB</label>
+    </customValue>
+    <customValue>
+        <fullName>Vocus</fullName>
+        <default>false</default>
+        <label>Vocus</label>
+    </customValue>
+    <masterLabel>Operator</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

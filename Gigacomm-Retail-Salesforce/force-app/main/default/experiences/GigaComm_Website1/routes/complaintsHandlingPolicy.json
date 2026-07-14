@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "3cf2e9e2-b7e6-4187-9659-1994b578d937",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "complaints__c",
+  "id" : "b7440e91-72b2-49f3-857c-ae5df0d3838f",
+  "label" : "Complaints Handling Policy",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-complaints",
+  "type" : "route",
+  "urlPrefix" : "complaints"
+}

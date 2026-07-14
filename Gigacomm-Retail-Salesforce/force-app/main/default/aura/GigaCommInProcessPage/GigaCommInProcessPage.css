@@ -1,0 +1,16 @@
+.THIS .gc-success-check{
+    width: 70px;
+}
+
+.THIS .gc-success-text{
+    color: white;
+}
+
+.THIS .gc-success-container{
+    border-radius: 25px;
+}
+
+.THIS .spinner-container{
+    position: relative;
+    display: inline-block;
+}

@@ -1,0 +1,23 @@
+.THIS .gc-business-header-container{
+    background-color: #eaf7ff;
+    border-radius: 20px;
+}
+
+.THIS .gc-business-header-container h1{
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.THIS .gc-why-gigacom-tiles{
+    height: 100%;
+}
+
+
+@media all and (max-device-width: 600px){
+    
+    .THIS .gc-business-header-container h1{
+        margin-top: 0px;
+    }
+    
+    
+}

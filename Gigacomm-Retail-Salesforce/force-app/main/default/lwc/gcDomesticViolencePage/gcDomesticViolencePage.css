@@ -1,0 +1,264 @@
+/* ===================================================================
+   gcDomesticViolencePage — Gigacomm standard site styles
+   WEB-106
+   =================================================================== */
+
+/* ---------- Page-level typography ---------- */
+
+p {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #382670;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #382670;
+  font-weight: 700;
+}
+
+/* ---------- Content container ---------- */
+
+.gc-community-container {
+  line-height: 2;
+}
+
+/* ---------- Lists ---------- */
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+ul li {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 2;
+  color: #333;
+  padding: 4px 0;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: #382670;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #2e1260;
+  text-decoration: none;
+}
+
+/* ---------- Gigacomm contact cards ---------- */
+
+.gc-contact-cards {
+  display: flex;
+  gap: 16px;
+  margin: 20px 0 24px;
+  flex-wrap: wrap;
+}
+
+.gc-contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 200px;
+  min-width: 180px;
+  background-color: #f3f0fa;
+  border: 2px solid #382670;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-align: center;
+  transition:
+    background-color 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease;
+}
+
+.gc-contact-card:hover {
+  background-color: #ebe5f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 38, 112, 0.15);
+  text-decoration: none;
+}
+
+.gc-contact-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.gc-contact-label {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.gc-contact-value {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #382670;
+}
+
+/* ---------- 24/7 helpline cards ---------- */
+
+.gc-helpline-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0 24px;
+}
+
+.gc-helpline-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 2px solid #382670;
+  border-left: 6px solid #382670;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease;
+}
+
+.gc-helpline-card:hover {
+  background-color: #f3f0fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 38, 112, 0.15);
+  text-decoration: none;
+}
+
+.gc-helpline-name {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #382670;
+  margin-bottom: 6px;
+}
+
+.gc-helpline-number {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2e1260;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.gc-helpline-detail {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ---------- Quick Exit button — red, prominent, sticky ---------- */
+
+.gc-quick-exit-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 24px;
+  background-color: #ffffff;
+}
+
+.gc-quick-exit-button {
+  font-family: "Gilroy", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #ff4749;
+  color: #ffffff;
+  border: none;
+  padding: 14px 48px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(255, 71, 73, 0.35);
+  transition:
+    background-color 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease;
+}
+
+.gc-quick-exit-button:hover {
+  background-color: #e03032;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 71, 73, 0.45);
+}
+
+.gc-quick-exit-button:active {
+  background-color: #c82527;
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 71, 73, 0.3);
+}
+
+.gc-quick-exit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 71, 73, 0.4);
+}
+
+/* ---------- Responsive — mobile ---------- */
+
+@media only screen and (max-width: 767px) {
+  .gc-quick-exit-container {
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
+  .gc-quick-exit-button {
+    padding: 12px 36px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  ul li {
+    font-size: 15px;
+  }
+
+  .gc-contact-cards {
+    flex-direction: column;
+  }
+
+  .gc-contact-card {
+    min-width: unset;
+  }
+
+  .gc-helpline-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gc-helpline-number {
+    font-size: 20px;
+  }
+}

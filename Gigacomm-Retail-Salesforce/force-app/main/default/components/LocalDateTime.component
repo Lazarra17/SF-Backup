@@ -1,0 +1,10 @@
+<apex:component controller="LocalDateTimeController" access="global">
+    <apex:attribute name="timezone"
+                    description="The DeveloperName of the Timezone_Configuration__mdt record."
+                    type="String"
+                    assignTo="{!timezoneName}"/>
+
+    <apex:outputText value="{0,date,dd MMMM yyyy}">
+        <apex:param value="{!localDateTime}" />
+    </apex:outputText>
+</apex:component>

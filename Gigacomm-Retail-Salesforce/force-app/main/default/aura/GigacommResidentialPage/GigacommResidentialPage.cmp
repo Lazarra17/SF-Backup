@@ -1,0 +1,307 @@
+<!-- 
+WM & CL 30 May 2025 Page Created
+no requirement for back button
+
+[1] WM 31 May 2025 change video
+[2] WM 1 Jun get your money back changed
+[3] change video to vimeo
+Fix mobile carousel images
+-->
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="GigaCommOrderWizardController">
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="plans" type="Object" />
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+               <!-- <div onclick="{!c.navigateToPlans}" class="gc-pd-back">
+                    <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                    <span class="gc-heading-back">Back</span>
+                </div> -->
+                <h2 class="gc-heading-title slds-m-top_large">Residential</h2>
+            </div>
+        </div>
+    </div>
+    
+     
+      <!--  <c:GigaCommSiteVideo /> [2] -->
+    <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <!-- <div class="ratio ratio-16x9">
+                    <video class="gc-video" controls="true" autoplay="true">
+                        <source src="{!$Label.c.GigacommAboutUsVideo}" type="video/mp4" />
+                    </video>
+                </div> -->
+                  <aura:unescapedHtml value="{!$Label.c.GigacommResidentialVideoVimeo}"/>
+            </div>
+        </div>
+    </div>
+    
+ 
+   <!-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1089284770?h=3b9c5c7636&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ARLO_GIGACOMM_SCRIPT04_16x9_V2"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
+    
+    <div class="container  slds-p-bottom_large">
+        
+        <div class="slds-grid slds-wrap slds-m-top_large slds-gutters  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <div class="gc-our-network-sub-container">
+                 <!--   <p class="gc-default-color gc-our-network-sub-heading"><strong>Independent Network</strong></p> -->
+                    <p>Apartment internet gets a raw deal. Many of us are stuck with slow speeds and zero choice. That’s because most providers are reselling the same broadband network. 
+                        But not Gigacomm, we built our own independent broadband network, specifically for apartment living.</p>
+                </div>
+            </div>
+            
+           
+        </div>
+        
+    
+        <c:GigaCommHomeWhyGigaComm />
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large">  
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_3-of-12">
+            </div>
+            
+            <!-- <div class="slds-col slds-small-size_1-of-1 slds-medium-size_6-of-12 slds-m-top_large">
+                <h1 class="gc-order-wizard-title slds-text-align_center gc-default-color" aura:id="planSection">Choose The Speed That Suits Your Needs</h1> 
+               
+            </div> -->
+            
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_3-of-12">
+            </div>
+            
+        </div>
+        
+        <!-- <c:GigaCommOrderWizardPlan  plans="{!v.plans}" /> -->
+         <c:gcPlans></c:gcPlans>
+
+    </div>
+	
+    
+  
+    <div class="gc-hero2-container" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+        <div class="container">
+            <div class="slds-grid slds-wrap slds-grid_vertical-stretch slds-p-top_xx-large slds-p-bottom_xx-large slds-m-bottom_xx-large" >   
+                
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_7-of-12 slds-p-top_large slds-p-bottom_large">
+                    
+                    
+                    <h2 class="gc-default-color gc-hero2-title">THE FREEDOM TO DO MORE</h2>
+                    <p class="">It's the internet Australia both needs and deserves.</p>
+                    <!--ADDRESS FINDER START-->
+                    <c:GigacommAddressFinderFooter />
+                    <!--END-->
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_5-of-12 slds-p-top_large">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="container  slds-p-bottom_large">   
+        
+        <div class="slds-grid slds-wrap slds-gutters slds-gutters_large slds-m-top_xx-large slds-m-bottom_large slds-p-around_x-small">
+            <div class="slds-col slds-large-size_5-of-12 slds-small-size_12-of-12 slds-m-top_large slds-m-bottom_small">
+                <img src="{!$Resource.GigacommResidentialPageAsset + '/SwitchRiskFree.jpg'}" class="img-fluid gc-img-rounded"/>
+            </div>
+            
+            <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-m-top_large slds-m-bottom_small">
+                <h1 class="gc-order-wizard-section-title gc-default-color">
+                    Switch risk-free 
+                </h1>
+                
+                <p>
+                    We all know how important the internet is. Many of us have settled for average service, 
+                    believing it’s the only option, that switching is too difficult, or simply to avoid the frustration of hold music.
+                </p>
+                <p class="gc-default-color    ">
+                    <strong>Which is why we created the Gigacomm Guarantee  </strong>   
+                </p>
+                
+            </div>
+            
+        </div>
+        
+        
+    
+ 
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <h1 class="gc-default-color slds-text-align_center">
+                    Our Guarantee
+                </h1>
+                 <div class="slds-text-align_center">
+                We’re so confident you’ll love us, that we offer a money-back guarantee.
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="slds-grid slds-gutters slds-gutters_large slds-wrap slds-m-top_small slds-grid_vertical-stretch  slds-show_medium">
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommResidentialPageAsset + '/calendar.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2  slds-m-bottom_none"><strong>Choose Your Plan</strong></p>
+                        <p>Decide which one of our high speed plans suits your needs.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommResidentialPageAsset + '/list.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2 slds-m-bottom_none"><strong>Put us to the test</strong></p>
+                        <p>Stream, play, video chat, run a speed test- you do you and see for yourself.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommResidentialPageAsset + '/support.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2 slds-m-bottom_none"><strong>Love us or leave us</strong></p>
+                        <p>If during the first month you decide our service isn't for you, get in touch with a member of our support team.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommResidentialPageAsset + '/money.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color gc-p-2 slds-m-bottom_none"><strong>Get your money back</strong></p>
+                        <p>We'll then organise a full refund of any Gigacomm charges incurred up to that date - excluding install costs.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+     
+            
+        </div>
+        
+        
+        <!--Mobile Carousel-->
+        
+        <div class="slds-grid slds-hide_medium" >  
+            <div class="slds-col slds-size_1-of-1">
+                <div id="carouselOurGuarantee" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                     <img src="{!$Resource.GigacommResidentialPageAsset + '/calendar.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Choose Your Plan</strong></p>
+                                    <p>Decide which one of our high speed plans suits your needs.</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                     <img src="{!$Resource.GigacommResidentialPageAsset + '/list.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Put us to the test</strong></p>
+                                    <p>Stream, play, video chat, run a speed test- you do you and see for yourself.</p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommResidentialPageAsset + '/support.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Love us or leave us</strong></p>
+                                    <p>If during the first month you decide our service isn't for you, get in touch with a member of our support team.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                   <img src="{!$Resource.GigacommResidentialPageAsset + '/money.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Get your money back</strong></p>
+                                    <p>We'll then organise a full refund of any Gigacomm charges incurred up to that date - excluding install costs.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselOurGuarantee" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+		<!--END MOBILE CAROUSEL-->    
+        
+	 </div>
+    
+      <aura:if isTrue="{!v.apiHasError}">
+        <div class="show"  id="unavailableServiceId">
+            <c:GigacommServiceUnavailable />    
+        </div>
+    </aura:if>
+    
+</aura:component>

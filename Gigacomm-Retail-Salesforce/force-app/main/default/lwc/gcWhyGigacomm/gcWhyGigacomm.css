@@ -1,0 +1,196 @@
+.gc-why-giga-title{ 
+    color: #38276e;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Gilroy-Heavy',sans-serif;
+    line-height: normal;
+}
+
+.gc-why-giga-subtitle{
+    font-size: 18px;
+    line-height: 28px;
+    color: #202124;
+    font-family:'Gilroy-Regular',sans-serif;
+    font-weight: 400;
+    margin: 0 0 16px;
+}
+
+.gc-why-gigacom-tiles{
+    height: 100%;
+    box-shadow: 0px 1px 2px 0px #00000029;
+    background: #fff;
+    border: 0;
+    border-radius: 16px;
+    padding: 40px;
+}
+.gc-why-gigacom-tiles p{
+  margin-bottom: 0;
+  font-size: 16px;
+  font-family: 'Gilroy-Regular';
+  font-weight: 400;
+  color: #202124;
+  line-height: 150%;
+}
+.gc-why-gigacom-tiles h2.gc-default-color {
+  font-size: 24px;
+  font-family: Gilroy-Bold, sans-serif;
+  line-height: normal;
+  color: #382670;
+  font-weight: 400;
+}
+
+.gc-why-giga-icon{
+    width: 42px;
+    margin-bottom: 24px;
+}
+
+
+
+.gc-why-giga-subtitle2 {
+    width: 80%;
+    margin: auto;
+}
+
+.gc-why-giga-container{
+    width: 75%;
+}
+/* AKS CSS begin */
+.why-gigacomm-wrap{
+    background-color: #F6F6F6;
+    padding:80px 0 0;
+}
+/* AKS CSS end */
+/* ===========================
+   Figma CTA Button Styling
+   =========================== */
+
+.figma-cta-wrapper {
+  display: flex;
+  justify-content: center; /* center horizontally inside tile */
+  align-items: center;
+  margin-top: 24px; /* spacing from paragraph */
+}
+
+.figma-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap; /* ✅ keeps text on one line */
+  width: auto; /* let button auto-size to fit text */
+  min-width: 174px; /* optional Figma base width */
+  height: 44px;
+  padding: 0 24px; /* horizontal padding only */
+  border-radius: 50px;
+  border: none;
+  background: rgba(187, 245, 50, 1);
+  color: rgba(56, 38, 112, 1);
+  font-family: "Gilroy-Bold", "Gilroy", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: none !important;
+  transform: none !important;
+  text-align: center;
+}
+
+.figma-cta-text {
+  display: inline-block;
+  white-space: nowrap; /* ✅ ensures text never breaks */
+  color: rgba(56, 38, 112, 1);
+  font-size: 16px;
+  font-family: "Gilroy-Bold", "Gilroy", sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+
+.figma-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(46, 18, 96, 0.12);
+}
+
+.figma-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(46, 18, 96, 0.06);
+}
+
+.figma-cta:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 38, 112, 0.2);
+}
+
+.figma-cta-arrow {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  object-fit: contain;
+  transition: transform 0.15s ease;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* subtle hover animation */
+.figma-cta:hover .figma-cta-arrow {
+  transform: translateX(4px);
+}
+.carousel-inner .carousel-item{
+    box-shadow: 0px 1px 2px 0px #00000029;
+    background: #fff;
+    border: 0;
+    border-radius: 16px;
+    padding: 20px;
+}
+.carousel-inner h2{
+  font-size: 24px;
+  font-family: Gilroy-Bold, sans-serif;
+  line-height: normal;
+  color: #382670;
+  font-weight: 400;
+}
+.carousel-inner p{
+  font-size: 16px;
+  font-family: 'Gilroy-Regular';
+  font-weight: 400;
+  color: #202124;
+  line-height: 150%;
+}
+@media (min-width: 768px) {
+  .custom-mobile-slide{
+    display: none !important;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .figma-cta-wrapper {
+    margin-top: 12px;
+    margin-bottom: 40px;
+  }
+  .figma-cta {
+    width: 160px;
+    height: 42px;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+  .why-gigacomm-wrap{
+    padding: 60px 16px;
+  }
+  .carousel-indicators button{
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+  .gc-why-giga-title{
+    font-size: 32px;
+  }
+  .container{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .custom-desktop-slide{
+    display: none !important;
+  }
+}

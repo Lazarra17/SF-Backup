@@ -1,0 +1,65 @@
+.THIS .gc-faq-item-title{
+    font-weight: bold;
+    color: #3b2872;
+    font-size: 20px;
+}
+
+
+.THIS .gc-faq-accordion {
+    border-radius: 13px !important;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px 0px;
+}
+
+.THIS .accordion-button:not(.collapsed)::after {
+    background-image: url('/resource/1745894174000/GigaCommAsset/HomePageIcons/hide.svg');
+}
+
+.THIS .accordion-button::after {
+    background-image: url('/resource/1745894174000/GigaCommAsset/HomePageIcons/show.svg');
+    background-size: 1.7rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    
+}
+
+.THIS .gc-faq-body-padding {
+    padding-left: 1.5%;
+}
+
+.THIS .gc-faq-subtitle{
+    width: 80%;
+    margin: auto;
+}
+
+.THIS .nav-link{
+    border-radius: 25px;
+    color: #382670;
+    font-weight: 600;
+    margin: 0px 5px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.THIS .nav-link.active{
+    background-color: #BBF532;
+    
+    color: #382670;
+    
+}
+
+.THIS .nav-link{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.THIS #faqSection{
+    min-height: 250px;
+}
+
+.THIS .gc-order-wizard-nav{
+    border: 1px solid #93d2fb;
+    padding: 6px 0px;
+    border-radius: 30px;
+}

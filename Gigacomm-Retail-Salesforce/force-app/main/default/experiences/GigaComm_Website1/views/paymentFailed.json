@@ -1,0 +1,81 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "ba4c2a0c-a27d-4526-bb65-db1789b0aa98",
+  "label" : "Payment Failed",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "f0e54b47-5d9c-44d5-982d-28cc2e3ff91a",
+          "columns" : [ {
+            "UUID" : "8e79535c-703c-4639-ae6a-ccef4dc66381",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "f0e54b47-5d9c-44d5-982d-28cc2e3ff91a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:GigaCommFailedPage",
+          "id" : "9e0b0563-bbc6-48e8-bc7d-29c2dcc6d04e",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "deploymentName" : "WebChat",
+            "hideChatButtonOnLoad" : "Visible",
+            "isExpSiteAuthMode" : false,
+            "scrtUrl" : "https://gigacommnet--uat.sandbox.my.salesforce-scrt.com",
+            "siteEndpoint" : "https://gigacommnet--uat.sandbox.my.site.com/ESWWeb1746603361125"
+          },
+          "componentName" : "experience_messaging:embeddedMessaging",
+          "id" : "6654edc5-606d-4163-823d-172456404333",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8e79535c-703c-4639-ae6a-ccef4dc66381",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1f926bd4-ef4e-4739-9866-2f5e09a0d47e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Payment Failed"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "233e3562-8543-427c-82ad-c4cddde28b8a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f0860d6d-8667-470c-9692-f84b2989e0a2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-payment-failed"
+}

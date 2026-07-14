@@ -1,0 +1,17 @@
+.THIS .gc-order-summary-discounted-amount{
+    color: #666666;
+    text-decoration: line-through;
+    padding-right: 15px;
+}
+
+
+.THIS .gc-router-section p{
+    line-height: .9;
+    margin:0px !important;
+}
+
+.THIS .gc-order-summary-free{
+    background-color: #249450;
+    color: white;
+    padding: 1px 10px;
+}

@@ -1,0 +1,176 @@
+<template>
+    <div class="gc-address-finder-main">
+        <div class="container">
+        <!-- 🔥 NEW ADDRESS FINDER LAYOUT -->
+        <div class="gc-address-finder-wrapper">
+            <div class="gc-address-finder-inner">
+
+                <!-- Address Input -->
+                <div class="gc-address-block">
+                    <!-- <img class="gc-location" src="/resource/GigaCommAsset/HomePageIcons/Location.svg" alt="Location"/> -->
+
+                    <input
+                        type="search"
+                        class="gc-input-text"
+                        placeholder="Enter your address"
+                        value={address}
+                        oninput={handleAddressInput}
+                        disabled={loading}
+                    />
+
+                    <template if:true={loading}>
+                        <div class="gc-spinner" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Mid Icon Button -->
+            <button class="gc-icon-button" 
+            onclick={openManualAddressModal}
+            title="Can't find address?">
+                
+                        <img class="gc-icon-my-loc" src="/resource/GigaCommAsset/HomePageIcons/Map.svg" alt="Map"/>
+                
+                </button>
+
+                <!-- CTA Button -->
+                <div class="gc-cta-block">
+                    <button class="gc-check-eligibility-btn"
+                            onclick={checkAvailabilityAfterAddressSelect}
+                            disabled={loading}>
+                        {buttonLabel}
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Manual address link -->
+            <!--template if:true={showManualAddress}>
+                <p class="gc-hero-current-loc gc-address-manual slds-m-bottom_medium">
+                    <span onclick={openManualAddressModal}>
+                        <img class="gc-icon-my-loc" src="/resource/GigaCommAsset/HomePageIcons/Map.svg" alt="Map"/>
+                        &nbsp; Can't find address?
+                    </span>
+                </p>
+            </template-->
+        </div>
+
+        <!-- ERROR + SERVICEABILITY -->
+        <template if:true={validationErrorMessage}>
+            <div class="slds-m-top_small">
+                <p class="gc-success-error">
+                    <i class="fa fa-times gc-icon-cross"></i>
+                    {validationErrorMessage}
+                </p>
+            </div>
+        </template>
+
+        <template if:true={showServiceabilityErrorMessage}>
+            <div class="slds-m-top_small">
+                <p class="gc-success-error">
+                    <i class="fa fa-times gc-icon-cross"></i>
+                    We are not in your area just yet — but we're expanding fast! 
+                    <a href="javascript:void(0);" class="gc-register-now" onclick={handleRegisterNowClick}> Register now </a>
+                    to be the first to know when we arrive!
+                </p>
+            </div>
+        </template>
+
+
+        
+        <!-- ------------------ MANUAL ADDRESS MODAL ------------------ -->
+
+        <template if:true={showManualAddressModal}>
+            <section role="dialog" class="slds-modal slds-modal_small slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close" title="Close"
+                            onclick={closeManualAddressModal}>
+                            <span class="material-symbols-outlined">close</span>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium">
+                            <img width="40" loading="lazy"
+                                src="/resource/GigaCommAsset/HomePageIcons/gigaCommLogo2.png"
+                                alt="GigaComm Logo"/> Type in your address
+                        </h2>
+                    </div>
+
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>Unit Number</label>
+                                <input type="text" data-id="unitNumber" class="slds-input" placeholder="Unit number"/>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>Street Number</label>
+                                <input type="text" data-id="streetNumber" class="slds-input" placeholder="Street number"/>
+                            </div>
+                        </div>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>Street Name *</label>
+                                <input type="text" data-id="streetName" class="slds-input" placeholder="Street name"/>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>Street Type *</label>
+                                <select class="slds-select" data-id="streetType">
+                                    <option value="">Select</option>
+                                    <option value="St">Street</option>
+                                    <option value="Rd">Road</option>
+                                    <option value="Ave">Avenue</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_12-of-12">
+                                <label>Suburb/Town *</label>
+                                <input type="text" data-id="townSuburb" class="slds-input" placeholder="Town/Suburb"/>
+                            </div>
+                        </div>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>State *</label>
+                                <select class="slds-select" data-id="state">
+                                    <option value="">Select</option>
+                                    <option value="NSW">NSW</option>
+                                    <option value="VIC">VIC</option>
+                                </select>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <label>Postcode *</label>
+                                <input type="text" data-id="postCode" class="slds-input" placeholder="Postcode"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button" onclick={closeManualAddressModal}>Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={handleFindAddressManually}>
+                            Find your address
+                        </button>
+                    </footer>
+                </div>
+            </section>
+
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!-- Register & Thank You Modals (unchanged) -->
+        <template if:true={showRegisterModal}>
+            <c-gc-address-interest-lwc
+                oncloseinterestmodal={handleCloseRegisterModal}
+                lead={selectedLeadData}></c-gc-address-interest-lwc>
+        </template>
+
+        <template if:true={showThankYouModal}>
+            <c-gc-address-interest-thank-you-l-w-c
+                onclosethankyoumodal={handleCloseThankYouModal}></c-gc-address-interest-thank-you-l-w-c>
+        </template>
+        </div>
+    </div>
+</template>

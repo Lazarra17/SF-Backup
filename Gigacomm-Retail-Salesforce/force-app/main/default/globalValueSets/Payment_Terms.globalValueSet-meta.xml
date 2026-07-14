@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Monthly</fullName>
+        <default>false</default>
+        <label>Monthly</label>
+    </customValue>
+    <customValue>
+        <fullName>12 Months</fullName>
+        <default>false</default>
+        <label>12 Months</label>
+    </customValue>
+    <customValue>
+        <fullName>24 Months</fullName>
+        <default>false</default>
+        <label>24 Months</label>
+    </customValue>
+    <customValue>
+        <fullName>36 Months</fullName>
+        <default>false</default>
+        <label>36 Months</label>
+    </customValue>
+    <customValue>
+        <fullName>48 Months</fullName>
+        <default>false</default>
+        <label>48 Months</label>
+    </customValue>
+    <customValue>
+        <fullName>60 Months</fullName>
+        <default>false</default>
+        <label>60 Months</label>
+    </customValue>
+    <customValue>
+        <fullName>120 Months</fullName>
+        <default>false</default>
+        <label>120 Months</label>
+    </customValue>
+    <masterLabel>Payment Terms</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,40 @@
+<template>
+  <div class="promo-outer" role="region" aria-label="Promotional banner">
+    <div class="container">
+      <div class="promo-center">
+        <div class="promo-track-wrap"
+        onpointerdown={onPointerDown}
+     onpointermove={onPointerMove}
+     onpointerup={onPointerUp}
+     onpointercancel={onPointerCancel}
+     style="touch-action: pan-y;">
+          <div class="promo-track" style={trackStyle}>
+            <template for:each={computedSlides} for:item="slide">
+              <div key={slide.idx} class="promo-slide" data-index={slide.idx} aria-hidden={slide.ariaHidden}>
+                <img src={slide.src} alt="Promotional banner" class="promo-image" />
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Dot bar (same structure as your plans component) -->
+        <div class="dot-bar-outer" role="group" aria-label="Banner navigation">
+          <div class="dots-track" style="--dots-gap:24px;">
+            <template for:each={computedSlides} for:item="slide">
+              <button
+                key={slide.idx}
+                class={slide.btnClass}
+                data-slideto={slide.dataIdCarousel}
+                onclick={handleCarousel}
+                aria-label={slide.AriaLabel}
+                title={slide.AriaLabel}
+              >
+                <span class={slide.dotClass}></span>
+              </button>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

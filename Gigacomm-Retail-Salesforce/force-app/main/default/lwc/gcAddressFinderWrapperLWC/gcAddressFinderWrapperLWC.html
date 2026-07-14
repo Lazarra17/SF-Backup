@@ -1,0 +1,88 @@
+<template>
+    <div class="hero-root">
+
+        <div class="slds-grid slds-wrap slds-grid_vertical-stretch hero-row">
+
+            <!-- LEFT MEDIA -->
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12 gc-hero-container">
+                <div class="media-wrap">
+
+                    <template if:true={isImageActive}>
+                        <div class="media-image" style={activeImageStyle}></div>
+                    </template>
+
+                    <template if:true={isVideoActive}>
+                        <div class="media-video">
+                            <div class="video-inner"></div>
+
+                            <!-- render play button only when video not yet injected -->
+                            <template if:false={videoLoaded}>
+                                <button class="video-play" onclick={handlePlayClick} aria-label="Play video">
+                                    <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
+                                        <circle cx="28" cy="28" r="28" fill="rgba(255,255,255,0.9)"></circle>
+                                        <polygon points="22,18 38,28 22,38" fill="#4A248C"></polygon>
+                                    </svg>
+                                </button>
+                            </template>
+                        </div>
+                    </template>
+
+                </div>
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12 hero-content-wrap">
+
+                <template if:true={activeSlide}>
+                    <div class="hero-content-inner">
+                        <!--
+                        <div class="gc-hero-review gc-trustpilot-block">
+                            <span class="tp-label">Excellent</span>
+                            <span class="tp-score">4.8 <span class='outof-five'>out of 5</span></span>
+                            <span class="tp-brand"><span class="tp-star">★</span> Trustpilot</span>
+                        </div> -->
+                        
+                        <h1 class="gc-hero-title1">{activeSlide.titleLine1}</h1>
+                        <h1 class="gc-hero-title2">{activeSlide.titleLine2}</h1>
+                        <!--<p class="gc-hero-subtitle">{activeSlide.subtitle}</p> -->
+                        <p class="gc-hero-subtitle" lwc:dom="manual"></p>
+
+                        <!-- address finder placeholder (uncomment if you have this component) -->
+                        <!-- <c-gc-address-finder-l-w-c></c-gc-address-finder-l-w-c> -->
+
+                        <template if:true={activeSlide.buttonLabel}>
+                            <button
+                                class="gc-check-eligibility-btn"
+                                onclick={handlePromoButtonClick}>
+                                {activeSlide.buttonLabel}
+                            </button>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- DOTS + ARROWS -->
+                <div class="hero-nav" role="tablist" aria-label="Slide navigation">
+                    <button class="nav-arrow" onclick={prev} title="Previous slide" aria-label="Previous slide">‹</button>
+
+                    <div class="nav-dots" role="presentation">
+                        <template for:each={slides} for:item="d">
+                            <button
+                                key={d.id}
+                                class={d.dotClass}
+                                data-index={d.index}
+                                onclick={onDotClick}
+                                aria-label={d.ariaLabel}
+                                aria-selected={d.ariaSelected}
+                                role="tab">
+                            </button>
+                        </template>
+                    </div>
+
+                    <button class="nav-arrow" onclick={next} title="Next slide" aria-label="Next slide">›</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</template>

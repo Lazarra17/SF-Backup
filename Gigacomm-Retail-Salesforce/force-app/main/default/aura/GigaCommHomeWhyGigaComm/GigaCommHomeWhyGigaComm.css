@@ -1,0 +1,29 @@
+.THIS .gc-why-giga-title{ 
+    color: #38276e;
+    font-size: 45px;
+    font-weight: bold;
+    
+}
+
+.THIS .gc-why-giga-subtitle{
+    font-size: 18px;
+    width: 360px;
+    margin: auto;
+}
+
+.THIS .gc-why-gigacom-tiles{
+    height: 100%;
+}
+
+
+
+.THIS .gc-why-giga-icon{
+    width: 42px;
+}
+
+
+
+.THIS .gc-why-giga-subtitle2 {
+    width: 80%;
+    margin: auto;
+}

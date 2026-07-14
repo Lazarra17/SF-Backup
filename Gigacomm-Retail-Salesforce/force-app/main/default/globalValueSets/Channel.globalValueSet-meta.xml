@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Direct Traffic</fullName>
+        <default>false</default>
+        <label>Direct Traffic</label>
+    </customValue>
+    <customValue>
+        <fullName>Field Marketing</fullName>
+        <default>false</default>
+        <label>Field Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Letters/Mail Outs</fullName>
+        <default>false</default>
+        <label>Letters/Mail Outs</label>
+    </customValue>
+    <customValue>
+        <fullName>Letters/Mail Outs On-Air</fullName>
+        <default>false</default>
+        <label>Letters/Mail Outs On-Air</label>
+    </customValue>
+    <customValue>
+        <fullName>Letters&apos;Mail Outs Not On-Air</fullName>
+        <default>false</default>
+        <label>Letters&apos;Mail Outs Not On-Air</label>
+    </customValue>
+    <customValue>
+        <fullName>Instal BOOKED</fullName>
+        <default>false</default>
+        <label>Instal BOOKED</label>
+    </customValue>
+    <customValue>
+        <fullName>Contact ACHIEVED</fullName>
+        <default>false</default>
+        <label>Contact ACHIEVED</label>
+    </customValue>
+    <customValue>
+        <fullName>Install COMPLETE</fullName>
+        <default>false</default>
+        <label>Install COMPLETE</label>
+    </customValue>
+    <customValue>
+        <fullName>Hold &lt;30 days</fullName>
+        <default>false</default>
+        <label>Hold &lt;30 days</label>
+    </customValue>
+    <customValue>
+        <fullName>Follow Up &gt;30 days</fullName>
+        <default>false</default>
+        <label>Follow Up &gt;30 days</label>
+    </customValue>
+    <customValue>
+        <fullName>Under Review</fullName>
+        <default>false</default>
+        <label>Under Review</label>
+    </customValue>
+    <customValue>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+        <label>Closed Lost</label>
+    </customValue>
+    <customValue>
+        <fullName>New Order</fullName>
+        <default>false</default>
+        <label>New Order</label>
+    </customValue>
+    <customValue>
+        <fullName>Contact ATTEMPTED</fullName>
+        <default>false</default>
+        <label>Contact ATTEMPTED</label>
+    </customValue>
+    <customValue>
+        <fullName>Building Unserviceable</fullName>
+        <default>false</default>
+        <label>Building Unserviceable</label>
+    </customValue>
+    <customValue>
+        <fullName>TEST ORDER</fullName>
+        <default>false</default>
+        <label>TEST ORDER</label>
+    </customValue>
+    <masterLabel>Channel</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

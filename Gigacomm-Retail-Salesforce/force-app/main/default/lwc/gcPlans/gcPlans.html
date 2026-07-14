@@ -1,0 +1,268 @@
+<template>
+    <div class='gc-plan-wraper'>
+        <div class="container">
+            <!-- Heading -->
+            <template if:false={allowSelectPlan}>
+            <div class="slds-grid slds-wrap slds-m-top_xx-large slds-p-top_xx-large custom-mobile-choose-speed">
+                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_3-of-12"></div>
+                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_6-of-12 custom-plan-title-wrap">
+                    <h1 class="gc-order-wizard-title gc-default-color slds-text-align_center gilroy-heavy custom-page-title">
+                        Choose the Speed that suits your needs
+                    </h1>
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_3-of-12"></div>
+            </div>
+            </template>
+            <!-- Tabs -->
+            <div class="slds-grid slds-wrap slds-m-top_medium slds-m-bottom_large">
+                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+                <div
+                    class="slds-col slds-small-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_8-of-12  slds-align_absolute-center ">
+                    <ul class="nav nav-pills gc-order-wizard-nav gilroy-bold" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class={monthlyTab} data-tab="Monthly" onclick={handleTabClick} type="button">Monthly</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class={months12Tab} data-tab="12 Months" onclick={handleTabClick} type="button">12 Months</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class={months24Tab} data-tab="24 Months" onclick={handleTabClick} type="button">24 Months</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+            </div>
+
+            <!-- Desktop Tiles Carousel -->
+            <div class="desktop-center-wrapper">
+                <button class="desktop-nav-left" title="Previous" onclick={prev} aria-label="Previous">
+                    <img src={LeftPlanSliderArrow} alt="Next" class="desktop-arrow" />
+                </button>
+    <div class= {desktopViewportClass} onpointerdown={onPointerDown} onpointermove={onPointerMove} onpointerup={onPointerUp}
+        onpointercancel={onPointerCancel} tabindex="0" role="group" aria-label="Plans carousel viewport">
+                    <div class="desktop-track" style={desktopTrackStyle}>
+                        <template for:each={result} for:item="item" for:index="index">
+                            <div key={item.Id} class="desktop-tile" data-index={index}>
+                                <div class={item.ClassName}>
+                                    <template if:true={item.isMostPopular}>
+                                        <div class="most-popular-badge">MOST POPULAR</div>
+                                    </template>
+                                    <div class="price-bubble">
+                                        <div class="price-amt">${item.Plan.UnitPrice}</div>
+                                        <div class="price-term">per month</div>
+                                    </div>
+
+                                    <!-- top icon -->
+                                    <div class="center-top-row">
+                                        <div class="center-icon" title="Plan Icon">
+                                            <img src={item.planIcon} alt="Plan Icon" class="plan1gb-image" />
+                                        </div>
+                                    </div>
+
+                                    <!-- inside your template for:each, place this inside .center-title after <h3> -->
+
+                                    <!-- title + description -->
+                                    <div class="center-title slds-p-left_small slds-p-right_small">
+                                        <h3>{item.Plan.Product2.Display_Name_Bric__c}</h3>
+                                        <p class="gilroy-regular-text">{item.Plan.Product2.Description}</p>
+                                    </div>
+                                    <template if:false={item.hideToggle}>
+                                    <div class="speed-toggle-mid">
+                                        <div class="speed-toggle-fixed">
+                                            <span class="speed-label left">Plan Speed</span>
+                                            <input
+                                            id={item.toggleId}
+                                            data-index={index}
+                                            class="speed-checkbox"
+                                            type="checkbox"
+                                            checked={item.isEvening}
+                                            onchange={handleSpeedToggle}
+                                            />
+
+                                            <label for={item.toggleId} class="speed-track" aria-hidden="true">
+                                            <span class="speed-knob"></span>
+                                            </label>
+
+
+                                            <span class="speed-label right">Typical evening speed*</span>
+                                        </div>
+                                    </div>
+                                    </template>
+                                    <!-- speed boxes -->
+                                    <div class="center-speed-box slds-p-left_small slds-p-right_small">
+                                        <div class="speed-left">
+                                            <div class="speed-num">{item.displayDownload}</div>
+                                            <div class="speed-unit">{item.Plan.Product2.Download_Unit_bric__c} Download
+                                            </div>
+                                            <!--div class="speed-label">Download</div-->
+                                        </div>
+                                        <div class="speed-divider"></div>
+                                        <div class="speed-right">
+                                            <div class="speed-num">{item.displayUpload}</div>
+                                            <div class="speed-unit">{item.Plan.Product2.Upload_Unit_bric__c} Upload</div>
+                                            <!--div class="speed-label">Upload</div-->
+                                        </div>
+                                    </div>
+
+                                    <!-- min cost -->
+                                    <div class="center-mincost ">
+                                        <p>
+                                            Min charge ${item.minCost}<br />
+                                            <template if:true={item.showAvailabilityNote}>
+                                                Only available on {item.monthText}
+                                            </template>
+                                        </p>
+                                        </div>
+                                        <!-- show default preview (first 3) using inc.visible -->
+                                        <template if:true={item.inclusions}>
+                                            <ul class="plan-inclusions">
+                                                <template for:each={item.inclusions} for:item="inc">
+                                                    <template if:true={inc.visible}>
+                                                        <li key={inc.key} class="plan-inclusion-row">
+                                                            <img src={inc.iconUrl} alt="" class="plan-inclusion-icon" />
+                                                            <span class="plan-inclusion-text">{inc.text}</span>
+                                                        </li>
+                                                    </template>
+                                                </template>
+                                            </ul>
+                                        </template>
+                                        
+                                        
+                                        <!-- inclusions -->
+                                        <div class="slds-grid custom-see-benefits">
+                                            <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                                            <div class="accordion accordion-flush" data-id="accordion-flush">
+                                                <div class="accordion-item">
+                                                    <p class="accordion-header slds-p-top_small slds-align_absolute-center">
+
+                                                        <!-- Button shows "Hide..." when expanded, otherwise "See..." -->
+                                                        <template if:true={item.showInclusionToggle}>
+                                                        <template if:true={item.isExpanded}>
+                                                            <button
+                                    class="accordion-button gc-order-wizard-accordion"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target={item.dataIdPlanDetails}
+                                    onclick={handleToggleCollapse}
+                                >
+                                    Hide benefits & inclusions
+                                </button>
+                                                        </template>
+                                                        <template if:false={item.isExpanded}>
+                                                            <button
+                                    class="accordion-button collapsed gc-order-wizard-accordion"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target={item.dataIdPlanDetails}
+                                    onclick={handleToggleCollapse}
+                                >
+                                    See benefits & inclusions
+                                </button>
+                                                        </template>
+                                                        </template>
+                                                    </p>
+                                                    <div data-id={item.dataIdPlanDetails}
+                                                        class="accordion-collapse collapse" data-parent="#accordion-flush">
+                                                        <div class="accordion-body">
+
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gc-center-btn">
+        <!-- LEAD IS SERVICEABLE -->
+        <template if:true={isServiceable}>
+            <!-- currently selected (show disabled Selected button) -->
+            <template if:true={item.isSelected}>
+                <button
+                    class="gc-btn-selected"
+                    id={item.Plan.Product2Id}
+                    value={item.selectValue}
+                    disabled>
+                    Selected
+                </button>
+            </template>
+
+            <!-- not selected -> show Select button -->
+            <template if:false={item.isSelected}>
+                <button
+                    class="gc-btn gc-btn-select"
+                    id={item.Plan.Product2Id}
+                    value={item.selectValue}
+                    onclick={handleSelectPlan}>
+                    Select
+                </button>
+            </template>
+        </template>
+
+        <!-- LEAD IS NOT SERVICEABLE -> Check availability -->
+        <template if:false={isServiceable}>
+            <button
+                class={item.availabilityButtonClass}
+                data-product2id={item.Plan.Product2Id}
+                data-planid={item.Plan.Id}
+                onclick={handleNavToOurPlanPage}>
+                Check availability
+            </button>
+        </template>
+    </div>
+
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <button class="desktop-nav-right" title="Next" onclick={next} aria-label="Next">
+                    <img src={RightPlanSliderArrow} alt="Next" class="desktop-arrow" />
+                </button>
+
+            </div>
+
+            <!-- Dot bar + "No Lock in contract" pill -->
+            <div class="dot-bar-outer" role="group" aria-label="Plans navigation">
+                <!-- Dots row -->
+                <div class="dots-track" style="--dots-gap:24px;">
+                    <template for:each={result} for:item="item">
+                        <button
+        key={item.Id}
+        class={item.btnClass}
+        data-slideto={item.dataIdCarousel}
+        onclick={handleCarousel}
+        aria-label={item.AriaLabel}
+        title={item.AriaLabel}
+        >
+        <span class={item.dotClass}></span>
+        </button>
+                    </template>
+                </div>
+
+                <!-- Lock pill -->
+                
+                <template if:false={hideNolock}>
+                <div class="lock-pill" role="note" aria-live="polite">
+                    <svg class="lock-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor"
+                            d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4zM8 8a4 4 0 1 1 8 0v2H8V8z" />
+                    </svg>
+                    <span class="lock-text">No Lock in contract</span>
+                </div>
+                </template>
+            </div>
+
+
+
+            <!-- Bottom Text -->
+            <div class="custom-bottom-text slds-grid slds-wrap slds-m-bottom_x-large">
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                    <p class="slds-text-align_center">
+                        *The plan speed refers to the maximum speed achievable. The typical evening speed indicates the average speed that users can expect between 7pm and 11pm. It is not a guaranteed minimum, speeds may be lower during this period or at other times, and is subject to change. Gigacomm continually reviews and updates typical evening speeds as new data becomes available. Actual speeds may differ due to various factors, including the technology delivering your service, your location, network traffic, the number of connected devices, modem type and placement, Wi-Fi quality, and the type of content accessed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,42 @@
+.THIS .gc-order-summary-discounted-amount{
+    color: #666666;
+    text-decoration: line-through;
+    padding-right: 15px;
+}
+
+.THIS .gc-router-section p{
+    line-height: .9;
+    margin:0px !important;
+}
+
+.THIS .gc-order-summary-free{
+    background-color: #249450;
+    color: white;
+    padding: 1px 10px;
+}
+
+.THIS .gc-tc-accordion-btn{
+    background-color: #eeeeee !important;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.THIS .gc-tc-title{
+    font-size: 1rem;
+    color: #212123;
+   
+}
+
+.THIS .gc-color-required {
+    color: red;
+}
+
+.THIS .gc-tc-container{
+	padding: 7px;
+}
+
+.THIS .slds-form-element__label{
+    color: #212123;
+}

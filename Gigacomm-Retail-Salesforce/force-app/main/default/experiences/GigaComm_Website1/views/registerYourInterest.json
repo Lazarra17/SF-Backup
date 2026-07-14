@@ -1,0 +1,46 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6e177652-ad36-4bd2-9276-24920fd1ad4e",
+  "label" : "Register Your Interest",
+  "regions" : [ {
+    "id" : "672f03c4-e5f7-4733-b480-3522905d18af",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigacommAddressInterest",
+      "id" : "bcd0daa4-22b3-4cf9-b1c3-330db803003b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "174aa73b-1ead-4d47-89cb-6a9dc350db72",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d5cadcbe-5ed2-461e-b557-269eb1468ff4",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Register Your Interest"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "993c2c95-e2fe-4dd2-9838-923ae55e4313",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "249da2f9-88f6-4f8f-8382-76700f866b5a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-register-your-interest"
+}

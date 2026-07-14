@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2cb2612a-ae10-4386-9c65-789f8c4ddc8d",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Sales_Kiosk__c",
+  "id" : "e0643398-d1b3-430a-b861-c5620977b96e",
+  "label" : "Sales Kiosk",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-sales-kiosk",
+  "type" : "route",
+  "urlPrefix" : "sales-kiosk"
+}

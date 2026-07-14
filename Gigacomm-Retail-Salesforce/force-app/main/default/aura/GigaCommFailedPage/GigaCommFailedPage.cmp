@@ -1,0 +1,50 @@
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <div class="slds-grid slds-wrap slds-m-top_large">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading slds-text-align_center">
+            <img class="gc-success-check" src="{!$Resource.GigaCommAsset + '/PaymentFailed/Failed.svg'}" /> 
+            <h4 class="gc-heading-title slds-m-top_medium">Payment failed</h4>
+            <p class="gc-success-text">Lorem ipsum is simply dummy text of the printing and industry</p>
+        </div>
+    </div>
+    
+    <div class="container slds-m-top_xx-large">
+        <div class="slds-grid slds-wrap gc-border gc-success-container slds-p-around_x-large">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                
+                <h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">What happens now.</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            Your T-Link router is in the post to you
+                        </p>
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            Your order details have been emailed to you
+                        </p>
+                    </div>
+                    
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            Check your email to track your Router
+                        </p>
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            An engineer will be in touch
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-m-top_xx-large">
+                    <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 slds-text-align_right">
+                        <a class="gc-check-eligibility-btn" href="/">Go to home</a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>   
+</aura:component>

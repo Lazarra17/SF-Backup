@@ -1,0 +1,46 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "0a11ce59-5012-4fed-9727-e735bb9d2d43",
+  "label" : "Payment Success",
+  "regions" : [ {
+    "id" : "d22cb1bc-6e40-48f4-b414-78bcd54cf7df",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigaCommSuccessPage",
+      "id" : "ecbbfe5b-4cf7-4547-a5e3-a4a027f71c6a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e5e5cd0c-6e21-4719-9499-3908cbd1a5ba",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d1bb08af-c241-47e7-9f3d-330ea12b81c6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Payment Success"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2eda14c6-c03f-4a30-89a0-38120140a485",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c3f96efc-a7c5-4ff1-a1ea-410addb1f4d7",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-payment-success"
+}

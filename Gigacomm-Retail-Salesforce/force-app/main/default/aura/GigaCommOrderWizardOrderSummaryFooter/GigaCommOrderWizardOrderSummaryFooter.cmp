@@ -1,0 +1,49 @@
+<aura:component >
+    <aura:attribute name="lead" type="Object"/>
+    <aura:handler name="cmpEvent" event="c:GigaCommOrderWizardEvent" action="{!c.handleComponentEvent}"/>
+    <!--div class="slds-grid slds-wrap slds-m-bottom_large slds-p-left_large  slds-p-right_large">
+                
+                <div class="slds-col slds-small-size_6-of-12 slds-large-size_6-of-12 slds-m-bottom_none">
+                    <p class="slds-m-bottom_none">Pay Today</p>
+                    <h5 class="gc-default-color gc-footer-amount slds-m-bottom_none">$353.00</h5>
+                </div>
+                <div class="slds-col slds-small-size_6-of-12 slds-large-size_6-of-12">
+                    <p class="slds-text-align_right">
+                        <button class="gc-btn-neutral slds-m-right_medium slds-show_small">Back</button>
+                        <button class="gc-check-eligibility-btn gc-check-eligibility-btn-footer">Continue</button>
+                    </p>
+                </div> 
+                
+            </div-->
+    
+    
+    
+    <nav class="navbar fixed-bottom">
+        <div class="container-fluid  gc-order-summary-footer">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!--li class="nav-item">
+                    <p class="slds-m-bottom_none">Pay Today</p>
+                </li>
+                <li class="nav-item">
+                    <p class="gc-default-color gc-footer-amount slds-m-bottom_none">
+                        <lightning:formattedNumber value="{!v.lead.TotalPrice}" style="currency" currencyCode="AUD"/>
+                        <img class="gc-order-summary-arrow" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/DownArrow.svg'}" />
+                    </p>
+                </li-->
+            </ul>
+            
+            <button class="btn gc-btn-neutral slds-m-right_medium slds-show_small" onclick="{!c.navigateToHome}">Back</button>
+            <aura:if isTrue="{!v.lead.PlanSelected != null}">
+                <button class="btn gc-check-eligibility-btn gc-check-eligibility-btn-footer" onclick="{!c.navigateToPersonPage}">Continue</button>
+                
+                <aura:set attribute="else">
+                    <button class="btn gc-btn-disabled form-control">Continue</button>
+                </aura:set>
+            </aura:if>
+            
+            
+        </div>
+    </nav>
+    
+    
+</aura:component>

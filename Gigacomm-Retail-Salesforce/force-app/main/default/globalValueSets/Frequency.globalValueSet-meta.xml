@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>One-time</fullName>
+        <default>false</default>
+        <label>One-time</label>
+    </customValue>
+    <customValue>
+        <fullName>Monthly</fullName>
+        <default>false</default>
+        <label>Monthly</label>
+    </customValue>
+    <masterLabel>Frequency</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b8aa4da0-5b63-4c9e-a372-799183dc3cc7",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Our_Plans__c",
+  "id" : "c3b2026f-c0af-4c8f-b365-c9ed7082477f",
+  "label" : "Our Plans",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-our-plans",
+  "type" : "route",
+  "urlPrefix" : "our-plans"
+}

@@ -1,0 +1,64 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "9cf553d7-8764-49e4-b0df-86f23c53640e",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigaCommHomePage",
+      "id" : "b8d62d08-e215-4a9a-a0a5-85abf0039a52",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "195cdbae-b4f2-4134-8540-b870d6e1509f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "d1937b63-3654-45d4-8fb5-e94e8c01c977",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a2fb3144-c18b-4824-9fb2-efdc25cd7e54",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet--uat.sandbox.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet--uat.sandbox.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "8bb3f617-8414-4cb8-b4ba-073061c67ec9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1d7e952f-cae9-4560-8257-07e713396fea",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "Gigacomm is an Australian-owned internet provider focused on delivering hyper-fast, reliable internet using state-of-the-art network infrastructure. Gigacomm is currently transforming the digital experience for apartments and businesses.",
+        "title" : "Gigacomm"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "45987632-fb7f-4ee3-ac3b-00b675302525",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7fae4a6b-9752-415f-b536-958cc1dddf4a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

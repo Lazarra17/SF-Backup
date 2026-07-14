@@ -1,0 +1,106 @@
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+        <div class="slds-grid slds-wrap slds-m-top_large">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading slds-text-align_center">
+           <!-- <img class="gc-success-check" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" /> -->
+            <!-- <h4 class="gc-heading-title slds-m-top_medium">Payment successful</h4> -->
+            <h4 class="gc-heading-title slds-m-top_medium">CRITICAL INFORMATION SUMMARIES</h4>
+            <!--p class="gc-success-text">Lorem ipsum is simply dummy text of the printing and industry</p-->
+            <p></p>
+            <!--<p class="gc-color-white">Thank you for your order! Get ready for faster speeds, better value and reliable internet.</p> -->
+        </div>
+    </div>
+    
+    <div class="container slds-m-top_xx-large">
+        <div class="slds-grid slds-wrap gc-border gc-success-container slds-p-around_x-large">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                
+                <h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">Critical Information Summaries</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                      <!--  <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            
+                            Your order details have been emailed to you
+                        </p> 
+                        <p class=""> <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/check.svg'}" />
+                            One of our onboarding experts will contact you soon to organise your installation.
+                        </p> -->
+                       
+                        	<p><a href="{!$Resource.GigaCommCISSocialHousing16September2025}" target="_blank">Critical Information Summary - Social Housing - 16.09.2025</a></p>
+                            <p><a href="{!$Resource.GigaCommCISBusinessInternet16September2025}" target="_blank">Critical Information Summary - Business Internet 16.09.2025</a></p>
+                        	<p><a href="{!$Resource.GigaCommCISSmallBusinessInternet16September2025}" target="_blank">Critical Information Summary - Small Business Internet 16.09.2025</a></p>
+                            <p><a href="{!$Resource.GigaCommCISFTTP19May2025}" target="_blank">Critical Information Summary - FTTP 19.05.2025</a></p>
+                        	<p><a href="{!$Resource.GigacommCISOfficeVoice5Feb2025}" target="_blank">Critical Information Summary - Office Voice 05.02.2025</a></p>
+
+                       		<p><a href="{!$Resource.GigacommCISFTTXInternet19May2025}" target="_blank">Critical Information Summary - FTTx Internet 19.05.25</a></p>
+                            <p><a href="{!$Resource.GigacommCISNBN28May2021}" target="_blank">Critical Information Summary - NBN 28.05.21</a></p>
+                            <p><a href="{!$Resource.GigacommCISInterimNBN18June2022}" target="_blank">Critical Information Summary - Interim NBN 18.06.22</a></p>
+                            <p><a href="{!$Resource.GigacommCISKeyFactSheetInterimNBN18June22}" target="_blank">Key Fact Sheet - Interim NBN 18.06.22</a></p>
+                            <p><a href="{!$Resource.CriticalInformationSummaryHostedVoiceIntCallRates8July21}" target="_blank">Critical Information Summary - Hosted Voice International Calling Rates 08.07.21</a></p>
+                        
+                    </div>
+                </div>
+                	<h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">Call Rates</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        <p><a href="{!$Resource.GigacommGISInternationalRates}" target="_blank">Internation Rates &amp; Services</a></p>
+                        <p><a href="{!$Resource.GigacommGISMobileRates}" target="_blank">Mobile Rates</a></p>
+                    </div>
+                </div>
+                                
+                      <h5 class="slds-m-top_medium gc-default-color slds-m-top_medium slds-m-bottom_medium">Previous Critical Information Summaries</h5>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12">
+                        
+                        <p><a href="{!$Resource.GigaCommCISFTTP31March2025}" target="_blank">Critical Information Summary - FTTP 31.03.2025</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTP17Feb2025}" target="_blank">Critical Information Summary - FTTP 17.02.2025</a></p>
+                        <p><a href="{!$Resource.GigacommCISSocialHousing28May2024}" target="_blank">Critical Information Summary - Social Housing - 28.05.2024</a></p>
+                        <p><a href="{!$Resource.GigacommCISBusinessInternet22Nov2024}" target="_blank">Critical Information Summary - Business Internet 22.11.2024</a></p>
+                        <p><a href="{!$Resource.GigacommCISSmallBusInternet06March2024}" target="_blank">Critical Information Summary - Small Business Internet 06.03.24</a></p>
+                        <p><a href="{!$Resource.GigacommCISOfficeVoice23March2023}" target="_blank">Critical Information Summary - Office Voice 23.03.2023</a></p>
+                        <p><a href="{!$Resource.GigacommCISSocialHousing16Dec2024}" target="_blank">Critical Information Summary - Social Housing - 16.12.2024</a></p>
+                        <p><a href="{!$Resource.GigacommCISSocialHousing26Nov2024}" target="_blank">Critical Information Summary - Social Housing - 26.11.2024</a></p>
+                        <p><a href="{!$Resource.GigacommCISBusinessInternet4June24}" target="_blank">Critical Information Summary - Business Internet 04.06.2024</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTXInternet06May2024}" target="_blank">Critical Information Summary - FTTx Internet 06.05.24</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTxInternet140424}" target="_blank">Critical Information Summary - FTTx Internet 14.04.24</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTxInternet140823}" target="_blank">Critical Information Summary - FTTx Internet 14.08.23</a></p>
+                        <p><a href="{!$Resource.GigacommCISBusinessInternet260423}" target="_blank">Critical Information Summary - Business Internet 26.04.23</a></p>
+                        <p><a href="{!$Resource.GigacommCISFFWInternet010323}" target="_blank">Critical Information Summary - FFW Internet 01.03.23</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTxInternet010323}" target="_blank">Critical Information Summary - FTTx Internet 01.03.23</a></p>
+                        <p><a href="{!$Resource.GigacommCISSmallBusinessInternet140223}" target="_blank">Critical Information Summary - Small Business Internet 14.02.23</a></p>
+                        <p><a href="{!$Resource.GigacommCISBusinessInternet220621}" target="_blank">Critical Information Summary - Business Internet 22.06.21</a></p>
+                        <p><a href="{!$Resource.GigacommCISOfficeVoice10112022}" target="_blank">Critical Information Summary - Office Voice 10.11.2022</a></p>
+                        <p><a href="{!$Resource.GigacommCISFTTxInternet260722}" target="_blank">Critical Information Summary - FTTx Internet 26.07.22</a></p>
+                        <p><a href="{!$Resource.GigacommCISFFWInternet220822}" target="_blank">Critical Information Summary - FFW Internet 22.08.22</a></p>
+                        <p><a href="{!$Resource.GigacommCISSmallBusinessInternet280521}" target="_blank">Critical Information Summary - Small Business Internet 28.05.21</a></p>
+                        <p><a href="{!$Resource.GigacommCISResidentialInternet081021}" target="_blank">Critical Information Summary - Residential Internet 08.10.21</a></p>
+                        <p><a href="{!$Resource.GigacommCISResidentialSinglePremiseInternet160222}" target="_blank">Critical Information Summary - Residential Single Premise Internet 16.02.22</a></p>
+                        <p><a href="{!$Resource.GigacommCISResidentialInternet280521}" target="_blank">Critical Information Summary - Residential Internet 28.05.21</a></p>
+                        <p><a href="{!$Resource.GigacommCISBusinessInternet191020}" target="_blank">Critical Information Summary - Business Internet 19.10.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISResidentialInternet240220}" target="_blank">Critical Information Summary - Residential Internet 24.02.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISFibre210720}" target="_blank">Critical Information Summary - Fibre 21.07.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISHostedVoice210720}" target="_blank">Critical Information Summary - Hosted Voice 21.07.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISMobile210720}" target="_blank">Critical Information Summary - Mobile 21.07.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISMobileBroadband210720}" target="_blank">Critical Information Summary - Mobile Broadband 21.07.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISNBN210720}" target="_blank">Critical Information Summary - NBN 21.07.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISHomePhone141020}" target="_blank">Critical Information Summary - Home Phone 14.10.20</a></p>
+                        <p><a href="{!$Resource.GigacommCISHostedVoicePBX280521}" target="_blank">Critical Information Summary - Hosted Voice (PBX) 28.05.21</a></p>
+                        <p><a href="{!$Resource.GigacommCISHostedVoiceSingleLine280521}" target="_blank">Critical Information Summary - Hosted Voice (Single Line) 28.05.21</a></p>
+                                
+                                
+                            
+                        
+                    </div>
+                    
+                   
+                </div>
+                
+               
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>   
+</aura:component>

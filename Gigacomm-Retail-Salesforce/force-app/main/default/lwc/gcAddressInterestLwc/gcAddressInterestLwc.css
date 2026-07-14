@@ -1,0 +1,12 @@
+.slds-form-element__label {
+  text-align: left !important;
+}
+
+.slds-box.slds-theme_default {
+  text-align: left !important;
+}
+
+.gc-btn-success{
+    padding-left: 20px;
+    padding-right: 20px;
+}

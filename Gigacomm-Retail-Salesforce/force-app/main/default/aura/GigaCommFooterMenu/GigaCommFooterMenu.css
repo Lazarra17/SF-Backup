@@ -1,0 +1,26 @@
+.THIS nav.gc-footer-nav{
+    text-decoration: none;
+}
+
+.THIS .gc-footer-nav{
+    font-size: 15px;
+    color: #333 !important;
+    text-decoration: none !important;
+    display: block;
+}
+
+.THIS .gc-footer-nav li{
+    display: block;
+    text-decoration: none !important;
+    
+}
+
+
+.THIS .gc-footer-nav a{
+    color: #555;
+    font-size: 13px;
+}
+
+.THIS .gc-footer-nav a:focus{
+    text-decoration: none !important;
+}

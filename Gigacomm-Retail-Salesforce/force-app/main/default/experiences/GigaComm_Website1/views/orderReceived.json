@@ -1,0 +1,46 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b832f1ed-fe31-4149-a512-616daf052934",
+  "label" : "Order Received",
+  "regions" : [ {
+    "id" : "820e276c-38b4-48ef-a05e-09e234d1b70e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigaCommOrderReceived",
+      "id" : "c1f54b72-23fc-4577-a6e1-2aa57f7bfac6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f199abfb-1651-4c59-8840-812ebf2d1dc8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e0b042fc-446b-4b08-84c6-31255d9321bc",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Order Received"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "26cea135-dee7-4409-84f2-7cbeed12cd9e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5a83d855-781a-4779-b35d-f1292c11b31c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-order-received"
+}

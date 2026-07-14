@@ -1,0 +1,13 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <div class="ratio ratio-16x9">
+                    <video class="gc-video" controls="true" autoplay="true">
+                        <source src="{!$Label.c.Gigacomm_Static_Video}" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

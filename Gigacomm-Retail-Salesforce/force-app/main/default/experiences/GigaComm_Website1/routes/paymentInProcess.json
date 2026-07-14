@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7b68d223-d5a1-4416-850e-ea4f73ae7770",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Payment_In_Process__c",
+  "id" : "62737c13-2418-4dfe-acd6-c66407de43c2",
+  "label" : "Payment In-Process",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-payment-in-process",
+  "type" : "route",
+  "urlPrefix" : "payment-in-process"
+}

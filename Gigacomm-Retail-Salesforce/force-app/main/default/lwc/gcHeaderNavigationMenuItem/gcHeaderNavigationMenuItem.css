@@ -1,0 +1,13 @@
+a.gc-link{
+    color: #666 !important;
+    text-decoration: none;
+    font-weight: 400;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Gilroy-Bold, sans-serif;
+    line-height: normal;
+    font-size: 16px;
+}
+a.gc-link:hover{
+    text-decoration: none;
+}

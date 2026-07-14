@@ -1,0 +1,397 @@
+<!--
+@Author: Bricoleur Technology
+@Date:
+@History:  [0]CLAZARRA 19-May-2025 : Updated the styling of Plan tiles, Added Computation for Monthly and installation for Monthly Term
+@History:  [1]CLAZARRA 23-May-2025 : Added Feedback from https://bricoleur.atlassian.net/browse/GR-155
+
+[2] WM 27 May 2025 - change "See Benefits and inclusions" to "See Details"
+[3] WM 28 May 2025 - change Adjust copy
+"From: Plan availability depends on your address and may not be offered at all apartments
+To: Gigacomm is expanding fast, so check your address to see if we are available in your area."
+
+[4] WM 1 June 2025 fix benefits and inclusions for mobile
+[5] WM 1 June 2025 reverted changes for product tile
+[6] CL 17 June 2025 modify mobile view for plan
+[7] CL 08 July - Embedded the Voucher Feature Cookie
+-->
+<aura:component>
+    <aura:attribute name="allowSelectPlan" type="boolean" default="false" />
+    <aura:attribute name="plans" type="Object" />
+    <aura:attribute name="lead" type="Object" default="{'Term':'Monthly'}" />
+    <aura:attribute name="selectedPlan" type="String" />
+    <aura:registerEvent name="cmpEvent" type="c:GigaCommOrderWizardEvent"/>
+    <aura:attribute name="selectedTerm" type="String" default="Monthly"/>
+    <aura:attribute name="selectedTermNum" type="Integer" default="1"/>
+    
+    <aura:if isTrue="{!v.plans != null}">
+        <div class="slds-grid slds-wrap slds-m-top_medium slds-m-bottom_large" id="planSectionMobile">   
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_8-of-12  slds-align_absolute-center ">
+                <ul class="nav nav-pills gc-order-wizard-nav" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="{!v.lead.Term == 'Monthly' || v.lead.Term == '' || v.lead.Term == null ? 'nav-link active' : 'nav-link'}" aura:id="monthlyTab" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" onclick="{!c.termClick}">
+                            <!-- 24 Months -->
+                            Monthly
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="{!v.lead.Term == '12 Months' ? 'nav-link active' : 'nav-link'}" aura:id="x12MonthsTab" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="{!c.termClick}">
+                            12 Months
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="{!v.lead.Term == '24 Months' ? 'nav-link active' : 'nav-link'}" aura:id="x24MonthsTab" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" onclick="{!c.termClick}">
+                            <!-- Month -->
+                            24 Months
+                        </button>
+                    </li>
+                </ul>
+                
+                
+                
+            </div>
+            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+        </div>
+    </aura:if>
+    <div class="tab-content  slds-m-bottom_small" id="pills-tabContent" >
+        <div>
+            <!--[0]CLAZARRA 19-May-2025 : Updated the styling of Plan tiles, Added Computation for Monthly and installation for Monthly Term-->
+            <!--PLANS Desktop VIEW -->
+            <div class="slds-show_medium">
+                <div class="slds-grid slds-wrap slds-gutters slds-grid_vertical-stretch" id="planSection">
+                    <aura:iteration items="{!v.plans}" var="item" indexVar="index">
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_12-of-12 slds-small-size_12-of-12 slds-m-bottom_large">
+                            <div class="{!AND(v.lead.PlanSelected.Product_bric__c == item.Plan.Product2Id, v.lead.Term == v.selectedTerm) ? 'slds-grid slds-wrap slds-grid_vertical-stretch gc-order-wizard-border-selected' : 'slds-grid slds-wrap slds-grid_vertical-stretch gc-order-wizard-border'}">  
+                                <div class="slds-col slds-large-size_9-of-12  slds-medium-size_8-of-12 slds-p-around_large slds-p-left_none slds-p-right_none">
+
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_6-of-12">
+                                            <div class="gc-default-color">
+                                                <h3>{!item.Plan.Product2.Display_Name_Bric__c}</h3>
+                                            </div>
+                                        </div>
+                                        <!-- HYPER - FAST 2G -->
+                                        <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-small-size_6-of-12 slds-m-bottom_small slds-p-right_none">
+                                            <div class="gc-order-wizard-rate">
+                                                <span class="gc-order-wizard-rate-amount ">
+                                                    {!item.Plan.Product2.Download_Limit__c}
+                                                </span>
+                                                
+                                                <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                                                    <p id="">{!item.Plan.Product2.Download_Unit_bric__c}</p>
+                                                    <p id="">Download</p>
+                                                </div>
+                                      
+                                                <span class=" slds-p-left_x-small gc-order-wizard-rate-amount slds-border_left">
+                                                    {!item.Plan.Product2.Upload_Limit__c}
+                                                </span>
+                                                <div class="gc-order-wizard-rate-speed  slds-p-right_xx-small ">
+                                                    <p id="">{!item.Plan.Product2.Upload_Unit_bric__c}</p>
+                                                    <p id="">Upload</p>
+                                                </div>
+                                                
+                                                <div class="slds-p-left_xx-small gc-order-wizard-rate-amount slds-border_left">
+                                                    ${!item.Plan.UnitPrice}
+                                                    <div class="gc-order-wizard-rate-term slds-p-right_x-small">
+                                                        
+                                                        <p id="">per</p>
+                                                        <p id="">month</p>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="slds-grid slds-m-top_medium">  
+                                        <div class="slds-col slds-size_12-of-12">
+                                            <p class="gc-order-wizard-plan-description">
+                                                {!item.Plan.Product2.Description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-grid slds-m-top_small">  
+                                        <div class="slds-col slds-size_12-of-12">
+                                            
+                                            <p class="gc-order-wizard-plan-description gc-order-wizard-p-2 slds-text-align_center">
+                                                <!-- Min charge: $4,776. Only available on 24-month plans -->
+                                                
+                                                
+                                                 <aura:if isTrue="{!v.lead.TermNum != null}">
+                                                     
+                                                     <aura:if isTrue="{!v.lead.Term == 'Monthly'}">
+                                                         Minimum cost ${!item.Plan.UnitPrice + 125}
+                                                         <aura:set attribute="else">
+                                                             Minimum cost ${!item.Plan.UnitPrice * v.lead.TermNum}
+                                                         </aura:set>
+                                                     </aura:if>
+                                                     
+                                                     
+                                                     <aura:set attribute="else">
+                                                         <aura:if isTrue="{!v.selectedTerm == 'Monthly'}">
+                                                             
+                                                             Minimum cost ${!item.Plan.UnitPrice + 125}
+                                                             <aura:set attribute="else">
+                                                                 Minimum cost ${!item.Plan.UnitPrice * v.selectedTermNum}
+                                                             </aura:set>
+                                                         </aura:if>
+                                                     </aura:set>
+                                                </aura:if>
+                                                
+                                                
+                                                
+                                            </p>
+                                            <div class="gc-center-btn slds-m-top_small">
+                                                <aura:if isTrue="{!v.lead.Serviceable}">
+                                                    <aura:if isTrue="{! AND(v.lead.PlanSelected.Product_bric__c == item.Plan.Product2Id)}">
+                                                        <button class="gc-btn-selected" id="{!item.Plan.Product2Id}"  value="{! item.Plan.Product2Id +':'+ v.lead.Term + ':' + item.Plan.Id}">Selected</button>
+                                                        
+                                                        <aura:set attribute="else">
+                                                            <button class="gc-btn gc-btn-select" id="{!item.Plan.Product2Id}"  onclick="{!c.selectPlan}" value="{! item.Plan.Product2Id +':'+ v.lead.Term + ':' + item.Plan.Id}">Select</button>
+                                                            
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    
+                                                    <aura:set attribute="else">
+                                                        <button class="{!item.Plan.Product2.Home_Page_Pre_Selected_bric__c ? 'gc-btn-selected' : 'gc-btn'}" onclick="{!c.navigateTo}">Check Availability</button>
+                                                    </aura:set>
+                                                </aura:if>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>                 
+                                    
+                                    <div class="slds-grid">  
+                                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <p class="accordion-header slds-p-top_small" data-bs-toggle="collapse" data-bs-target="{! '#flush-collapse' + index}">
+                                                        
+                                                        <button class="accordion-button collapsed gc-order-wizard-accordion" type="button" data-bs-toggle="collapse" data-bs-target="{! '#flush-collapse' + index}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                            <!-- [2] See Benefits &amp; inclusions -->See Details<span class="material-symbols-outlined gc-icon-toggle">keyboard_arrow_down</span>
+                                                        </button>
+                                                    </p>
+                                                    <div id="{! 'flush-collapse' + index}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                        <div class="accordion-body">
+                                                            <!--lightning:formattedRichText class="gc-rich-text slds-text-align_left" value="{!item.Plan.Product2.Benefits_Inclusions_bric__c}"/ -->
+                                                            <ul class="gc-inclusions slds-p-top_small">
+                                                                <aura:iteration items="{!item.PlansInclusions}" var="pi" indexVar="index">
+                                                                    
+                                                                    <aura:if isTrue="{!pi.Payment_Term_bric__c == v.selectedTerm}">
+                                                                        <li>{!pi.Inclusion_bric__c}</li>
+                                                                    </aura:if>
+                                                                    
+                                                                </aura:iteration>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12  slds-medium-size_4-of-12 gc-remove-padding">
+                                    <aura:if isTrue="{!item.Plan.Product2.Desktop_URL_bric__c}">
+                                        <div class="gc-order-wizard-avatar" style="{! 'background-image: url(\'' + item.Plan.Product2.Desktop_URL_bric__c + '\')'}">
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <div class="gc-order-wizard-avatar" style="{! 'background-image: url(' + $Resource.GigaCommNoImgAvailable + ')'}">        
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </aura:iteration>
+                </div>
+                
+            </div>
+            
+            <!--Mobile Version-->
+            <!--[0]CLAZARRA 19-May-2025 : Updated the styling of Plan tiles, Added Computation for Monthly and installation for Monthly Term-->
+            <div class="slds-grid slds-hide_medium" >  
+                <div class="slds-col slds-size_1-of-1 slds-p-around_small ">
+                    <div id="carousel" class="carousel slide">
+                        <div class="carousel-indicators slds-m-top_x-large">
+                            <aura:iteration items="{!v.plans}" var="item" indexVar="index">
+                                <button type="button" data-bs-target="#carousel" data-bs-slide-to="{!index}" class="{! index== 0 ? 'active' : ''}" aria-current="true" aria-label="Slide 1"></button>
+                            </aura:iteration>
+                        </div>
+                        
+                        <div class="carousel-inner">
+                            <aura:iteration items="{!v.plans}" var="item" indexVar="index">
+                                <div class="{! index == 0 ? 'carousel-item active' : 'carousel-item'}">
+                                    <div class="slds-grid slds-wrap slds-grid_vertical-stretch gc-order-wizard-border">  
+                                        <div class="slds-col slds-size_12-of-12 slds-p-around_small">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_12-of-12 slds-m-bottom_x-small">
+                                                    <div class="gc-default-color">
+                                                        <h3>{!item.Plan.Product2.Display_Name_Bric__c}</h3>
+                                                    </div>
+                                                </div>
+
+                                                <div class="slds-col slds-size_12-of-12 slds-m-bottom_medium">
+                                                        <div class="gc-order-wizard-rate">
+                                                            <span class="slds-p-left_x-small gc-order-wizard-rate-amount">{!item.Plan.Product2.Download_Limit__c}</span>
+                                                            <div class="gc-order-wizard-rate-speed slds-p-right_x-small">
+                                                                <p>{!item.Plan.Product2.Download_Unit_bric__c}</p><!-- JPS 18 May - Sir Wayne requested to comment out the Download Unit -->
+                                                                <p>Download</p>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <div class="slds-col slds-size_12-of-12 slds-m-bottom_medium">
+                                                        <div class="gc-order-wizard-rate">
+                                                            <span class="slds-p-left_x-small gc-order-wizard-rate-amount">{!item.Plan.Product2.Upload_Limit__c}</span>
+                                                            <div class="gc-order-wizard-rate-speed">
+                                                                <p>{!item.Plan.Product2.Upload_Unit_bric__c}</p>
+                                                                <p>Upload</p>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+                                        
+                                                <div class="slds-col slds-size_12-of-12">
+                                                    <div class="gc-order-wizard-rate">
+                                                        <span class="slds-p-left_x-small gc-order-wizard-plan-amount">${!item.Plan.UnitPrice}</span>
+                                                        <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                                            <p>per month</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="slds-grid slds-m-top_medium">  
+                                                <div class="slds-col slds-size_12-of-12">
+                                                    <p class="gc-order-wizard-plan-description">{!item.Plan.Product2.Description}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class="gc-order-wizard-plan-description gc-order-wizard-p-2 slds-text-align_center">
+                                                 <aura:if isTrue="{!v.selectedTerm == 'Monthly'}">
+                                                    Minimum cost ${!item.Plan.UnitPrice + 125}
+                                                    <aura:set attribute="else">
+                                                        Minimum cost ${!item.Plan.UnitPrice * v.selectedTermNum}
+                                                    </aura:set>
+                                                </aura:if>
+                                            </p>
+                                            <div class="gc-center-btn slds-m-top_medium slds-m-bottom_small">
+                                                <aura:if isTrue="{!v.lead.Serviceable}">
+                                                    <aura:if isTrue="{! AND(v.lead.PlanSelected.Product_bric__c == item.Plan.Product2Id)}">
+                                                        <button class="gc-btn gc-btn-selected" id="{!item.Plan.Product2Id}"  value="{! item.Plan.Product2Id +':'+ v.selectedTerm + ':' + item.Plan.Id}">Selected</button>
+                                                        
+                                                        <aura:set attribute="else">
+                                                            <button class="gc-btn gc-btn-select" id="{!item.Plan.Product2Id}"  onclick="{!c.selectPlan}" value="{! item.Plan.Product2Id +':'+ v.selectedTerm + ':' + item.Plan.Id}">Select</button>
+                                                            
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    
+                                                    <aura:set attribute="else">
+                                                        <button class="{!item.Plan.Product2.Home_Page_Pre_Selected_bric__c ? 'gc-btn gc-btn-selected' : 'gc-btn'}" onclick="{!c.navigateTo}">Check Availability</button>
+                                                    </aura:set>
+                                                </aura:if>
+                                                
+                                            </div>
+                                            
+                                            
+                                            <div class="slds-grid">  
+                                                <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                        <div class="accordion-item">
+                                                            <p class="accordion-header" data-bs-toggle="collapse" data-bs-target="{!'#m-flush-collapse' + index}">
+                                                                
+                                                                <button class="accordion-button collapsed gc-order-wizard-accordion" type="button" data-bs-toggle="collapse" data-bs-target="{!'#m-flush-collapse' + index}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                                    See Details<span class="material-symbols-outlined gc-icon-toggle">keyboard_arrow_down</span> 
+                                                                </button>
+                                                            </p>
+                                                            
+                                                            <div id="{!'m-flush-collapse' + index}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body">
+                                                                    
+                                                                    <ul class="gc-inclusions slds-p-top_small">
+                                                                        <aura:iteration items="{!item.PlansInclusions}" var="pi" indexVar="index">
+                                                                            
+                                                                            <aura:if isTrue="{!pi.Payment_Term_bric__c == v.selectedTerm}">
+                                                                                <li>{!pi.Inclusion_bric__c}</li>
+                                                                            </aura:if>
+                                                                            
+                                                                        </aura:iteration>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="slds-grid slds-m-bottom_xx-large gc-plan-border">
+                                        <div class="slds-col slds-large-size_6-of-12  gc-remove-padding ">
+                                            
+                                            <aura:if isTrue="{!item.Plan.Product2.Mobile_Image_bric__c}">
+                                                <div class="gc-order-wizard-avatar" style="{! 'background-image: url(\'' + item.Plan.Product2.Mobile_Image_bric__c + '\')'}">
+                                                </div>
+                                                <aura:set attribute="else">
+                                                    <div class="gc-order-wizard-avatar" style="{! 'background-image: url(' + $Resource.GigaCommNoImgAvailable + ')'}">        
+                                                    </div>
+                                                </aura:set>
+                                            </aura:if>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </aura:iteration>
+                        </div>
+                        <aura:if isTrue="{!v.plans.length > 1}">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon gc-mobile-carousel-left" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon gc-mobile-carousel-right" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        
+        <!-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            2
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+            3
+        </div> -->
+    </div>
+    
+    
+	<div class="slds-grid slds-wrap slds-m-bottom_x-large">   
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12"><!-- [3] -->
+        	<p class="slds-text-align_center">Gigacomm is expanding fast, so check your address to see if we are available in your area.</p>
+        </div>
+    </div>
+    
+    
+</aura:component>

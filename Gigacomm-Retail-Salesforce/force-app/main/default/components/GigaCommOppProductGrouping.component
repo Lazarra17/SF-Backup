@@ -1,0 +1,101 @@
+<!--
+[1] JPS 11 Jul 2025 - Add wrapper class to retrieve opp products and voucher terms from offers
+[2] JPS 11 Jul 2025 - for the normal product, the text below the display name should be the contract length e.g. “1 month contract, 12 month contract, 24 month contract).
+[3] JPS 09 Dec 2025 - Hide (for {!oli.voucherTerm} months) if voucher term is 0.
+-->
+<apex:component controller="GigaCommOppProductGroupingCtrl" access="global">
+
+    <apex:attribute name="opportunityId" type="String" assignTo="{!oppId}" description="Opportunity Id"/>
+    <apex:attribute name="oppProductFrequency" type="String" assignTo="{!frequency}" description="Opp Product Frequency"/>
+
+    <html>
+        <head>
+            <style>
+                .hrDashed {
+                    border: none;
+                    border-top: 2px dashed #dee5ef;
+                    margin: 3px 0;
+                }    
+                th {
+                    text-align: left;
+                }
+            </style>
+        </head>
+        <body>
+            <table style="width:100%;">
+                <tr>
+                    <th>Description</th>
+                    <th>Per Unit</th>
+                    <th style="text-align: right;">Total</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <hr class="hrDashed"/>
+                    </td>
+                </tr>
+                <!-- <apex:repeat var="oli" value="{!productsByFrequency}"> [1] JPS 11 Jul 2025 - Add wrapper class to retrieve opp products and voucher terms from offers -->
+                <apex:variable var="discountTerm" value="{!0}"/>
+                <apex:repeat var="oli" value="{!plans}">
+                    <tr>
+                        <td style="vertical-align:top;">
+                            {!oli.oppProduct.PriceBookEntry.Product2.Order_Confirmation_Line_Description_Bric__c}
+                            <!-- [3] -->
+                            <apex:outputPanel rendered="{!AND(oli.oppProduct.UnitPrice < 0, frequency == 'Monthly', oli.voucherTerm > 0)}">
+                                <br/>
+                                (for {!oli.voucherTerm} months)   
+                                <apex:variable var="discountTerm" value="{!IF(discountTerm == 0, oli.voucherTerm, discountTerm)}"/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!AND(oli.oppProduct.UnitPrice >= 0, frequency == 'Monthly')}">
+                                <br/>
+                                <!-- (after the first {!oli.voucherTerm} months)    -->
+                                 <!-- [2] JPS 11 Jul 2025 - for the normal product, the text below the display name should be the contract length e.g. “1 month contract, 12 month contract, 24 month contract). -->
+                                ({!oli.monthContract})
+                            </apex:outputPanel>
+                        </td>
+                        <td style="vertical-align:top;">    
+                            <apex:outputText value="{0,number,¤#,##0.00;-¤#,##0.00}">
+                                <apex:param value="{!oli.oppProduct.UnitPrice}" />
+                            </apex:outputText>
+                        </td>
+                        <td style="text-align: right; vertical-align:top;">
+                            <apex:outputText value="{0,number,¤#,##0.00;-¤#,##0.00}">
+                                <apex:param value="{!oli.oppProduct.TotalPrice}" />
+                            </apex:outputText>
+                        </td>
+                    </tr>   
+                </apex:repeat>
+                <tr>
+                    <td colspan="2" style="vertical-align:bottom;">
+                        <apex:outputPanel rendered="{!frequency == 'One-time'}">
+                            <b>Total One-Off Costs</b>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!frequency == 'Monthly'}">
+                            <!-- <b>Total Monthly Fees (first month)</b> -->
+                            <apex:outputPanel rendered="{!discountTerm > 0}">
+                                <b>Total Monthly Fees (for the first {!discountTerm} month<apex:outputPanel rendered="{!discountTerm > 1}">s</apex:outputPanel>)</b>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!discountTerm == 0}">
+                                <b>Total Monthly Fees for the first month</b>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!frequency == 'Monthly'}">
+                            <br/><br/>
+                            <b>Total Monthly Fees (after discount period)</b>
+                        </apex:outputPanel>
+                    </td>
+                    <td style="text-align:right; vertical-align:bottom;">
+                        <apex:outputText value="{0,number,¤#,##0.00;-¤#,##0.00}">
+                            <apex:param value="{!productTotals}" />
+                        </apex:outputText>
+                        <apex:outputPanel rendered="{!frequency == 'Monthly'}">
+                            <br/><br/>
+                            <apex:outputText value="{0,number,¤#,##0.00;-¤#,##0.00}">
+                                <apex:param value="{!productTotalsNotZero}" />
+                            </apex:outputText>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+            </table>
+        </body>
+    </html>
+</apex:component>

@@ -1,0 +1,294 @@
+<!-- 
+WM & CL 28 May 2025 Page Created
+[1] WM 30 may 2025 use updated founder images
+rolled back as they are no good
+Remove back button
+video inline as each page may be different
+fix text errors and number of items in Gigacomm Difference
+
+[2] WM 31 May add mobile viewport and fix icon
+[3] WM 1 June minor typo fix
+chagne founder title
+implement vimeo video
+tweak founder title
+
+
+-->
+
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+              <!--  <div onclick="{!c.navigateToPlans}" class="gc-pd-back">
+                    <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                    <span class="gc-heading-back">Back</span> [1] 
+                </div>  -->
+                <h2 class="gc-heading-title slds-m-top_large">About Us</h2>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_medium slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container">
+                <h1 class="gc-order-wizard-section-title gc-default-color slds-m-bottom_medium">
+                    Who is Gigacomm?
+                </h1>
+                
+                <p>
+                    Gigacomm is an Australian-owned internet provider focused on delivering hyper-fast, reliable internet solutions using state-of-the-art network infrastructure. With a mission to eliminate buffering and downtime, Gigacomm is currently transforming the digital experience for apartments and businesses across Melbourne, Sydney and Brisbane.
+                </p>
+                <p>We live in an increasingly digital world where communication networks and digital services play a critical role in everyday lives.</p>
+                <p>We were founded with the purpose of building the future of digital infrastructure in Australia – a new network capable of transforming the digital capabilities of communities and businesses we connect. </p>
+                <p>
+                    We’re committed to reducing the digital divide by expanding our network to connect more communities. We want to foster greater social connections, sparking innovation and collaboration to underpin our economy in the digital age.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    
+  <!--  <c:GigaCommSiteVideo />  -->
+    
+  <!-- [3] <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <div class="ratio ratio-16x9">
+                    <video class="gc-video" controls="true" autoplay="true">
+                        <source src="{!$Label.c.GigacommAboutUsVideo}" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+     <div class="container">
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <!-- <div class="ratio ratio-16x9">
+                    <video class="gc-video" controls="true" autoplay="true">
+                        <source src="{!$Label.c.GigacommAboutUsVideo}" type="video/mp4" />
+                    </video>
+                </div> -->
+                  <aura:unescapedHtml value="{!$Label.c.GigacommAboutUsVideoVimeo}"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        
+        <div class="slds-grid slds-wrap slds-m-top_xx-large  slds-p-around_x-small">
+            <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+                <h1 class="gc-default-color slds-text-align_center">
+                    The Gigacomm Difference
+                </h1>
+            </div>
+        </div>
+        
+     
+        
+        
+        <div class="slds-grid slds-gutters slds-gutters_large slds-wrap slds-m-top_small slds-grid_vertical-stretch slds-show_medium">
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommAboutUsPageAsset + '/duotone.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color"><strong>Commercially and socially driven</strong></p>
+                        <p>Our mission is to actively promote digital inclusion in Australia, 
+                            working with partners to deliver services to connect underserved communities.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommAboutUsPageAsset + '/network.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color"><strong>Network diversity</strong></p>
+                        <p>We operate our own independent network, ensuring network diversity and multiple paths to the Internet,
+                            providing high levels of resiliency</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+
+                        <!-- [2] <img src="{!$Resource.GigacommAboutUsPageAsset + '/duotone.svg'}" class="img-fluid" /> -->
+                        <img src="{!$Resource.GigacommAboutUsPageAsset + '/speed.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color"><strong>Latest technology</strong></p>
+                        <p>We are infrastructure agnostic, with a hybrid network that combines the latest technology available, to deliver great value, hyper-fast internet with speeds up to 2000Mbps. </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+                <div class="slds-grid slds-wrap slds-p-top_large gc-border-bottom">
+                    
+                    <div class="slds-col slds-large-size_2-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                        <img src="{!$Resource.GigacommAboutUsPageAsset + '/people.svg'}" class="img-fluid" />
+                        
+                    </div>
+                    <div class="slds-col slds-large-size_10-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                        <p class="gc-default-color"><strong>Experienced team</strong></p>
+                        <p>While we think differently, our board and executive team brings years of experience building and delivering customer centric telecommunications solutions.</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 slds-p-bottom_medium ">
+                
+        
+                
+            </div>
+            
+        </div>
+        
+         <!--Mobile Carousel-->
+        
+        <div class="slds-grid slds-hide_medium" >  
+            <div class="slds-col slds-size_1-of-1">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommAboutUsPageAsset + '/duotone.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Commercially and socially driven</strong></p>
+                                    <p>Our mission is to actively promote digital inclusion in Australia, 
+                            working with partners to deliver services to connect underserved communities.</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommAboutUsPageAsset + '/network.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Network diversity</strong></p>
+                                    <p>We operate our own independent network, ensuring network diversity and multiple paths to the Internet,
+                           			 providing high levels of resiliency</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                  <img src="{!$Resource.GigacommAboutUsPageAsset + '/speed.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Latest technology</strong></p>
+                                    <p>We are infrastructure agnostic, with a hybrid network that combines the latest technology available,
+                                        to deliver great value, hyper-fast internet with speeds up to 2000Mbps. </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="carousel-item">
+                            <div class="slds-grid slds-wrap slds-p-top_large slds-text-align_center">
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-text-align_center gc-remove-padding ">
+                                    <img src="{!$Resource.GigacommAboutUsPageAsset + '/people.svg'}" class="img-fluid" />
+                                    
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 gc-remove-padding">
+                                    <p class="gc-default-color gc-p-2 slds-m-top_large"><strong>Experienced team</strong></p>
+                                    <p>While we think differently, our board and executive team brings years of experience building 
+                                        and delivering customer centric telecommunications solutions.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+		<!--END MOBILE CAROUSEL-->   
+        
+        
+    </div>
+    
+    
+    <div class="gc-hero2-container" style="{! 'background-image: url(' + $Resource.GigaCommFooterBanner + ')'}">
+        <div class="container">
+            <div class="slds-grid slds-wrap slds-grid_vertical-stretch slds-p-top_xx-large slds-p-bottom_xx-large slds-m-bottom_xx-large" >   
+                
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_7-of-12 slds-p-top_large slds-p-bottom_large">
+                    
+                    
+                    <h2 class="gc-default-color gc-hero2-title">Get started with</h2>
+                    <h2 class="gc-default-color gc-hero2-title slds-m-bottom_medium">Gigacomm</h2>
+                    <!--p class="gc-color-white">It's the internet Australia both needs and deserves.</p-->
+                    <!--ADDRESS FINDER START-->
+                    <c:GigacommAddressFinderFooter />
+                    <!--END-->
+                </div>
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_5-of-12 slds-p-top_large">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

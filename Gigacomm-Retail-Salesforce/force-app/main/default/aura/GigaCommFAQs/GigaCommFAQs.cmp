@@ -1,0 +1,168 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <div class="slds-grid slds-m-top_xx-large">  
+        <div class="slds-col slds-size_12-of-12 slds-text-align_center slds-m-top_large slds-m-bottom_large">
+            <h2 class="gc-theme-title">Questions?</h2>
+            <p class="gc-faq-subtitle">At Gigacomm, we take pride in connecting you with experts who can answer all your questions.
+                Feel free to contact us at <a href="tel: 1300004442">1300 004 442</a> or browse through our frequently asked questions below.</p>
+        </div>
+        
+    </div>
+    <div class="slds-grid">  
+        <div class="slds-col slds-size_12-of-12">
+            
+            <div class="accordion" id="accordionFAQ">
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQOne" aria-expanded="true" aria-controls="collapseOne">
+                            <!-- Can I BYO Router? -->
+                             {!$Label.c.GigacommHome_FAQ_Header_1}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                            	<!-- You may choose to use your own router when using a GigaComm service.  However, not all routers can achieve close to 1000Mbps,
+                                so you need to ensure you have a high-performance router that can achieve these speeds. -->
+                                <aura:unescapedHtml value="{!$Label.c.GigacommHome_FAQ_Body_1}"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <!-- What makes Gigacomm Network reliable? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_2}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <!-- <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_2}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQThree" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Whats the difference between NBN &amp; Fibre? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_3}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_3}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQFour" aria-expanded="false" aria-controls="collapseFAQFour">
+                            <!-- What happens if I'm in an old apartment? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_4}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_4}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQFive" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Do you have business pricing for commercial buildings? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_5}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_5}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQSix" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Do you have business pricing for commercial buildings? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_6}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                <aura:unescapedHtml value="{!$Label.c.GigacommHome_FAQ_Body_6}"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQEight" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Do you have business pricing for commercial buildings? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_8}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQEight" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_8}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQNine" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Do you have business pricing for commercial buildings? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_9}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQNine" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                {!$Label.c.GigacommHome_FAQ_Body_9}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item gc-faq-accordion">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQTen" aria-expanded="false" aria-controls="collapseThree">
+                            <!-- Do you have business pricing for commercial buildings? -->
+                            {!$Label.c.GigacommHome_FAQ_Header_10}
+                        </button>
+                    </h2>
+                    <div id="collapseFAQTen" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <p class="gc-faq-item-description gc-faq-body-padding">
+                                <aura:unescapedHtml value="{!$Label.c.GigacommHome_FAQ_Body_10_1}"/>
+                                <aura:unescapedHtml value="{!$Label.c.GigacommHome_FAQ_Body_10_2}"/>
+                                <aura:unescapedHtml value="{!$Label.c.GigacommHome_FAQ_Body_10_3}"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</aura:component>

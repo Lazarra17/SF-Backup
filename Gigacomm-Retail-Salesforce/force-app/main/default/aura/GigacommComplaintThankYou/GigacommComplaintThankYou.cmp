@@ -1,0 +1,56 @@
+<!--
+[1] WM 20 May 2025 new thank you page for complaint case submission
+[2] CL 04 June 2025 - embedded the thank you page to Web to Case
+-->
+
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    
+    
+    <section role="dialog" tabindex="-2" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small ">
+        <div class="slds-modal__container">
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                
+                <div class="slds-grid slds-wrap slds-m-bottom_small">
+                    <div class="slds-col slds-size_6-of-12">
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-text-align_right">
+                        <!-- data-bs-target="#collapseRegisterAddress"-->
+                        <button class="slds-button slds-button_icon slds-modal__close" data-bs-toggle="collapse" data-bs-target="#collapseThankYou">   
+                            <span class="material-symbols-outlined">
+                                close
+                            </span>
+                            <span class="slds-assistive-text">Cancel and close</span>
+                        </button>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container slds-m-top_large">
+                    <div class="slds-grid slds-wrap slds-p-around_x-large">
+                        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 slds-text-align_center">
+                            
+                            <img class="" src="{!$Resource.GigacommAddressInterest}" />
+                            
+                            <h1 class="gc-default-color slds-m-top_medium slds-m-bottom_medium">Thank You</h1>
+                            <!-- <p class="gc-default-color"><strong>Welcome to the Gigacomm community.</strong></p> -->
+                            <p class="slds-m-bottom_none">Your complaint has been submitted successfully.</p>
+                            
+                           
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>  
+                
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    
+</aura:component>

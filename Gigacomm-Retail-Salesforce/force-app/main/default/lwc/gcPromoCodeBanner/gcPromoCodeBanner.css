@@ -1,0 +1,92 @@
+.promo-outer {
+  width: 100%;
+  background: rgba(231, 246, 255, 1);
+  padding: 28px 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.promo-track-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.promo-track {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+}
+
+.promo-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-image {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(34,22,80,0.06);
+  object-fit: contain;
+}
+
+/* Dot bar styling - matches your plans component */
+.dot-bar-outer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.dots-track {
+  display: flex;
+  gap: var(--dots-gap, 24px);
+}
+
+.dot-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(56,38,112,0.25);
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.dot.active {
+  background: #2e1260;
+  width: 28px;
+  height: 6px;
+  border-radius: 6px;
+}
+
+@media (max-width: 767.5px) {
+  .promo-image { max-width: 100%; }
+  .promo-outer{
+    padding:45px 16px;
+  }
+  .container{
+    padding-left:0;
+    padding-right: 0;
+  }
+  
+}

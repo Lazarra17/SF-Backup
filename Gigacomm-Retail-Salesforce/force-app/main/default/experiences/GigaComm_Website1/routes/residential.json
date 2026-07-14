@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "1ab1384e-5ef3-4468-ab82-7d5353473d3e",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "residential__c",
+  "id" : "10f11fda-ddbe-4bf2-ab5a-aefa66b2c44e",
+  "label" : "Residential",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-residential",
+  "type" : "route",
+  "urlPrefix" : "residential"
+}

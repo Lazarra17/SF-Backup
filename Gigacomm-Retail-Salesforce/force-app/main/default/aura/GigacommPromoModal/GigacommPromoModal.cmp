@@ -1,0 +1,54 @@
+<aura:component >
+    
+    <section role="dialog" tabindex="-2" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small ">
+        <div class="slds-modal__container">
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                
+                <div class="slds-grid slds-wrap slds-m-bottom_small">
+                    <div class="slds-col slds-size_6-of-12">
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-text-align_right">
+                            <button class="slds-button slds-button_icon slds-modal__close" data-bs-toggle="collapse" data-bs-target="#applyPromoModal">
+                            <span class="material-symbols-outlined">
+                                close
+                            </span>
+                            <span class="slds-assistive-text">Cancel and close</span>
+                        </button>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container slds-m-top_medium">
+                    <div class="slds-grid slds-wrap slds-p-around_large">
+                        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 slds-text-align_center">
+                            
+                            <img class="" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/promoCodoIllustration.svg'}" />
+                            
+                            <h4 class="slds-m-top_medium slds-m-bottom_medium">{!$Label.c.GigacommPromoTitle}</h4>
+                            <!-- <p class="gc-default-color"><strong>Welcome to the Gigacomm community.</strong></p> -->
+                            <p class="slds-m-bottom_none">{!$Label.c.GigacommPromoSubTitle}</p>
+                            
+                            
+                            <div class="slds-m-top_medium">
+                                <input type="submit" data-bs-toggle="collapse" data-bs-target="#applyPromoModal" class="gc-btn gc-btn-success gc-default-color" style="padding-left: 30px; padding-right: 30px;" name="Submit" value="Close" />
+                                
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>  
+                
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+	
+</aura:component>

@@ -1,0 +1,249 @@
+<!--
+[1] Change "Easy Mesh Compatible" to "Mesh Compatible"
+[2] WM 27 May change "Boosted Seamless Coverage: Achieve seamless home coverage with a clearer and stronger WiFi signal." to "Boosted Home Coverage: Achieve reliable home coverage with a clearer and stronger WiFi signal."
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="lead" type="Object"/>
+    <aura:attribute name="showButtons" type="Boolean" default="false"/>
+    <aura:attribute name="showIncludeRouterDescription" type="Boolean" default="true"/>
+    <aura:attribute name="router" type="PriceBookEntry"/>
+    <aura:attribute name="quantity" type="Integer" default="1" />
+    <aura:registerEvent name="cmpEvent" type="c:GigaCommOrderWizardEvent"/>
+    <aura:attribute name="freeRouter" type="Boolean" default="false"/>
+    
+    <div class="slds-grid slds-wrap gc-include-router-container" >   
+        <div class="slds-col slds-size_12-of-12 slds-large-size_9-of-12">
+            <p class="gc-default-color slds-p-top_x-small gc-router-title">
+                Would you like to include a WiFi router? 
+            </p>
+            <!-- <p class="gc-font-14">To give you the best possible internet experience, we have carefully selected the most suitable WiFi router for apartments. Get seamless home coverage, enhanced security features, and parental controls for peace of mind. Easy to set up and manage remotely, making everyday smoother, safer, and reliable.</p> -->
+            
+            <aura:if isTrue="{!v.lead.IncludeRouter}">
+                <p class="gc-font-14">To give you a great internet experience, we have selected a high performance WiFi router suitable for apartments. Get reliable home coverage, enhanced security features, and parental controls for peace of mind. Easy to set up and manage remotely, making everyday smoother, safer, and reliable.</p>
+                <aura:if isTrue="{!v.lead.AgentCode != null}">
+                    <lightning:input type="checkbox" label="Agent Price Override Gigacomm Router" id="agentOverride" aura:id="agentOverride" name="agentOverride" checked="{!v.lead.AgentPriceOverride}" onchange="{!c.addFreeRouter}" />
+                </aura:if>
+                <aura:set attribute="else">
+                    <p  class="gc-font-14">By selecting this option, you confirm that you have a compatible router to connect your service. You can contact our customer care team on 1300 004 442 on your installation day to obtain any required connection settings.</p>
+                    
+                </aura:set>
+            </aura:if>
+            
+            
+           
+        </div>
+        <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12 slds-align_absolute-center">
+            <ul class="nav nav-pills gc-order-wizard-router-nav" id="pills-tab" role="tablist">
+                <li class="nav-item active	" role="presentation">
+                    <button class="{!v.lead.IncludeRouter == true ? 'nav-link nav-link-router active' : 'nav-link nav-link-router'}" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#include-router" type="button" role="tab" aria-controls="pills-home" aria-selected="true" onclick="{!c.addRouterDesc}">
+                        Yes
+                    </button>
+                </li>
+                <li class="nav-item active" role="presentation">
+                    <button class="{!v.lead.IncludeRouter == false ? 'nav-link nav-link-router active' : 'nav-link nav-link-router'}" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#no-router" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="{!c.removeRouter}">
+                        No
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <aura:if isTrue="{!v.lead.IncludeRouter}">
+        <div class="tab-content  slds-m-bottom_xx-large" id="pills-tabContent" >
+            <div class="tab-pane fade  show active" id="include-router" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-1 gc-router-section slds-p-around_large">
+                        
+                        
+                        <div class="slds-grid slds-wrap gc-router-contents-container slds-p-around_medium" >   
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_5-of-12 slds-p-right_large">
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1">
+                                        <div id="routerCarousel" class="carousel slide">
+                                            
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid slds-align_absolute-center" src="{!$Resource.GigaCommRouterPic1}" /> 
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="{!$Resource.GigaCommRouterPic2}" /> 
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="{!$Resource.GigaCommRouterPic3}" /> 
+                                                </div>
+                                            </div>
+                                            <!--button class="carousel-control-prev" type="button" data-bs-target="#routerCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#routerCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button-->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap slds-gutters slds-m-top_xx-small">
+                                    
+                                    <div class="slds-col slds-size_4-of-12">
+                                        <div class="gc-carousel-item gc-carousel-item-active" id="carouselItem1" onclick="{!c.selectCarouselItem}" data-bs-target="#routerCarousel" data-bs-slide-to="0"  >
+                                            <img class="img-fluid" src="{!$Resource.GigaCommRouterPic1}" /> 
+                                        </div>  
+                                    </div>
+                                    <div class="slds-col slds-size_4-of-12">
+                                        <div class="gc-carousel-item" id="carouselItem2"  onclick="{!c.selectCarouselItem}" data-bs-target="#routerCarousel" data-bs-slide-to="1">
+                                            <img class="img-fluid" src="{!$Resource.GigaCommRouterPic2}" /> 
+                                        </div>  
+                                    </div>
+                                    <div class="slds-col slds-size_4-of-12">
+                                        <div class="gc-carousel-item" id="carouselItem3" onclick="{!c.selectCarouselItem}" data-bs-target="#routerCarousel" data-bs-slide-to="2">
+                                            <img class="img-fluid" src="{!$Resource.GigaCommRouterPic3}" /> 
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 slds-p-left_medium slds-p-right_small">
+                                <!-- <p class="gc-default-color gc-router-product-title">Home Wifi System</p> -->
+                                <p class="gc-default-color gc-router-product-title">Home Wifi Router</p>
+                                <p>{!v.router.Product2.Display_Name_Bric__c}</p>
+                                
+                                <div class="gc-order-wizard-router-item">
+                                    <span class="gc-order-wizard-plan-amount"><strong>${!v.router.UnitPrice}</strong></span>
+                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                        <p>each</p>
+                                        <p>upfront*</p>
+                                    </div>
+                                </div>
+                                <!-- <p>Plus shipping ($15)</p> -->
+                                <hr></hr>
+                                <div class="gc-order-wizard-router-item">
+                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/DualBandWiFi6.svg'}" /> 
+                                    
+                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                        <p class="gc-router-subtitle">Dual Band Wi-Fi 6</p>
+                                        <!-- <p>Speeds up to 3000 Mbps-2402 Mbps on 5 Ghs and 574 Mbps on 2.4 Ghz.*</p> -->
+                                        <p>Speeds up to 3000 Mbps-2402 Mbps on 5GHz and 574 Mbps on 2.4 GHz.</p>
+                                    </div>
+                                </div>
+                                
+                                <hr></hr>
+                                <div class="gc-order-wizard-router-item">
+                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/BoostedSeamlessCoverage.svg'}" /> 
+                                    
+                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                        <p class="gc-router-subtitle">Boosted Home Coverage</p> <!-- [2] -->
+                                        <!-- <p>Achieve seamless whole home coverage with a clearer and stronger WiFi signal.</p> -->
+                                        <p>Achieve reliable home coverage with a clearer and stronger WiFi signal.</p> <!-- [2] -->
+                                    </div>
+                                </div>
+                                
+                                <hr></hr>
+                                <div class="gc-order-wizard-router-item">
+                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/OneUnifiedNetwork.svg'}" />
+                                    
+                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                        <p class="gc-router-subtitle">One Unified Network</p>
+                                        <!-- <p>Multiple units form a whole-home network that auto-selects the best connection as you move around your home.</p> -->
+                                        <!-- <p>Purchase multiple routers to form a whole-home home network that auto-selects the best connection as you move around your home.</p> -->
+                                        <p>Some apartments may need more than one router. The routers we provide work together to create a single, unified home network that auto-selects the best connection as you move around your home.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <!-- Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body. -->
+                                                
+                                                <hr></hr>
+                                                <div class="gc-order-wizard-router-item">
+                                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/Icons/tablerRouter.svg'}" />
+                                                    
+                                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                                        <p class="gc-router-subtitle">Enhanced Security</p>
+                                                        <p>WPA3 encryption, multi-SSID, and parental controls provide personalised and safer online experience.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <hr></hr>
+                                                <div class="gc-order-wizard-router-item">
+                                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/Icons/Mesh.svg'}" />
+                                                    
+                                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                                        <p class="gc-router-subtitle">Mesh Compatible</p>
+                                                        <p>Provides home WiFi coverage with standard mesh technology.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <hr></hr>
+                                                <div class="gc-order-wizard-router-item">
+                                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/Icons/Setup.svg'}" />
+                                                    
+                                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                                        <p class="gc-router-subtitle">Easy Setup</p>
+                                                        <p>Set up your mesh WiFi in minutes with intuitive TP-Link Aginet App.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <hr></hr>
+                                                <div class="gc-order-wizard-router-item">
+                                                    <img class="img-fluid gc-order-wizard-router-icons" src="{!$Resource.GigaCommAsset + '/Icons/Remote.svg'}" />
+                                                    
+                                                    <div class="gc-order-wizard-plan-term slds-p-right_x-small">
+                                                        <p class="gc-router-subtitle">Remote Management</p>
+                                                        <p>Integrated cloud management with TR-098, TR-181, TR-111, and TR-143 supported.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="accordion-header">
+                                            <button class="accordion-button collapsed gc-default-color gc-router-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                View <span id="flush-collapseOne" class="collapse">&nbsp;Less&nbsp;</span> <span id="flush-collapseOne" class="show">&nbsp;More&nbsp;</span> benefits &amp; inclusions
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                
+                                <!--Button-->
+                                <aura:if isTrue="{!v.lead.Router != null}">
+                                    <div class="btn-group gc-btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn gc-btn-minus" onclick="{!c.minusOne}"><i class="fa fa-minus-circle gc-icon-minus" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn gc-btn-router">{!v.lead.TotalRouterQuantity}</button>
+                                        <button type="button" class="btn gc-btn-plus" onclick="{!c.addOne}"><i class="fa fa-plus-circle gc-icon-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                    <aura:set attribute="else">
+                                        <button class="gc-btn" value="{!v.router.Product2Id}" onclick="{!c.addToCart}">Add</button>
+                                    </aura:set>
+                                </aura:if>
+                                
+                                
+                                
+                            </div>
+                            
+                            
+                        </div>                    
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <!--div class="{!v.lead.ItemDeleted ? 'tab-pane fade show active' : 'tab-pane fade'}" id="no-router" role="tabpanel" aria-labelledby="pills-profile-tab">
+                
+                </div-->
+        </div>
+        
+    </aura:if>    
+    
+    
+    
+    
+</aura:component>

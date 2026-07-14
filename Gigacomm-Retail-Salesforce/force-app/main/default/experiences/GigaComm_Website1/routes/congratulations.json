@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "881b6843-eaab-43a9-9c5d-89c739d4715c",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Congratulations__c",
+  "id" : "95a6dc6c-41f7-40f6-a381-243b8baef65c",
+  "label" : "Congratulations",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-congratulations",
+  "type" : "route",
+  "urlPrefix" : "congratulations"
+}

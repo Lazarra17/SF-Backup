@@ -1,0 +1,132 @@
+<template>
+    <div class="why-gigacomm-wrap">
+        <div class="container">
+            <div class="slds-grid" >   
+                <div class="slds-col slds-small-size_1-of-1 slds-large-size_1-of-1">
+                    <h1 class="gc-why-giga-title slds-text-align_center slds-m-bottom_medium custom-mobile-title">Why Gigacomm?</h1> <!-- [2] -->
+                
+                    <p class="slds-text-align_center gc-why-giga-subtitle">
+                        Gigacomm is a network that works for you, not against you.
+                        Unlike most providers who resell the same broadband network, we built our own hyper-fast gigabit network, made specifically for apartment living.
+                        Whether you are working, gaming, or video calling family, Gigacomm makes life easier and faster - so you are connected to what matters most.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="custom-desktop-slide"> 
+                <div class="slds-grid slds-gutters slds-grid_vertical-stretch slds-m-top_x-large" >   
+                    <div class="slds-col slds-size_4-of-12  slds-text-align_center ">
+                        <div class="gc-why-gigacom-tiles">
+                            <img class="gc-why-giga-icon" src={iconRoundSpeed}></img>
+                            <h2 class="gc-default-color">Hyper-Fast</h2>  <!-- [2] -->
+                            <p><!-- [2] A range of download speeds between 100Mbps and 2Gbps, with upload speeds starting at 100Mbps. -->
+                                
+                                Stream, game, video call and download on multiple devices, all at once on our gigabit plans.
+                                </p>
+                                <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                                    <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                        <span class="figma-cta-text">View Our Plan</span>
+                                        <img src={ArrowSymbolIcon} alt="arrow" class="figma-cta-arrow" />
+                                    </button>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+                        <div class="gc-why-gigacom-tiles" >
+                            <img class="gc-why-giga-icon" src={iconWifiSignal}></img>
+                            <h2 class="gc-default-color">Reliable</h2> <!-- [2] -->
+                            <p>No more buffering. No more frozen screens.<br/>
+                                Enjoy smooth connections, with no interruptions.</p>
+                                <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                                    <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                        <span class="figma-cta-text">View Our Plan</span>
+                                        <img src={ArrowSymbolIcon} alt="arrow" class="figma-cta-arrow" />
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size_4-of-12 slds-text-align_center">
+                        <div class="gc-why-gigacom-tiles">
+                            <img class="gc-why-giga-icon" src={iconValue}></img>
+                            <h2 class="gc-default-color">Great Value</h2> <!-- [2] -->
+                            <p>Hyper-Fast Internet with no premium price tag and a range of value plans to suit your needs.</p>
+                            <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                                    <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                        <span class="figma-cta-text">View Our Plan</span>
+                                        <img src={ArrowSymbolIcon} alt="arrow" class="figma-cta-arrow" />
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- MOBILE  -->  
+            <div class="custom-mobile-slide">  
+                <div class="slds-grid" >  
+                    <div class="slds-col slds-size_1-of-1">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-slideto="wgCarousel1" onclick={handleToggleCollapse} class="active" ></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-slideto="wgCarousel2" onclick={handleToggleCollapse} class=""></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-slideto="wgCarousel3" onclick={handleToggleCollapse} class=""></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class={wgCarousel1} data-id="wgCarousel1">
+                                    <img class="gc-why-giga-icon" src={iconRoundSpeed}></img>
+                                <h2 class="gc-default-color">Hyper-Fast</h2>  <!-- [2] -->
+                                <p><!-- [2] A range of download speeds between 100Mbps and 2Gbps, with upload speeds starting at 100Mbps. -->
+                                
+                                Stream, game, video call and download on multiple devices, all at once on our gigabit plans.
+                            </p>
+                            <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                            <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                <span class="figma-cta-text">View Our Plan</span>
+                                <img src={ArrowSymbolIcon} alt="Arrow" class="figma-cta-arrow" />
+                            </button>
+                        </div>
+                                </div>
+                                <div class={wgCarousel2} data-id="wgCarousel2">
+                                <img class="gc-why-giga-icon" src={iconWifiSignal}></img>
+                            <h2 class="gc-default-color">Reliable</h2> <!-- [2] -->
+                            <p>No more buffering. No more frozen screens.<br/>
+                                Enjoy smooth connections, with no interruptions.</p>
+                                <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                            <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                <span class="figma-cta-text">View Our Plan</span>
+                                <img src={ArrowSymbolIcon} alt="Arrow" class="figma-cta-arrow" />
+                            </button>
+                        </div>
+                                </div> 
+                                <div class={wgCarousel3} data-id="wgCarousel3">
+                                <img class="gc-why-giga-icon" src={iconValue}></img>
+                            <h2 class="gc-default-color">Great Value</h2> <!-- [2] -->
+                            <p>Hyper-Fast Internet with no premium price tag and a range of value plans to suit your needs.</p>
+                            <div class="figma-cta-wrapper" role="group" aria-label="Plan action">
+                            <button class="figma-cta" onclick={handleNavToOurPlanPage} aria-label="View our plan">
+                                <span class="figma-cta-text">View Our Plan</span>
+                                <img src={ArrowSymbolIcon} alt="Arrow" class="figma-cta-arrow" />
+                            </button>
+                        </div>
+                                </div>
+                            </div>
+                            <!--GR-238 CL - Removed the Arrows-->
+                            <!--button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" onclick={prev} data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" onclick={next} data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

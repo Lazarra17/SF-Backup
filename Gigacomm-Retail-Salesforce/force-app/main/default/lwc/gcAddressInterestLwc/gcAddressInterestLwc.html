@@ -1,0 +1,72 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small ">
+        <div class="slds-modal__container">
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                
+                <div class="slds-grid slds-wrap	">
+                    <div class="slds-col slds-size_6-of-12">
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-text-align_right">
+                        <button class="slds-button slds-button_icon slds-modal__close" onclick={handleCloseButtonClick}>
+                            <span class="material-symbols-outlined">
+                                close
+                            </span>
+                            <span class="slds-assistive-text">Cancel and close</span>
+                        </button>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="slds-grid slds-wrap slds-p-around_large">
+                        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12">
+                            <div class="slds-text-align_center">
+                                <img class="" src="/resource/GigacommAddressInterest" alt="GigaComm Logo" /> 
+                                
+                                <h1 class="gc-default-color slds-m-top_medium slds-m-bottom_medium">Sorry, Gigacomm is not in your area yet</h1>
+                                <p class="slds-m-bottom_none">Sign up today and we'll get you covered as soon as possible</p>
+                            </div>
+                            <div class="slds-grid slds-grid_align-center slds-m-top_medium">
+                                <div class="slds-theme_default">
+                                    <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
+                                        
+                                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                            <lightning-input name="FirstName" required class="gc-pd-input-text" label="First Name" placeholder="Enter First name" onchange={handleInputChange} value={lead.FirstName}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                            <lightning-input name="LastName" required class="gc-pd-input-text" label="Last Name" placeholder="Enter Last name" onchange={handleInputChange} value={lead.LastName}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                            <lightning-input name="Email" required type="email" class="gc-pd-input-text slds-border-around_none" label="Email" onchange={handleInputChange} value={lead.Email} placeholder="Enter Email"></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                                            <lightning-input name="Address" required class="gc-pd-input-text" label="Address" placeholder="Enter Address" onchange={handleInputChange} value={lead.Address}></lightning-input>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    
+                                        <div class="slds-form-element slds-text-align_center slds-m-top_medium">
+                                            <button class="gc-btn gc-btn-success gc-default-color" onclick={handleSignUp}>Sign up today</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>  
+                
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    
+</template>

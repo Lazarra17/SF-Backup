@@ -1,0 +1,7 @@
+.THIS .slds-required {
+  color: #c23934; /* SLDS red color */
+  margin-right: 0.25rem; /* Space between asterisk and label */
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 1rem;
+}

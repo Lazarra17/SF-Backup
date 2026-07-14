@@ -1,0 +1,38 @@
+.THIS .gc-network-container{
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.THIS .gc-our-network-sub-container{
+    background-color: #eaf7ff;
+    border-radius: 20px;
+}
+
+.THIS .gc-our-network-sub-heading{
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    
+}
+
+.THIS .carousel-indicators{
+    margin-bottom: -20px;
+}
+
+.THIS .gc-network-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    border-radius: 20px 20px 0 0;
+}
+
+.THIS .gc-network-title{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.THIS .gc-network-description{
+    line-height: 1.7;
+}

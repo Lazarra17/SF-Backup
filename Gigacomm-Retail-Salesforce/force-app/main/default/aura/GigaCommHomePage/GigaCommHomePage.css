@@ -1,0 +1,119 @@
+.THIS .gc-heading-1{
+    font-size: 40px;
+}
+
+.THIS .gc-p-1{
+    font-size: 17px;
+}
+
+.THIS .spinner{
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.THIS .slds-spinner_container {
+    background-color: transparent;
+}
+
+.THIS .gc-hero-container{
+    min-height: 320px;
+    background-size: cover;
+    background-position: center; 
+}
+
+.THIS .gc-hero-bg{
+    background-color: #382670;
+}
+.THIS .gc-hero{
+    width: 100%;
+}
+
+.THIS .gc-order-wizard-title{
+    color: #38276e;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.THIS .gc-color-green{
+    color: #39a770;
+}
+
+.THIS .slds-p{
+    font-size: 13px;
+}
+
+
+.THIS .gc-icon-scrolldown{
+    cursor: pointer;
+    position: absolute;
+    left:  49%;
+    right: 50%;
+    margin-left: -6px;
+}
+
+
+
+
+
+.THIS .gc-hero-review{
+    font-size: 18px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.THIS .gc-hero-title1{
+    color: #8ED4FF;
+    font-size: 4rem;
+    margin: 0px;  
+    line-height: 65px;
+    letter-spacing: 3px;
+}
+
+.THIS .gc-hero-title2{
+    color: #fff;
+    font-size: 4rem;
+    margin: 0px;  
+    line-height: 65px;
+}
+
+@media all and (max-device-width: 600px){
+    .THIS .gc-hero-title1{
+        font-size: 3rem;
+    }
+    .THIS .gc-hero-title2{
+        font-size: 3rem;
+    }
+}
+
+.THIS .gc-hero-subtitle{
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.THIS .gc-hero2-contents{
+    position: absolute;
+    top: 20%;
+    left: 50px;
+    right: 50px;
+}
+
+.THIS .gc-theme-title-width{
+ 
+}
+
+
+.THIS .gc-hero2-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+
+
+
+
+
+
+
+/*HERO BANNER END*/

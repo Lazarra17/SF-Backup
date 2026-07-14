@@ -1,0 +1,81 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "2cb2612a-ae10-4386-9c65-789f8c4ddc8d",
+  "label" : "Sales Kiosk",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "060a93d5-0f32-4e4c-9c3e-30b379264f5c",
+          "columns" : [ {
+            "UUID" : "d7480b3f-6bee-4abf-806c-dc79b4ca9140",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "060a93d5-0f32-4e4c-9c3e-30b379264f5c",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:GigaCommSalesKiosk",
+          "id" : "ae114c2e-32d0-4306-a686-e6773e8d3255",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "deploymentName" : "WebChat",
+            "hideChatButtonOnLoad" : "Visible",
+            "isExpSiteAuthMode" : false,
+            "scrtUrl" : "https://gigacommnet--uat.sandbox.my.salesforce-scrt.com",
+            "siteEndpoint" : "https://gigacommnet--uat.sandbox.my.site.com/ESWWeb1746603361125"
+          },
+          "componentName" : "experience_messaging:embeddedMessaging",
+          "id" : "f2e55453-388a-432a-8022-81bc4b861335",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "d7480b3f-6bee-4abf-806c-dc79b4ca9140",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "078b9a4e-4b1c-42cf-9d5f-26c9608b77a0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Sales Kiosk"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e1ed24ee-1530-44b2-94d5-f50f498dac64",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9b0aab60-98de-4422-8f50-6feb16f393f8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-sales-kiosk"
+}

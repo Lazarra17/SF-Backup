@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0a11ce59-5012-4fed-9727-e735bb9d2d43",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Payment_Success__c",
+  "id" : "65f73639-5a6a-424d-9c12-809fe123ab95",
+  "label" : "Payment Success",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-payment-success",
+  "type" : "route",
+  "urlPrefix" : "payment-success"
+}

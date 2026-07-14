@@ -1,0 +1,23 @@
+<aura:component controller="AcceptOpptyController" implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="container slds-m-top_xx-large">
+        <div class="slds-grid slds-wrap slds-p-around_x-large">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 slds-text-align_center">
+                
+               <img class="" src="{!$Resource.GigaCommAsset + '/PaymentSuccessful/success.png'}" />
+                
+                <h1 class="gc-default-color slds-m-top_medium slds-m-bottom_medium">Thank you, your order has been received.</h1>
+                <!-- <p class="gc-default-color"><strong>Welcome to the Gigacomm community.</strong></p>
+                <p class="slds-m-bottom_none">We have received your order and will shortly send you an email confirmation with the details.</p>
+                <p>We are taking you to the payment page to setup your payment details.</p>
+                
+                <button class="gc-btn gc-btn-success gc-default-color" onclick="{!c.navigateToPayment}">Enter your payment details</button> -->
+            </div>
+            
+        </div>
+        
+        
+    </div>   
+</aura:component>

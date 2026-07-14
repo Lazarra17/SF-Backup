@@ -1,0 +1,127 @@
+.footer-social-wrap {
+    display: flex;
+    align-items: center;
+}
+.gc-footer-social-icon{
+    margin-right: 8px;
+    background-color: #3b2872 !important;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon-img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+
+.footer-contacts a{
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-contacts-p{
+    margin-bottom: 4px;
+    font-weight: 400;
+    color: #282828;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.footer-contacts-m{
+    margin-bottom: 10px;
+}
+
+.nav-item{
+    border-right: 1px solid #ccc;
+    padding: 0px 10px;
+}
+
+.footer-contacts a:hover{
+    color: #111;
+}
+
+.gc-follow-us{
+    font-size: 12px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+ul.gc-footer-links{
+   margin: 0 -10px;
+    
+}
+
+ul.gc-footer-links li{
+    border-right: 1px solid #535353;
+    padding: 0 10px;
+    color: #535353;
+    font-size: 14px;
+    font-family: Gilroy-Regular, sans-serif;
+    line-height: normal;
+    margin-bottom: 8px;
+}
+
+ul.gc-footer-links li a{
+    color: #777;
+    text-decoration: none;
+    
+}
+
+ul.gc-footer-links li a:hover{
+    text-decoration: underline;
+    
+}
+
+ul.gc-footer-links li:last-child {
+   border-right: none;
+}
+.footer-wrap{
+    padding:40px 0 7px;
+}
+.footer-contacts{
+    display: inline-block;
+}
+/* Media Query */
+
+
+@media all and (max-device-width: 1023px){
+    .gc-social-icon{
+        text-align: center;
+    }
+
+    .gc-footer-social-icons{
+        text-align:center;
+    }
+    .gc-social-icon{
+        text-align: center;
+    }
+    ul.gc-footer-links {
+        margin: 0;
+        justify-content: center;
+    }
+    .custom-contact-detail{
+        margin-bottom:1.5rem;
+    }
+    .footer-contacts{
+        text-align: center;
+    }
+    .social-icon-wrap{
+        text-align: center;
+    }
+    .footer-social-wrap {
+        justify-content: center;
+    }
+    .gc-footer-icon{
+        text-align: center;
+        margin-bottom: 35px;
+    }
+}

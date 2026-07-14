@@ -1,0 +1,288 @@
+<!--
+[1] WM 20 May 2025 Fix address search feature
+
+[2] WM 28 May 2025 - change  home page button From: "Check Eligbility now"
+To: "Check Availability"
+
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="GigaCommOrderWizardController">
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="addrsId" type="String" default="" />
+    <aura:attribute name="addrsMobileId" type="String" default="" />
+    <aura:attribute name="street" type="String" />
+    <aura:attribute name="state" type="String" />
+    <aura:attribute name="suburb" type="String" />
+    <aura:attribute name="postCode" type="String" />
+    <aura:attribute name="urlPath" type="String"/>
+    <aura:attribute name="lead" type="Object" /> 
+    <aura:attribute name="isAddressEmpty" type="Boolean"/>
+    <aura:attribute name="showLoading" type="Boolean"/>
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="showManualAddress" type="Boolean" default="false"/>
+    <aura:attribute name="streetTypeOptions" type="List" />
+    <aura:attribute name="stateOptions" type="List" />
+    <aura:registerEvent name="cmpEvent" type="c:GigaCommOrderWizardEvent"/>
+    
+    <aura:attribute name="apiHasError" type="Boolean"/> <!-- JPS 19 May -->
+    
+    <!--Desktop View Button-->
+   <!-- <p class="gc-color-white-theme">Enter your address to get started</p> -->
+    <div class="slds-show_medium">
+        <div class="gc-input-address">
+           <!-- <p>Enter your address to get started</p> -->
+            <img class="gc-location" src="{!$Resource.GigaCommAsset + '/HomePageIcons/Location.svg'}" />
+            
+           <!-- <input type="search" id="{!v.addrsId}" class="gc-input-text gc-input-address" onkeyup="{!c.isAddressChanged}" value="{!v.lead.Address}" placeholder="Enter your address" /> -->
+            <input type="search" id="{!v.addrsId}" class="gc-input-text gc-input-address" value="{!v.lead.Address}" placeholder="Enter your address" />
+         <!--  <aura:if isTrue="{!v.lead.Serviceable == false}"> -->
+           
+           <!-- <button  class="gc-check-eligibility-btn gc-check-eligibility-btn-position" onclick="{!c.isAddressChanged}">Check Eligibility Now</button> -->
+          <!--  </aura:if> -->
+            <aura:if isTrue="{!v.showLoading}">
+                 <div class="spinner-border gc-check-eligibility-loading-position" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+            </aura:if>
+            <aura:if isTrue="{!AND(v.lead.Serviceable, v.urlPath != '/giga/s/our-plans')}">
+                <button  class="gc-check-eligibility-btn gc-check-eligibility-btn-position" onclick="{!c.seePlan}">Check your plans</button>
+            </aura:if>
+            <aura:if isTrue="{!AND(!v.lead.Serviceable)}">
+                <button  class="gc-check-eligibility-btn gc-check-eligibility-btn-position" onclick="{!c.isAddressChanged}">Check Availability</button>
+            </aura:if>
+            
+            <!--aura:if isTrue="{!AND(!v.lead.Serviceable, v.urlPath == '/s/our-plans')}">
+             
+                <button  class="gc-check-eligibility-btn gc-check-eligibility-btn-position" onclick="{!c.isAddressChanged}">Check Availability</button>
+      
+            </aura:if-->
+            
+            <img id="gcIconCross" class="gc-icon-cross-position" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Cross.svg'}" onclick="{!c.deleteAddress}" />
+                    
+            
+            
+        </div>
+        
+        <aura:if isTrue="{!v.showManualAddress}">
+            <p class="gc-hero-current-loc gc-address-manual">
+                <span  data-bs-toggle="collapse" data-bs-target="#collapseAddress">
+                    <img class="gc-icon-my-loc" src="{!$Resource.GigaCommAsset + '/HomePageIcons/Map.svg'}" />
+                    Can't find address?
+                </span>
+            </p>
+        </aura:if>
+    </div>
+    <!--Tabel/Mobile View Button-->
+    <div class="slds-hide_medium">
+        <div class="gc-input-address-tabet slds-m-bottom_x-large">
+            
+            <div class="gc-input-address">
+                <span class="material-symbols-outlined gc-location">location_on</span>
+                <input type="search" id="{!v.addrsMobileId}" class="gc-input-text" onkeyup="{!c.isAddressChanged}" value="{!v.lead.Address}" placeholder="Enter your address" />
+                <!--aura:if isTrue="{!v.showLoading}">
+                    <button class="gc-check-eligibility-btn slds-button_stretch">Check eligibility now</button>
+                    <aura:set attribute="else">
+                    	<button  class="gc-check-eligibility-btn" onclick="{!c.seePlan}">Check our plans</button>
+                    </aura:set>
+                </aura:if-->
+                
+                
+                <aura:if isTrue="{!AND(v.lead.Serviceable, v.urlPath != '/giga/s/our-plans')}">
+                    <button  class="gc-check-eligibility-btn slds-button_stretch" onclick="{!c.seePlan}">Check your plans</button>
+                </aura:if>
+                <aura:if isTrue="{!AND(!v.lead.Serviceable)}">
+                    <button  class="gc-check-eligibility-btn slds-button_stretch" onclick="{!c.isAddressChanged}">Check Availability</button>
+                </aura:if>
+                
+                
+            </div>
+            
+            
+        </div>
+        <!--aura:if isTrue="{!v.showCurrentLoc}">
+            <p class="gc-hero-current-loc slds-text-align_center">
+                <span class="material-symbols-outlined gc-icon-my-loc">my_location</span>
+                Use my current location 
+            </p>
+        </aura:if-->
+    </div>
+
+      
+    <!-- Wayne 18 may commenting this out as not required on the plan page -->
+   <!-- <aura:if isTrue="{!AND(v.lead.Serviceable, v.urlPath == '/s/our-plans')}">
+        <div class="slds-grid slds-wrap slds-m-top_small">
+            <div class="slds-col slds-size_12-of-12">
+                <p class="gc-success-info">
+                    <img class="slds-p-right_xx-small gc-icon-success-check" src="{!$Resource.GigaCommAsset + '/HomePageIcons/congartulationCheck.svg'}" /> -->
+                    <!-- <strong>Congratulations!</strong> Get ready to connect.  Select your plan -->
+                    <!-- <strong>CONGRATULATIONS!</strong> You are all set to connect! Select your plan. -->
+  <!--                   <strong>CONGRATULATIONS!</strong> You are all set to connect! Check Our Plans to get started. 
+                </p>
+            </div>
+        </div>
+    </aura:if> -->
+    <aura:if isTrue="{!AND(v.lead.Serviceable, v.urlPath != '/giga/s/our-plans')}">
+        <div class="slds-grid slds-wrap slds-m-top_small">
+            <div class="slds-col slds-size_12-of-12">
+                <p class="gc-success-info">
+                    <img class="slds-p-right_xx-small gc-icon-success-check" src="{!$Resource.GigaCommAsset + '/HomePageIcons/congartulationCheck.svg'}" />
+                    <!-- <strong>Congratulations!</strong> Get ready to connect.  Click 'Check Our Plans' to continue -->
+                    <strong>CONGRATULATIONS!</strong> You are all set to connect! Click 'Check your Plans' to get started. 
+                </p>
+            </div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!AND(v.lead.Serviceable, v.urlPath == '/giga/s/our-plans')}">
+        <div class="slds-grid slds-wrap slds-m-top_small">
+            <div class="slds-col slds-size_12-of-12">
+                <p class="gc-success-info">
+                    <img class="slds-p-right_xx-small gc-icon-success-check" src="{!$Resource.GigaCommAsset + '/HomePageIcons/congartulationCheck.svg'}" />
+                    <!-- <strong>Congratulations!</strong> Get ready to connect.  Click 'Check Our Plans' to continue -->
+                    <strong>CONGRATULATIONS!</strong> You are all set to connect! Choose a plan below to get started.
+                </p>
+            </div>
+        </div>
+    </aura:if>
+    
+    
+    <aura:if isTrue="{!AND(v.lead.Serviceable == false, v.lead.StatusCode == null)}">
+        <div class="slds-grid slds-wrap slds-m-top_small">
+            <div class="slds-col slds-size_12-of-12">
+                <p class="gc-success-error">
+                    <i class="fa fa-times gc-icon-cross" aria-hidden="true"></i>
+                    <!-- <strong>Sorry,</strong> we're not available in your area yet.  <a href="">Register now</a> and be the first to know when we are! -->
+                    <aura:if isTrue="{!v.lead.Address != null}">
+                    <!--We are not in your area just yet — but we're expanding fast! <a href="#" data-bs-toggle="collapse"  data-bs-target="#collapseRegisterAddress">Register now</a> to be the first to know when we arrive!-->
+                        We are not in your area just yet — but we're expanding fast! <a href="#" data-bs-toggle="collapse"  data-bs-target="#collapseRegisterAddress">Register now</a> to be the first to know when we arrive!
+                        <aura:set attribute="else">
+                        	Please validate your address to continue.
+                        </aura:set>
+                    </aura:if>
+                </p>
+            </div>
+        </div>
+    </aura:if>
+    
+    
+    
+    <!--Contains the Address Fields START gc-hidden-->
+    <div class="slds-grid slds-gutter gc-hidden">   
+        <div class="slds-col slds-size_1-of-1">
+            <input type="checkbox" id="isAddressValid"  name="isAddressValid" class="form-header" label="isAddressValid" />
+            
+            <!--input type="text" id="leadId" name="leadId" class="form-header" label="leadId" />
+            
+            <input type="text" id="street" name="street" class="form-header" label="street" />
+            
+            <input type="text" id="suburb" name="suburb" class="form-header" label="suburb" />
+            
+            <input type="text" id="state" name="state" class="form-header" label="state" />
+            
+            <input type="text" id="postCode" name="postCode" class="form-header" label="postCode" /-->
+            
+            <textarea id="payload" aura:id="payload" name="payload" class="form-header" label="lead(Object Format)" />
+        </div>
+    </div>
+    <!--END-->
+    <div class="collapse"  id="collapseAddress">
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small ">
+            <div class="slds-modal__container">
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    
+                    <div class="slds-grid slds-wrap slds-m-bottom_small">
+                        <div class="slds-col slds-size_6-of-12">
+                            <img class="gc-icon2" width="40" loading="lazy" src="{!$Resource.GigaCommAsset + '/HomePageIcons/gigaCommLogo2.png'}" /> 
+                        </div>
+                        <div class="slds-col slds-size_6-of-12 slds-text-align_right">
+                            <button class="slds-button slds-button_icon slds-modal__close" data-bs-toggle="collapse"  data-bs-target="#collapseAddress" >
+                                <span class="material-symbols-outlined">
+                                    close
+                                </span>
+                                <span class="slds-assistive-text">Cancel and close</span>
+                            </button>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <h5>Type in your address</h5>
+                    
+                    
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <lightning:input name="UnitNumber" class="gc-pd-input-text" label="Unit Number" placeholder="Enter unit number"/>
+                        </div>
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <lightning:input name="StreetNumber" class="gc-pd-input-text" label="Street Number" placeholder="Enter street number"/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <lightning:input name="StreetName" class="gc-pd-input-text" label="Street Name" required="true" placeholder="Enter street name"/>
+                        </div>
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <label lwc-enmikoh2qu="" class="slds-form-element__label slds-no-flex" for="input-12" part="label">
+                                <abbr class="slds-required" part="required" lwc-enmikoh2qu="" title="required">*</abbr>
+                                Street Type
+                            </label>
+                            <select class="form-select gc-select-input" id="streetType">
+                                <aura:iteration items="{!v.streetTypeOptions}" var="item">
+                                       <option value="{!item.value}">{!item.label}</option>
+                                </aura:iteration>
+                             
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_12-of-12">
+                            <lightning:input name="TownSubUrb" class="gc-pd-input-text" required="true" label="Town/Suburb" placeholder="Enter town/suburb"/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <label lwc-enmikoh2qu="" class="slds-form-element__label slds-no-flex" for="input-12" part="label">
+                                <abbr class="slds-required" part="required" lwc-enmikoh2qu="" title="required">*</abbr>
+                                Street Type
+                            </label>
+                            <select class="form-select gc-select-input" required="true" id="streetType">
+                                <aura:iteration items="{!v.stateOptions}" var="item">
+                                    <option value="{!item.value}">{!item.label}</option>
+                                </aura:iteration>
+                                
+                            </select>
+                        </div>
+                        <div class="slds-col slds-small-size_1-of-1 slds-large-size_6-of-12">
+                            <lightning:input name="PostCode" required="true" class="gc-pd-input-text" label="Enter postcode" placeholder="Enter postcode"/>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slds-modal__footer slds-modal__footer_directional">
+                    <button class="slds-button gc-btn-neutral" aria-label="Cancel and close" data-bs-toggle="collapse" data-bs-target="#collapseAddress" >Cancel</button>
+                    <button class="slds-button gc-check-eligibility-btn">Find your address</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </div>
+    
+    
+    <div class="collapse" id="collapseRegisterAddress">
+        <c:GigacommAddressInterest lead="{!v.lead}" />
+        
+    </div>
+    
+    
+    <div class="collapse" id="collapseRegisterAddressThankYou">
+        <c:GigacommAddressInterestThankYou/>
+    </div>
+    
+
+</aura:component>

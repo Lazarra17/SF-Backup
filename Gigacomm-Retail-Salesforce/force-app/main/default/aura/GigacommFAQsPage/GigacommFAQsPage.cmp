@@ -1,0 +1,654 @@
+<!--
+WM 30 May 2025 redo content, new content supplied by Gigacomm
+Remove back button, not required
+
+[1] WM 1 June various copy changes requested by Gigacomm
+
+[2] WM 6 july 2025 update hours of operation for Live Chat
+
+-->
+
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small">
+            <div class="container slds-p-around_xx-large">
+              <!--  <div onclick="{!c.navigateToPlans}" class="gc-pd-back">
+                    <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                    <span class="gc-heading-back">Back</span> 
+                </div> -->
+                <h2 class="gc-heading-title slds-m-top_large">Frequently Asked Questions</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds-grid slds-wrap slds-m-top_xx-large" id="faqSectionTab">   
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_8-of-12  slds-align_absolute-center ">
+            <ul class="nav nav-pills gc-order-wizard-nav" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" aura:id="accBillingTab" id="AccountBilling-tab" data-bs-toggle="tab" data-bs-target="#AccountBilling" type="button" role="tab" aria-controls="tab-AccountBilling" aria-selected="true" onclick="">
+                        Accounts and Billing
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" aura:id="networksTab" id="Network-tab" data-bs-toggle="tab" data-bs-target="#Network" type="button" role="tab" aria-controls="tab-Network" aria-selected="false" onclick="">
+                        Networks
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" aura:id="othersTab" id="Others-tab" data-bs-toggle="tab" data-bs-target="#Others" type="button" role="tab" aria-controls="tab-Others" aria-selected="false" onclick="">
+                        Others
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+    </div>
+    
+    
+    
+    
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="AccountBilling" role="tabpanel" aria-labelledby="home-tab">
+            
+            <div class="container  slds-p-bottom_large">
+                
+                <div class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_x-large slds-p-around_x-small">
+                    <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container">
+                        <h1 class="gc-order-wizard-section-title gc-default-color">
+                            Accounts and Billing
+                        </h1>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_12-of-12">
+                        <div class="accordion" id="accordionFAQ">
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQOne" aria-expanded="true" aria-controls="collapseOne">
+                                        How do I access my billing information?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            You can see your account at <a href="https://myaccount.gigacomm.net.au">https://myaccount.gigacomm.net.au</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        Do I have to enter into a long-term contract?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            No, we have month by month internet plans. There is the option of a 12-month or 24-month contract plan which includes free install. 
+                                            We also have a range of products, some of which are on fixed contract terms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQThree" aria-expanded="true" aria-controls="collapseThree">
+                                        Do I have to pay upfront?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Installation fees are charged straight after your installation-date is confirmed. Monthly fees are processed and will be debited from your nominated payment account 14 days from the date of your invoice.
+
+Billing periods start on the 25th of the month and end on the 24th of the following month.
+
+You will be charged 1 month in advance for monthly plan fees and in arrears for any usage, such as phone calls if you have a Gigacomm voice service. However, all our ultra-fast internet plans have unlimited data usage included.
+
+Your first billing period is a little different, as it may start part-way through our billing period. Part periods start on the day after installation and end on the 24th of the month. Charges for this part-period will be included on your first invoice.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQFour" aria-expanded="true" aria-controls="collapseFour">
+                                        What payment methods are accepted by Gigacomm?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                           To keep our costs down and our prices as low as possible, we only accept direct-debit to VISA card, Mastercard, or bank account.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQFive" aria-expanded="true" aria-controls="collapseFive">
+                                        Why does my first monthly invoice have so many transactions?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            <b>First Month</b><br/>
+                                            
+                                            Your first monthly invoice shows transactions for the following:
+                                            <ul>
+                                                <li>Installation. The installation fee, and any payments you made to us prior to installation.</li>
+                                                <li>Part-period fees. Our billing period starts on the 25th of each month and ends on the 24th of the following month.  For new customers, it is likely they will join us part-way through that period.  We charge you for the portion of that period from the day after your installation to the end of the current billing period.</li>
+                                                <li>Next period fees. This will be the monthly fee from the 25th of the month to the 24th of the following month.</li>
+                                           </ul>
+                                            <b>Regular Month</b><br/>
+                                            As an example, if you are on a month to month plan:
+                                            <ul>
+                                            	<li>On the 2nd of the month, your booking is made for service installation on the 10th of the month. You will be billed for your service installation within a few days after the 2nd of the month.</li>
+                                                <li>Your service is installed on the 10th of the month so your billing period commences on the 11th of that month (day after install)</li>
+                                                <li>- Charges for the part month 11th to the 24th</li>
+                                                <li>- Charges for the next period (next month) which is 25th-24th</li>                                            
+                                            </ul>                         
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQSix" aria-expanded="true" aria-controls="collapseSix">
+                                        How and when do I receive my invoices?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            We send your invoice to the email address you have given us. It is important that you keep us informed of any changes to your email address to ensure you always receive your invoice.<br/>&nbsp;<br/>
+											Invoices are sent a few days after the start of each billing period.  Billing periods start on the 25th of each month, and end on the 24th of the following month.  If your service started part-way through the billing period you will receive an invoice at the start of the first full billing period.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                        When do you charge my credit card or bank account?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            We charge for any install fees once your install date has been confirmed.<br/>&nbsp;<br/>
+											For your monthly plan fees, we charge your credit card or bank account 14 days from the date of your invoice.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQEight" aria-expanded="true" aria-controls="collapseEight">
+                                        Are my credit card or bank account details stored safely?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQEight" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Yes. Gigacomm staff and systems never see or store your payment details.  
+                                            Our payments provider meets the highest security standard defined by the “Payment Card Industry Security Standards Council”. Only our payments provider will ever store and access your payment details.<br/>&nbsp;<br/>
+                                            All major Australian banks have a mandatory requirement that online transactions meet this standard.<br/>&nbsp;<br/>
+											You can find out more about these standards here:
+                                            <ul>
+                                                <li><a href="https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_StandardPayment Card Industry Data Security Standard" target="_blank">Payment Card Industry Data Security Standard</a></li>
+                                                <li><a href="https://en.wikipedia.org/wiki/Payment_Card_Industry_Security_Standards_Council" target="_blank">Payment Card Industry Security Standards Council</a></li>
+                                            
+                                            </ul>
+											
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQNine" aria-expanded="true" aria-controls="collapseNine">
+                                        When is my first payment due?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQNine" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            If you are not on a zero-install contract plan, your installation fees must be paid just after your installation date is confirmed.<br/>&nbsp;<br/>
+                                            Your first billing period will end on the first 24th of the month that occurs after your installation day.<br/>&nbsp;<br/>
+                                            Your first monthly plan fees will be direct debited from your nominated account 14 days from the date of your invoice.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFAQTen" aria-expanded="true" aria-controls="collapseTen">
+                                        What is the Gigacomm Guarantee?
+                                    </button>
+                                </h2>
+                                <div id="collapseFAQTen" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            We’re so certain you’ll love the Gigabit difference from your Gigacomm service, we offer a “Love us or Leave us” Guarantee.<br/>&nbsp;<br/>
+                                            If for any reason you decide not to continue with your Gigacomm service, simply contact us before the completion of your first 30 days and we’ll be happy to provide a full refund of any Gigacomm charges incurred up to that date - excluding install costs.<br/>&nbsp;<br/>
+                                            <!-- commenting this out as these pages don't exist on the new site
+											For more information visit our guarantee for residents and for businesses. -->
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="tab-pane fade" id="Network" role="tabpanel" aria-labelledby="profile-tab">
+            
+            <!--Networks-->
+            <div class="container  slds-p-bottom_large">
+                <div class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_x-large slds-p-around_x-small">
+                    <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container">
+                        <h1 class="gc-order-wizard-section-title gc-default-color">
+                            Networks
+                        </h1>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_12-of-12">
+                        <div class="accordion" id="accordionNetworkFAQ">
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQOne" aria-expanded="true" aria-controls="collapseNetworkOne">
+                                        Can I BYO Router?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQOne" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            You may choose to use your own router when using a Gigacomm service.<br/>&nbsp;<br/>
+                                            However, not all routers can achieve close to 1000Mbps, so you need to ensure you have a high-performance router that can achieve these speeds.<br/>&nbsp;<br/>
+                                            Your router should support Gigabit Ethernet on both the WAN and LAN RJ45 ports if you would like to take up a gigabit service. We also recommend using a router that supports both 2.4Ghz and 5Ghz Wi-Fi and Dynamic IP or DHCP over Ethernet WAN.<br/>&nbsp;<br/>
+                                            Gigacomm can only provide limited technical support to customers using their own router. Where a customer is not using a Gigacomm supplied router, we will not be able to look at configuration issues and port/Wi-Fi performance. In this circumstance, troubleshooting will be limited to the part of our network that we have visibility over.<br/>&nbsp;<br/>
+                                           
+                                            There are a few things to consider when you BYO router to Gigacomm.<br/>&nbsp;<br/>
+                                            We operate our network as IP over Ethernet, so the connection from your BYO router is Ethernet (usually on the WAN port) and we use DHCP to dynamically allocate an IP address to your router.<br/>&nbsp;<br/>
+                                            Traffic will not pass across our network if you assign a static IP address to your router.<br/>&nbsp;<br/>
+                                            To establish the connection to our network:
+                                            <ul>
+                                            <li>Set the WAN port connection type to IPoE</li>
+                                                <li>Set the WAN port to Automatic IP or Dynamic IP.</li>
+                                                <li>Disable any VLAN configuration on the WAN Port.</li>
+                                            
+                                            </ul>
+                                            
+                                            To achieve maximum performance throughput from your router there are two key settings to be configured:
+                                            <ul>
+                                            <li>Disable any QoS or traffic priority on your router as this traffic generally needs to be handled by the CPU resulting in much reduced throughput.</li>
+                                                 <li>Enable upstream traffic shaping to minimise any upstream packet drops, this ensures you get maximum upload and download performance.</li>
+                                            
+                                            </ul>
+                                                                                  
+                                            <b>We suggest the following upstream traffic shaping settings.</b><br/>&nbsp;<br/>
+                                            
+                                            50Mbps uplink speed
+                                            <ul>
+                                            <li>Shape: 54000 kbps</li>
+                                            <li>Burst rate: 500000 Bytes</li>
+                                            </ul>
+                                            
+                                             100Mbps uplink speed
+                                            <ul>
+                                            <li>Shape: 107000 kbps</li>
+                                            <li>Burst rate: 500000 Bytes</li>
+                                            </ul>
+                                         
+                                            250Mbps uplink speed
+                                            <ul>
+                                            <li>Shape: 264000 kbps</li>
+                                            <li>Burst rate: 650000 Bytes</li>
+                                            </ul>
+                                            
+                                             400Mbps uplink speed
+                                            <ul>
+                                            <li>Shape: 420000 kbps</li>
+                                            <li>Burst rate: 650000 Bytes</li>
+                                            </ul>
+                                            
+                                             1000Mbps uplink speed
+                                            <ul>
+                                            <li>Shape: disabled</li>
+                                            <li>Burst rate: disabled</li>
+                                            </ul>
+
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQTwo" aria-expanded="true" aria-controls="collapseNetworkTwo">
+                                        What makes the Gigacomm Network reliable?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQTwo" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            <b>An Intelligent, Self-Optimising Network</b><br/>&nbsp;<br/>
+                                              
+                                            We understand that, in addition to having a really fast internet connection, it has to be reliable.<br/>&nbsp;<br/> 
+                                            Our network is independent from the NBN and incorporates the latest technology to deliver the typical performance you achieve with fibre, but without the cost, disruptions and time delays you might experience with a fibre service. <br/>&nbsp;<br/>
+                                            And because we are independent from the NBN, we’re not weighed down by the NBN wholesale costs that other internet providers have to pay. Instead we can continuously invest in our network and in ensuring you receive fantastic customer service.  <br/>&nbsp;<br/>
+                                            <b>Gigacomm's Advanced Network</b><br/>&nbsp;<br/> 
+                                            We’ve built a network designed for the future. By continuously reviewing and adopting the latest technology, we ensure our network design adapts to meet the growing needs of Australian internet users. We focus on last mile connectivity, incorporating a variety of next generation fibre and fixed wireless technologies. Our fixed wireless technology is designed and built to the Meta Terragraph standard.<br/>&nbsp;<br/> 
+                                            Our technology choices deliver reliable and affordable, Gigabit speeds.
+                                            <ul>
+                                            <li>FTTx (Fibre to the Building, Distribution Point or Premise), which incorporates G.fast, the latest broadband over copper technology</li>
+                                                <li>FFW (Fibre and Fixed wireless) technology</li>
+                                            </ul>
+                                            Network diversity ensures the majority of buildings have multiple paths to the Internet, providing high levels of resiliency.Backed by our business and enterprise grade service level agreements our self-optimising network ensures that you have the continuity of service that is so critical to your business.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQThree" aria-expanded="true" aria-controls="collapseNetworkThree">
+                                        What makes the Gigacomm Network secure?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQThree" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            <b>Unlike the many resellers of NBN services across Australia, Gigacomm is a fully independent network.</b><br/>&nbsp;<br/> 
+                                            The service we provide to your home or business is run across our private network. It’s the reason Gigacomm delivers speeds 10x faster<sup>*</sup> than the average Australian connection no matter what floor you’re on.<br/>&nbsp;<br/> 
+                                            As an independent network, it also means we don’t have to deal with the multi-point, complex legacy systems, technology and issues that larger, incumbent providers or resellers of these services need to. <br/>&nbsp;<br/> 
+                                            Because we own the network, we have complete transparency and control over all elements of the network, including managing any third party access.<br/>&nbsp;<br/> 
+                                            In addition, the wireless component of our network uses military-grade encryption to secure the data being transported.<br/>&nbsp;<br/> 
+                                            A culture focused on security risk management, combined with the inherent simplicity of our network design means fewer vulnerabilities, less risk and a more secure and reliable network for our customers.<br/>&nbsp;<br/> 
+                                            <sup>*</sup>10x faster on our 1000/50Mbps plan. Source: <a href="www.speedtest.net/global-index/australia#fixed">www.speedtest.net/global-index/australia#fixed</a>
+
+                                            
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQFour" aria-expanded="true" aria-controls="collapseNetworkFour">
+                                        Is Gigacomm network affected by heavy rain or bad weather?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQFour" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                           The Gigacomm network has been designed and built using the very latest technology.<br/>&nbsp;<br/>
+											Our wireless backhaul links are designed with an uptime of 99.995% to ensure they are not affected by heavy rain or bad weather. In addition, the majority of our sites are dual-homed meaning they have two diverse connections into our network.<br/>&nbsp;<br/>
+                                            If one path fails due to a hardware issue there will be a diverse path for traffic to automatically switch to, ensuring buildings remain connected to the Gigacomm network.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQFive" aria-expanded="true" aria-controls="collapseNetworkFive">
+                                        How do you future-proof your bandwidth?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQFive" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            <b>Is your internet setting you up for success? </b><br/>&nbsp;<br/>
+                                            While many people have learnt to live with internet download speeds of 50Mbps - or less, our busy work and home lives are demanding much greater speeds and levels of reliability. From smarter homes and cars, a myriad of connected devices to the exponential growth in cloud based software, our internet is the backbone enabling so much of our daily lives. <br/>&nbsp;<br/>
+											At Gigacomm, our independent network delivers the consistently ultra-fast speeds and levels of reliability to support the things and people you will be increasingly connected to. And while ISPs generally focus on increasing download speeds we understand that you're going to need both ultra-fast download and fast upload speeds.<br/>&nbsp;<br/>
+                                            So how do we deliver such ultra-fast, reliable speeds? <br/>&nbsp;<br/>
+                                            We use a combination of the latest fibre and wireless technologies to deliver our next-generation Gigabit services.<br/>&nbsp;<br/>
+                                            Our next-generation network is completely independent from the NBN. <br/>&nbsp;<br/>
+                                            <b>Ultra-Fast Speed Is Just The Beginning</b><br/>&nbsp;<br/>
+                                           Gigacomm offers download speeds of 2Gbps, 1Gbps, 500Mbps, and 100Mbps, with upload speeds of either 100Mbps or 200Mbps, depending on the plan.
+
+                                            And with our fast upload speeds, you can not only stream your favourite movies with less interruptions, you can also upload photos faster, use video messenger services or make that critical zoom call more reliably.<br/>&nbsp;<br/>
+                                            For business customers, our high symmetrical speeds ensure teams can be super productive as they create, collaborate and increasingly use cloud based solutions to deliver exceptional customer experiences and drive efficiency through their business. <br/>&nbsp;<br/>
+                                            But we also understand that part of the future-proofing, is providing a level of customer care that can address any problems as and when they happen and adapt as your needs change. That's why we have a 100% Australian-based support team so we are there when you need us. <br/>&nbsp;<br/>
+                                            Looking for internet that doesn't just serve your current needs but sets you up for the future?
+                                            Contact our team today at info@gigacomm.net.au or by phone on ph: 1300 004 442, from Monday to Friday 8:00AM-8:00PM (AEST), or via LiveChat on our website, from Monday to Sunday 8:00AM - 10:00PM (AEST). <!-- [2] -->
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                             <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetworkFAQSix" aria-expanded="true" aria-controls="collapseNetworkFive">
+                                        How easy is it to have Gigacomm services installed?
+                                    </button>
+                                </h2>
+                                <div id="collapseNetworkFAQSix" class="accordion-collapse collapse" data-bs-parent="#accordionNetworkFAQ">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            <b>Once we have equipment installed in your building, we will have your ultra-fast internet service activated in under 2 weeks.</b><br/>&nbsp;<br/>
+                                            To see if we already have services in your building, simply select a plan and follow the steps.<br/>&nbsp;<br/>
+                                            If we have services in your building, we will complete the activation within 2 weeks.  If not, and we are building-out in your suburb, the activation may take a little longer. If we don’t have services in your suburb, you can register your interest, and we will let you know as soon as our Gigabit services are available.<br/>&nbsp;<br/>
+                                            If we have services available in your building, we will have you up and running in 4 easy steps.<br/>&nbsp;<br/>
+                                            <b>Step 1</b><br/>
+                                            Let us know if you are after a residential or business plan and whether you would like a “no lock-in contract” or a 24-month contract with “$0 install” option.<br/>&nbsp;<br/>
+                                            <b>Step 2</b><br/>
+                                            We’ll confirm your plan details with you and set up your billing details. You won’t be charged until we confirm your install date and send out your router.<br/>&nbsp;<br/>
+                                            <b>Step 3</b><br/>
+                                            Closer to the time of install, we will contact you with a proposed install time and date. Once we confirm this with you and the install fee is paid we will book in our install team.<br/>&nbsp;<br/>
+                                            <b>Step 4</b><br/>
+                                            Our install team will come to your premises on the agreed date and time to install your modem and activate your service. You, or someone over the age of 18 who can represent you, must be at the premises at the time of service activation. This will take between 30 minutes and 2 hours. We will check that your service is operating correctly and do a speed test before we leave.<br/>&nbsp;<br/>
+                                            We will contact you to confirm that your service is activated.<br/>&nbsp;<br/> 
+                                            If at any time during the service activation process you have questions or need to contact us, our team are always available on:<br/>&nbsp;<br/>
+                                            <ul>
+                                            <li>Email: info@gigacomm.net.au</li>
+                                            <li>Phone: 1300 004 442 from 8:00AM to 8:00PM Monday to Friday (AEST).</li>  
+                                            <li>Live Chat: Available on our website Monday to Sunday, 8:00AM to 10:00PM</li> <!-- [2] -->
+                                            </ul>
+                                                                                  	
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="tab-pane fade" id="Others" role="tabpanel" aria-labelledby="contact-tab">
+            <!--Others-->
+            <div id="pills-other" class="container  slds-p-bottom_large">
+                <div class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_x-large slds-p-around_x-small">
+                    <div class="slds-col slds-large-size_7-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container">
+                        <h1 class="gc-order-wizard-section-title gc-default-color">
+                            Others
+                        </h1>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_12-of-12">
+                        <div class="accordion" id="accordionFAQOther">
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQOne" aria-expanded="true" aria-controls="collapseOtherOne">
+                                        How is Gigacomm different to other internet service providers?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Gigacomm is not a reseller of the nbn. It builds and operates its own network, using G.fast and FTTP technologies that deliver reliable, ultra-fast internet in apartment buildings. 
+                                            The network is designed for greater reliability and lower latency, distinguishing it from other internet service providers in Australia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQTwo" aria-expanded="true" aria-controls="collapseOtherTwo">
+                                        How fast is Gigacomm’s internet services?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                           Gigacomm offers download speeds of 2Gbps, 1Gbps, 500Mbps, and 100Mbps, with upload speeds of either 100Mbps or 200Mbps, depending on the plan.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQThree" aria-expanded="true" aria-controls="collapseOtherThree">
+                                        What factors can affect the actual internet speeds experienced by customers on Gigacomm's plans?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Gigacomm's plans speed are delivered to the apartment's network boundary. Speeds experienced from the apartment’s network boundary depend on various factors, including the router's Wi-Fi version, its performance, proximity to the Wi-Fi source, interference, and specific building materials affecting signal propagation. 
+                                            For maximum speeds, a direct Ethernet connection to the router is recommended, and using Wi-Fi6 or Wi-Fi7 is advised, as Gigacomm routers support Wi-Fi6.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQFour" aria-expanded="true" aria-controls="collapseOtherFour">
+                                        How do I check whether my address is eligible for Gigacomm?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Gigacomm is rolling out its network to new areas - check your address on our website or contact our customer care team to see if you're eligible. 
+                                            If you are not eligible, join our waitlist, and we will advise you if your address becomes eligible.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQFive" aria-expanded="true" aria-controls="collapseOtherFive">
+                                        How do you sign-up for Gigacomm internet services?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            To sign up for Gigacomm internet services, you can start by visiting our website. Simply check your address, choose your preferred plan, and follow the step-by-step instructions to complete the process. Alternatively, you can sign-up by contacting our customer care team for assistance. 
+                                            Additionally, you can visit Gigacomm kiosks, which will be in buildings or at events, to complete your sign-up.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQSix" aria-expanded="true" aria-controls="collapseOtherFive">
+                                        What kind of customer care support does Gigacomm offer?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Gigacomm is here to assist you with any questions or concerns. Our customer care team is available to help, and you can reach us in several ways:
+                                        •	<ul>
+                                            <li>Phone: Call us at 1300 004 442 during business hours (Monday to Friday, 8:00AM - 8:00PM).</li>
+                                             <li>Live Chat: Use the live chat feature on our website for real-time assistance (Monday to Sunday, 8:00AM - 10:00PM).</li> <!-- [2] -->
+                                             <li>Email: Contact us via email at info@gigacomm.net.au.</li>
+                                            </ul>
+                                                                                    
+                                        Our team is here to ensure your experience with Gigacomm is smooth and hassle-free.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQSeven" aria-expanded="true" aria-controls="collapseOtherFive">
+                                        Can I use my own router with a Gigacomm service?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            You may choose to use your own router when using a Gigacomm service. However, not all routers can achieve the best possible speeds, so you need to ensure you have a high-performance router.
+                                            Speeds experienced are constrained by the type of Wi-Fi available in the router, the performance of the router, proximity to the Wi-Fi end point and other apartment specific features such as certain types of building materials which impact the Wi-Fi signal within the apartment. Direct connection to the router by cable will deliver the maximum speeds.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQEight" aria-expanded="true" aria-controls="collapseOtherFive">
+                                        How does billing work?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQEight" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            Gigacomm follows a monthly billing cycle. You will receive an invoice on the 28th of each month, covering the billing period from the 25th of the current month to the 24th of the following month.
+                                            If the 28th falls on a weekend or Public Holiday, the invoice will be issued on the next business day. 
+                                            If you have chosen the direct debit option, payments are typically processed automatically on the invoice due date from your bank account, credit card or debit card. 
+                                            Alternatively, you can make a manual payment using the BPAY details provided on the invoice. 
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item gc-faq-accordion">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button gc-faq-item-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherFAQNine" aria-expanded="true" aria-controls="collapseOtherFive">
+                                        How do I cancel my plan, and what should I expect during the process?
+                                    </button>
+                                </h2>
+                                <div id="collapseOtherFAQNine" class="accordion-collapse collapse" data-bs-parent="#accordionFAQOther">
+                                    <div class="accordion-body">
+                                        <p class="gc-faq-item-description gc-faq-body-padding">
+                                            We’re confident you’ll be happy with the exceptional performance of our internet plans and that’s why we offer our 30-day Gigacomm Guarantee. 
+                                            If you’re not completely satisfied with your Gigacomm service within the first 30 days, simply contact us, and we’ll provide a full refund of any Gigacomm charges incurred up to that date - excluding installation costs. Customers on a month-to-month plan or who are out of contract can cancel by providing 30 days' notice. If you are on a 12 or 24-month plan and cancel before the end of your contract term, it may result in early termination fees. These fees are outlined in your service agreement and the relevant critical information summary (CIS) for your plan. To cancel your plan , have questions or require assistance with the cancellation process, contact our customer support team:
+                                            Phone: 1300 004 442 (available Monday to Friday, 8:00AM to 8:00PM)
+                                            For questions or assistance with the cancellation process, contact our customer support team:<br/>&nbsp;<br/>
+                                            Live Chat: Available on our website Monday to Sunday, 8:00AM to 10:00PM<br/>&nbsp;<br/> <!-- [2] -->
+                                            Email: info@gigacomm.net.au<br/>&nbsp;<br/>
+                                            Please review your service agreement and CIS for detailed terms and conditions related to cancellation.
+ 
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</aura:component>

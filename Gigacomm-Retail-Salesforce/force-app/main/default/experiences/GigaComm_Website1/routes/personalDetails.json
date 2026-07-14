@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8b842b6f-d8eb-4e7b-9f62-135efc291f6a",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Personal_Details__c",
+  "id" : "0994011d-0616-48a7-9400-9c0f9c556a33",
+  "label" : "Personal Details",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-personal-details",
+  "type" : "route",
+  "urlPrefix" : "personal-details"
+}

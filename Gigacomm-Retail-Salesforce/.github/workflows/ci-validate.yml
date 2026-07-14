@@ -1,0 +1,100 @@
+name: Validate and Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+        validate_only:
+          type: boolean
+          default: true 
+
+jobs:
+  resolve-env:
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.pick.outputs.branch }}
+      env:    ${{ steps.pick.outputs.env }}
+    steps:
+      - name: Determine branch for any event
+        id: pick
+        shell: bash
+        run: |
+          # 1) Figure out the branch name across events
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BRANCH="${{ github.head_ref }}"          # PR source branch
+          else
+            BRANCH="${{ github.ref_name }}"          # push / workflow_dispatch
+          fi
+
+          # 2) Map branch → environment
+          ENV="dev"
+          case "$BRANCH" in
+            main)     ENV="prd"   ;;
+            PreProd)  ENV="preprd" ;;
+            enigma-dev/*)ENV="enigma-dev"  ;;
+            bricdev-dev/*)ENV="bricdev"  ;;
+          esac
+
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "env=$ENV"       >> "$GITHUB_OUTPUT"
+
+  validate-and-deploy:
+    needs: resolve-env
+    runs-on: ubuntu-latest
+    environment: ${{ needs.resolve-env.outputs.env }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show branch and enviornment mapping
+        run: |
+          echo "Branch: ${{ needs.resolve-env.outputs.branch }}"
+          echo "Environment: ${{ needs.resolve-env.outputs.env }}"
+
+      - name: Use Node 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Salesforce CLI (sf)
+        run: npm i -g @salesforce/cli
+
+      # Auth to a validation org (often a sandbox)
+      - name: Auth to Salesforce enviorment
+        env:
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
+        run: |
+          echo "$SFDX_AUTH_URL" > sfdxurl
+          sf org login sfdx-url --sfdx-url-file sfdxurl --alias Gigacommnet --set-default
+
+      - name: Display orgs (debug)
+        run: sf org list
+
+      # Validate deploy (no changes applied)
+      - name: Check-only deploy (PR)
+        env:
+          SF_ORG_METADATA_REST_DEPLOY: "true"
+        run: |
+          # Adjust source path if your package is different
+          sf project deploy start \
+            --target-org Gigacommnet \
+            --source-dir force-app \
+            --dry-run \
+            --test-level RunLocalTests \
+            --wait 120 \
+            --verbose
+
+      - name: Deploy to Target
+        env:
+          SF_ORG_METADATA_REST_DEPLOY: "true"
+        if: ${{ inputs.validate_only == false }}
+        run: |
+          # Adjust source path if your package is different
+          sf project deploy start \
+            --target-org Gigacommnet \
+            --source-dir force-app \
+            --test-level RunLocalTests \
+            --wait 120 \
+            --verbose
+      
+      - name: logout from salesforce CLI
+        run: sf org logout --all

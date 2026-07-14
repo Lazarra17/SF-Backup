@@ -1,0 +1,238 @@
+<template>
+    <div class="faq-wrap">
+        <div class="container">
+            <div class="slds-grid">  
+                <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                    <h2 class="gc-theme-title gilroy-heavy">Questions?</h2>
+                    <p class="gc-faq-subtitle">At Gigacomm, we take pride in connecting you with experts who can answer all your questions.
+                        Feel free to contact us at 1300 004 442 or browse through our frequently asked questions below.</p>
+                </div>
+                
+            </div>
+            <div class="slds-grid">  
+                <div class="slds-col slds-size_12-of-12">
+                    
+                    <div class="accordion" id="accordionFAQ">
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse} data-target="collapseFAQOne">
+                                    {label.GigacommHome_FAQ_Header_1}
+                                </span>
+
+                                <template lwc:if={collapseFAQOne}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse} data-target="collapseFAQOne" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse} data-target="collapseFAQOne" />
+                                </template>
+
+                                    
+                            </div>
+
+                            <div data-id="collapseFAQOne" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        <!-- You may choose to use your own router when using a GigaComm service.  However, not all routers can achieve close to 1000Mbps,
+                                        so you need to ensure you have a high-performance router that can achieve these speeds. -->
+                                        <lightning-formatted-rich-text value={label.GigacommHome_FAQ_Body_1}></lightning-formatted-rich-text>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse2} data-target="collapseFAQTwo">
+                                    {label.GigacommHome_FAQ_Header_2}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQTwo}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse2} data-target="collapseFAQTwo" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse2} data-target="collapseFAQTwo" />
+                                </template>
+
+                            </div>
+
+                            <div data-id="collapseFAQTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <!-- <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_2}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse3} data-target="collapseFAQThree">
+                                    {label.GigacommHome_FAQ_Header_3}
+                                </span>
+
+                                <template lwc:if={collapseFAQThree}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse3} data-target="collapseFAQThree" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse3} data-target="collapseFAQThree" />
+                                </template>
+
+
+                            </div>
+                            <div data-id="collapseFAQThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_3}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse4} data-target="collapseFAQFour">
+                                    {label.GigacommHome_FAQ_Header_4}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQFour}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse4} data-target="collapseFAQFour" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse4} data-target="collapseFAQFour" />
+                                </template>
+
+                            </div>
+                            <div data-id="collapseFAQFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_4}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse5} data-target="collapseFAQFive">
+                                    {label.GigacommHome_FAQ_Header_5}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQFive}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse5} data-target="collapseFAQFive" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse5} data-target="collapseFAQFive" />
+                                </template>
+
+                            </div>
+                            <div data-id="collapseFAQFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <!-- <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_5}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse6} data-target="collapseFAQSix">
+                                    {label.GigacommHome_FAQ_Header_6}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQSix}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse6} data-target="collapseFAQSix" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse6} data-target="collapseFAQSix" />
+                                </template>
+                                
+                            </div>
+                            <div data-id="collapseFAQSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        <lightning-formatted-rich-text value={label.GigacommHome_FAQ_Body_6}></lightning-formatted-rich-text>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item gc-faq-accordion">
+                        
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse8} data-target="collapseFAQEight">
+                                    {label.GigacommHome_FAQ_Header_8}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQEight}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse8} data-target="collapseFAQEight" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse8} data-target="collapseFAQEight" />
+                                </template>
+                                
+                            </div>
+                            <div data-id="collapseFAQEight" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_8}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse9} data-target="collapseFAQNine">
+                                    {label.GigacommHome_FAQ_Header_9}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQNine}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse9} data-target="collapseFAQNine" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse9} data-target="collapseFAQNine" />
+                                </template>
+                            </div>
+                            <div data-id="collapseFAQNine" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        {label.GigacommHome_FAQ_Body_9}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item gc-faq-accordion">
+                            <div class="accordion-header gc-default-color" >
+                                <span onclick={handleToggleCollapse10} data-target="collapseFAQTen">
+                                    {label.GigacommHome_FAQ_Header_10}
+                                </span>
+                                
+                                <template lwc:if={collapseFAQTen}> 
+                                    <img src={iconPlus} class="gc-faqs-icon" onclick={handleToggleCollapse10} data-target="collapseFAQTen" />
+                                </template>
+                                <template lwc:else> 
+                                    <img src={iconMinus} class="gc-faqs-icon" onclick={handleToggleCollapse10} data-target="collapseFAQTen" />
+                                </template>
+                                
+                            </div>
+                            <div data-id="collapseFAQTen" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    <p class="gc-faq-item-description gc-faq-body-padding">
+                                        <lightning-formatted-rich-text value={label.GigacommHome_FAQ_Body_10_1}></lightning-formatted-rich-text>
+                                        <lightning-formatted-rich-text value={label.GigacommHome_FAQ_Body_10_2}></lightning-formatted-rich-text>
+                                        <lightning-formatted-rich-text value={label.GigacommHome_FAQ_Body_10_3}></lightning-formatted-rich-text>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

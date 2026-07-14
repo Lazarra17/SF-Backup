@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c1a5e00c-cdff-4e64-a92e-e7986c7d4466",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Our_Network__c",
+  "id" : "25aa700f-edb7-4ed7-8a1e-dad32e96cf55",
+  "label" : "Our Network",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-our-network",
+  "type" : "route",
+  "urlPrefix" : "our-network"
+}

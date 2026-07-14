@@ -1,0 +1,12 @@
+<aura:event type="COMPONENT">
+    <!--NOTE
+
+	COMPONENT Event is used due to compatibility issue on Address Finder JS
+-->
+    <aura:attribute name="payload" type="Object"/>
+    <aura:attribute name="dml" type="String"/>
+    <aura:attribute name="hideWizard" type="Boolean"/>
+    <aura:attribute name="addressCheck" type="Boolean"/>
+    <aura:attribute name="registerAddressSubmitted" type="Boolean"/>
+    <aura:attribute name="apiHasError" type="Boolean"/>
+</aura:event>

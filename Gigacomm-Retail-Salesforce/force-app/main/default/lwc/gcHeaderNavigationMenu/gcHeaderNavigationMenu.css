@@ -1,0 +1,112 @@
+/*GigaCommHaderMenu*/
+
+nav.gc-nav{
+    text-decoration: none;
+}
+
+.navbar-toggler{
+    border: none;
+    color: #fff;
+}
+
+.gc-nav{
+    vertical-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 30px 0px 29px 0px;
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+.gc-nav li{
+    display: inline;
+    padding: 0 15px;
+    text-decoration: none !important;
+    
+}
+
+.gc-shopping-mode{
+    font-size: 15px;
+    margin-right: 5px;
+    transform: rotateY(180deg); 
+}
+
+a.gc-link{
+    color: #666 !important;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+a.gc-link-active{
+    color: #ec4065 !important;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+a.nav-link{
+    padding-left:15px !important;
+    padding-right: 15px !important;
+}
+
+a.nav-link-active{
+    color: #ec4065;
+}
+
+a.gc-link-deals{
+    color: #EB3E63 !important;
+    text-decoration: none;
+     font-weight: 600;
+}
+
+
+a:focus{
+    text-decoration: none !important;
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+.gc-is-active{
+    /*border-bottom: 3px solid #46fab4;*/
+}
+ .fa-phone{
+    transform: rotateY(180deg); 
+}
+
+.gc-contact{
+    margin-top: 20px;
+    font-family: 'Gilroy-Bold';
+}
+
+
+.gc-contact span{
+    background-color:#382670;
+    padding: 11px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+  
+}
+
+.gc-contact a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Gilroy-Bold,sans-serif;
+    line-height: normal;
+    font-weight: 400;
+}
+
+.gc-logo{
+    max-width: 168px;
+    margin-right: 23px;
+}
+.phone-icon{
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    position: relative;
+    top: -1px;
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c2ef5c62-0dba-4223-b360-f61cb88de006",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Critical_Information_Summaries__c",
+  "id" : "ebcb157c-693a-4e3f-99cb-b42e2fb845c4",
+  "label" : "Critical Information Summaries",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-critical-information-summaries",
+  "type" : "route",
+  "urlPrefix" : "critical-information-summaries"
+}

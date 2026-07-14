@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6e177652-ad36-4bd2-9276-24920fd1ad4e",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "registeryourinterest__c",
+  "id" : "cc5cf317-6fab-4830-ad04-cf8dba484c64",
+  "label" : "Register Your Interest",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-register-your-interest",
+  "type" : "route",
+  "urlPrefix" : "register-your-interest"
+}

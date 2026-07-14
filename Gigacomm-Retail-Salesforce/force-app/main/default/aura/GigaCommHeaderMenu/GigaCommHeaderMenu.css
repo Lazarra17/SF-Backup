@@ -1,0 +1,102 @@
+/*GigaCommHaderMenu*/
+
+.THIS nav.gc-nav{
+    text-decoration: none;
+}
+
+.THIS .gc-nav{;
+    vertical-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 30px 0px 29px 0px;
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+.THIS .gc-nav li{
+    display: inline;
+    padding: 0 15px;
+    text-decoration: none !important;
+    
+}
+
+.THIS .gc-shopping-mode{
+    font-size: 15px;
+    margin-right: 5px;
+    transform: rotateY(180deg); 
+}
+
+.THIS a.gc-link{
+    color: #555 !important;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+.THIS a.gc-link-active{
+    color: #ec4065 !important;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+.THIS a.nav-link{
+    padding-left:15px !important;
+    padding-right: 15px !important;
+}
+
+.THIS a.nav-link-active{
+    color: #ec4065;
+}
+
+.THIS a.gc-link-deals{
+    color: #EB3E63 !important;
+    text-decoration: none;
+     font-weight: 600;
+}
+/*
+.THIS a.gc-link:hover{
+    border-bottom: 3px solid #46fab4;
+}
+*/
+
+
+
+.THIS a:focus{
+    text-decoration: none !important;
+}
+
+.THIS a:hover{
+    text-decoration: none !important;
+}
+
+.THIS .gc-is-active{
+    /*border-bottom: 3px solid #46fab4;*/
+}
+.THIS  .fa-phone{
+    transform: rotateY(180deg); 
+}
+
+.THIS .gc-contact{
+    margin-top: 20px;
+    font-family: 'Gilroy-Bold';
+  
+}
+
+.THIS .logoContainer{
+    background-image: t('url(' + brandLogoImage  + ')');
+    
+}
+
+.THIS .gc-contact span{
+    background-color:#382670;
+    padding: 7px 15px;
+    border-radius: 25px;
+    font-size: 15px;
+  
+}
+
+.THIS .gc-contact a{
+    color: white;
+    text-decoration: none;
+}

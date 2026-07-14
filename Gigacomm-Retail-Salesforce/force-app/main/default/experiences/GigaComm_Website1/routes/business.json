@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ebe808d9-a4a5-4846-8cf8-bd3f398d7577",
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "configurationTags" : [ ],
+  "devName" : "Business__c",
+  "id" : "c16715a5-c54e-4275-973e-188b6853ecf6",
+  "label" : "Business",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-business",
+  "type" : "route",
+  "urlPrefix" : "business"
+}

@@ -1,0 +1,98 @@
+.THIS .gc-footer-social-icon-fb{
+    color: #333;
+    margin-right: 8px;
+    background-color: #3b2872;
+    padding: 5px 13px 11px;
+    color: white;
+    border-radius: 50%;
+}
+
+.THIS .gc-footer-social-icon-instagram{
+    color: #333;
+    margin-right: 8px;
+    background-color: #3b2872;
+    padding: 5px 10px 11px;
+    color: white;
+    border-radius: 50%;
+}
+
+.THIS .gc-footer-social-icon-linkedin{
+    color: #333;
+    margin-right: 8px;
+    background-color: #3b2872;
+    padding: 5px 11px 12px;
+    color: white;
+    border-radius: 50%;
+}
+
+.THIS .footer-contacts a{
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+}
+
+.THIS .footer-contacts p{
+    margin-bottom: 7px;
+}
+
+.THIS .nav-item{
+    border-right: 1px solid #ccc;
+    padding: 0px 10px;
+}
+
+.THIS .footer-contacts a:hover{
+    color: #111;
+}
+
+.THIS .gc-follow-us{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.THIS ul.gc-footer-links{
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.THIS ul.gc-footer-links li{
+    border-right: 1px solid #ccc;
+    padding: 0px 15px 0;
+    
+}
+
+.THIS ul.gc-footer-links li a{
+    color: #555;
+    text-decoration: none;
+    
+}
+
+.THIS ul.gc-footer-links li a:hover{
+    text-decoration: underline;
+    
+}
+
+.THIS ul.gc-footer-links li:last-child {
+   border-right: none;
+}
+/*
+.THIS ul.gc-footer-links li:first-child {
+   padding-left: 0px;
+}
+*/
+
+
+@media all and (max-device-width: 600px){
+    .THIS .gc-social-icon{
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (max-width: 1016px) {
+    .THIS .gc-social-icon{
+        text-align: center;
+    }
+    .THIS .gc-footer-social-icons{
+        text-align:center;
+    }
+}

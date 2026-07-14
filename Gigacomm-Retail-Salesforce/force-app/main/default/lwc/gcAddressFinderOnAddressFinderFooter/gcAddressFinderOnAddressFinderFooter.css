@@ -1,0 +1,266 @@
+/*GigaCommAddressFinder.css*/
+.gc-input-address{
+    position: relative;
+    max-width: 700px;
+   
+}
+
+.gc-icon-cross{
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 1px 4px 2px 4px;
+    margin-right: 5px;
+}
+.af-widget {
+    z-index: 10000 !important;
+}
+
+.gc-register-now{
+    text-decoration: underline !important;
+    font-weight: 600;;
+}
+
+.gc-register-now:hover{
+    color: #d1d1d1 !important;
+}
+
+.gc-success-error a{
+    color: white;
+}
+
+.gc-success-info{
+    
+    background-color: #219652;
+    color: white;
+    font-size: .9rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.gc-success-error{
+    
+    background-color: #ff4749;
+    color: white;
+    font-size: .9rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 1120px;
+    margin: 50px auto 0 !important;
+}
+
+
+.gc-icon-success-check{
+    margin-top: -1px;
+}
+
+
+.gc-input-address-tabet{
+    background-color: #fff;
+	border-radius: 30px;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+    
+}
+
+.gc-check-eligibility-btn{
+    font-family: 'Gilroy-Bold';
+}
+
+
+
+
+.gc-location{
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    opacity: .6;
+    z-index: 1;
+}
+
+.gc-icon-cross-position{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    display: none;
+}
+
+.gc-hero-current-loc{
+    color:#ee476d;
+    font-weight: 600;
+    margin-top:5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.gc-icon-my-loc{
+    font-size: 20px;
+    vertical-align: top;
+    margin-top: 1px;
+}
+
+.slds-modal__footer{
+    background-color: #f1f1f1;
+}
+/* -------------------------------------------
+   NEW ADDRESS FINDER LAYOUT (TOP BAR)
+------------------------------------------- */
+
+/* Outer wrapper */
+.gc-address-finder-wrapper {
+   
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Main container with lime background */
+.gc-address-finder-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 82px;
+    padding: 16px;
+    border-radius: 82px;
+    background: #BBF532;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 2px 4px 0px #00000029;
+}
+
+/* Address input wrapper */
+.gc-address-block {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+/* Search input */
+.gc-input-text {
+    width: 100%;
+    height: 50px;
+    padding: 14px 20px 14px 20px; /* space for icon */
+    border-radius: 40px;
+    border: none;
+    background: #fff;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    color: #000000;
+    font-family: 'Gilroy-Medium', sans-serif;
+}
+.gc-input-text::placeholder {
+    color: #666666;
+}
+
+.gc-input-text:focus {
+    box-shadow: 0 0 0 3px rgba(137, 190, 7, 0.25);
+}
+
+/* Location icon inside input */
+.gc-location {
+    position: absolute;
+    left: 18px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+/* Spinner loader inside input */
+.gc-spinner {
+    position: absolute;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: gc-spin 0.8s linear infinite;
+}
+
+@keyframes gc-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Middle round icon button */
+.gc-icon-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.gc-icon-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Eligibility CTA Button */
+.gc-cta-block {
+    flex: 0 0 auto;
+}
+
+.gc-check-eligibility-btn {
+    height: 50px;
+    padding: 0 24px;
+    border-radius: 40px;
+    border: none;
+    background: #382670;
+    color: white;
+    font-family: 'Gilroy-Bold';
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+.gc-check-eligibility-btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 767.9px) {
+    .gc-address-finder-inner {
+        flex-direction: column;
+        height: auto;
+        border-radius: 20px;
+        margin:0;
+        gap: 10px;
+    }
+
+    .gc-icon-button {
+        display: none;
+    }
+
+    .gc-check-eligibility-btn {
+        width: 100%;
+    }
+   
+    .gc-input-text {
+    height: 60px;
+    }
+
+    .gc-address-block {
+        width: 100%;
+    }
+
+    .gc-cta-block {
+        width: 100%;
+    }
+    .container{
+        padding-left: 0;
+        padding-right: 0;
+    } 
+}

@@ -1,0 +1,61 @@
+{
+  "appPageId" : "a37aaf6d-1078-4236-81df-70b2d49bcf0f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b8aa4da0-5b63-4c9e-a372-799183dc3cc7",
+  "label" : "Our Plans",
+  "regions" : [ {
+    "id" : "525b7aa4-c7be-4471-9fb5-36a925a710dd",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:GigaCommOrderWizard",
+      "id" : "926ce38c-d68d-4f94-b542-6128d400a273",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f7d9ff78-f813-41ed-9533-2dba6d5bd6ef",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "clientVersion" : "WebV1",
+        "deploymentName" : "WebChat",
+        "hideChatButtonOnLoad" : "Visible",
+        "isExpSiteAuthMode" : false,
+        "scrtUrl" : "https://gigacommnet.my.salesforce-scrt.com",
+        "siteEndpoint" : "https://gigacommnet.my.site.com/ESWWeb1746603361125"
+      },
+      "componentName" : "experience_messaging:embeddedMessaging",
+      "id" : "eb44645e-e6cd-41da-a79e-247eed4fe2bb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "beab0d1a-d67e-4cd2-8731-52259c6eb710",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Our Plans"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "cd7e46d6-69a6-47f4-a9d4-2a82765571d3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bb22da79-d962-46ba-ba1b-66d5e8bf74b8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-our-plans"
+}

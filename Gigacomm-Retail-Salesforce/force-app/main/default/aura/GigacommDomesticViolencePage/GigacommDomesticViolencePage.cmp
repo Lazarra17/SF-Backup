@@ -1,0 +1,113 @@
+<!--
+WEB-106 Domestic Violence Page Created
+Created by: Ann Marinas
+Created on: 2026-03-13
+Notes:
+- This page is intended to provide support information for customers experiencing domestic, family, or sexual violence, and includes a "quick exit" button that attempts to close the page or navigate to a safe URL.
+- The quick exit functionality is implemented in a way that it will work in most browsers, but due to security restrictions, it may not always succeed in closing the tab. In such cases, it will navigate to a safe URL instead.
+- The page includes contact information for Gigacomm's customer service team, as well as helpline information for relevant support organizations.
+- This Aura version is designed to be used in Salesforce Experience Cloud and should be added to a Lightning page or community page as needed.
+- There is no need to convert this Aura component to an LWC, as the LWC version has already been created and is available in the gcDomesticViolencePage component. The Aura version can be left in place for reference or removed if no longer needed.
+-->
+
+<aura:component
+  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes"
+>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <div class="slds-grid slds-wrap">
+    <div
+      class="slds-col slds-size_12-of-12 gc-static-heading slds-p-around_x-small"
+    >
+      <div class="container slds-p-around_xx-large">
+        <h2 class="gc-heading-title slds-m-top_large">
+          Domestic, Family and Sexual Violence Support
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="gc-quick-exit-container">
+      <!-- prettier-ignore -->
+      <button class="gc-quick-exit-button" onclick="{!c.quickExit}">
+        Quick Exit &#x2715;
+      </button>
+    </div>
+    <div
+      class="slds-grid slds-wrap slds-m-top_xx-large slds-m-bottom_medium slds-p-around_x-small"
+    >
+      <div
+        class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12 slds-p-right_xx-large gc-community-container"
+      >
+        <h1
+          class="gc-order-wizard-section-title gc-default-color slds-m-bottom_medium"
+        >
+          Support for Customers Experiencing Domestic or Family Violence
+        </h1>
+        <p>
+          At Gigacomm, we understand that access to your phone and internet
+          service can be especially important if you’re in a difficult or unsafe
+          situation at home.
+        </p>
+        <p>
+          If you or someone you know is experiencing domestic, family, or sexual
+          violence and needs help with your Gigacomm service, please contact our
+          customer service team:
+        </p>
+        <div class="gc-contact-cards">
+          <a href="tel:1300004442" class="gc-contact-card">
+            <span class="gc-contact-icon">&#x1F4DE;</span>
+            <span class="gc-contact-label">Phone</span>
+            <span class="gc-contact-value">1300 004 442</span>
+          </a>
+          <a href="mailto:info@gigacomm.net.au" class="gc-contact-card">
+            <span class="gc-contact-icon">&#x2709;</span>
+            <span class="gc-contact-label">Email</span>
+            <span class="gc-contact-value">info@gigacomm.net.au</span>
+          </a>
+        </div>
+        <p>
+          Let us know you need support. We will handle your enquiry with
+          sensitivity and care, and we will not require you to involve anyone
+          else you don’t want to.
+        </p>
+        <p>
+          If you need immediate support, these organisations are available 24/7:
+        </p>
+        <div class="gc-helpline-cards">
+          <a href="tel:1800737732" class="gc-helpline-card">
+            <span class="gc-helpline-name">1800RESPECT</span>
+            <span class="gc-helpline-number">1800 737 732</span>
+            <span class="gc-helpline-detail">Free, 24/7, confidential</span>
+          </a>
+          <a href="tel:1800385578" class="gc-helpline-card">
+            <span class="gc-helpline-name">Full Stop Australia</span>
+            <span class="gc-helpline-number">1800 385 578</span>
+            <span class="gc-helpline-detail">24/7 support</span>
+          </a>
+          <a href="tel:1800353374" class="gc-helpline-card">
+            <span class="gc-helpline-name">1800ELDERHelp</span>
+            <span class="gc-helpline-number">1800 353 374</span>
+            <span class="gc-helpline-detail"
+              >Helpline for older Australians experiencing abuse.</span
+            >
+          </a>
+          <a href="tel:1800497212" class="gc-helpline-card">
+            <span class="gc-helpline-name"
+              >Rainbow Sexual, Domestic and Family Violence Helpline</span
+            >
+            <span class="gc-helpline-number">1800 497 212</span>
+            <span class="gc-helpline-detail"
+              >Helpline for LGBTIQ+ people who have experienced sexual, domestic
+              and/or family violence.</span
+            >
+          </a>
+        </div>
+        <p>
+          We will have a dedicated Domestic and Family Violence Support Policy
+          in place from 1 April 2026, with additional support options for
+          affected customers.
+        </p>
+      </div>
+    </div>
+  </div>
+</aura:component>

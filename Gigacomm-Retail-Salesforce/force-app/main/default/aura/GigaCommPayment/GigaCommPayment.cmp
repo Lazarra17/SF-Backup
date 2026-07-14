@@ -1,0 +1,96 @@
+<!--
+
+[1] WM 28 May 2025 - change headline to  'Enter your payment details to ensure the fastest installation'. 
+[2] WM 29 May 2025 - From: Enter your payment details to ensure the fastest installation To: Enter your payment details and get ready for faster speeds, better value and reliable internet.
+
+-->
+<aura:component  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" controller="GigaCommPaymentController">
+    <aura:attribute name="eziDebit" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="eziDebitUrl" type="String" default="{!$Label.c.EZ_Debit_Url}" />
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 gc-plans-heading">
+            <div onclick="{!c.navigateToPersonPage}" class="gc-pd-back">
+                <img class="gc-location" src="{!$Resource.GigaCommAsset + '/SelectPlanPageIcons/Backarrow1.svg'}"  /> 
+                <span class="gc-heading-back">Back</span>
+            </div>
+            <h2 class="gc-heading-title slds-m-top_large">Enter your payment details and get ready for faster speeds, better value and reliable internet.</h2> <!-- [2] -->
+            <!-- <h2 class="gc-heading-title">and get ready for faster speeds, better value and reliable internet.</h2> --> <!-- [2] -->
+        </div>
+    </div>
+    
+    <!--Desktop Version-->
+    <div class="slds-grid slds-wrap slds-show_small slds-m-top_medium slds-border_bottom slds-p-bottom_medium">
+        <div class="slds-col slds-size-large_3-of-12 slds-size-small_12-of-12 ">
+        </div>
+        <div class="slds-col slds-size-large_6-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text gc-default-color">
+                    <strong>
+                        <img class="gc-badge gc-badge-done" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/check.svg'}" /> Plans &amp; Add-ons
+                    </strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text">
+                    <strong>
+                    <img class="gc-badge gc-badge-done" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/check.svg'}" />Personal Details
+                    </strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text"><strong><span class="gc-badge gc-badge-current">3</span>Payment</strong></div>
+            </div>
+        </div>
+        <div class="slds-col slds-size-large_3-of-12 slds-size-small_12-of-12 ">
+        </div>
+    </div>
+    
+    <!--Mobile Version START-->
+    <div class="slds-grid slds-hide_small slds-wrap slds-m-top_medium">
+        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text slds-p-left_large">
+                    <strong>
+                        <img class="gc-badge gc-badge-done" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/check.svg'}" /> 
+                    </strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text"><strong><img class="gc-badge gc-badge-done" src="{!$Resource.GigaCommAsset + '/SelectYourPlanWithImage/check.svg'}" /> </strong>
+                </div>
+                <div class="gc-breadcrumbs-line"></div>
+                <div class="gc-breadcrumbs-text slds-p-right_large"><strong><span class="gc-badge gc-badge-current">3</span></strong>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="slds-grid slds-hide_small slds-wrap">
+        <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 ">
+            <div class="gc-breadcrumbs-row">
+                <div class="gc-breadcrumbs-text"><strong><p class="slds-text-align_center">Plans &amp; Add-ons</p></strong>
+                </div>
+                <div class="gc-breadcrumbs-space"></div>
+                <div class="gc-breadcrumbs-text"><strong><p class="slds-text-align_center">Personal Details</p></strong>
+                </div>
+                <div class="gc-breadcrumbs-space"></div>
+                <div class="gc-breadcrumbs-text slds-p-right_small"><strong><p class="slds-text-align_center">Payment</p></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Mobile Version END-->
+    
+    
+    <div class="container">
+        
+        <div class="slds-grid slds-m-top_large slds-p-bottom_medium">
+            <div class="slds-col slds-size-large_12-of-12 slds-size-small_12-of-12 ">
+                <div class=" embed-responsive">
+                    <iframe class="gc-iframe embed-responsive-item" src="{!v.eziDebit.Ezi_Debit_Url__c}" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+            
+</aura:component>

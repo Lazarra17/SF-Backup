@@ -1,0 +1,58 @@
+.THIS .gc-order-wizard-nav{
+    border: 1px solid #93d2fb;
+    padding: 13px 6px 14px;
+    border-radius: 30px;
+    
+}
+
+.THIS .gc-community-tc{
+    font-size: .9rem;
+}
+
+
+
+.THIS .nav-link-active{
+    background-color: #bbf532;
+    color: #382670;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    cursor: context-menu !important;
+}
+
+.THIS .gc-community-btn-right{
+    float:right;
+}
+
+.THIS .gc-community-plan-container{
+    border: 1px solid #93d2fb;
+    border-radius: 20px;
+}      
+
+
+.THIS .gc-community-plan-img{
+    border-radius: 0 20px 20px 0;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    min-height: 250px;
+}
+
+.THIS .gc-community-benefits-icon{
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 2px;
+}
+
+.THIS .gc-community-benefits{
+    font-weight: 600;
+    border-top: 1px solid #ddd;
+    color: #382670;
+    padding-top: 5px;
+    margin-bottom: 7px;
+}
+
+.THIS .gc-community-footer-text{
+    font-size: .8rem;
+    margin-bottom:0px;
+}

@@ -1,0 +1,377 @@
+<!--
+[1] WM 1 June add minimum payment for 24 month plans
+[2] WM 1 June fix minimum payments and other text changes
+[3] WM 1 June update pricing corrections
+[3] CL 6 June update label 1GB to 1Gb
+[4] CL - 17-June-25 - Update Lead Source
+[5] CL - 4-Sept-25 - Fix Plan Layout
+-->
+
+<aura:component controller="GigacommBusinessPagePlanController">
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:attribute name="stateOptions" type="String[]"/>
+    <aura:attribute name="selectedTerm" type="String" default="36 Months"/>
+    
+    <div class="slds-grid slds-wrap slds-m-top_xx-large gc-default-color">   
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12  slds-align_absolute-center ">
+            <h1 class="gc-order-wizard-title slds-text-align_center" aura:id="planSection">Choose The Speed That Suits Your Needs</h1> 
+            
+        </div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_2-of-12"></div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_8-of-12 slds-text-align_center">
+            <p>Whether you're collaborating, uploading to the cloud, video conferencing or downloading large files,
+                we’ve got a plan that’s right for your business. Our plans are designed not only for business needs now, but for your future needs - 
+                so if your business needs change and you need more out of your plan, we’ve got you covered.</p>
+            
+        </div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_2-of-12"></div>
+        
+    </div>
+    
+    <div class="slds-grid slds-wrap slds-m-top_medium slds-m-bottom_large">   
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_8-of-12  slds-align_absolute-center ">
+            <ul class="nav nav-pills gc-order-wizard-nav" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    
+                    <button class="nav-link active" id="pills-36-months-tab" data-bs-toggle="pill" data-bs-target="#pills-36-months" value="36 Months" onclick="{!c.termClick}"> 
+                        36 month contract
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-24-months-tab" data-bs-toggle="pill" data-bs-target="#pills-24-months" value="24 Months" onclick="{!c.termClick}">
+                        24 month contract
+                    </button>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"></div>
+    </div>
+    
+    
+    <div class="slds-grid slds-wrap slds-gutters slds-m-top_xx-large slds-m-bottom_large slds-grid_vertical-stretch">   
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12  slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 5Gb</p></div>
+              
+                <div class="gc-plan-rate">
+                    <span class="value">5000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">5000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $895
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <p class="slds-m-top_small gc-font-14">
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $89.50 | min charge $32,220 + GST
+                        <aura:set attribute="else">
+                            +GST $89.50 | min charge $21,480 + GST
+                        </aura:set>
+                    </aura:if>
+                    
+                    <!--    <p class="slds-m-top_small gc-font-14">+GST $89.50 | min charge $32,220 + GST -->
+                    
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 2Gb</p></div>
+                <div class="gc-plan-rate">
+                    <span class="value">2000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">2000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $695
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                
+                
+                <p class="slds-m-top_small gc-font-14">
+                    
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $69.50 | min charge $25,020 + GST
+                        <aura:set attribute="else">
+                            +GST $69.50 | min charge $16,680 + GST
+                        </aura:set>
+                    </aura:if>
+                    
+                    <!--   +GST $69.50 | min charge $25,020 + GST -->
+                    
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 1Gb</p></div>
+                <div class="gc-plan-rate">
+                    <span class="value">1000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">1000</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $495
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <p class="slds-m-top_small gc-font-14">
+                    
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $49.50 | min charge $17,820 + GST
+                        <aura:set attribute="else">
+                            +GST $49.50 | min charge $11,880 + GST
+                        </aura:set>
+                    </aura:if>
+                    
+                    <!-- +GST $49.50 | min charge $17,820 + GST -->
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 500</p></div>
+                <div class="gc-plan-rate">
+                    <span class="value">500</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">500</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $395
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <p class="slds-m-top_small gc-font-14">
+                    
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $39.50 | min charge $14,220 + GST
+                        <aura:set attribute="else">
+                            +GST $39.50 | min charge $9,480 + GST
+                        </aura:set>
+                    </aura:if>
+                    <!-- +GST $39.50 | min charge $14,220 + GST -->
+                    
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 250</p></div>
+                <div class="gc-plan-rate">
+                    <span class="value">250</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">250</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $295
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <p class="slds-m-top_small gc-font-14">
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $29.50 | min charge $10,620 + GST
+                        <aura:set attribute="else">
+                            +GST $29.50 | min charge $7,080 + GST
+                        </aura:set>
+                    </aura:if>
+                    <!--  +GST $29.50 | min charge $10,620 + GST -->
+                    
+                    
+                    
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 slds-m-bottom_xx-large">
+            <div class="gc-business-plan-container slds-p-left_large slds-p-right_large  slds-p-bottom_x-large  slds-p-top_none">
+                <div class="gc-business-title gc-default-color"><p class="slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small">Business 100</p></div>
+                <div class="gc-plan-rate">
+                    <span class="value">100</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Download</span>
+                    </div>
+                    <span class="slds-border_left slds-p-bottom_xx-small slds-p-top_xx-small slds-m-left_x-small slds-p-right_xx-small">&nbsp;</span>
+                    <span class="value ">100</span>
+                    <div>
+                        <span class="unit">Mbps</span>
+                        <span class="label">Upload</span>
+                    </div>
+                </div>
+                
+                <div class="gc-order-wizard-rate slds-m-top_x-small">
+                    <span class="gc-order-wizard-rate-amount ">
+                        $245
+                    </span> 
+                    
+                    <div class="gc-order-wizard-rate-speed slds-p-right_xx-small ">
+                        <p id=""></p>
+                        <p id="">per month</p>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <p class="slds-m-top_small gc-font-14">
+                    <!--   +GST $24.50 | min charge $8820 + GST -->
+                    <aura:if isTrue="{!v.selectedTerm == '36 Months'}">
+                        
+                        +GST $24.50 | min charge $8,820 + GST
+                        <aura:set attribute="else">
+                            +GST $24.50 | min charge $5,880 + GST
+                        </aura:set>
+                    </aura:if>
+                    <!--   +GST $29.50 | min charge $10,620 + GST -->
+                    
+                </p>
+                
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/db.svg'}"></img>&nbsp;Unlimited data</p>
+                <p class="gc-business-benefits gc-default-color"><img src="{!$Resource.GigacommBusinessPageAsset + '/router.svg'}"></img>&nbsp;Free Installation</p>
+                
+                <button class="gc-btn form-control slds-m-top_medium" data-bs-toggle="collapse" data-bs-target="#gigacommContactUs">Select</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="collapse" id="gigacommContactUs">
+        <c:GigaCommContactUs leadSource="Website Business" stateOptions="{!v.stateOptions}" title="For Business" />
+    </div>
+    
+    
+    
+    
+</aura:component>
