@@ -1,0 +1,9 @@
+encrypt.bat -e #S3ng@mveON5isvVGfDM5c0vXrEjLmrSYUbBeBfb D:\DataloaderCLI\EdwardGroupSandbox\dataLoader.key
+
+
+SECURITY TOKEN:
+GfDM5c0vXrEjLmrSYUbBeBfb
+
+
+RESULT:
+133bccf3b3ed946fb9177c4fe68164433ae9b87642324a76fd45eb95c40da5720673a9d1e1a54e701b5c548b64998d3dc26a3981f53ceb1881230aec45620372

@@ -1,0 +1,1 @@
+sf org login jwt --client-id 3MVG9LT3fFEjzd8zIzZmvxc.XQ1mKQssfWfZG8egKPLk2waYZ7VEDCRIoQhH8PJRt0LR7uKPCOZ1UV95lu_Qt --jwt-key-file server.key --username integration@edwardsco.com.au.dev --instance-url https://test.salesforce.com --alias EdwardSandbox

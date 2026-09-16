@@ -1,0 +1,52 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    <bean id="EXODebtorInsert"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          scope="prototype">
+        <description>EXODebtorInsert job gets the Debtor record exports from EXO (ERP) and inserts them into salesforce as EXO_Debtor_Staging__c records.</description>
+        <property name="name" value="EXODebtorInsert"/>
+        <property name="configOverrideMap">
+            <map> 
+              
+                <entry key="sfdc.debugMessages" value="true"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\Result\accountMasterSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://test.salesforce.com"/>
+                <entry key="sfdc.username" value="integration@edwardsco.com.au.dev"/>
+                <entry key="sfdc.password" value="133bccf3b3ed946fb9177c4fe68164433ae9b87642324a76fd45eb95c40da5720673a9d1e1a54e701b5c548b64998d3dc26a3981f53ceb1881230aec45620372"/>
+                <entry key="process.encryptionKeyFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\dataLoader.key"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.entity" value="EXO_Debtor_Staging__c"/>
+                <entry key="process.operation" value="insert"/>
+                <entry key="process.mappingFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\EXODebtorFieldMapping.sdl"/>
+                <entry key="dataAccess.name" value="C:\EXOSalesforceExport\DebtorsExport.csv"/>
+                <entry key="dataAccess.type" value="csvRead"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="EXOInvoiceInsert"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          scope="prototype">
+        <description>EXOInvoiceInsert job gets the Debtor record exports from EXO (ERP) and inserts them into salesforce as EXO_Invoice_Staging__c records.</description>
+        <property name="name" value="EXOInvoiceInsert"/>
+        <property name="configOverrideMap">
+            <map> 
+              
+                <entry key="sfdc.debugMessages" value="true"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\Result\invoiceMasterSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://test.salesforce.com"/>
+                <entry key="sfdc.username" value="integration@edwardsco.com.au.dev"/>
+                <entry key="sfdc.password" value="133bccf3b3ed946fb9177c4fe68164433ae9b87642324a76fd45eb95c40da5720673a9d1e1a54e701b5c548b64998d3dc26a3981f53ceb1881230aec45620372"/>
+                <entry key="process.encryptionKeyFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\dataLoader.key"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.entity" value="EXO_Invoice_Staging__c"/>
+                <entry key="process.operation" value="insert"/>
+                <entry key="process.mappingFile" value="C:\EXOSalesforceExport\EdwardGroupSandbox\EXOInvoiceMapping.sdl"/>
+                <entry key="dataAccess.name" value="C:\EXOSalesforceExport\InvoiceExport.csv"/>
+                <entry key="dataAccess.type" value="csvRead"/>
+            </map>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,27 @@
+#Mapping values
+#Tue Jul 21 15:30:40 PST 2026
+1Month=One_Month__c
+2Month=Two_Month__c
+3Month=Three_Month__c
+ACCNO=ACCNO__c
+ADDRESS1=ADDRESS1__c
+ADDRESS2\ =ADDRESS2__c
+ADDRESS3\ =ADDRESS3__c
+ADDRESS4=ADDRESS4__c
+Country\ =Country__c
+Current=Current__c
+CurrentMonth=CurrentMonth__c
+CurrentYear=CurrentYear__c
+DELADDR1=DELADDR1__c
+DELADDR2=DELADDR2__c
+DELADDR3=DELADDR3__c
+DELADDR4=DELADDR4__c
+DELADDR5=DELADDR5__c
+DELADDR6=DELADDR6__c
+ISACTIVE=ISACTIVE__c
+LASTMONTH=LASTMONTH__c
+LASTYEAR=LASTYEAR__c
+NAME=NAME__c
+POST_CODE=POST_CODE__c
+STOPCREDIT=STOPCREDIT__c
+Territory=Territory__c
