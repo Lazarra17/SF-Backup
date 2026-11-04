@@ -197,12 +197,15 @@ GET /services/apexrest/availability/v2?UPRN=101
 
 | Status Code | Description |
 |------------ |-------------|
-| 200         | Request successfully processed. |
-| 400         | Client error. Request is incorrectly formatted or required parameters are missing. |
-| 403         | Forbidden. The authenticated user does not have permission to access the resource. |
-| 404         | No Account record found for the supplied UPRN. |
-| 501         | Authentication error. The supplied authentication token is invalid or expired. |
-| 503         | Service temporarily unavailable due to maintenance, high load, or dependency failures. |
+| 200         | Success, a response message will be returned for all records in the originating call. |
+| 400         | 400 - Client error, review the message to determine the error. This is most likely to be a poorly
+formatted request. |
+| 403         | Forbidden.  |
+| 404         | Client error, the given UPRN could no be found. |
+| 501         | Authentication Error. Check that you are using a valid authorised token and that the token
+hasn’t expired. |
+| 503         | Server error, indicates the server is busy, overloaded, or down for maintenance. The request
+will have to be retried at a later time. |
 
 ---
 
@@ -235,7 +238,7 @@ All error responses follow a common structure:
 ```json
 {
   "statusCode": 403,
-  "message": "Access denied."
+  "message": "Forbidden."
 }
 ```
 
@@ -246,7 +249,7 @@ All error responses follow a common structure:
 ```json
 {
   "statusCode": 404,
-  "message": "No Account found for supplied UPRN."
+  "message": "Client error, the given UPRN could no be found. "
 }
 ```
 
@@ -257,7 +260,8 @@ All error responses follow a common structure:
 ```json
 {
   "statusCode": 501,
-  "message": "Authentication token is invalid or expired."
+  "message": "Authentication Error. Check that you are using a valid authorised token and that the token
+hasn’t expired."
 }
 ```
 
@@ -268,7 +272,8 @@ All error responses follow a common structure:
 ```json
 {
   "statusCode": 503,
-  "message": "Service temporarily unavailable."
+  "message": "Server error, indicates the server is busy, overloaded, or down for maintenance. The request
+will have to be retried at a later time."
 }
 ```
 
@@ -301,6 +306,11 @@ Access to the API is controlled through:
 - Apex Class Access
 - Object-Level Security
 - Field-Level Security
+
+# OAuth Configuration
+Client ID - 
+
+Client Secret - 
 
 ---
 

@@ -37,7 +37,7 @@ private class AvailabilityV2RestTest {
     }
 
     @IsTest
-    static void testGetAvailability_BadRequestException() {
+    static void testGetAvailability_ServiceUnavailableException() {
 
         setupRestRequest(null);
 
